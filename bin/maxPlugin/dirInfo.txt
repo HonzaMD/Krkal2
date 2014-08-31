@@ -1,0 +1,10 @@
+maxPlugin
+---------
+
+Tento adresar obsahuje plugin pro 3DstudioMAX v4.0.
+
+Instalace pluginu do 3D studia: 
+    zkopirujte soubor KRKALrenelem.dln do plugin adresare 3Dstudia.
+
+Vice informaci o pouziti pluginu naleznete v uzivatelske 
+dokumentaci - jak vytvaret novou grafiku.

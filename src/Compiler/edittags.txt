@@ -1,0 +1,94 @@
+Edit tagy
+
+Objektové:
+
+tag			následuje		význam
+
+"UserName"		string 			jasný
+
+"Comment"		string			jasný
+
+"InMap"			-			umistitelný do mapy, zarovnaný
+
+"OutMap"		-			umistitelný mimo mapu
+
+"NoGrid"		-			umistitelný do mapy, bez zarovnání
+
+"Editor"		-			nastaví Podu tag, je automaticky nastavován, pokud je objekt InMap nebo OutMap
+
+"CollReplace"		-			kolize se øeší vyhozením starého (default, není tøeba zadávat)
+
+"CollDontPlace"		-			kolize se øeší neumístìním nového
+
+"CollIgnore"		-			kolize se neøeší, budou tam oba
+
+
+Atributové
+
+tag			následuje		význam
+
+"UserName"		= string		jasný
+
+"Comment"		= string		jasný
+
+"DefaultValue"		= hodnota dle typu	jasný
+
+"DefaultMember"		= hodnota dle typu	pouze u polí - inicializaèní hodnota nových položek pole
+
+"Interval"		{h1, h2} dle typu,	omezení pøípustné hodnoty intervalem
+			ale ne string
+
+"List"			= {h1, h2, h3, ...}	omezení pøípustné hodnoty výètem
+
+"Is"			<op> hodnota		<op> mùže být <,<=,> nebo >=
+						Tam, kde to má smysl, urèuje jednostranný interval.
+
+"Function"		?????
+
+"Editable"		-			editovatelný atribut
+
+"SpecialEdit"		-			atribut editovatelný speciálním zpùsobem (napø. výbìrem z mapy)
+
+"EditType"		= typ (viz dále)	podrobné urèení typu pro editor
+
+"LevelLoad"		-			nahrává se z levlu
+
+"NoLevelLoad"		-			nenahrává se z levlu (vyruší pøedchozí tag)
+
+"Auto"			-			ovlivòuje automatismus
+
+"Editable"		-			editovatelný atribut, nastaví automaticky LevelLoad
+
+"EditType"		= typ pro editor	urèuje podrobnì typ pro editor (viz další odstavec)
+
+"InMap"			-			pouze u objektu nebo pole objektù - vybírá se z mapy
+
+"OutMap"		-			pouze u objektu nebo pole objektù - vybírá se mimo mapu
+
+"Exclusive"		-			u intervalù urèuje otevøenost (ostrá nerovnost v Is)
+
+"PlanarNames"		-			pouze nastaví tento bit v use (význam pro zobrazení jmen ve stromì)
+
+"IncludeNull"		-			zatím také jen nastavuje tento bit v use
+
+
+
+Typy pro editor
+
+typ			s èím se dá použít
+
+"number"		char, int, chara, inta
+"letter"		char, chara
+"bool"			char, int, chara, inta
+"string"		chara
+
+------------------------------------------------------
+     tyto položky lze kombinovat operátorem or '|'
+
+"void"			name, objptr, namea, objptra
+"object"			-"-
+"method"			-"-
+"param"				-"-
+"automatism"			-"-
+"anyname"			-"-
+-------------------------------------------------------

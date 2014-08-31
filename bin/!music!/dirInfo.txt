@@ -1,0 +1,6 @@
+!music!
+--------
+
+Z tohoto adresare se importuje hudba v editoru packagi.
+
+Podrobnosti viz. uzivatelska dokumentace - editor packagi

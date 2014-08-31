@@ -1,0 +1,855 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Keyboard Device Constants</TITLE>
+<SCRIPT SRC="../scripts/linkcss.js"></SCRIPT><SCRIPT SRC="../scripts/langref.js"></SCRIPT><META NAME="MS-HKWD" CONTENT="Keyboard Device Constants [C++]">
+</HEAD>
+<BODY TOPMARGIN="0"><TABLE CLASS="buttonbarshade" CELLSPACING=0><TR><TD>&nbsp;</TD></TR></TABLE>
+<TABLE CLASS="buttonbartable" CELLSPACING=0>
+<TR ID="hdr"><TD CLASS="runninghead" NOWRAP>Microsoft DirectX 8.0 (C++)</TD></TR>
+</TABLE>
+<H1><A NAME="_dx_keyboard_device_constants_dinput"></A>Keyboard Device Constants</H1>
+
+<P>Keyboard device constants, defined in Dinput.h, represent offsets within a keyboard device's data packet, a 256-byte array. The data at a given offset is associated with a keyboard key. Typically, these values are used in the <B>dwOfs</B> member of the <A HREF="_dx_dideviceobjectdata_dinput.htm"><B>DIDEVICEOBJECTDATA</B></A>, <A HREF="_dx_diobjectdataformat_dinput.htm"><B>DIOBJECTDATAFORMAT</B></A> or <A HREF="_dx_dideviceobjectinstance_dinput.htm"><B>DIDEVICEOBJECTINSTANCE</B></A> structures, or as indices when accessing data within the array using array notation.</P>
+
+<P>The standard keyboard device constants are listed in the following table.</P>
+
+<TABLE>
+
+<TR VALIGN="top">
+<TH align=left width=37%>Constant</TH>
+<TH align=left width=63%>Note</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_0 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_1 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_2 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_3 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_4 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_5 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_6 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_7 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_8 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_9 </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_A </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_ABNT_C1</TD>
+<TD width=63%>On numeric pad of Brazilian keyboards</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_ABNT_C2</TD>
+<TD width=63%>On numeric pad of Brazilian keyboards</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_ADD </TD>
+<TD width=63%>PLUS SIGN (+) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_APOSTROPHE </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_APPS </TD>
+<TD width=63%>Application key    <IMG SRC="images/appkey.gif" ALT="" BORDER=0></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_AT</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_AX</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_B </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_BACK </TD>
+<TD width=63%>BACKSPACE </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_BACKSLASH </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_C </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_CALCULATOR</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_CAPITAL </TD>
+<TD width=63%>CAPS LOCK </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_COLON</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_COMMA </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_CONVERT</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_D </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_DECIMAL </TD>
+<TD width=63%>PERIOD (decimal point) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_DELETE </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_DIVIDE </TD>
+<TD width=63%>Forward slash (/) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_DOWN </TD>
+<TD width=63%>DOWN ARROW </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_E </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_END </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_EQUALS </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_ESCAPE </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F1 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F2 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F3 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F4 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F5</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F6</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F7</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F8</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F9 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F10 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F11 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F12 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F13 </TD>
+<TD width=63%> On NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F14 </TD>
+<TD width=63%> On NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_F15 </TD>
+<TD width=63%> On NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_G </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_GRAVE </TD>
+<TD width=63%>Grave accent (`) </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_H </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_HOME </TD>
+<TD width=63%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_I </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_INSERT </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_J </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_K </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_KANA</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_KANJI</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_L </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LBRACKET </TD>
+<TD width=63%>Left square bracket [ </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LCONTROL </TD>
+<TD width=63%>Left CTRL </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LEFT </TD>
+<TD width=63%>LEFT ARROW </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LMENU </TD>
+<TD width=63%>Left ALT </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LSHIFT </TD>
+<TD width=63%>Left SHIFT </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_LWIN </TD>
+<TD width=63%>Left Microsoft® Windows® logo key </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_M </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MAIL</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MEDIASELECT</TD>
+<TD width=63%>Media Select key, which displays a selection of supported media players on the system </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MEDIASTOP</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MINUS </TD>
+<TD width=63%>On main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MULTIPLY </TD>
+<TD width=63%>Asterisk (*) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MUTE</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_MYCOMPUTER</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_N </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NEXT </TD>
+<TD width=63%>PAGE DOWN </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NEXTTRACK</TD>
+<TD width=63%>Next track</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NOCONVERT</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMLOCK </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD0 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD1 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD2 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD3 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD4 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD5 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD6 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD7 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD8 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPAD9 </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPADCOMMA</TD>
+<TD width=63%>On numeric keypad of NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPADENTER </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_NUMPADEQUALS</TD>
+<TD width=63%>On numeric keypad of NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_O </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_OEM_102</TD>
+<TD width=63%>On British and German keyboards</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_P </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_PAUSE</TD>
+<TD width=63%>&nbsp;</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_PERIOD </TD>
+<TD width=63%>On main keyboard </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_PLAYPAUSE</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_POWER</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_PREVTRACK</TD>
+<TD width=63%>Previous track; circumflex on Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_PRIOR </TD>
+<TD width=63%>PAGE UP </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_Q </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_R </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RBRACKET </TD>
+<TD width=63%>Right square bracket ]</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RCONTROL </TD>
+<TD width=63%>Right CTRL </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RETURN </TD>
+<TD width=63%>ENTER on main keyboard </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RIGHT </TD>
+<TD width=63%>RIGHT ARROW </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RMENU </TD>
+<TD width=63%>Right ALT </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RSHIFT </TD>
+<TD width=63%>Right SHIFT </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_RWIN </TD>
+<TD width=63%>Right Windows logo key </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_S </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SCROLL </TD>
+<TD width=63%>SCROLL LOCK</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SEMICOLON </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SLASH </TD>
+<TD width=63%>Forward slash (/) on main keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SLEEP</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SPACE </TD>
+<TD width=63%>SPACEBAR </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_STOP</TD>
+<TD width=63%>On NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SUBTRACT </TD>
+<TD width=63%>MINUS SIGN (-) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_SYSRQ </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_T </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_TAB </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_U </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_UNDERLINE</TD>
+<TD width=63%>On NEC PC-98 Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_UNLABELED</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_UP </TD>
+<TD width=63%>UP ARROW </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_V </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_VOLUMEDOWN</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_VOLUMEUP</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_W </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WAKE</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBBACK</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBFAVORITES</TD>
+<TD width=63%>Displays the Microsoft Internet Explorer Favorites list, the Windows Favorites folder, or the Netscape Bookmarks list. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBFORWARD</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBHOME</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBREFRESH</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBSEARCH</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_WEBSTOP</TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_X </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_Y </TD>
+<TD width=63%> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_YEN</TD>
+<TD width=63%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=37%>DIK_Z </TD>
+<TD width=63%> </TD>
+</TR>
+</TABLE><BR>
+
+<P>The following alternate names are available:</P>
+
+<TABLE>
+
+<TR VALIGN="top">
+<TH align=left width=35%>Alternate name</TH>
+<TH align=left width=29%>Regular name</TH>
+<TH align=left width=36%>Note</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_BACKSPACE</TD>
+<TD width=29%>DIK_BACK</TD>
+<TD width=36%>BACKSPACE</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_CAPSLOCK</TD>
+<TD width=29%>DIK_CAPITAL</TD>
+<TD width=36%>CAPS LOCK</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_CIRCUMFLEX</TD>
+<TD width=29%>DIK_PREVTRACK</TD>
+<TD width=36%>On Japanese keyboard</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_DOWNARROW</TD>
+<TD width=29%>DIK_DOWN</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_LALT</TD>
+<TD width=29%>DIK_LMENU</TD>
+<TD width=36%>Left ALT</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_LEFTARROW</TD>
+<TD width=29%>DIK_LEFT</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_NUMPADMINUS</TD>
+<TD width=29%>DIK__SUBTRACT</TD>
+<TD width=36%>MINUS SIGN (-) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_NUMPADPERIOD</TD>
+<TD width=29%>DIK_DECIMAL</TD>
+<TD width=36%>PERIOD (decimal point) on numeric keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_NUMPADPLUS</TD>
+<TD width=29%>DIK_ADD</TD>
+<TD width=36%>PLUS SIGN (+) on numeric keypad </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_NUMPADSLASH</TD>
+<TD width=29%>DIK__DIVIDE</TD>
+<TD width=36%>Forward slash (/) on numeric keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_NUMPADSTAR</TD>
+<TD width=29%>DIK_MULTIPLY</TD>
+<TD width=36%>Asterisk (*) on numeric keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_PGDN</TD>
+<TD width=29%>DIK_NEXT</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_PGUP</TD>
+<TD width=29%>DIK_PRIOR</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_RALT</TD>
+<TD width=29%>DIK_RMENU</TD>
+<TD width=36%>Right ALT</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_RIGHTARROW</TD>
+<TD width=29%>DIK_RIGHT</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=35%>DIK_UPARROW</TD>
+<TD width=29%>DIK_UP</TD>
+<TD width=36%>On arrow keypad</TD>
+</TR>
+</TABLE><BR>
+
+<P>For information on Japanese keyboards, see <A HREF="_dx_directinput_and_japanese_keyboards_dinput.htm">DirectInput and Japanese Keyboards</A>.</P>
+<DIV CLASS="footer">Built on Wednesday, October 04, 2000</DIV>
+</BODY>
+</HTML>

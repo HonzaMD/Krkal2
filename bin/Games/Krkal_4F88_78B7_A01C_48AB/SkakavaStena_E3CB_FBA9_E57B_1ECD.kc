@@ -1,0 +1,165 @@
+#head
+game	krkal
+author	M.D.
+version	E3CB_FBA9_E57B_1ECD
+include test_0001_FFFF_0001_0001.kc
+#endhead
+
+/////////////////////////////////////////////////////////////////
+////
+////		G a m e   K R K A L
+////		Adds Jumping Wall to the first version
+////
+/////////////////////////////////////////////////////////////////
+
+objectname oSkakavaStena;
+depend {Steny, placeable, BlokujeVybuch} << oSkakavaStena;
+
+voidname StavSkoku, NaZemi, VeVzduchu, Skace;
+depend StavSkoku << {NaZemi, VeVzduchu, Skace};
+methodname OdstartujSkoky, OtevriStenu, ZavriStenu;
+//depend @PublicMethods << {OdstartujSkoky, OtevriStenu, ZavriStenu}
+
+object oSkakavaStena {
+	edit {InMap, UserName="Jumping Wall", Comment="This wall can jump up and let you to pass under it, or it can jump up and down - which makes passing by more dangerous. Usually the wall is controlled by some switch - this can send messages OdstartujSkoky (jumping), OtevriStenu (jump up) and ZavriStenu (jump down). Like an ordinary wall, the jumping wall cannot be destroyed, climbed over or pushed."}
+	name stav edit {Editable, Is < StavSkoku, UserName="Initial State", Comment="Initial activity of the wall."}; 
+	int faze; // 0 dele, 3 nahore
+	int PauzaPredZapnutim edit {Editable, Is >= 0, UserName="DelayBeforeStart", Comment = "How long it takes before the wall will start jumping. Usable only when initial state is set to not jumping. 0 - Disabled. Time is in turns."}
+	int DobaSkoku edit {Editable, Is >= 0, UserName="JumpTime", Comment = "Time of the jump in turns."}
+	int DobaNaZemi edit {Editable, Is >= 0, UserName="OnFloorTime", Comment = "How long the wall rests on a floor between jumps. Time is in turns."}
+	
+	int OpravduSkace; 	// Zda skáèu
+	int JaOdebiram;		// Zda volám @RemoveObjFromMap já když nastavuji @eKCCoutMap tag
+	uconstructor() { OpravduSkace = 0; JaOdebiram = 0;}
+	
+	int @ObjPosZ;
+	char @CollisionCfg;
+	
+	constructor() {
+		stav = Skace;
+		faze = 0;
+		PauzaPredZapnutim = 0;
+		DobaSkoku = 4*5;
+		DobaNaZemi = 0;
+		@ObjPosZ = 0;
+		@CollisionCfg = @eKCConeCell | @eKCCwall;
+	}
+	
+	lconstructor() {
+		if (stav == VeVzduchu) faze = 3; else faze = 0;
+		if (@IsGame()) {
+			if (stav == VeVzduchu) {
+				@ObjPosZ = 80;
+				@CollisionCfg = @eKCCoutOfMap;
+			}
+		}
+	}
+	
+	void @MapPlaced() {
+		if (@IsGame() && (faze == 0 || faze == 3)) {
+			// do mapy mne umístil nìkdo jinej
+			if (stav == Skace) OdstartujSkoky() message;
+			else if (PauzaPredZapnutim) OdstartujSkoky() timed PauzaPredZapnutim*33;
+		}
+	}
+	
+	void OdstartujSkoky() { // nastavá stav na Skace
+		stav = Skace;
+		if (!OpravduSkace) {
+			OpravduSkace = 1;
+			@MoveEnded() message; // zaènu skákat
+		}	
+	}
+	
+	void OtevriStenu() { // nastaví stav na VeVzduchu
+		if (stav == Skace) stav = VeVzduchu; // až bude ve vzduchu, tak se zastaví
+		else if (stav == NaZemi) {
+			OdstartujSkoky();
+			OtevriStenu() nextturn;
+		}
+	}
+
+	void ZavriStenu() { // nastaví stav na NaZemi
+		if (stav == Skace) stav = NaZemi; // až bude na zemi, tak se zastaví
+		else if (stav == VeVzduchu) {
+			OdstartujSkoky();
+			ZavriStenu() nextturn;
+		}
+	}
+	
+	// Tato funkce øídí fáze skoku
+	void @MoveEnded() {
+		switch (faze) {
+			case 0 : // start ze zemì
+				@InitMoveTo(this,DobaSkoku*33/6,0,0,35);
+				break;
+			case 1 : //umístím se mimo mapu a stoupám
+				JaOdebiram = 1;
+				@RemoveObjFromMap(this);
+				@CollisionCfg = @eKCCoutOfMap;
+				@PlaceObjToMap(this);
+				JaOdebiram = 0;
+				@InitMoveTo(this,DobaSkoku*33/6,0,0,28);
+				break;
+			case 2 : // stoupám
+				@InitMoveTo(this,DobaSkoku*33/6,0,0,17);
+				break;
+			case 3 : // jsem nahoøe
+				if (stav != VeVzduchu) {
+					@InitMoveTo(this,DobaSkoku*33/6,0,0,-17); // jdu dolu
+				} else {
+					OpravduSkace = 0; // zastavím se
+					return;
+				}
+				break;
+			case 4: // klesám
+				@InitMoveTo(this,DobaSkoku*33/6,0,0,-28);
+				break;
+			case 5: // klesám, umístím se do mapy
+				JaOdebiram = 1;
+				@RemoveObjFromMap(this);
+				@CollisionCfg = @eKCConeCell | @eKCCwall;
+				@PlaceObjToMapKill(this);
+				JaOdebiram = 0;
+				@InitMoveTo(this,DobaSkoku*33/6,0,0,-35);
+				break;
+			case 6: // jsem dole
+				@PlaySound(sPadKamenu,@ObjPosX,@ObjPosY,0.5);		
+				if (stav != NaZemi) {
+					@MoveEnded() timed DobaNaZemi*33; // poèkám dobu po kterou mám bát na zemi a jdu nahoru - cyklus se opakuje
+				} else {
+					faze = 0; // zastavím se
+					OpravduSkace = 0;
+					return;
+				}
+				break;
+		}
+		faze ++; // cyklus pøes fáze
+		if (faze > 6) faze = 0;
+	}
+
+
+	void @MapRemoved() {
+		if (@IsGame()) {
+			int cx,cy,cz;
+			@FindObjCell(this,&cx,&cy,&cz);
+			@AreaMessage(CalcMove,onull,oMoveable,cx-1,cy-1,cx+1,cy+1); // odblokování pohybù
+			if (JaOdebiram==0) {
+				OpravduSkace = 0;
+				@DeleteMessages(this,@MoveEnded); // smažu zprávy
+				if (stav == VeVzduchu) { // zarovnám pozici
+					faze = 3; 
+					@ObjPosZ = 80;
+					@CollisionCfg = @eKCCoutOfMap;
+				} else {
+					faze = 0;
+					@ObjPosZ = 0;
+					@CollisionCfg = @eKCConeCell | @eKCCwall;
+				}
+			}
+		}
+	}
+
+}
+
+

@@ -1,0 +1,21 @@
+#head
+game	Krkal
+author	M.D.
+version	1208_E7DE_802B_94FA
+include test_0001_FFFF_0001_0001.kc
+#endhead
+
+/////////////////////////////////////////////////////////////////
+////
+////		G a m e   K R K A L
+////		Version 1
+////
+////		Contins the base of the game Krkal from test.kc
+////
+/////////////////////////////////////////////////////////////////
+
+// It is included here, so that krkal is named "krkal" instead of "test"
+
+// The source code of the game krkal is in the file
+// test_0001_FFFF_0001_0001.kc
+

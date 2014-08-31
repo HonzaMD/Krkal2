@@ -1,0 +1,235 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "renElemRes.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "renElemRes.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 4,0,0,0
+ PRODUCTVERSION 4,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "TECH:Kells.Elmquist"
+            VALUE "CompanyName", "Discreet, a division of Autodesk, Inc."
+            VALUE "FileDescription", "RenderElements (plugin)"
+            VALUE "FileVersion", "4.0.0.0"
+            VALUE "InternalName", "renElem"
+            VALUE "LegalCopyright", "Copyright © 2000 Autodesk Inc."
+            VALUE "LegalTrademarks", "3D Studio MAX, Biped, Character Studio, Heidi, Kinetix and Physique are registered trademarks and 3ds max, combustion, Discreet, DWG Unplugged, DXF, FLI and FLC are trademarks of Autodesk, Inc."
+            VALUE "OriginalFilename", "renElem.dln"
+            VALUE "ProductName", "3ds max"
+            VALUE "ProductVersion", "4.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BLEND_ELEMENT DIALOG  0, 0, 281, 50
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Ambient",IDC_AMBIENT_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,4,60,10
+    CONTROL         "Diffuse",IDC_DIFFUSE_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,20,59,10
+    CONTROL         "Specular",IDC_SPECULAR_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,36,61,10
+    CONTROL         "Self-Illumination",IDC_EMISSION_ON,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,85,4,71,10
+    CONTROL         "Reflection",IDC_REFLECTION_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,85,20,72,10
+    CONTROL         "Refraction",IDC_REFRACTION_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,85,36,72,10
+    CONTROL         "Apply Shadows",IDC_SHADOW_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,159,20,100,10
+    CONTROL         "Apply Atmosphere",IDC_ATMOS_ON,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,159,4,94,10
+END
+
+IDD_Z_ELEMENT DIALOGEX 0, 0, 281, 34
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Z * const:",IDC_STATIC,7,12,32,8
+    CONTROL         "",IDC_ZMULT_EDIT,"CustEdit",WS_TABSTOP,41,12,50,10
+    CONTROL         "",IDC_ZMULT_SPIN,"SpinnerControl",0x0,90,12,7,10
+    LTEXT           "Z Min:",IDC_STATIC,101,12,22,8
+    CONTROL         "",IDC_ZMIN_EDIT,"CustEdit",WS_TABSTOP,123,12,50,10
+    CONTROL         "",IDC_ZMIN_SPIN,"SpinnerControl",0x0,173,12,7,10
+    LTEXT           "Z Max:",IDC_STATIC,190,12,22,8
+    CONTROL         "",IDC_ZMAX_EDIT,"CustEdit",WS_TABSTOP,215,12,50,10
+    CONTROL         "",IDC_ZMAX_SPIN,"SpinnerControl",0x0,265,12,7,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_BLEND_ELEMENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        BOTTOMMARGIN, 47
+    END
+
+    IDD_Z_ELEMENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        BOTTOMMARGIN, 31
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_KE_RENDER_ELEMENT_DESC "KRKAL Render Elements (PAL)"
+    IDS_KE_BEAUTY_RENDER_ELEMENT "KRKAL Beauty"
+    IDS_KE_PARAMETERS       "Parameters"
+    IDS_KE_ENABLE           "Enable"
+    IDS_KE_BEAUTY_DEFAULT_NAME "Beauty"
+    IDS_KE_BEAUTY_TYPE_NAME "Beauty"
+    IDS_ENABLED             "enabled"
+    IDS_FILTER_ON           "FilteringOn"
+    IDS_ATMOSPHERE_ON       "AtmosphereOn"
+    IDS_ELEMENT_NAME        "ElementName"
+    IDS_PATH_NAME           "PathName"
+    IDS_SHADOW_ON           "ShadowsOn"
+    IDS_KE_DIFFUSE_RENDER_ELEMENT "KRKAL Diffuse"
+    IDS_KE_SPECULAR_RENDER_ELEMENT "KRKAL Specular"
+    IDS_KE_REFLECTION_RENDER_ELEMENT "KRKAL Reflection"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_KE_REFRACTION_RENDER_ELEMENT "KRKAL Refraction"
+    IDS_KE_EMISSION_RENDER_ELEMENT "KRKAL Self-Illumination"
+    IDS_KE_SHADOW_RENDER_ELEMENT "KRKAL Shadow"
+    IDS_KE_ATMOS_RENDER_ELEMENT "KRKAL Atmosphere"
+    IDS_KE_BLEND_RENDER_ELEMENT "KRKAL Blend"
+    IDS_BLEND_ELEMENT_PARAMS "Blend Element Parameters"
+    IDS_DIFFUSE_ON          "Diffuse On"
+    IDS_AMBIENT_ON          "Ambient On"
+    IDS_SPECULAR_ON         "Specular On"
+    IDS_EMISSION_ON         "Self-Illumination"
+    IDS_REFLECTION_ON       "Reflection On"
+    IDS_REFRACTION_ON       "Refraction On"
+    IDS_BITMAP              "Bitmap"
+    IDS_KE_Z_RENDER_ELEMENT "KRKAL Z Depth"
+    IDS_Z_ELEMENT_PARAMS    "Z Element Parameters"
+    IDS_ZMIN                "Z Min"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ZMAX                "Z Max"
+    IDS_KE_ALPHA_RENDER_ELEMENT "KRKAL Alpha"
+    IDS_KE_CLR_SHADOW_RENDER_ELEMENT "KRKAL Colored Shadow"
+    IDS_KE_BGND_RENDER_ELEMENT "KRKAL Background"
+    IDS_KE_SPECULAR_COMP_RENDER_ELEMENT "Composited Specular"
+    IDS_KE_NORMAL_RENDER_ELEMENT "KRKAL Normal"
+    IDS_ZMULT               "Z Multiplication Constant"
+    IDS_KE_AMBIENT_RENDER_ELEMENT "KRKAL Ambient"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

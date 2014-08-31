@@ -1,21 +1,11 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+src/Release/
+bin/Data/RunTimeErrors.log
+src/Debug/
+src/FileSys/FSutil/Debug/
+src/FileSys/FSutil/*.user
+src/FileSys/FSutil/Release/
+src/*.user
+src/*.ncb
+src/*.suo
+src/TinyXml/tinyxml_2_5_3.zip

@@ -1,0 +1,16 @@
+//////////////////////////////////////////////////////////////////////////////
+///
+///		A s s i g n  N a m e s
+///
+///		Projdu vsechny jmena v kompilovanych skriptech.
+///		Pokud jsou aktivni v bezici verzi skriptu, Inicializuji je
+///
+///		A:Generated Automatically
+///
+/////////////////////////////////////////////////////////////////////////////
+
+
+void KSNamesAssign() {
+	CKerName *name;
+
+}

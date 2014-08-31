@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KRKAL.2005", "KRKAL.2005.vcproj", "{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSutil.2005", "FileSys\FSutil\FSutil.2005.vcproj", "{544554B6-E2C3-45E3-A5CA-F2B595C41C76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		ReleaseDebug|Win32 = ReleaseDebug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.Debug|Win32.Build.0 = Debug|Win32
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.Release|Win32.ActiveCfg = Release|Win32
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.Release|Win32.Build.0 = Release|Win32
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.ReleaseDebug|Win32.ActiveCfg = ReleaseDebug|Win32
+		{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}.ReleaseDebug|Win32.Build.0 = ReleaseDebug|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.Debug|Win32.ActiveCfg = Debug|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.Debug|Win32.Build.0 = Debug|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.Release|Win32.ActiveCfg = Release|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.Release|Win32.Build.0 = Release|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.ReleaseDebug|Win32.ActiveCfg = Release|Win32
+		{544554B6-E2C3-45E3-A5CA-F2B595C41C76}.ReleaseDebug|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

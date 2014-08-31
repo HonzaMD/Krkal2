@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LevelIntro>
+  <Language name="en">
+    <Header>Land of Moles</Header>
+    <Image x1="5" y1="5" x2="40">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\11michele08.jpg</Image>
+    <Text x1="50" x2="95" y1="5" y2="75">
+      Sem zkusim napsat nejaky pekne dlouhy text.<br/>
+      Reads XML from a stream, making it useful for network transmission. The tricky part is knowing when the XML document is complete, since there will almost certainly be other data in the stream. TinyXML will assume the XML data is complete after it reads the root element. Put another way, documents that are ill-constructed with more than one root element will not read correctly. Also note that operator>> is somewhat slower than Parse, due to both implementation of the STL and limitations of TinyXML.
+      Reads XML from a stream, making it useful for network transmission. The tricky part is knowing when the XML document is complete, since there will almost certainly be other data in the stream. TinyXML will assume the XML data is complete after it reads the root element. Put another way, documents that are ill-constructed with more than one root element will not read correctly. Also note that operator>> is somewhat slower than Parse, due to both implementation of the STL and limitations of TinyXML.
+    </Text>
+    <Text x1="50" x2="95" y1="85" y2="95">
+      spodni radek
+    </Text>
+  </Language>
+</LevelIntro>

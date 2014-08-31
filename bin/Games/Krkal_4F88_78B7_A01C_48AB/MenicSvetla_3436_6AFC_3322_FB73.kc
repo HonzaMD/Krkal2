@@ -1,0 +1,428 @@
+#head
+game	krkal
+author	M.D.
+version	3436_6AFC_3322_FB73
+include test_0001_FFFF_0001_0001.kc
+#endhead
+
+/////////////////////////////////////////////////////////////////
+////
+////		G a m e   K R K A L
+////		Adds Dynamic lights to the first version
+////
+/////////////////////////////////////////////////////////////////
+
+objectname oMenicGlobalnihoSvetla;
+methodname ZvysStav, SnizStav;
+
+/// Objekt ma ve trech kernelich polich (r,g,b) uloženy barvy postupnì pro každý stav.
+/// zasíláním zprav ZvysStav, SnizStav se zmìní nasvícení levelu
+object oMenicGlobalnihoSvetla {
+	edit {OutMap, UserName="Changer of Global Light", Comment="This object allows you to change the global lighting while playing the level. You can define several states (lighting configurations) and then change them by sending messages ZvysStav (increase state), SnizStav (decrease state). Place this object in the global objects list; it will take the control over the lighting from the object Global Light."}
+
+	int stav;
+	chara r edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Red."};
+	chara g edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Green."};
+	chara b edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Blue."};
+	
+	constructor() {
+		r = new chara;
+		g = new chara;
+		b = new chara;
+	}
+	
+	void ::SetLight() {
+		if (r->GetCount()>stav && g->GetCount()>stav && b->GetCount()>stav) @SetTopLightIntenzity(r[stav],g[stav],b[stav]);
+	}
+	
+	uconstructor() {
+		stav = 0;
+		::SetLight() callend this;
+	}
+	
+	cconstructor() {
+		r = @CopyCharA(r);
+		g = @CopyCharA(g);
+		b = @CopyCharA(b);
+	}
+	
+	destructor() {
+		delete r;
+		delete g;
+		delete b;
+	}
+	
+	void ZvysStav() {
+		stav++;
+		if (stav>=r->GetCount()) stav = 0;
+		::SetLight();
+	}
+
+	void SnizStav() {
+		stav--;
+		if (stav<0) stav = r->GetCount()-1;
+		if (stav<0) stav = 0;
+		::SetLight();
+	}
+	
+	scripted xxx constructor ::AddButton();
+	
+	void ::AddButton() {
+		@EAddButton(0,1,"Increase State","It is changing the states - for testing the lighting.",0,ZvysStav);
+		@EAddButton(0,1,"Decrease State","It is changing the states - for testing the lighting.",0,SnizStav);
+	}
+}
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+// Ve spojáku faze se nachází popis jednotlivých stavù svìtla. Zprávou ZvysStav se mezi stavy cyklí.
+
+
+objectname oDynamickeSvetlo;
+
+depend {placeable, PrepinacNezarovnavaSouradnice} << oDynamickeSvetlo;
+
+object oDynamickeSvetlo {
+	edit {InMap, NoGrid, UserName="Dynamic Light", Comment="Point light with more states. You can change the states by sending the massage ZvysStav (increase state)."}
+	
+	struct sLcfg {
+		char r,g,b;
+		int dx,dy,vyska,radius;
+		sLcfg *next;
+	}
+
+	int svetlo; // handler svìtla
+	sLcfg *faze;
+
+	char @CollisionCfg;
+		
+	uconstructor() {
+		svetlo = 0;
+		faze = null;
+		if (@IsEditor()) @CollisionCfg = @eKCCpoint;
+		else @CollisionCfg = @eKCCpoint|@eKCCinvisible;
+	}
+	
+	void @MapPlaced() {	
+		::ZmenNasviceni();
+	}
+	
+	void @MapRemoved() {
+		if (svetlo) @DeleteLight(svetlo);
+		svetlo = 0;
+	}
+		
+	scripted www constructor ::AddButton();
+	
+	void ::AddButton() {
+		@EAddButton(0,1,"Refresh lighting","Press after changes has been made.",0,::ZmenNasviceni);
+		@EAddButton(0,1,"Increase State","It is changing the states - for testing the lighting.",0,ZvysStav);
+	}
+	
+	void ::ZmenNasviceni() {
+		if (@IsObjInMap(this)) {
+			if (svetlo) @DeleteLight(svetlo);
+			if (!faze) faze = Spojak;
+			if (faze) {
+				svetlo = @AddLight(@ObjPosX+faze->dx,@ObjPosY+faze->dy,faze->vyska,faze->r,faze->g,faze->b,faze->radius);
+			} else svetlo = 0;
+		}
+	}
+	
+
+	// cykleni ve spojáku mezi fázemi
+	void ZvysStav() {
+		if (!faze) faze = Spojak; else faze = faze->next;
+		::ZmenNasviceni();
+	}
+
+	sLcfg *Spojak;
+	
+	constructor() {
+		Spojak = null;
+	}
+	cconstructor() {
+		sLcfg *p = Spojak;
+		sLcfg **p2 = &Spojak;
+		while (p) {
+			*p2 = new sLcfg;
+			(**p2).r = p->r;
+			(**p2).g = p->g;
+			(**p2).b = p->b;
+			(**p2).dx = p->dx;
+			(**p2).dy = p->dy;
+			(**p2).vyska = p->vyska;
+			(**p2).radius = p->radius;
+			p2 = &(**p2).next;
+			p = p->next;
+		} 
+		*p2 = null;
+		svetlo = 0;
+	}
+	destructor() {
+		sLcfg *p2, *p = Spojak;
+		while(p) {
+			p2 = p;
+			p = p->next;
+			delete p2;
+		}
+	}
+	void @ESaveMe() {
+		sLcfg *p = Spojak;
+		while (p) {
+			@SaveChar(p->r); // postupnì uložíme hodnoty ze spojáku
+			@SaveChar(p->g); // postupnì uložíme hodnoty ze spojáku
+			@SaveChar(p->b); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->dx); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->dy); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->vyska); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->radius); // postupnì uložíme hodnoty ze spojáku
+			p = p->next;
+		}
+	}
+	
+	void @SaveGame() {
+		sLcfg *p = Spojak;
+		while (p) {
+			if (p == faze) @SaveChar(1); else @SaveChar(0);
+			@SaveChar(p->r); // postupnì uložíme hodnoty ze spojáku
+			@SaveChar(p->g); // postupnì uložíme hodnoty ze spojáku
+			@SaveChar(p->b); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->dx); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->dy); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->vyska); // postupnì uložíme hodnoty ze spojáku
+			@SaveInt(p->radius); // postupnì uložíme hodnoty ze spojáku
+			p = p->next;
+		}
+	}
+
+	// v loadconstructoru spoják nahrajeme
+	lconstructor() {
+		sLcfg **p2 = &Spojak;
+		while(!@SLEof()) {	// dokud ve streamu nìco je		
+			*p2 = new sLcfg;
+			(**p2).r = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).g = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).b = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).dx = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).dy = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).vyska = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).radius = @LoadInt(); // nahráváme to postupnì do spojáku
+			p2 = &(**p2).next;
+		}
+		*p2 = null;
+	}
+	
+	void @LoadGame() {
+		faze = null;
+		sLcfg **p2 = &Spojak;
+		while(!@SLEof()) {	// dokud ve streamu nìco je		
+			*p2 = new sLcfg;
+			if (@LoadChar()) faze = *p2;
+			(**p2).r = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).g = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).b = @LoadChar(); // nahráváme to postupnì do spojáku
+			(**p2).dx = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).dy = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).vyska = @LoadInt(); // nahráváme to postupnì do spojáku
+			(**p2).radius = @LoadInt(); // nahráváme to postupnì do spojáku
+			p2 = &(**p2).next;
+		}
+		*p2 = null;
+		svetlo = 0;
+		::ZmenNasviceni() message;
+	}
+	
+	scripted StavySvetla constructor ::Init() edit {UserName="States of the light"};
+
+	void direct zobrazPolozku(sLcfg *p, int pocet) {
+		@EAddGap();
+		@ECreateChar(&p->r,"R","Red");
+		@ESetEditType(@eKETnumeric);
+		@EPlaceItem();
+		@ECreateChar(&p->g,"G","Green");
+		@ESetEditType(@eKETnumeric);
+		@EPlaceItem();
+		@ECreateChar(&p->b,"B","Blue");
+		@ESetEditType(@eKETnumeric);
+		@EPlaceItem();
+		@ECreateInt(&p->radius,"Radius","Light radius");
+		@EPlaceItem();
+		@ECreateInt(&p->dx,"X shift","Relative shift of the X coordinate.");
+		@EPlaceItem();
+		@ECreateInt(&p->dy,"Y shift","Relative shift of the Y coordinate.");
+		@EPlaceItem();
+		@ECreateInt(&p->vyska,"Height","Light height");
+		@EPlaceItem();
+		@EAddButton(0,1,"Remove State","Removes this state.",pocet,::OdeberPolozku);
+	}
+
+	
+	void ::Init() {
+		sLcfg *p = Spojak;
+		int pocet=0;
+		@EAddButton(0,1,"Add State",null,0,::PridejPolozku);
+		while (p) {
+			zobrazPolozku(p,pocet);
+			pocet++;
+			p = p->next;
+		}
+	}
+	
+	
+	void ::PridejPolozku() {
+		sLcfg *p = Spojak;
+		sLcfg *p2 = null;
+		int pocet = 0;
+		while (p) {
+			pocet++;
+			p2 = p;
+			p = p->next;
+		}
+		p = new sLcfg;
+		if (p2) {
+			p2->next = p; // kopíruju z pøedchozí fáze
+			p->r = p2->r;
+			p->g = p2->g;
+			p->b = p2->b;
+			p->dx = p2->dx;
+			p->dy = p2->dy;
+			p->vyska = p2->vyska;
+			p->radius = p2->radius;
+		} else {
+			Spojak = p; // nestavím defaultní hodnoty
+			p->r = 255;
+			p->g = 255;
+			p->b = 255;
+			p->dx = 0;
+			p->dy = 0;
+			p->vyska = 45;
+			p->radius = 64;
+		}
+		p->next = null;
+		zobrazPolozku(p,pocet);
+	}
+
+
+	void ::OdeberPolozku(int @ButtonUserID) {
+		int a=0;
+		sLcfg **ptr = &Spojak,*ptr2;
+		while (*ptr) {
+			if (a==@ButtonUserID) {
+				ptr2 = *ptr;
+				*ptr = ptr2->next;
+				if (faze == ptr2) ZvysStav();
+				delete ptr2;
+				@EDeleteAllGroupItems(0); // vyklirovani vseho
+				::Init();
+				break;
+			}
+			a++;
+			ptr = &((**ptr).next);
+		}
+	}
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Objekt, který slouží k rozesílání zpráv v urèitých èasových intervalech
+
+objectname oCasovac;
+depend oOnOff << oCasovac;
+
+object oCasovac {
+	edit {OutMap, UserName="Timer", Comment="This object sends messages in given time intervals."}
+	
+	inta Casy edit { Is >= 0, UserName="Times", Comment = "Delay before the corresponding message is sent. In milliseconds."};
+	int NahRozptyl edit { Is >= 0, UserName="RandomVariance", Comment = "Determines how much the actual time shall vary from the given time. Flat value for all times. It is used when the array Random variances is not filled."}
+	inta NahRozptyly edit { Is >= 0, UserName="RandomVariances", Comment = "Determines how much the actual time shall vary from the given time."}
+	objptra Objekty edit { UserName="Objects",Comment = "Set of objects the massages are sent to."}
+	name Zprava edit { EditType = method, IncludeNull, UserName="Message", Comment="Message. One for all given times. It is used when the array Messages is not filled."}
+	namea Zpravy edit { /*EditType = method,*/ UserName="Messages", Comment = "Every time will be sent a different message."}
+	int Opakuj edit {EditType = bool, UserName="Repeat"}
+	
+	int faze;
+	uconstructor() { faze = 0;}
+	
+	constructor() {
+		Casy = new inta;
+		NahRozptyly = new inta;
+		Objekty = new objptra;
+		Zpravy = new namea;
+		Opakuj = 1;
+		NahRozptyl = 0;
+		Zprava = nnull;
+	}
+	
+	cconstructor() {
+		Casy = @CopyIntA(Casy);
+		NahRozptyly = @CopyIntA(NahRozptyly);
+		Objekty = @CopyObjPtrA(Objekty);
+		Zpravy = @CopyNameA(Zpravy);
+	}
+	
+	destructor() {
+		if (Casy) delete Casy;
+		if (NahRozptyly) delete NahRozptyly;
+		if (Objekty) delete Objekty;
+		if (Zpravy) delete Zpravy;
+	}
+	
+	lconstructor() {
+		if (OnOff == On && @IsGame()) ::PosliZpravu() message;
+	}
+	
+	void SetOnOff(name pOnOff)  {
+		if (pOnOff==OnOff) return;
+		OnOff = pOnOff;
+		if (pOnOff==On) ::Takt() message; 	// zapnutí
+		if (pOnOff==Off) {					// vypnutí
+			@DeleteMessages(this,::Takt);
+		}
+	}
+	
+	void  decl Reset() {	// pøepne na zaèátek cyklu
+		faze = 0;
+		if (@IsGame() && OnOff==On) {
+			@DeleteMessages(this,::Takt);
+			@DeleteMessages(this,::PosliZpravu);
+			::PosliZpravu();	
+		}
+	}
+	
+	void ::Takt() {
+		if (!Casy || OnOff!=On) return;
+		if (faze >= Casy->GetCount()) faze=0; // objehl jsem vsechny faze - cyklím na zaèátek
+		if (faze >= Casy->GetCount()) return; // pole s èasy je prázdné
+		
+		name zprava = Zprava;
+		if (Zpravy && faze < Zpravy->GetCount()) zprava = Zpravy[faze];
+		int f;
+		for (f=0; f<Objekty->GetCount(); f++) Objekty[f]->zprava() message; // pošlu pøíslušnou zprávu všem objektùm
+		
+		faze++;
+		if (faze >= Casy->GetCount() && !Opakuj) OnOff=Off; // konèím protože nemám cyklit
+		else ::PosliZpravu();
+	}
+	
+	// spoèítá èas pro po který se bude èekat na další takt.
+	void ::PosliZpravu() {
+		if (!Casy || OnOff!=On) return;
+		if (faze >= Casy->GetCount()) faze=0; // objehl jsem vsechny faze - cyklím na zaèátek
+		if (faze >= Casy->GetCount()) return; // pole s èasy je prázdné
+		
+		int cas = Casy[faze];
+		int rnd = NahRozptyl;
+		if (NahRozptyly && faze < NahRozptyly->GetCount()) rnd = NahRozptyly[faze];
+		if (rnd) cas = cas - rnd + @randInt(rnd*2);
+		if (cas<0) cas=0;
+		::Takt() timed cas; // vyvolání dalšího taktu
+	}
+}
+
+
+//depend @PublicMethods << {ZvysStav, SnizStav, Reset}

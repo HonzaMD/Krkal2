@@ -1,0 +1,1122 @@
+	switch(kerServiceID)
+	{
+	case 0: 		 //LogUserError
+		if(paramCount == 1)
+			KerServices.LogUserError(op[0].intData, op[1].intData);
+		else if(paramCount == 2)
+			KerServices.LogUserError(op[0].intData, op[1].intData, op[2].intData);
+		else if(paramCount == 3)
+			KerServices.LogUserError(op[0].intData, op[1].intData, op[2].intData, (char*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 1: 		 //LogDebugInfo
+		if(paramCount == 1)
+			KerServices.LogDebugInfo(op[0].intData, op[1].intData);
+		else if(paramCount == 2)
+			KerServices.LogDebugInfo(op[0].intData, op[1].intData, op[2].intData);
+		else if(paramCount == 3)
+			KerServices.LogDebugInfo(op[0].intData, op[1].intData, op[2].intData, (char*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 2: 		 //IsFNMemberOfSN
+		if(paramCount == 2)
+			op[0].intData = KerServices.IsFMemberOfS((CKerName*)op[0].voidPtrData, (CKerName*)op[1].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 3: 		 //IsFOMemberOfSN
+		if(paramCount == 2)
+			op[0].intData = KerServices.IsFMemberOfS((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 4: 		 //IsFNMemberOfSO
+		if(paramCount == 2)
+			op[0].intData = KerServices.IsFMemberOfS((CKerName*)op[0].voidPtrData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 5: 		 //IsFOMemberOfSO
+		if(paramCount == 2)
+			op[0].intData = KerServices.IsFMemberOfS((OPointer)op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 6: 		 //InitMoveTo
+		if(paramCount == 4)
+			KerServices.InitMoveTo((OPointer)op[0].intData, op[1].intData, op[2].intData, op[3].intData);
+		else if(paramCount == 5)
+			KerServices.InitMoveTo((OPointer)op[0].intData, op[1].intData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 7: 		 //SetTag
+		if(paramCount == 1)
+			KerServices.SetTag((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 8: 		 //ClearTag
+		if(paramCount == 1)
+			KerServices.ClearTag((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 9: 		 //CheckTag
+		if(paramCount == 1)
+			op[0].intData = KerServices.CheckTag((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 10: 		 //ExistsObj
+		if(paramCount == 1)
+			op[0].intData = KerServices.ExistsObj((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 11: 		 //TerminateKernel
+		if(paramCount == 0)
+			KerMain->TerminateKernel();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 12: 		 //GetKernelTime
+		if(paramCount == 0)
+			op[0].intData = KerMain->GetTime();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 13: 		 //GetRunMode
+		if(paramCount == 0)
+			op[0].intData = KerMain->GetRunMode();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 14: 		 //RegisterMap
+		if(paramCount == 10)
+			KerMain->MapInfo->RegisterMap(op[0].intData, op[1].intData, op[2].intData, op[3].intData, op[4].intData, op[5].intData, op[6].intData, op[7].intData, op[8].intData, op[9].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 15: 		 //MapGetNumberOfCells
+		if(paramCount == 4)
+			KerMain->MapInfo->GetNumberOfCells((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 16: 		 //FindCollidingCells
+		if(paramCount == 2)
+			KerMain->MapInfo->CellColisionB((OPointer)op[0].intData, (CKerArrInt*)op[1].voidPtrData);
+		else if(paramCount == 3)
+			KerMain->MapInfo->CellColisionB((OPointer)op[0].intData, (CKerArrInt*)op[1].voidPtrData, op[2].intData);
+		else if(paramCount == 4)
+			KerMain->MapInfo->CellColisionB((OPointer)op[0].intData, (CKerArrInt*)op[1].voidPtrData, op[2].intData, op[3].intData);
+		else if(paramCount == 5)
+			KerMain->MapInfo->CellColisionB((OPointer)op[0].intData, (CKerArrInt*)op[1].voidPtrData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 17: 		 //DeleteOutOfMapCells
+		if(paramCount == 1)
+			KerServices.DeleteOutOfMapCalls((CKerArrInt*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 18: 		 //IsCellInMap
+		if(paramCount == 3)
+			op[0].intData = KerMain->MapInfo->IsCellInMap(op[0].intData, op[1].intData, op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 19: 		 //IsPixelInMap
+		if(paramCount == 3)
+			op[0].intData = KerMain->MapInfo->IsPixelInMap(op[0].intData, op[1].intData, op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 20: 		 //IsObjInCollision
+		if(paramCount == 1)
+			op[0].intData = KerMain->MapInfo->IsObjInCollision(op[0].intData, (OPointer)op[1].intData);
+		else if(paramCount == 2)
+			op[0].intData = KerMain->MapInfo->IsObjInCollision(op[0].intData, (OPointer)op[1].intData, op[2].intData);
+		else if(paramCount == 3)
+			op[0].intData = KerMain->MapInfo->IsObjInCollision(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData);
+		else if(paramCount == 4)
+			op[0].intData = KerMain->MapInfo->IsObjInCollision(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 21: 		 //FindCollidingObjs
+		if(paramCount == 1)
+			op[0].voidPtrData = KerMain->MapInfo->FindCollidingObjs(op[0].intData, (OPointer)op[1].intData);
+		else if(paramCount == 2)
+			op[0].voidPtrData = KerMain->MapInfo->FindCollidingObjs(op[0].intData, (OPointer)op[1].intData, (CKerArrObject*)op[2].voidPtrData);
+		else if(paramCount == 3)
+			op[0].voidPtrData = KerMain->MapInfo->FindCollidingObjs(op[0].intData, (OPointer)op[1].intData, (CKerArrObject*)op[2].voidPtrData, op[3].intData);
+		else if(paramCount == 4)
+			op[0].voidPtrData = KerMain->MapInfo->FindCollidingObjs(op[0].intData, (OPointer)op[1].intData, (CKerArrObject*)op[2].voidPtrData, op[3].intData, op[4].intData);
+		else if(paramCount == 5)
+			op[0].voidPtrData = KerMain->MapInfo->FindCollidingObjs(op[0].intData, (OPointer)op[1].intData, (CKerArrObject*)op[2].voidPtrData, op[3].intData, op[4].intData, op[5].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 22: 		 //IsObjInMap
+		if(paramCount == 1)
+			op[0].intData = KerMain->MapInfo->IsObjInMap((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 23: 		 //PlaceObjToMap
+		if(paramCount == 1)
+			KerMain->MapInfo->PlaceObjToMap(op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 24: 		 //PlaceObjToMapKill
+		if(paramCount == 1)
+			KerMain->MapInfo->PlaceObjToMapWithKill(op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 25: 		 //RemoveObjFromMap
+		if(paramCount == 1)
+			KerMain->MapInfo->RemoveObjFromMap(op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 26: 		 //MoveObjTo
+		if(paramCount == 4)
+			KerMain->MapInfo->MoveObjTo(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 27: 		 //MoveObjRel
+		if(paramCount == 4)
+			KerMain->MapInfo->MoveObjRel(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 28: 		 //FindObjCell
+		if(paramCount == 4)
+			op[0].intData = KerServices.FindObjCell((OPointer)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 29: 		 //FindCell
+		if(paramCount == 6)
+			op[0].intData = KerServices.FindCell(op[0].intData, op[1].intData, op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 30: 		 //FindCellPosition
+		if(paramCount == 6)
+			KerServices.FindCellPosition(op[0].intData, op[1].intData, op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 31: 		 //ReadObjCoords
+		if(paramCount == 4)
+			KerServices.ReadObjCoords((OPointer)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 32: 		 //WriteObjCoords
+		if(paramCount == 3)
+			KerMain->MapInfo->ChangeObjCoords(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData);
+		else if(paramCount == 4)
+			KerMain->MapInfo->ChangeObjCoords(op[0].intData, (OPointer)op[1].intData, op[2].intData, op[3].intData, op[4].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 33: 		 //rand
+		if(paramCount == 1)
+			op[0].doubleData = mtr.rand(op[0].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 34: 		 //randExc
+		if(paramCount == 1)
+			op[0].doubleData = mtr.randExc(op[0].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 35: 		 //randInt
+		if(paramCount == 1)
+			op[0].intData = mtr.randInt(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 36: 		 //SLSeek
+		if(paramCount == 1)
+			KerSaveLoad.Seek(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 37: 		 //SLSeekToEnd
+		if(paramCount == 0)
+			KerSaveLoad.SeekToEnd();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 38: 		 //SLGetPos
+		if(paramCount == 0)
+			op[0].intData = KerSaveLoad.GetPos();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 39: 		 //SLEof
+		if(paramCount == 0)
+			op[0].intData = KerSaveLoad.Eof();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 40: 		 //SaveInt
+		if(paramCount == 1)
+			KerSaveLoad.SaveInt(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 41: 		 //SaveChar
+		if(paramCount == 1)
+			KerSaveLoad.SaveChar(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 42: 		 //SaveDouble
+		if(paramCount == 1)
+			KerSaveLoad.SaveDouble(op[0].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 43: 		 //SaveObjPtr
+		if(paramCount == 1)
+			KerSaveLoad.SaveObjPtr((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 44: 		 //SaveName
+		if(paramCount == 1)
+			KerSaveLoad.SaveName((CKerName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 45: 		 //SaveString
+		if(paramCount == 1)
+			KerSaveLoad.SaveString((char*)op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 46: 		 //SaveIntA
+		if(paramCount == 1)
+			KerSaveLoad.SaveIntA((CKerArrInt*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 47: 		 //SaveCharA
+		if(paramCount == 1)
+			KerSaveLoad.SaveCharA((CKerArrChar*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 48: 		 //SaveDoubleA
+		if(paramCount == 1)
+			KerSaveLoad.SaveDoubleA((CKerArrDouble*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 49: 		 //SaveObjPtrA
+		if(paramCount == 1)
+			KerSaveLoad.SaveObjPtrA((CKerArrObject*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 50: 		 //SaveNameA
+		if(paramCount == 1)
+			KerSaveLoad.SaveNameA((CKerArrName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 51: 		 //LoadInt
+		if(paramCount == 0)
+			op[0].intData = KerSaveLoad.LoadInt();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 52: 		 //LoadChar
+		if(paramCount == 0)
+			op[0].intData = KerSaveLoad.LoadChar();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 53: 		 //LoadDouble
+		if(paramCount == 0)
+			op[0].doubleData = KerSaveLoad.LoadDouble();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 54: 		 //LoadObjPtr
+		if(paramCount == 0)
+			op[0].intData = KerSaveLoad.LoadObjPtr();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 55: 		 //LoadName
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.LoadName();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 56: 		 //LoadString
+		if(paramCount == 1)
+			KerSaveLoad.LoadString((char*)op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 57: 		 //LoadIntA
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.LoadIntA();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 58: 		 //LoadCharA
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.LoadCharA();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 59: 		 //LoadDoubleA
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.loadDoubleA();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 60: 		 //LoadObjPtrA
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.LoadObjPtrA();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 61: 		 //LoadNameA
+		if(paramCount == 0)
+			op[0].voidPtrData = KerSaveLoad.LoadNameA();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 62: 		 //ResetAuto
+		if(paramCount == 1)
+			KerServices.ResetAuto((OPointer)op[0].intData);
+		else if(paramCount == 2)
+			KerServices.ResetAuto((OPointer)op[0].intData, op[1].intData);
+		else if(paramCount == 3)
+			KerServices.ResetAuto((OPointer)op[0].intData, op[1].intData, op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 63: 		 //MvConnectObjs
+		if(paramCount == 2)
+			KerServices.MConnectObjs((OPointer)op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 64: 		 //MvDisconnectObj
+		if(paramCount == 1)
+			KerServices.MDisconnectObj((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 65: 		 //GetActivAuto
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.GetActivAuto((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 66: 		 //GetDefaultAuto
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.GetDefaultAuto((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 67: 		 //GetDefaultAuto2
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.GetDefaultAuto2((CKerName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 68: 		 //FindObjsInArea
+		if(paramCount == 2)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData);
+		else if(paramCount == 3)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData);
+		else if(paramCount == 4)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData);
+		else if(paramCount == 5)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData);
+		else if(paramCount == 6)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData);
+		else if(paramCount == 7)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData);
+		else if(paramCount == 8)
+			KerServices.FindObjsInArea(op[0].intData, (CKerArrObject*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData, op[8].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 69: 		 //AreaCall
+		if(paramCount == 2)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData);
+		else if(paramCount == 3)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData);
+		else if(paramCount == 4)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData);
+		else if(paramCount == 5)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData);
+		else if(paramCount == 6)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData);
+		else if(paramCount == 7)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData);
+		else if(paramCount == 8)
+			KerServices.AreaCall(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData, op[8].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 70: 		 //AreaMessage
+		if(paramCount == 2)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData);
+		else if(paramCount == 3)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData);
+		else if(paramCount == 4)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData);
+		else if(paramCount == 5)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData);
+		else if(paramCount == 6)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData);
+		else if(paramCount == 7)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData);
+		else if(paramCount == 8)
+			KerServices.AreaMessage(op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData, (CKerName*)op[3].voidPtrData, op[4].intData, op[5].intData, op[6].intData, op[7].intData, op[8].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 71: 		 //IsKeyDown
+		if(paramCount == 1)
+			op[0].intData = Input->IsKeyDown((CKerName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 72: 		 //GameVictory
+		if(paramCount == 0)
+			KRKAL->GameVictory();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 73: 		 //IsGame
+		if(paramCount == 0)
+			op[0].intData = KerMain->IsGameMode();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 74: 		 //IsEditor
+		if(paramCount == 0)
+			op[0].intData = KerMain->IsEditorMode();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 75: 		 //SetScrollCenter
+		if(paramCount == 2)
+			KerMain->MapInfo->SetScrollCenter(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 76: 		 //WindowScroll
+		if(paramCount == 3)
+			KerMain->MapInfo->WindowScroll(op[0].intData, op[1].intData, op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 77: 		 //CalcScrollDistance
+		if(paramCount == 4)
+			KerMain->MapInfo->CalcScrollDistance(op[0].intData, op[1].intData, (int*)op[2].intData, (int*)op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 78: 		 //MnuSetBar
+		if(paramCount == 2)
+			op[0].intData = CGameMenu::SetProgressBar(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 79: 		 //MnuSetItem
+		if(paramCount == 2)
+			op[0].intData = CGameMenu::ObjectSetCount(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 80: 		 //MnuRefresh
+		if(paramCount == 0)
+			CGameMenu::Refresh();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 81: 		 //MnuDeleteItem
+		if(paramCount == 1)
+			op[0].intData = CGameMenu::DeleteItem(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 82: 		 //MnuAddItemN
+		if(paramCount == 1)
+			op[0].intData = CGameMenu::AddItem((CKerName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 83: 		 //MnuAddItemO
+		if(paramCount == 1)
+			op[0].intData = CGameMenu::AddItem((OPointer)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 84: 		 //MnuAddBars
+		if(paramCount == 2)
+			op[0].intData = CGameMenu::Add2ProgressBars(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 85: 		 //sqrt
+		if(paramCount == 1)
+			op[0].doubleData = sqrt(op[0].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 86: 		 //round
+		if(paramCount == 1)
+			op[0].intData = KerServices.round(op[0].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 87: 		 //PlaySound
+		if(paramCount == 3)
+			op[0].intData = ME->PlaySample((CKerName*)op[0].voidPtrData, op[1].intData, op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = ME->PlaySample((CKerName*)op[0].voidPtrData, op[1].intData, op[2].intData, op[3].doubleData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 88: 		 //ECreateInt
+		if(paramCount == 2)
+			KerEditI.ECreateInt((int*)op[0].intData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateInt((int*)op[0].intData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 89: 		 //ECreateChar
+		if(paramCount == 2)
+			KerEditI.ECreateChar((unsigned char*)op[0].intData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateChar((unsigned char*)op[0].intData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 90: 		 //ECreateDouble
+		if(paramCount == 2)
+			KerEditI.ECreateDouble((double*)op[0].intData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateDouble((double*)op[0].intData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 91: 		 //ECreateName
+		if(paramCount == 2)
+			KerEditI.ECreateName((CKerName**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateName((CKerName**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 92: 		 //ECreateObjPtr
+		if(paramCount == 2)
+			KerEditI.ECreateObjPtr((OPointer*)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateObjPtr((OPointer*)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 93: 		 //ECreateIntA
+		if(paramCount == 2)
+			KerEditI.ECreateIntA((CKerArrInt**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateIntA((CKerArrInt**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 94: 		 //ECreateCharA
+		if(paramCount == 2)
+			KerEditI.ECreateCharA((CKerArrChar**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateCharA((CKerArrChar**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 95: 		 //ECreateDoubleA
+		if(paramCount == 2)
+			KerEditI.ECreateDoubleA((CKerArrDouble**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateDoubleA((CKerArrDouble**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 96: 		 //ECreateNameA
+		if(paramCount == 2)
+			KerEditI.ECreateNameA((CKerArrName**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateNameA((CKerArrName**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 97: 		 //ECreateObjPtrA
+		if(paramCount == 2)
+			KerEditI.ECreateObjPtrA((CKerArrObject**)op[0].voidPtrData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			KerEditI.ECreateObjPtrA((CKerArrObject**)op[0].voidPtrData, (char*)op[1].intData, (char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 98: 		 //EPlaceItem
+		if(paramCount == 0)
+			op[0].intData = KerEditI.EPlaceItem();
+		else if(paramCount == 1)
+			op[0].intData = KerEditI.EPlaceItem(op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = KerEditI.EPlaceItem(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 99: 		 //ERefresh
+		if(paramCount == 0)
+			op[0].intData = CGUIScriptVariableInterface::ScriptedVariableFinish();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 100: 		 //EAddGap
+		if(paramCount == 0)
+			op[0].intData = CGUIScriptVariableInterface::AddGap();
+		else if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::AddGap(op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGUIScriptVariableInterface::AddGap(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 101: 		 //EDeleteItem
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::DeleteItem(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 102: 		 //EAddButton
+		if(paramCount == 0)
+			op[0].intData = CGUIScriptVariableInterface::AddButton();
+		else if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData, op[1].intData);
+		else if(paramCount == 3)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData, op[1].intData, (char*)op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData, op[1].intData, (char*)op[2].intData, (char*)op[3].intData);
+		else if(paramCount == 5)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData, op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = CGUIScriptVariableInterface::AddButton(op[0].intData, op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData, (CKerName*)op[5].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 103: 		 //EDeleteButton
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::DeleteButton(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 104: 		 //EAddGroupItem
+		if(paramCount == 2)
+			op[0].intData = CGUIScriptVariableInterface::AddGroupItem((char*)op[0].intData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			op[0].intData = CGUIScriptVariableInterface::AddGroupItem((char*)op[0].intData, (char*)op[1].intData, op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = CGUIScriptVariableInterface::AddGroupItem((char*)op[0].intData, (char*)op[1].intData, op[2].intData, op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 105: 		 //EDeleteGroupItem
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::DeleteGroupItem(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 106: 		 //ESelectGroupItem
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::SelectGroupItem(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 107: 		 //EDeleteAllGroupItems
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::DeleteAllGroupItems(op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGUIScriptVariableInterface::DeleteAllGroupItems(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 108: 		 //EAdd2DCell
+		if(paramCount == 3)
+			op[0].intData = KerEditI.EAdd2DCell((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = KerEditI.EAdd2DCell((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData);
+		else if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd2DCell((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd2DCell((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData, op[5].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 109: 		 //EAdd3DCell
+		if(paramCount == 4)
+			op[0].intData = KerEditI.EAdd3DCell((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData);
+		else if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd3DCell((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd3DCell((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData, op[5].intData);
+		else if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd3DCell((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData, op[5].intData, op[6].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 110: 		 //EAdd2DPoint
+		if(paramCount == 3)
+			op[0].intData = KerEditI.EAdd2DPoint((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = KerEditI.EAdd2DPoint((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData);
+		else if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd2DPoint((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd2DPoint((int*)op[0].intData, (int*)op[1].intData, (char*)op[2].intData, (char*)op[3].intData, op[4].intData, op[5].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 111: 		 //EAdd3DPoint
+		if(paramCount == 4)
+			op[0].intData = KerEditI.EAdd3DPoint((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData);
+		else if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd3DPoint((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd3DPoint((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData, op[5].intData);
+		else if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd3DPoint((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (char*)op[3].intData, (char*)op[4].intData, op[5].intData, op[6].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 112: 		 //EAdd2DAreaP
+		if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd2DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd2DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData);
+		else if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd2DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData, op[6].intData);
+		else if(paramCount == 8)
+			op[0].intData = KerEditI.EAdd2DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData, op[6].intData, op[7].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 113: 		 //EAdd3DAreaP
+		if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd3DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData);
+		else if(paramCount == 8)
+			op[0].intData = KerEditI.EAdd3DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData);
+		else if(paramCount == 9)
+			op[0].intData = KerEditI.EAdd3DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData, op[8].intData);
+		else if(paramCount == 10)
+			op[0].intData = KerEditI.EAdd3DAreaP((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData, op[8].intData, op[9].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 114: 		 //EAdd2DAreaC
+		if(paramCount == 5)
+			op[0].intData = KerEditI.EAdd2DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData);
+		else if(paramCount == 6)
+			op[0].intData = KerEditI.EAdd2DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData);
+		else if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd2DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData, op[6].intData);
+		else if(paramCount == 8)
+			op[0].intData = KerEditI.EAdd2DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (char*)op[4].intData, (char*)op[5].intData, op[6].intData, op[7].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 115: 		 //EAdd3DAreaC
+		if(paramCount == 7)
+			op[0].intData = KerEditI.EAdd3DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData);
+		else if(paramCount == 8)
+			op[0].intData = KerEditI.EAdd3DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData);
+		else if(paramCount == 9)
+			op[0].intData = KerEditI.EAdd3DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData, op[8].intData);
+		else if(paramCount == 10)
+			op[0].intData = KerEditI.EAdd3DAreaC((int*)op[0].intData, (int*)op[1].intData, (int*)op[2].intData, (int*)op[3].intData, (int*)op[4].intData, (int*)op[5].intData, (char*)op[6].intData, (char*)op[7].intData, op[8].intData, op[9].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 116: 		 //EAddText
+		if(paramCount == 1)
+			op[0].intData = CGUIScriptVariableInterface::AddText((char*)op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGUIScriptVariableInterface::AddText((char*)op[0].intData, (char*)op[1].intData);
+		else if(paramCount == 3)
+			op[0].intData = CGUIScriptVariableInterface::AddText((char*)op[0].intData, (char*)op[1].intData, op[2].intData);
+		else if(paramCount == 4)
+			op[0].intData = CGUIScriptVariableInterface::AddText((char*)op[0].intData, (char*)op[1].intData, op[2].intData, op[3].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 117: 		 //ESetVarTags
+		if(paramCount == 1)
+			KerEditI.ESetVarTags(op[0].intData);
+		else if(paramCount == 2)
+			KerEditI.ESetVarTags(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 118: 		 //IsAnyKeyDown
+		if(paramCount == 0)
+			op[0].intData = Input->KeyPressed();
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 119: 		 //AddLight
+		if(paramCount == 7)
+			op[0].intData = GEnMain->AddLight(op[0].intData, op[1].intData, op[2].intData, op[3].intData, op[4].intData, op[5].intData, op[6].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 120: 		 //DeleteLight
+		if(paramCount == 1)
+			GEnMain->DeleteLight(op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 121: 		 //SetTopLightIntenzity
+		if(paramCount == 3)
+			GEnMain->SetTopLightIntenzity(op[0].intData, op[1].intData, op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 122: 		 //GetTopLightIntenzity
+		if(paramCount == 3)
+			GEnMain->GetTopLightIntenzity((unsigned char*)op[0].intData, (unsigned char*)op[1].intData, (unsigned char*)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 123: 		 //CopyIntA
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.CopyIntA((CKerArrInt*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 124: 		 //CopyCharA
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.CopyCharA((CKerArrChar*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 125: 		 //CopyDoubleA
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.CopyDoubleA((CKerArrDouble*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 126: 		 //CopyObjPtrA
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.CopyObjPtrA((CKerArrObject*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 127: 		 //CopyNameA
+		if(paramCount == 1)
+			op[0].voidPtrData = KerServices.CopyNameA((CKerArrName*)op[0].voidPtrData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 128: 		 //CopyObject
+		if(paramCount == 1)
+			op[0].intData = KerMain->CopyObject(op[0].intData, (OPointer)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 129: 		 //DeleteMessages
+		if(paramCount == 1)
+			op[0].intData = KerMain->FDeleteMessages((OPointer)op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = KerMain->FDeleteMessages((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
+		else if(paramCount == 3)
+			op[0].intData = KerMain->FDeleteMessages((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 130: 		 //CountMessages
+		if(paramCount == 1)
+			op[0].intData = KerMain->FCountMessages((OPointer)op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = KerMain->FCountMessages((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
+		else if(paramCount == 3)
+			op[0].intData = KerMain->FCountMessages((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData, (OPointer)op[2].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 131: 		 //ESetEditType
+		if(paramCount == 1)
+			KerEditI.ESetEditType(op[0].intData, op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 132: 		 //SaveTheGame
+		if(paramCount == 0)
+			KerMain->SaveGame();
+		else if(paramCount == 1)
+			KerMain->SaveGame((char*)op[0].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	default:
+		KerMain->Errors->LogError(eKRTECorruptedInstr);
+	}

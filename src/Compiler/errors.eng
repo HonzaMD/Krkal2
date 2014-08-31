@@ -1,0 +1,116 @@
+0	No error.
+1	Identifier expected.
+2	Identifier is too long.
+3	Number value expected.
+4	Integer overflow.
+5	Time specification expected (instant, end, next or nextend).
+6	Invalid operator.
+7	Preprocessor directive is too long.
+8	Invalid preprocessor directive.
+9	Missing file name after #include directive.
+10	Preprocessor directive argument is too long.
+11	Bad format of preprocessor directive argument.
+12	Can't open the file specified in #include directive.
+13	File already included.
+14	Cannot apply operator.
+15	Missing symbol name.
+16	Unexpected character found.
+17	Symbol expected at this position.
+18	#endif without #if.
+19	Unknown version.
+20	Unexpected symbol.
+21	Nested object declaration.
+22	Unexpected directive.
+23	Unexpected end of file.
+24	Multiple storage classes specified.
+25	Multiple signs specified.
+26	Multiple types specified.
+27	Unknown type.
+28	Invalid function storage class. Can be only 'direct' or 'safe'.
+29	Invalid variable storage class. 'direct' and 'safe' can be used only with methods.
+30	Feature not supported yet :-(
+31	Missing method body - '{' expected.
+32	Missing type in declaration.
+33	End of block '{' without start of block '}'
+34	Missing end of block '}'
+35	Name used without being previously declared.
+36	Dynamic object specification expected after delete.
+37	Identifier has a bad format.
+38	Unexpected keyword.
+39	Already declared.
+40	Type specification expected.
+41	Cannot perform multiple method declaration.
+42	Argument default value within 'direct' method.
+43	Argument violates safe call rules.
+44	Keyword expected.
+45	Already defined.
+46	Undefined symbol.
+47	Invalid type.
+48	Unknown identifier.
+49	Error in escape sequence.
+50	String constant is too long.
+51	Illegal function call.
+52	Return type mismatch.
+53	Method should return value.
+54	Illegal member access.
+55	Expected method call.
+56	Bad method call parameter format.
+57	Parameter type mismatch.
+58	Passing too many parameters.
+59	Passing too few parameters.
+60	Messages can not return value.
+61	Name expected.
+62	No constructor is defined for this object.
+63	No destructor is defined for this object.
+64	Constructor or destructor returning value.
+65	Multiple destructors defined.
+66	Type mismatch.
+67	Cannot delete statical object.
+68	Object expected.
+69	Too much arguments.
+70	Attribute declaration expected.
+71	Unknown edit tag.
+72	Constant expected.
+73	Unknown known name :-)
+74	Method declaration expected.
+75	Expected known name of method.
+76	Invalid member specification.
+77	Expected known name of parameter.
+78	Invalid index type.
+79	Invalid edit tag.
+80	Cycle in name dependencies.
+81	Expected name dependency operator ('>>' or '<<')
+82	Method body not defined.
+83	Illegal break.
+84	Unknown kernel service.
+85	Multiple argument return specification.
+86	Two equal case expressions.
+87	Illegal continue.
+88	Cannot declare local variable in switch.
+89	Invalid string length.
+90	Unresolved dirty operation.
+91	Missing head.
+92	Missing version.
+93	Wrong version.
+94	Expected argument.
+95	Nested attribute group.
+96	Invalid member in attribute group.
+97	Incomplete attribute group.
+98	Too much members in attribute group.
+99	Expected editor type.
+100	Cannot localize param to direct method.
+101	Bad direct method name.
+102	Too few arguments.
+103	Expected lvalue.
+104	Expected method name.
+105	Directive not allowed within direct method.
+1000	Warning delimiter. This one should not be generated. NEVER EVER!
+1001	Type not supported. 
+1002	Non-pointer object type definition.
+1003	Name type missmatch.
+
+
+
+
+
+

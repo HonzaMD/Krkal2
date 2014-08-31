@@ -1,0 +1,491 @@
+#head
+game	Krkal
+author	M.D.
+version	A1CF_6963_8DA6_D822
+include MenicSvetla_3436_6AFC_3322_FB73.kc
+include SkakavaStena_E3CB_FBA9_E57B_1ECD.kc
+#endhead
+
+/////////////////////////////////////////////////////////////////
+////
+////		G a m e   K R K A L
+////		Version 2
+////
+////		This version improves the game Krkal from test.kc and adds:
+////		Dynamic Lights and Jumping Wall
+////		Objects: Bump floor, Doors, Electrodes, Nitroglycerin, SavePoint, Ice Ball
+////
+/////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////
+/// Hrbolata podlaha zabranuje pohybum
+
+voidname BlokovanoHrP;	// mnoûina, kter· se po hrbolech nepohybuje
+depend BlokovanoHrP << {oKamen, oklic, oKrabice, mina, oBomba, oSebratelnaBomba, oSebratelnaMina }
+depend BlokovanoHrP << {oPneumatika, oZnacky }
+objectname oHrbolataP;
+depend {floors, oModifyTr} << oHrbolataP;
+	// jsem podlaha a jsem objekt, kter˝ modifikuje trajektorie.
+
+object oHrbolataP {
+	edit {InMap, UserName="Bump Floor", Comment = "On that type of floor, the bumps preserve pushing or moving objects, but you and the monsters can still move over it, just like over the ordinary floor."}
+	int ModifyTrajektory(int ptrpos) {
+		// jestliûe se na de mnou zkouöel h˝bat objekt z mnoûiny oBlokovanoHrP,
+		// tak pohyb zamÌtnu.
+		if (typeof(sender) <= BlokovanoHrP) return 0;
+		return ptrpos; // trajektorii nech·m beze zmÏny.
+	}
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+// Oddedte odtud objekty, kterÈ majÌ jen dva smÏry. Horizont·lnÌ (Vychod) a Vertik·lnÌ (Sever)
+
+objectname oSeSmerem3;
+voidname Smery3;
+depend Smery3 << {Sever, Vychod}
+paramname pSmer, pObject;
+
+object oSeSmerem3 {
+	inherit name smer edit {Editable, Auto=AutoSmer, Is < Smery3, UserName="Orientation", Comment = "Object's orientation (Sever = North, Vychod = East)"};
+	
+	inherit constructor()  { smer=Sever;}
+	inherit name GetSmer() { return smer; }
+	inherit void SetSmer(name ::Smer, name pSmer) {
+		if (!Smer) Smer = pSmer;
+		if (Smer==Zapad) smer = Vychod;
+		else if (Smer==Jih) smer = Sever;
+		else if (Smer==Sever || Smer==Vychod) smer = Smer;
+		else return;
+		@ResetAuto(this,0,1);
+	}
+	
+}
+
+/////////////////////////////////////////////////////////////////////////
+///
+/// 	Elektrody A Proudy
+///
+//////////////////////////////////////////////////////////////////////////
+
+objectname oProud, oElektroda;
+
+voidname BlokujeProud, ZnicitelneProudem;
+depend BlokujeProud << ZnicitelneProudem;
+depend ZnicitelneProudem << {oDracek, oHemr, oPasovec, oPriseraOt, oPriseraSNavadeci, oPriseraDopravni, oPriseraKlaustrofobni}
+depend ZnicitelneProudem << {oBalonek, oKamen, oLaser, oPneumatika, oHlina, oZnicitelnaStena}
+depend ZnicitelneProudem << {mina, oBomba, oSebratelnaMina, oSebratelnaBomba}
+depend BlokujeProud << {oFotobunka, oPrepinac, oElektroda, oKrabice, oMagnet, oTeleport, oAntiMagnet, oPruleznaStena, oSkakavaStena, oZamek, wall}
+methodname ZnicSeProudem;
+depend ZnicSeVybuchem << ZnicSeProudem;
+methodname SpojProudy returns objptra;
+
+depend {Predmety, oSeSmerem, oOnOff, oStartsMove} << oElektroda;
+depend {oStartsMove, oSeSmerem3, NebezpeciProPriseru} << oProud;
+
+/////////////////////////////////////////////
+// Elektroda generuje proud
+
+objptra oElektroda::objsA;
+object oElektroda {
+	edit {InMap, UserName="Electrode", Comment="One electrode generates discharges of electric power in short periods. Each discharge creates a long beam, which stops on the first obstacle in its way. If the obstacle is destroyable, it will be destroyed and the beam will enlarge even more. The beam would kill you, but you can pass through in the short time between two discharges. If there are two electrodes located to discharge one against the other in the same time, the beam will be stabilized. However, you can push some object between the electrodes - they will lose contact, which makes the beam unstable again. Electrodes cannot be destroyed."}
+	
+	int Prouduju;	// zda probÌh· v˝boj
+	objptra Proudy; // proudy, kterÈ vygenerovala. Muûe je sdÌlet s elektrodou naproti. Proudy jsou set¯ÌdÏnÈ od nejblÌûöÌho
+	uconstructor() { Prouduju=0; Proudy = new objptra;}
+	cconstructor() { Prouduju=0; Proudy = new objptra;}
+	destructor() { delete Proudy;}
+	
+	int StartDelay edit {Is>=0, UserName="StartDelay", Comment = "The starting delay after placed in the map and before the electrode starts to work. In milliseconds."}
+	constructor() { StartDelay = 0;}
+	
+	void SetOnOff(name pOnOff)  {
+		if (pOnOff==OnOff) return;
+		OnOff = pOnOff;
+		if (!@IsObjInMap(this)) return;
+		if (pOnOff==On) ::Activate();
+		if (pOnOff==Off) ::Deactivate();
+		@ResetAuto(this,0,1);
+	}
+	
+	void @MapPlaced() {
+		if (@IsGame()) ::Activate() timed StartDelay;
+	}
+	void @MapRemoved() {
+		name oldOnOff = OnOff;
+		OnOff = Off;
+		if (@IsGame()) ::Deactivate(); // zruöim v˝boj
+		OnOff = oldOnOff;
+	}
+	
+	void direct GetDxDy(int *dx, int *dy) {
+		if (smer==Sever) { *dx=0; *dy=-1; return;}
+		if (smer==Vychod) { *dx=1; *dy=0; return;}
+		if (smer==Zapad) { *dx=-1; *dy=0; return;}
+		if (smer==Jih) { *dx=0; *dy=1; return;}
+	}
+
+	// vytvo¯Ì v˝boj
+	void ::Activate() {
+		if (!@IsObjInMap(this) || Prouduju || OnOff==Off) return;
+		Prouduju = 1;
+		int x,y,z,dx,dy;
+		int f;
+		objptr o;
+		@FindObjCell(this,&x,&y,&z);
+		GetDxDy(&dx,&dy);
+
+		@FindObjsInArea(::objsA,onull,oProud,x+dx,y+dy,x+dx,y+dy);
+		objptra proudy2;
+		for (f=0; f < ::objsA->GetCount(); f++) if (proudy2 = ::objsA[f]->SpojProudy(pSmer : smer)) {
+			// zjistil jsem, ûe jin· elektroda na mÏ prouduje. Proudy jsem uû propojil, 
+			// teÔ si je jeötÏ zapÌöu k sobÏ, jen musÌm otoËit po¯adÌ
+			for (f=0; f<proudy2->GetCount(); f++) Proudy[f] = proudy2[proudy2->GetCount()-(f+1)];
+			Proudy->SetCount(proudy2->GetCount());
+			return;
+		}
+		
+		while(@IsCellInMap(x+dx,y+dy,z)) {
+			// vytv·¯Ìm v˝boj, dokud nenarazÌm na p¯ek·ûku
+			x+=dx; y+=dy;
+			@FindObjsInArea(::objsA,onull,BlokujeProud,x,y,x,y);
+			if (::objsA->GetCount()) { // narzil jsem
+				// niËÌm zniËitelnÈ p¯ek·ûky
+				for (f=0; f < ::objsA->GetCount(); f++) if (typeof(::objsA[f]) <= ZnicitelneProudem) ::objsA[f]->ZnicSeProudem() timed 165;
+				break;
+			}
+			// nenarazil jsem, vytvo¯Ìm proud
+			o = new oProud; 
+			Proudy[Proudy->GetCount()] = o;
+			o->SetSmer(pSmer : smer);
+			@WriteObjCoords(o,x*40,y*40);
+			o->oProud::NastavOtce(pSmer:smer,pObject:this);
+			@PlaceObjToMap(o);
+		}
+		
+		::Deactivate() timed 165; // vyboj nenÌ spojen s jinou elektrodou - po Ëase ho zruöÌm
+	}
+	
+	objptra SpojProudy(name pSmer, objptr pObject) {
+		// jin· elektroda se se mnou spojila. P¯ed·m jÌ m˘j seznam proud˘ a k proud˘m p¯id·m druhÈho otce = tu jinou elektrodu
+		@DeleteMessages(this,::Deactivate);
+		int f;
+		for (f=0; f<Proudy->GetCount(); f++) Proudy[f]->oProud::NastavOtce(pSmer : pSmer, pObject : pObject);
+		return Proudy;
+	}
+
+	void ::Deactivate() {
+		// zruöÌ v˝boj
+		if (!@IsObjInMap(this) || !Prouduju) return;
+		int f;
+		Prouduju = 0;
+		for (f=0; f<Proudy->GetCount(); f++) Proudy[f]->oProud::OdeberOtce(pSmer : smer);
+		if (Proudy->GetCount() && @ExistsObj(Proudy[0])) Proudy[0]->oProud::DeaktivujIDruhyho(); // p¯eruöit musÌm i druhou lektrodu
+		Proudy->SetCount(0);
+		if (OnOff == On) ::Activate() timed 660; // aù vznikne dalöÌ v˝boj
+	}
+	
+	// p¯eruöÌ v˝boj od proudu pObject
+	void ::Prerus(objptr pObject) {
+		int f;
+		int ok=0, newcount=0;
+		for (f=0; f<Proudy->GetCount(); f++) {
+			if (Proudy[f] == pObject) {
+				ok = 1; newcount=f;
+			}
+			if (ok) Proudy[f]->oProud::OdeberOtce(pSmer : smer);
+		}
+		Proudy->SetCount(newcount);
+		::Deactivate() timed 165;
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// VlastnÌ elektrick˝ a ûivotu nebezpeËn˝ v˝boj
+
+object oProud {
+	objptr Otec1, Otec2; // severnÌ a jiûnÌ (nebo v˝chonÌ a z·padnÌ) otec = elektroda, kter· zp˘sobila v˝boj
+	char @CollisionCfg;
+	constructor() { Otec1 = onull; Otec2 = onull; @CollisionCfg = @eKCConeCell|@eKCCnothing;}
+	
+	// elektroda se chce s tÌmto proudem spojit
+	objptra SpojProudy(name pSmer) {
+		name sm2 = pSmer;
+		objptra proudy2 = anullobjptr; 
+		if (pSmer == Zapad) pSmer = Vychod;
+		if (pSmer == Jih) pSmer = Sever;
+		if (smer == pSmer) { // elektrody jsou opravdu naproti sobÏ
+			if (Otec1) proudy2 = Otec1->SpojProudy(pSmer : sm2, pObject : sender); // spojÌm proudy
+			else proudy2 = Otec2->SpojProudy(pSmer : sm2, pObject : sender);
+		}
+		return proudy2;
+	}
+	
+	void ::NastavOtce(name pSmer, objptr pObject) {
+		if (pSmer == smer) {
+			if (Otec1) @LogUserError(@eKEGPanicError,0,"Proud ma dva otce v jednom smeru!");
+			Otec1 = pObject;
+		} else {
+			if (Otec2) @LogUserError(@eKEGPanicError,0,"Proud ma dva otce v jednom smeru!");
+			Otec2 = pObject;
+		}
+	}
+	
+	void ::OdeberOtce(name pSmer) {
+		if (pSmer == smer) Otec1 = onull; else Otec2 = onull;
+		if (!Otec1 && !Otec2) delete this; // proud uû nem· ani jednoho otce - bude zruöen
+	}
+	
+	void ::DeaktivujIDruhyho() {
+		if (Otec1) Otec1->oElektroda::Deactivate() message;
+		if (Otec2) Otec2->oElektroda::Deactivate() message;
+	}
+	
+	objptr triger; // triger pro zabÌjenÌ objekt˘
+
+	void @MapPlaced() {
+		triger = onull;
+		if (@IsEditor()) return;
+		triger = new oAreaTrigger;
+		if (smer == Sever) triger->SetPosSz(::X1:@ObjPosX-7,::X2:@ObjPosX+7,::Y1:@ObjPosY-20,::Y2:@ObjPosY+20);
+		else triger->SetPosSz(::X1:@ObjPosX-20,::X2:@ObjPosX+20,::Y1:@ObjPosY-7,::Y2:@ObjPosY+7);
+		triger->SetClzGr(::AddGr:BlokujeProud, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object) {
+		if (typeof(@Object) <= ZnicitelneProudem) @Object->ZnicSeProudem() timed 165;
+		if (Otec1) Otec1->oElektroda::Prerus(pObject:this);
+		if (Otec2) Otec2->oElektroda::Prerus(pObject:this);
+	}
+	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+	
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+///
+///		N i t r o g l y c e r i n
+///		Vybuchuje po narazu
+///
+/////////////////////////////////////////////////////////////////////////
+
+objectname oNitroGlycerin;
+depend {BlokovanoHrP, KlouzePoLedu, oBouraDoSten, oPusobiKulate, oStartsMove, oStrkatelne} << oNitroGlycerin;
+depend {PadaDoVody,Predmety,PritahovanoMagnetem, VeciPadajiciDoDiry, VeciStrkatelnePasem} << oNitroGlycerin;
+depend {ZnicitelneProudem, ZnicitelneVeVybuchu, oObetPohybu1, StrkatelneHemrem, oVybuchuje} << oNitroGlycerin;
+
+object oNitroGlycerin {
+	edit {InMap, UserName="Nitroglycerin", Comment="The nitroglycerin explodes if it hits some obstacle or gets in the explosion. If pushing it, you should be careful not to hit some wall!"}
+	int cas2;
+	void NarazilJsem() {
+		if (cas2==@GetKernelTime()) return;
+		cas2 = @GetKernelTime();
+		ZnicSeVybuchem() callend this;
+	}
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+///
+///		D V E R E
+///		Oteviraji se pro urcity objekt
+///
+/////////////////////////////////////////////////////////////////////////////////
+
+objectname oDvere;
+depend {oStartsMove, Steny, oSeSmerem3, oOnOff} << oDvere;
+voidname nStavOtevreni, nZavreno, nOteviram, nZaviram;
+depend nStavOtevreni << {nZavreno, nOteviram, nZaviram}
+voidname sDvere, sDvere2;
+
+objectname oBlokovacProudu; // tento objekt stavÌ zav¯enÈ dve¯e, aby zablokovali prod
+depend {placeable, BlokujeProud} << oBlokovacProudu;
+object oBlokovacProudu {
+	char @CollisionCfg;
+	constructor() {@CollisionCfg = @eKCConeCell|@eKCCfloor|@eKCCinvisible;}
+}
+
+object oDvere {
+	edit {InMap, UserName="Door", Comment="When closed, the door acts like an ordinary wall. Opened door does not represent an obstacle and anything (including the high voltage discharge, for instance) may pass through it. Usually the door is set to open whenever you come in front of it. Alternatively, another object can trigger it or it can be off power."}
+	name ReagujeNa edit {EditType = object|objvoid, UserName="ReactsOn", Comment="Determines the object, before which the door opens."}
+	constructor() {ReagujeNa = oManik;}
+	
+	void SetOnOff(name pOnOff)  {
+		if (pOnOff==OnOff) return;
+		OnOff = pOnOff;
+		if (!@IsObjInMap(this)) return;
+		if (citac && OnOff == On) ::Otevri();
+		if (citac && OnOff == Off) ::Zavri();
+		@ResetAuto(this,0,1);
+	}
+
+	int citac; // kolik vÏcÌ vidÌ trigir ve svÈ hlÌdanÈ oblast?
+	objptr triger;
+	objptr blokovac; // objekt, kter˝ blokuje proudy
+	int OdebiramJa;  // zda vol·m @RemoveObjFromMap j·
+	char @CollisionCfg;
+	name StavOtevreni  edit {Auto=nStavOtevreni} // ¯ÌdÌ animace
+	
+	uconstructor() { 
+		triger = onull;
+		citac = 0;
+		blokovac = onull;
+		OdebiramJa=0;
+		@CollisionCfg = @eKCConeCell|@eKCCwall;
+		StavOtevreni = nZavreno;
+	}
+	cconstructor() {
+		triger = onull;
+		citac = 0;
+		blokovac = onull;
+		OdebiramJa=0;
+		@CollisionCfg = @eKCConeCell|@eKCCwall;
+		StavOtevreni = nZavreno;
+	}
+	
+	
+	void @TriggerOn() {
+		if (!triger) return;
+		citac++;
+		if (citac==1 && OnOff == On) ::Otevri();
+	}
+	void @TriggerOff() {
+		if (!triger) return;
+		citac--;
+		if (citac==0 && OnOff == On) ::Zavri();
+	}	
+	
+	void ::Otevri() {
+		OdebiramJa=1;
+		@RemoveObjFromMap(this);
+		@CollisionCfg = @eKCConeCell | @eKCCnothing;
+		StavOtevreni = nOteviram;
+		@RemoveObjFromMap(blokovac);
+		@PlaceObjToMap(this);
+		OdebiramJa=0;
+		@PlaySound(sDvere,@ObjPosX,@ObjPosY,0.6);
+	}
+	void ::Zavri() {
+		OdebiramJa=1;
+		@RemoveObjFromMap(this);
+		@CollisionCfg = @eKCConeCell | @eKCCwall;
+		StavOtevreni = nZaviram;
+		@WriteObjCoords(blokovac,@ObjPosX,@ObjPosY);
+		@PlaceObjToMap(blokovac);
+		@MvConnectObjs(blokovac,this);
+		@PlaceObjToMapKill(this);
+		OdebiramJa=0;
+		@PlaySound(sDvere2,@ObjPosX,@ObjPosY,0.3);
+	}
+	
+	void @MapRemoved() {
+		if (OdebiramJa || @IsEditor()) return;
+		delete triger;
+		delete blokovac;
+		citac=0;
+		triger = onull;
+		StavOtevreni = nZavreno;
+		@CollisionCfg = @eKCConeCell|@eKCCwall;
+	}	
+
+	void @MapPlaced() {
+		if (@IsGame() && !triger) {
+			triger = new oAreaTrigger;
+			citac=0;
+			if (smer == Sever) triger->SetPosSz(::X1:@ObjPosX-1,::X2:@ObjPosX+1,::Y1:@ObjPosY-60,::Y2:@ObjPosY+60);
+			else triger->SetPosSz(::X1:@ObjPosX-60,::X2:@ObjPosX+60,::Y1:@ObjPosY-1,::Y2:@ObjPosY+1);
+			triger->SetClzGr(::AddGr:ReagujeNa, ::Redirect:this);
+			@PlaceObjToMap(triger);
+			@MvConnectObjs(triger,this);
+			blokovac = new oBlokovacProudu;
+			@WriteObjCoords(blokovac,@ObjPosX,@ObjPosY);
+			@PlaceObjToMap(blokovac);
+			@MvConnectObjs(blokovac,this);
+		}
+	}
+}
+
+
+
+/////////////////////////////////////////////////////////
+
+objectname oSavePoint;
+depend {floors, oOnOff} << oSavePoint;
+voidname sSavePoint;
+
+object oSavePoint {
+	edit {InMap, UserName="Save Point", Comment="If you step on the savepoint (which must be on power), entire game state will be stored. Later, if you do something wrong, you may restore this state and try playing again from that savepoint. You can use the savepoint as many times as you like, always only the last state will be stored. However, be careful not to save an unusable state (such state that it is impossible to reach the victory from)."}
+	objptr triger;
+	
+	int JenJednou edit {Editable, EditType = bool, UserName="Only once", Comment = "If checked, the SavePoint will turn off after use."};
+	constructor() { JenJednou = 0;}
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new otrigger;
+		triger->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY,::ncX:0,::ncY:0);
+		triger->SetClzGr(::AddGr:oManik, ::SubGr:nnull, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object) { 
+		if (OnOff == On) {
+			@SaveTheGame();
+			@PlaySound(sSavePoint,@ObjPosX,@ObjPosY);
+			if (JenJednou) TurnOff();
+		}
+	}
+		
+	void SetOnOff(name pOnOff)  {
+		if (pOnOff==OnOff) return;
+		OnOff = pOnOff;
+		if (!@IsObjInMap(this)) return;
+		@ResetAuto(this,0,1);
+	}
+
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+objectname oLedovaKoule;
+depend {BlokovanoHrP, oBouraDoSten, oPusobiKulate, oStartsMove, oStrkatelne, oZabijiPohybem1, PadaDoVody, Predmety, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneProudem, ZnicitelneVeVybuchu} << oLedovaKoule;
+
+object oLedovaKoule {
+	edit {InMap, UserName="Ice Ball", Comment = "The ice ball is entirely made of the ice, so it keeps sliding straight once pushed. It stops after hitting some solid obstacle. The ice ball is destroyable, is not affected by the magnet and it has a round nature."}
+	
+	void MoveEnded() { // Kdyz skonci pohyb, necht se pohybuji dal stejnym smerem
+		name smer = GetLastDir();
+		if (smer==Sever) AddForce(pfdir:16,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Zapad) AddForce(pfdir:12,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Vychod) AddForce(pfdir:4,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Jih) AddForce(pfdir:8,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else return;
+		RemoveForce() nextturn;
+	}
+}
+
+
+//depend @PublicMethods << {oDvere::Otevri, oDvere::Zavri}

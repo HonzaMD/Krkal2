@@ -1,0 +1,15 @@
+Games
+-----
+
+Tento adresar obsahuje veskera data vsech her systemu KRKAL.
+
+V adresari KRKA_4F88_78B7_A01C_48AB jsou data pro hru Krkal.
+
+
+Nachazi se zde nekolik typu souboru:
+
+*.kc  - zdrojove kody skriptu
+*.pkg - package s grafikou a hudbou
+*.a   - automatismy
+*.lv  - jednotlive levely
+

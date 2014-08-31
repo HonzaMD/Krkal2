@@ -1,0 +1,317 @@
+#head
+game	krkal
+author	M.D.
+version 0001_000F_0001_1001
+#endhead
+
+
+/////////////////////////////////////////////////////////////////////
+///
+/// 	O b j e c t   M A P   f o r   t h e   g a m e   K R K A L
+///
+/////////////////////////////////////////////////////////////////////
+
+objectname OMap;
+
+OMap Map;
+
+
+object OMap {
+	edit {UserName = "Map", Comment="This object controls the level map. Here you can change the dimensions of the map. After you have done this, press the refresh button."}
+	
+	// V kazde bunce mam spoja do ni zasahujicich objektu
+	struct CCell  {
+		CCell* next;
+		objptr Object;
+	}
+
+	// rozmery mapy v pixelech	
+	int leftx edit {Editable, Comment = "X coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button."};
+	int lefty edit {Editable, Comment = "Y coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button."};
+	int rightx edit {Editable, Comment = "X coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button."};
+	int righty edit {Editable, Comment = "Y coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button."};
+	int lowerlevel, upperlevel; // patra
+	int startx, starty;			// prvni bunka
+	int sizex, sizey;			// pocet bunek
+	int CellType;				// typ bunek - ctverce
+	int csizeX, csizeY, csizeZ;	// velikost bunek - 40 x 40 x 40 pixelu
+	
+    CCell** grid; // pole spojaku. Ma velikost rovnou poctu vsech bunek
+	
+	
+	
+	//////////////////////////////////////////////////////////
+	//	INITACE a DESTRUKCE
+	
+	void ::Init1()  {
+		leftx = -20;
+		lefty = -20;
+		rightx = 620;
+		righty = 420;
+	};
+	
+	
+	
+	void ::Init2()  {
+		int f;
+		lowerlevel = 0;
+		upperlevel = 0;
+		CellType = @eKCTctverce;
+		csizeX = csizeY = csizeZ = 40;
+
+		@RegisterMap(CellType, leftx,lefty,rightx,righty,lowerlevel,upperlevel, csizeX,csizeY,csizeZ);
+		@MapGetNumberOfCells(&sizex,&sizey,&startx,&starty);
+		
+		// pripravim bunky
+		grid = new CCell*[sizex*sizey];
+		for (f=0; f<sizex*sizey; f++) grid[f] = null;
+	};
+	
+	
+	void @MResizeMap()  {
+		int f;
+		::ClearGrid();
+		@RegisterMap(CellType, leftx,lefty,rightx,righty,lowerlevel,upperlevel, csizeX,csizeY,csizeZ);
+		@MapGetNumberOfCells(&sizex,&sizey,&startx,&starty);
+		
+		grid = new CCell*[sizex*sizey];
+		for (f=0; f<sizex*sizey; f++) grid[f] = null;
+	}
+
+	void ::ClearGrid() {
+		CCell* p, *p2;
+		int f;
+		for (f=0; f<sizex*sizey; f++) {
+			p = grid[f];
+			while (p) {
+				p2 = p;
+				p = p->next;
+				delete p2;
+			}
+		}
+		delete grid;	
+	}	
+
+	constructor() 
+	{ 
+		::Init1();
+		::Init2();
+	};
+	
+	
+	lconstructor() 
+	{
+		::Init2();
+	};
+	
+	
+	
+	
+	destructor() 
+	{ 
+		::ClearGrid();
+	};
+
+
+
+	void @SaveGame() {
+		int f,a=0;
+		CCell *p;
+		for (f=0; f<sizex*sizey; f++) {
+			p = grid[f];
+			a=0;
+			while (p) {
+				a++;
+				p = p->next;
+			}
+			@SaveInt(a);
+			
+			p = grid[f];
+			while (p) {
+				@SaveObjPtr(p->Object);
+				p = p->next;
+			}
+		}
+	}
+	
+	void @LoadGame() {
+		int f,g,a;
+		CCell **p;
+		grid = new CCell*[sizex*sizey];
+		for (f=0; f<sizex*sizey; f++) {
+			if (@SLEof()) @LogUserError(@eKEGPanicError,0,"Loading Map");
+			a = @LoadInt();
+			p = &grid[f];
+			for (g=0; g<a; g++) {
+				*p = new CCell;
+				if (@SLEof()) @LogUserError(@eKEGPanicError,0,"Loading Map");
+				(**p).Object = @LoadObjPtr();
+				p = &(**p).next;
+			}
+			*p = null;
+		}
+	}
+
+
+
+	/////////////////////////////////////////////////////////////////////////////
+	/// PRIDAVANI a UBIRANI PRVKU
+
+	void @MPlaceObjToMap(objptr @Object, inta @CellsArray) 
+	{
+		int f, pos, sx, count;
+		CCell* p;
+		
+		//@LogDebugInfo(10,@Object,"placing");
+		
+		if(!@CellsArray)
+			return;
+			
+		sx = sizex;
+		count = @CellsArray->GetCount()/3;
+		
+		for(f=0; f<count; f++)
+		{
+			pos = (@CellsArray[f*3]-startx) + (@CellsArray[f*3+1]-starty) * sx;
+			p = new CCell;
+			p->Object = @Object;
+			p->next = grid[pos];
+			grid[pos] = p;
+		}	
+	};
+
+
+
+
+	void @MRemoveObjFromMap(objptr @Object, inta @CellsArray) 
+	{
+		int f, pos, sx, count;
+		CCell **p, *p2;
+
+		//@LogDebugInfo(11,@Object,"removing");
+		
+		if(!@CellsArray)
+			return;
+			
+		sx = sizex;
+		count = @CellsArray->GetCount()/3;
+		
+		for(f=0; f<count; f++)
+		{
+			pos = (@CellsArray[f*3]-startx) + (@CellsArray[f*3+1]-starty) * sx;
+			p = &(grid[pos]);
+			
+			while(*p)
+			{
+				if((**p).Object == @Object)
+				{
+					p2 = *p;
+					*p = p2->next;
+					delete p2;
+					break;					
+				}
+				p = &((**p).next);
+			}
+		}
+	
+	};
+	
+	
+	
+	
+	void @MMoveObjInMap(objptr @Object, inta @RemoveCellsArray, inta @KeepCellsArray, inta @PlaceCellsArray)  {
+		int count;
+		int f;
+		int pos;
+		CCell **p, *p2;
+		int sx = sizex;
+		
+		if (!@RemoveCellsArray || !@KeepCellsArray || !@PlaceCellsArray) return;
+		
+		// odeberu objekt z bunek, kde uz neni
+		count = @RemoveCellsArray->GetCount()/3;
+		for (f=0; f<count; f++) {
+			pos = (@RemoveCellsArray[f*3]-startx) + (@RemoveCellsArray[f*3+1]-starty) * sx;
+			p = &grid[pos];
+			while (*p) {
+				if ( (**p).Object == @Object) {
+					p2 = *p;
+					*p = p2->next;
+					delete p2;
+					break;
+				}
+				p = &((**p).next);
+			}
+		}
+
+		// pridam objekt do novych bunek
+		count = @PlaceCellsArray->GetCount()/3;
+		for (f=0; f<count; f++) {
+			pos = (@PlaceCellsArray[f*3]-startx) + (@PlaceCellsArray[f*3+1]-starty) * sx;
+			p2 = new CCell;
+			p2->Object = @Object;
+			p2->next = grid[pos];
+			grid[pos] = p2;
+		}
+	}
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////
+	//// DOTAZ na MAPU
+	
+	objptra @MGetObjects(inta @CellsArray, objptra @ObjectArray) 
+	{
+		if (!@ObjectArray) @ObjectArray = new objptra;
+		@ObjectArray->SetCount(0);
+		if (!@CellsArray) return @ObjectArray;
+		@DeleteOutOfMapCells(@CellsArray);
+		int f,count;
+		int sx, pos;
+		CCell *p;
+		int g=0;
+		
+		sx = sizex;
+		count = @CellsArray->GetCount()/3;
+		for (f=0; f<count; f++) {
+			pos = (@CellsArray[f*3]-startx) + (@CellsArray[f*3+1]-starty) * sx;
+			p = grid[pos];
+			while (p) {
+				if (@ExistsObj(p->Object) && @CheckTag(p->Object)==0) {
+					@SetTag(p->Object); // kazdy objekt pridam do vystupniho pole jen jednou. Uz pridany objekt si oznacim tagem
+					@ObjectArray[g] = p->Object;
+					g++;
+				}
+				p = p->next;
+			}
+		}	
+		
+		count = @ObjectArray->GetCount();
+		for (f=0; f<count; f++) @ClearTag(@ObjectArray[f]); // vymazu tagu.
+		
+		return @ObjectArray;
+	}
+		
+
+	// dotaz jestli objekt je na konkretni bunce	
+	int decl IsObjInCell(int ::x, int ::y, objptr ::obj) {
+		int sx, pos;
+		CCell *p;
+		if(!@IsCellInMap(x,y,0)) return 0;
+		
+		sx = sizex;
+		pos = (x-startx) + (y-starty) * sx;
+		p = grid[pos];
+		while (p) {
+			if (p->Object == obj) return 1;
+			p = p->next;
+		}	
+		return 0;
+	}
+
+
+
+	
+};
+
+

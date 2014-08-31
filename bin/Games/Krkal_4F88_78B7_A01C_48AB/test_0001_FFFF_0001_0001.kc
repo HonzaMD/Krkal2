@@ -1,0 +1,4174 @@
+#head
+game	krkal
+author	M.D.
+include map_0001_000F_0001_1001.kc
+version 0001_FFFF_0001_0001
+#endhead
+
+//////////////////////////////////////////////////////////////////////
+////
+////		G a m e   K R K A L
+////		Version 1
+////
+////		Contains basic (huge) set of objects for the game Krkal
+////
+/////////////////////////////////////////////////////////////////////
+
+
+//jmena pro zvuky
+voidname sHlina,sManikVDire,sNaslPodlaha,sPadKamenu,sPas,sPrisera1,sPfiii,sTeleport;
+voidname sKutaleni, sExplo2, sExplo3, sSbirani, sPrepinac, sFotobunka;
+
+
+// Zaklad vsech umistitelnych objektu s grafikou
+objectname placeable;
+objectname smejdic;
+depend placeable << smejdic;
+
+object placeable inherit {
+	int @ObjPosX edit {Editable, Comment = "X coordinate of the object in pixels."};
+	int @ObjPosY edit {Editable, Comment = "Y coordinate of the object in pixels."};
+	name @APicture edit {Editable, Comment = "Graphics style. You can leave @DefaultAuto here."};
+}
+
+
+//////////////////////////////////////////////////////////////////
+
+objectname LezeNadVecma, Veci;
+
+// V bunce mohu mit podlahy a steny. Tady je kolize jasna. V tom mi pomuze system
+// Ale chci take, aby zivi tvorove lezli nad vecma jako klic a pod.
+// Takze, krome sten, ktere zabiraji celou bunku mimo podlahy
+// budu mit jeste Veci a to, co leze nad Vecma.
+
+object LezeNadVecma {
+	inherit name @clzSubGr;
+	inherit uconstructor() {
+		@clzSubGr = Veci;
+	}
+}
+
+object Veci {
+	inherit name @clzSubGr;
+	inherit uconstructor()  {
+		@clzSubGr = LezeNadVecma;
+	}
+}
+
+//////////////////////////////////////////////////////////////////
+
+// Testovaci objekt smejdic. Do hry Krkal vlastne nepatri
+object smejdic {
+	edit {InMap}
+	int @ANoConnect edit {Editable};
+
+	void @MapPlaced() {
+		int dx,dy;
+		switch(@randInt(3)) {
+			case 0: dx=40;dy=0; break;
+			case 1: dx=0;dy=40; break;
+			case 2: dx=0;dy=-40; break;
+			case 3: dx=-40;dy=0; break;
+		}
+		if (!@IsObjInCollision(this,dx,dy)) @InitMoveTo(this,330,dx,dy);
+	}
+
+	void @MoveEnded() {
+		int dx,dy;
+		switch(@randInt(3)) {
+			case 0: dx=40;dy=0; break;
+			case 1: dx=0;dy=40; break;
+			case 2: dx=0;dy=-40; break;
+			case 3: dx=-40;dy=0; break;
+		}
+		if (!@IsObjInCollision(this,dx,dy)) @InitMoveTo(this,330,dx,dy);
+	}
+
+}
+
+
+
+
+
+/////////////////////////////////////////////////////
+
+// zaklad vsech podlah
+objectname floors, floor;
+depend placeable << floors << floor;
+
+object floors {
+	inherit char @CollisionCfg;
+	inherit uconstructor() {
+		@CollisionCfg = @eKCConeCell | @eKCCfloor;
+	}
+}
+
+// bezna podlaha	
+object floor {
+	edit {InMap, UserName="Floor", Comment="Ordinary floor has no special behavior."}
+}
+
+
+
+/////////////////////////////////////////////////////////////////
+
+// bezna neznicitelna stena
+objectname wall;
+depend placeable << wall;
+
+object wall {
+	edit {InMap, UserName = "Wall", Comment="Ordinary solid wall. It cannot be destroyed, climbed over or pushed."}
+	int @ANoConnect edit {Editable, Comment="Bit mask. This controls to which directions the wall will not be connected."};
+}
+
+
+
+/////////////////////////////////////////////////////////////////
+
+// pro testovani editacnich poli
+objectname EditTest;
+depend placeable << EditTest;
+
+object EditTest {
+	edit {InMap}
+	int @ANoConnect edit {Editable};
+	int a edit {Editable, UserName = "Èasovaè", Comment = "no cement", DefaultValue = 100, List = {1,2,3,100,101,102,103,1001,1002,1003}};
+	double probability edit {Editable, Comment = "zadej èíslo od 0 do 1", DefaultValue = 0.5, Interval = {0,1}, Exclusive};
+	name Affects edit {Editable, DefaultValue = @Everything, List = {@Everything, ZnicitelneVeVybuchu, EditTest, wall}, EditType = void|object|param};
+	objptra Objects edit {Editable, IncludeNull};
+	string[30] str edit {Editable, DefaultValue = "hihihi"};
+	char ch edit {Editable, DefaultValue = 'a', EditType = number};
+	objptr obj edit {Editable , DefaultValue = onull, Is <= ZnicitelneVeVybuchu, InMap, OutMap };
+	inta inty edit {Editable, DefaultValue = anullint, Interval = {5,10}}
+	chara chary edit {Editable, DefaultValue = {4+8}, /*Is > 'a'*/}
+	doublea doubly edit {Editable, DefaultValue = {18.0, 19.2, 3.14}, DefaultMember = 3.3, Is <= 4.8}
+	namea namesy edit {Editable, DefaultValue = {placeable, smejdic, wall, @Everything}};
+	
+	constructor()  {
+		a =101;	
+		str = "Test" + "String";
+		ch = 'b';
+		probability = 0;
+		Affects = OMap::Init1;
+		Affects = @Everything;
+		Objects = new objptra;
+		obj = new wall;
+		inty = new inta;
+		inty[0] = 5;
+		inty[1] = 5;
+		inty[2] = 6;
+		inty[3] = 5;
+		chary = anullchar;
+		doubly = new doublea;
+		namesy = anullname;
+	}
+	
+}
+
+///////////////////////////////////////////////////////////
+
+// podlaha, ke ktere je prirazen zaplavovy navazovaci podlahovy automatismus
+// krome toho automatismu nicim specialni neni
+objectname PAutoTest;
+depend placeable << PAutoTest;
+depend floors << PAutoTest;
+
+object PAutoTest {
+	edit {InMap, UserName="AT Floor", Comment="Ordinary floor has no special behavior."}
+}
+
+
+/////////////////////////////////////////////////////////////
+
+methodname SetPosSz,SetClzGr;
+
+// Obdelnikovy trigger, ktery zabira dany pocet bunek
+objectname otrigger;
+object otrigger {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	int @NumCellX, @NumCellY;
+	name @clzAddGr, @clzSubGr;
+	objptr @MsgRedirect;
+	constructor() {
+		@CollisionCfg = @eKCCrect1 | @eKCCcell | @eKCCtriggerBit;
+		@NumCellX = 1; @NumCellY = 1;
+		@clzAddGr = @Everything; @clzSubGr = @Nothing;
+		@MsgRedirect = onull;
+	}
+	void SetPosSz(int ::X, int ::Y, int ::ncX=1, int ::ncY=1)  {
+		@ObjPosX = X; @ObjPosY = Y;
+		@NumCellX = ncX; @NumCellY = ncY;
+	}
+	void SetClzGr(name ::AddGr=@Everything, name ::SubGr=@Nothing, objptr ::Redirect=onull)  {
+		@clzAddGr = AddGr; @clzSubGr = SubGr;
+		@MsgRedirect = Redirect;
+	}
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+methodname SetPos;
+objectname ovybuch;
+depend placeable << ovybuch;
+voidname BlokujeVybuch; //Pokud se na bunce vyskytne objekt z teto mnoziny, nemuze zde byt vybuch
+objectname oVybuch1;
+paramname pCellX, pCellY;
+
+objptra ovybuch::objs;
+
+// VYBUCH
+// zasahne oblast 3x3 bunky a vse, do kazde bunky, ktera neni blokovana
+// umisti oVybuch1 - ten se stara o niceni
+// Vybuch se sam za cas znici.
+object ovybuch {
+	char @CollisionCfg;
+	int @NumCellX, @NumCellY;
+	name @clzAddGr;
+	constructor() {
+		@CollisionCfg = @eKCCrect1 | @eKCCcell;
+		@NumCellX = 3; @NumCellY = 3;
+		@clzAddGr = ZnicitelneVeVybuchu;
+	}
+	void SetPos(int ::X, int ::Y) {
+		@ObjPosX = X; @ObjPosY = Y;
+	}
+	
+	void @MapPlaced() {
+		Destructor() timed 231;
+		int f,g;
+		int cx,cy,cz;
+		objptr o;
+		for (f=0; f<3; f++) for (g=0; g<3; g++) {
+			o = new oVybuch1;
+			@WriteObjCoords(o,@ObjPosX+f*40,@ObjPosY+g*40);
+			if (!@FindObjCell(o,&cx,&cy,&cz)) delete o; else { // bunka je v mape
+				@FindObjsInArea(::objs,o,BlokujeVybuch);
+				if (::objs->GetCount()) delete o; // bunka je blokovana
+				else @PlaceObjToMap(o);
+			}
+		}
+	}
+	
+	
+}
+
+
+// neviditelny objekt zabirajici 1 bunku. Znici vsechny kolidujici veci
+// znicitelne ve vybuchu (po urcitem case)
+// a pak (po vetsim case) znici sam sebe
+objptra oVybuch1::objs;
+object oVybuch1 {
+	char @CollisionCfg;
+	int @ObjPosX, @ObjPosY;
+	name @clzAddGr;
+	constructor() {
+		@CollisionCfg = @eKCConeCell | @eKCCcell | @eKCCinvisible;
+		@clzAddGr = ZnicitelneVeVybuchu;
+	}
+	
+	void @MapPlaced() {
+		Destructor() timed 231;
+		int f;
+		int cx,cy,cz;
+		int cx1,cy1,cz1;
+		@FindCollidingObjs(this, ::objs);
+		@FindObjCell(this,&cx1,&cy1,&cz1);
+		for (f=0; f<::objs->GetCount(); f++) {
+			@FindObjCell(::objs[f],&cx,&cy,&cz);
+			// Nicenym vecem posilam souradnice mista, kde byly zniceny (na tomto miste pripadne vybouchnou)
+			if (cx1 == cx && cy1 == cy) ::objs[f]->ZnicSeVeVybuchu(pCellX : cx1, pCellY : cy1) timed 164; // nicena vec je v me bunce -> Chci aby tahle zprava prisla driv, nez mozna zprava z bunky do ktere vec zasahuje jen kousek
+			else ::objs[f]->ZnicSeVeVybuchu(pCellX : cx1, pCellY : cy1) timed 165; // nicena vec je z vetsi casi v jine bunce
+		}
+	}
+	
+	
+}
+
+
+////////////////////////////////////////////////////////////////
+
+// Zatim nevyuzity, nedoprogramovany objekt.
+// Bylo planovano, ze by mel zobrazovat posmrtne animace
+// a zadny herni objekt uz by s nim neinteragoval
+objectname OPosmrtnaAnimace;
+depend placeable << OPosmrtnaAnimace;
+
+object OPosmrtnaAnimace {
+	name StylGrafiky;
+	name StylSmrti;
+	
+	constructor() { StylGrafiky=nnull; StylSmrti = nnull; }
+	lconstructor() { StylGrafiky=nnull; StylSmrti = nnull; }
+}
+
+///////////////////////////////////////////////////////////////
+
+// Vsechny objekty, ktere umi vybouchnout, jsou zdedeny odtud.
+objectname oVybuchuje;
+methodname ZnicSeVeVybuchu, ZnicSeVybuchem;
+depend placeable << oVybuchuje;
+
+object oVybuchuje inherit {
+	void ZnicSeVybuchem(int pCellX, int pCellY) {
+		objptr o;
+		if (@IsObjInMap(this)) {
+			@PlaySound(sExplo2,@ObjPosX,@ObjPosY);
+			o = new ovybuch;
+			int x,y,z;
+			if (assigned(pCellX) && assigned(pCellY)) {
+				x=pCellX, y=pCellY, z=0; // souradnice bunky jsem dostal v parametrech
+			} else @FindObjCell(this,&x,&y,&z); // vycentruju vybuch kolem sve bunky
+			o->SetPos(::X:(x-1)*40,::Y:(y-1)*40);
+			@PlaceObjToMap(o);
+		}
+		delete this;
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+objectname mina;
+voidname AktivujeMinu;
+voidname ZnicitelneVeVybuchu;
+depend placeable << mina;
+depend Destructor << ZnicSeVybuchem << ZnicSeVeVybuchu;
+depend AktivujeMinu << {smejdic,oVybuch1};
+depend ZnicitelneVeVybuchu << {mina, smejdic};
+
+// Mina po umisteni chvili ceka a pak umisti triger, kterym je ji mozno
+// aktivovat. Po aktivaci chvili ceka a pak vybuchuje
+object mina {
+	edit {InMap, UserName="Mine", Comment="The activated mine has the top yellow light lit. Once dropped, the mine waits few seconds to let you run away. After that, if any living creature (you or some monster) or explosion reaches the cell next to the activated mine, the mine explodes after a short delay. It is possible to come next to the activated mine and run back quickly to escape the explosion. However, you cannot run over the activated mine without being killed by the explosion. If destroyed, the mine explodes immediately. The chained explosion occurs even if the activated mines are placed with one free cell between two of them."}
+	objptr triger;
+	uconstructor() { triger = onull; }
+	
+	void @MapPlaced() {
+		if (@IsGame()) ::AktivujSe() timed 660;
+	}
+	
+	void ::AktivujSe() {
+		if (@IsObjInMap(this)) {
+			triger = new otrigger;
+			triger->SetPosSz(::X:@ObjPosX-40,::Y:@ObjPosY-40,::ncX:3,::ncY:3);
+			triger->SetClzGr(::AddGr:AktivujeMinu, ::Redirect:this);
+			@PlaceObjToMap(triger);
+			@MvConnectObjs(triger,this);
+		}
+	}
+	
+	void @TriggerOn() {
+		@LogDebugInfo(1,0,"Mina aktivovana!");
+		ZnicSeVybuchem() timed 396;
+		delete triger;
+		triger = onull;
+	}
+	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}
+	
+	
+}
+
+
+
+/////////////////////////////////////////////////////////////
+
+// Triger, ktery reaguje, kdyz je druhy objekt nad trigerrem presne 
+// vycentrovan. (objekty jsou na tech samych souradnicich)
+objectname oPointTr;
+object oPointTr {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	name @clzAddGr, @clzSubGr;
+	objptr @MsgRedirect;
+	constructor() {
+		@CollisionCfg = @eKCCpoint | @eKCCcell | @eKCCtriggerBit | @eKCCcenterColBit;
+		@clzAddGr = @Everything; @clzSubGr = @Nothing;
+		@MsgRedirect = onull;
+	}
+	void SetPos(int ::X, int ::Y) {
+		@ObjPosX = X; @ObjPosY = Y;
+	}
+	void SetClzGr(name ::AddGr=@Everything, name ::SubGr=@Nothing, objptr ::Redirect=onull) {
+		@clzAddGr = AddGr; @clzSubGr = SubGr;
+		@MsgRedirect = Redirect;
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////////////
+
+objectname oDira;
+voidname VeciPadajiciDoDiry;
+methodname PropadniSe, SpadniDoDiry;
+depend Destructor << SpadniDoDiry;
+depend floors << oDira;
+depend VeciPadajiciDoDiry << {mina, smejdic};
+
+object oDira {
+	edit {InMap, UserName="Pit", Comment="All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls."}
+	inherit objptr triger;
+
+	inherit void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:VeciPadajiciDoDiry, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	inherit void @TriggerOn(objptr @Object) {
+		if (typeof(@Object) <= oManik) @PlaySound(sManikVDire,@ObjPosX,@ObjPosY);
+		@Object->SpadniDoDiry() message;
+	}
+	
+	inherit void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+	
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+objectname oLava;
+depend oDira << oLava;
+object oLava {
+	edit {InMap, UserName="Lava", Comment="All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls."}
+	void SetPos(int ::X, int ::Y) {
+		@ObjPosX = X; @ObjPosY = Y;
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+
+objectname oPropadlo;
+depend floors << oPropadlo;
+depend PropadniSe << ZnicSeVeVybuchu;
+depend ZnicitelneVeVybuchu <<  oPropadlo;
+
+voidname nStavPropadu, nStavPropaduOK, nStavPropaduPad;
+depend nStavPropadu << {nStavPropaduOK, nStavPropaduPad}
+
+object oPropadlo {
+	edit {InMap, UserName="Trap", Comment="The trap behaves like a covered pit/lava. As an object gets on the trap, it is safe there for a short period of time (in which it is possible to cross the trap, turn back on the cell on the other side and return back over the trap). After that, the trap collapses and becomes pit/lava.  Explosion causes a trap to collapse immediately."}
+	objptr triger;
+
+	name StavPropadnuti edit {Auto = nStavPropadu};
+	uconstructor() { StavPropadnuti = nStavPropaduOK; }
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:VeciPadajiciDoDiry, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn() {
+		@LogDebugInfo(1,0,"Propadnu se!");
+		StavPropadnuti = nStavPropaduPad;
+		@ResetAuto(this,0,1);
+		PropadniSe() timed 396;
+		delete triger;
+		triger = onull;
+	}
+	
+	void PropadniSe() {
+		if (@IsObjInMap(this)) {
+			objptr o = new oLava;
+			o->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+			@PlaceObjToMap(o);
+			delete this;
+		}
+	}
+	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+	
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////
+
+// Objekty SE SMEREM
+// Objekty se smerem maji editovatelnou promennou smer, ktera ovlivnuje automatismy
+
+objectname oSeSmerem, oSeSmerem2;
+voidname Smery, Sever, Vychod, Zapad, Jih;
+voidname Smery2, smSV, smSZ, smJV, smJZ;
+depend Smery << {Sever, Vychod, Zapad, Jih}
+depend Smery2 << {Sever, Vychod, Zapad, Jih, smSV, smSZ, smJV, smJZ}
+voidname AutoSmer;
+methodname SetSmer, GetSmer returns name;
+
+object oSeSmerem {
+	inherit name smer edit {Editable, UserName="Orientation", Auto=AutoSmer, Is < Smery, Comment = "Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)"};
+	
+	inherit constructor()  { smer=Sever;}
+	inherit name GetSmer() { return smer; }
+	inherit void SetSmer(name ::Smer) {
+		smer = Smer;
+		@ResetAuto(this,0,1);
+	}
+	
+}
+
+object oSeSmerem2 {
+	inherit name smer edit {Editable, UserName="Orientation", Auto=Smery2, Is < Smery2, Comment = "Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)"};
+	
+	inherit constructor() { smer=Sever;}
+	inherit name GetSmer() { return smer; }
+	inherit void SetSmer(name ::Smer) {
+		smer = Smer;
+		@ResetAuto(this,0,1);
+	}
+	
+}
+
+
+///////////////////////////////////////////////////////////////
+
+// Hlavni telo magnetu je az dal
+objectname oMagnet;
+depend {placeable, oSeSmerem} << oMagnet;
+
+
+object oMagnet {
+	edit {InMap, UserName="Magnet", Comment="The magnet generates a magnetic field in the way it is directed. The field is always covering an area of 1*n cells (horizontally or vertically) beginning in magnet and ending in the end of the map or in front of the antimagnetic wall. Nothing else can interrupt the magnetic field. All objects affected by the magnetism will start moving to the magnet, if the path is free of obstacles. Magnets cause the objects to fall. Falling objects would kill the Slime Guy, the Dragon, all monsters and the balloon. Magnets cannot be destroyed."}
+}
+
+
+
+///////////////////////////////////////////////////////////////////
+
+// laser jeste neni naprogramovan
+objectname oLaser;
+depend {placeable,oSeSmerem,ZnicitelneVeVybuchu} << oLaser;
+
+
+object oLaser {
+	edit {InMap, UserName="Laser", Comment="Not implemented yet..."}
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+// Jsou tri drhy klice, ktere se lisi barvou
+objectname oklic;
+depend {placeable, ZnicitelneVeVybuchu,VeciPadajiciDoDiry} << oklic;
+voidname Barva,Cervena, Zluta, Modra;
+depend Barva << {Cervena, Zluta, Modra}
+
+object oklic {
+	edit {InMap, UserName="Key", Comment="The key can be used to open the lock of the same color. Both the key and the lock are designed for a single use, which means that both the key and the lock will disappear after the lock is unlocked."}
+	name barva edit {Editable, UserName="Color", Auto=Barva, Is < Barva, Comment="Color"};
+	constructor() { barva = Cervena; }
+	name decl GetBarva() { return barva;}
+	void decl SetBarva(name ::Barva) { barva = Barva;}
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+objectname oAreaTest;
+
+// jen testovci objekt pro testovani skupinovych editacnich polozek
+object oAreaTest {
+	edit {OutMap}
+	
+	area3D edit {DefaultValue = 4, PlanarNames}
+	{
+		int x1, y1, z1 edit {EditType = number};
+		int x2, y2, z2;
+	} 
+	cell2D edit {Editable} { 
+		int x,y;
+	}
+}
+
+
+depend Veci << {mina, oklic}
+
+////////////////////////////////////////////////////////////////////////
+
+objectname oStartsMove;
+depend placeable << oStartsMove;
+methodname CalcMove;
+
+// Vsechny veci, ktere brani pohybu, musi byt oddedeny od tohoto
+// objektu, aby objekt uvolnovali
+object oStartsMove {
+	inherit void @MapRemoved() {
+		if (@IsGame()) @AreaMessage(CalcMove,this,oMoveable,-1,-1,1,1);
+	}
+}
+
+// Uvolnuje i vybuch
+object ovybuch {
+	void @MapRemoved() {
+		@AreaMessage(CalcMove,this,oMoveable,-1,-1,3,3);
+	}
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+////
+////		O B J E K T   P R O   P O H Y B Y
+////
+/////////////////////////////////////////////////////////////////////////////////
+
+
+objectname oMoveable;
+depend placeable << oMoveable;
+methodname AddForce, RemoveForce;	// Objekt se pohybuje jen pokud na nej pusobi sila. Funkce pro pridani, ubirani sily. RemoveForce odebere vsechny sily, ktere sender pridal.
+paramname pfdir,pfpriority,pftype,pfspeed;	// popis trajektorie: smer (0 az 16), priorita, typ sily, a cas - jak dlouho trva pohyb po trajektorii
+paramname Pfdir,Pfpriority,Pftype,Pfspeed;
+voidname BanningForce;			// typ sily, ktery zakazuje sily opacnych smeru
+methodname ModifyTrajektory returns int;	// funkce, kara umoznuje ostatnim objektum modifikovat testovanou trajektorii
+voidname oModifyTr;				// mnozina objektu, ktere modifikuji trajektorii
+paramname ptrpos;				// index do poli s popisem trajektorii
+methodname SetBlockedPath;		// vala se jako callend z konstruktoru. Je k urcena, aby si potomci mohli presneji nastavit nektere atributy
+methodname MoveCalculating, MoveStarted, MoveEnded;  // zpravy, ktere se posilaji v prubehu vypoctu pohybu a po pohybu. MovCalculating prijde, kdyz se objekt chysta vypocitat pristi pohyb, ale jeste to neudelal. je to prilezitost pro pridavani sil.
+methodname TraingToMoveOver;	// duhle zpravu dostavaji vsechny objekty, pres ktere se pohybuji
+voidname TTMOConsumer;			// a tyhle objekty ji dostavaji jako prime volani. aby se mohli napr. znicit. nebo naopak cely vypocet pohybu prerusit.
+depend oMoveable << {oklic, mina}
+methodname IsInMoveCollision returns int retor;	// Dodatecny test na kolize. Objekt si muze rict, ze kdyz se hybe, tak koliduje jeste s necim navic.
+methodname NarazilJsem; 			// volam, kdyz jsem se predtim hybal a ted jsem do neceho narazil
+methodname NajdiPrusecik;  // hleda misto, kde se stretli dva pohybujici se objekty. pro TTMO
+
+inta oMoveable::cells;
+objptra oMoveable::objs;
+
+object oMoveable inherit {
+	int WillCalculate; 	// Jestli se objekt chysta pocitat pohyby. S vypoctem pohybu se totiz ceka na konec kola
+	int Moving;			// zda se objekt pohybuje
+	// Popisy pusobicich sil a testovanych trajektorii
+	objptra fsource;	// kdo silu zadal
+	inta fdir;			// smer sily
+	namea fpriority;	
+	namea ftype;
+	inta fspeed;
+	inta fstate;		// stav. Pomocny tag k sile
+	name BlockedPath;	// Jakym objektem si mam rezervovat policka, po kterych se pohybuju, aby mi do nich nikdo nevlezl?
+	objptra BlockingObjs;	// Vytvorene blokovaci objekty.
+	
+	name LastDir;	// vysledny smer posledniho pohybu.
+	int LastMTime;	// Kdy skoncil pohyb
+	int LSpeed;		// Rychlost posledniho pohybu
+	uconstructor() {
+		LastDir = nnull;
+		LastMTime=0;
+	}
+	name decl GetLastDir() { return LastDir; }
+	
+	uconstructor(){
+		WillCalculate = 0;
+		Moving = 0;
+		fsource = new objptra;
+		fdir = new inta;
+		fpriority = new namea;
+		ftype = new namea;
+		fspeed = new inta;
+		fstate = new inta;
+		BlockingObjs = new objptra;
+		BlockedPath = oBlockedPath;
+		SetBlockedPath() callend this;
+		LSpeed = 33;
+	}
+	cconstructor() {
+		WillCalculate = 0;
+		Moving = 0;
+		fsource = new objptra;
+		fdir = new inta;
+		fpriority = new namea;
+		ftype = new namea;
+		fspeed = new inta;
+		fstate = new inta;
+		BlockingObjs = new objptra;
+	}
+	destructor() {
+		delete fsource;
+		delete fspeed;
+		delete fdir;
+		delete ftype;
+		delete fpriority;
+		delete fstate;
+		delete BlockingObjs;
+	}
+	
+	// Pridani sily. Pridani sily zpusobi pozadavek na vypocitani pohybu
+	// pfspeed je nepovyny. Kdyz nebude zadan, objekt se bude pohybovat, tak rychle, jako posledne
+	void AddForce(int pfdir, name pfpriority, name pftype, int pfspeed) {
+		int f;
+		int pos = fsource->GetCount();
+		for (f=0; f<fsource->GetCount(); f++) {
+			if (fsource[f] == onull) { pos = f; break; }
+		}
+		fsource[pos] = sender;
+		fdir[pos] = pfdir;
+		fpriority[pos] = pfpriority;
+		ftype[pos] = pftype;
+		if (assigned(pfspeed)) fspeed[pos] = pfspeed; else fspeed[pos] = LSpeed;
+		
+		CalcMove();
+	}
+
+	// odebere vsechny sily, ktere vyvolal sender	
+	void RemoveForce() {
+		int f;
+		for (f=0; f<fsource->GetCount(); f++) {
+			if (fsource[f] == sender) fsource[f] = onull;
+		}
+		CalcMove();
+	}
+	
+	void @MapPlaced() {
+		CalcMove();
+	}
+	
+	// zadani pozadavku na vypocet pohybu. Po pozadavku se ceka na konec kola, zda neprijdou jeste jine pozadavky
+	void CalcMove() {
+		if (!WillCalculate && !Moving && @IsGame()) {
+			// pozdavek, ktery je uznan, je jen ten prvni
+			WillCalculate = 1;
+			::CalcMove2() end;
+			MoveCalculating() message;
+		}
+	}
+
+
+	// TADY ZACINA VLASTNI VYPOCET POHYBU
+	void ::CalcMove2(){
+		int TestedDirs[17];
+		objptra TestedObjs[17];
+		WillCalculate = 0;	// vypocet pohybu je mozno prerusit novym pozadavkem. Ale behem vypoctu nepridavejte sily. To asi nefunguje
+		if (Moving || !@IsObjInMap(this)) return;
+		// Start a vypocet pohybu
+		int f,g;
+		int a;
+		int OldTop = fsource->GetCount();  // oldtop ukazuje na pocet zadanych sil
+		
+		// kazdy smer zkousim maximalne jednou
+		for (f=0; f<17; f++) {
+			TestedDirs[f] = 1;
+			TestedObjs[f] = anullobjptr; // kazdy objekt po trajektorii testuji maximalne jednou na modifikaci
+		}
+		
+		for (f=0; f<OldTop; f++) {
+			if (fsource[f]==onull) fstate[f]=0; 
+			else {
+				if (ftype[f] <= BanningForce) {
+					fstate[f] = 2;
+					a = fdir[f]+8;
+					if (a>16) a-=16;
+					for (g=0; g<f; g++) if (fstate[g]==2 && fdir[g]==a) { // dvojice protichudnych banning sil zahodim
+						fstate[f] = 0;
+						fstate[g] = 0;
+						break;
+					}
+				} else fstate[f] = 1;
+			}
+		}
+		
+		// Budu postupne brat a testovat sily podle priority
+		TestDir(0,OldTop,OldTop, TestedDirs,TestedObjs);
+		
+		for (f=0; f<17; f++) {
+			if (TestedObjs[f]) delete TestedObjs[f];
+		}
+	}
+	
+	int direct TestDir(int Bottom, int Top, int OldTop, int *TestedDirs, objptra *TestedObjs) {
+		int best;
+		int f;
+		int olddir;
+		int top2;
+		inta rcells;
+		int OK;
+		while (1) {
+			best = Top;
+			// vyberu silu s nejvyzsi prioritou. Takoveho smeru, ktery jsem jeste netestoval
+			for (f=Bottom; f<Top; f++) {
+				if (fdir[f] < 0 || fdir[f] > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+				if ((f>=OldTop||fstate[f]) && TestedDirs[fdir[f]] && (best==Top || fpriority[f]==fpriority[best] && @randInt(1) || fpriority[f] != fpriority[best] && @IsFNMemberOfSN(fpriority[best],fpriority[f]))) {
+					best = f;
+				}
+			}
+			if (best==Top) return 0; // vsechny sily byly zamitnuty
+			// okopiruju si vybranou silu na konec pole
+			fdir[Top] = fdir[best];
+			fpriority[Top] = fpriority[best];
+			OK = 1;
+			fspeed[Top] = fspeed[best];
+			ftype[Top] = ftype[best];
+			if (TestedDirs[fdir[best]] == 1) {
+				TestedDirs[fdir[best]] = 2;
+				// test proti zakazanym smerum
+				for (f=0; f<OldTop; f++) if (fstate[f]==2) {
+					olddir = fdir[Top];
+					fdir[Top] = Moves->oMoves::BanningTest(fdir[f],fdir[Top]);
+					if (olddir != fdir[Top]) {
+						TestedDirs[olddir] = 0;
+						if (fdir[Top] < 0 || fdir[Top] > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+						if (fdir[Top]==0 || TestedDirs[fdir[Top]] != 1) {
+							TestedDirs[fdir[Top]] = 0;
+							OK = 0;
+							break;
+						}
+						TestedDirs[fdir[Top]] = 2;
+					}
+				}
+			}
+			if (OK && fdir[Top]) { // modifikace:
+				olddir = fdir[Top];
+				if (TestedObjs[olddir] == anullobjptr) {
+					// zjisteni objektu po ceste
+					int x,y,z;
+					@FindObjCell(this,&x,&y,&z);
+					rcells = Moves->oMoves::GetPath(olddir);
+					::cells->SetCount(0);
+					for (f = 0; f<rcells->GetCount()/2; f++) {
+						::cells[f*3] = x+rcells[f*2];
+						::cells[f*3+1] = y+rcells[f*2+1];
+						::cells[f*3+2] = z;
+					}
+					TestedObjs[olddir] = Map->@MGetObjects(@CellsArray: ::cells);
+					// Pridam do seznamu objekty, ktere tam nejsou, ale blokuji si cestu
+					int count = TestedObjs[olddir]->GetCount();
+					for (f=0; f<count; f++) @SetTag(TestedObjs[olddir][f]);
+					for (f=0; f<count; f++) {
+						if (typeof(TestedObjs[olddir][f]) <= oBlockedPath) {
+							objptr o = TestedObjs[olddir][f]->GetFather();
+							if (!@CheckTag(o)) {
+								TestedObjs[olddir][count] = o;
+								@SetTag(o);
+								count++;
+							}	
+						}
+					}
+					for (f=0; f<count; f++) @ClearTag(TestedObjs[olddir][f]);
+				}
+				for (f=0; f<TestedObjs[olddir]->GetCount(); f++) {
+					// TTMO
+					if (TestedObjs[olddir][f]!=this) {
+						if (typeof(TestedObjs[olddir][f])<=TTMOConsumer) TestedObjs[olddir][f]->TraingToMoveOver(pfdir:fdir[Top],pfspeed:fspeed[Top], pftype:ftype[Top]);
+						else if (@ExistsObj(TestedObjs[olddir][f])) TestedObjs[olddir][f]->TraingToMoveOver(pfdir:fdir[Top],pfspeed:fspeed[Top], pftype:ftype[Top]) message;
+						if (WillCalculate) return 1; // vypocet prerusen novou zkutecnosti
+					}
+					// Modifikace
+					if (@IsFOMemberOfSN(TestedObjs[olddir][f],oModifyTr)) {
+						objptr obj = TestedObjs[olddir][f];
+						TestedObjs[olddir][f] = onull;
+						top2 = obj->ModifyTrajektory(ptrpos:Top, Pfdir:fdir, Pfpriority:fpriority, Pfspeed: fspeed, Pftype: ftype);
+						if (WillCalculate) return 1; // vypocet prerusen novou zkutecnosti
+						if (olddir != fdir[Top] || top2<Top) {
+							// modifikace zamitla stavajici trajektorii
+							TestedDirs[olddir] = 0;
+							if (top2>=Top) {
+								// ale dala mi neco jineho na testovani
+								if (TestDir(Top,top2+1,OldTop, TestedDirs,TestedObjs)) return 1;
+							}
+							OK=0;
+							break;
+						} else if (top2 > Top) {
+							// mam toho na testovani vic
+							if (TestDir(Top,top2+1,OldTop, TestedDirs,TestedObjs)) return 1;
+							OK=0;
+							break;
+						}
+					}
+				}
+				if (OK) { // kolizni test:
+					rcells = Moves->oMoves::GetPath(olddir);
+					for (f = 0; f<rcells->GetCount()/2; f++) {
+						// klasicky kolizni test
+						if (@IsObjInCollision(this,rcells[f*2]*40,rcells[f*2+1]*40)) {
+							TestedDirs[olddir] = 0;
+							if (LastDir && LastDir == Moves->oMoves::ConvertLastDir(fdir[Top])) NarazilJsem() message;
+							OK=0;
+							break;
+						}
+						// navic pohybovy kolizni test
+						if (f) if (IsInMoveCollision(pCellX:rcells[f*2],pCellY:rcells[f*2+1],pfdir:fdir[Top],pfspeed:fspeed[Top], pftype:ftype[Top])) {
+							TestedDirs[olddir] = 0;
+							// if (LastDir && LastDir == Moves->oMoves::ConvertLastDir(fdir[Top])) NarazilJsem() message;
+							OK=0;
+							break;
+						}
+					}
+					if (OK) { // OK, muzu vygenerovat pohyb
+						StartMove(fdir[Top],fspeed[Top]);
+						return 1;
+					}
+				}
+			}
+		}
+	}
+	
+	// Vypocet vybral trajektorii a je se po ni zacnu pohybovat
+	void direct StartMove(int dir, int speed){
+		int f;
+		int x,y,z;
+		inta rcells = Moves->oMoves::GetPath(dir);
+		// zablokuju svoji cestu blokovacima objektama, aby se mi po ni nepohyboval nekdo jinej
+		BlockingObjs->SetCount(0);
+		@FindObjCell(this,&x,&y,&z);
+		for (f=0; f<rcells->GetCount()/2; f++) {
+			BlockingObjs[f] = new vartype BlockedPath;
+			BlockingObjs[f]->SetPos(::X:(x+rcells[f*2])*40,::Y:(y+rcells[f*2+1])*40);
+			@PlaceObjToMap(BlockingObjs[f]);
+		}
+		Moving=1;
+		LSpeed=speed;
+		// vyrazim po trajektorii
+		::DoMove(::Dir:dir,::Speed:speed,::Step:0);
+		MoveStarted() message;
+	}
+	
+	void ::WaitMoveEnded() {
+		Moving=0;	//umoznim se zase hejbat
+		MoveEnded() message;
+		CalcMove() message;
+	}
+	
+	// POHYB PO TRAJEKTORII
+	void ::DoMove(int ::Dir, int ::Speed, int ::Step){
+		if (!@IsObjInMap(this)) return;
+		inta path = Moves->oMoves::GetPathP(Dir);
+		int f;
+		if (Step*3 >= path->GetCount()) {
+			// pohyb zkoncil
+
+			int x1,x2,y1,y2;
+			Moves->oMoves::GetDeBlockArea(Dir,&x1,&x2,&y1,&y2);
+			@AreaMessage(CalcMove,BlockingObjs[0],oMoveable,x1,y1,x2,y2); // vodblokuju jine pohyby
+			for (f=0; f<BlockingObjs->GetCount(); f++) delete BlockingObjs[f];
+			BlockingObjs->SetCount(0);
+							
+			::ClearLastMove() nextturn;
+			::WaitMoveEnded() end; // jeste chvili pockam
+		} else {
+			// pohyb pokracuje
+			int time2;
+			if (LastDir) {
+				// abych se pohyboval plynule, kdyz doby pohybu nejsou zarovnany na takty
+				int time1 = @GetKernelTime()-LastMTime;
+				time2 = path[Step*3+2]*Speed - time1;
+				@MoveObjRel(this,(path[Step*3]*time1)/(time1+time2),(path[Step*3+1]*time1)/(time1+time2),0);
+				@InitMoveTo(this,time2, path[Step*3] - (path[Step*3]*time1)/(time1+time2), path[Step*3+1] - (path[Step*3+1]*time1)/(time1+time2),0);
+			} else {
+				time2 = path[Step*3+2]*Speed;
+				@InitMoveTo(this,time2,path[Step*3],path[Step*3+1]);
+			}
+			LastMTime = @GetKernelTime()+time2;
+			::DoMove(::Dir:Dir,::Speed:Speed,::Step:Step+1) timed time2;
+			// nastavit setrvacny smer
+			if (Step==0) {
+				LastDir = Moves->oMoves::ConvertLastDir(Dir);
+				if (typeof(this)<=oSeSmerem) SetSmer(::Smer:LastDir);
+				if (typeof(this)<=oSeSmerem2) SetSmer(::Smer:LastDir);
+			}
+		}
+	}
+	
+	// pohyb se zastavil
+	void ::ClearLastMove() {
+		if (Moving==0) {
+			LastDir = nnull;
+		}
+	}
+	
+	void @MapRemoved(){
+		if (Moving) {
+			Moving=0;
+			@DeleteMessages(this,::DoMove);
+		}
+		if (BlockingObjs->GetCount()) {
+			int f;
+			@AreaMessage(CalcMove,BlockingObjs[0],oMoveable,-2,-2,2,2); // vodblokuju jine pohyby
+			for (f=0; f<BlockingObjs->GetCount(); f++) delete BlockingObjs[f];
+			BlockingObjs->SetCount(0);
+		}
+		LastDir = nnull;
+		WillCalculate = 0;
+		fsource->SetCount(0);
+		fdir->SetCount(0);
+		fpriority->SetCount(0);
+		ftype->SetCount(0);
+		fspeed->SetCount(0);
+		fstate->SetCount(0);
+	}
+	
+	
+	// hleda misto, kde se stretli dva pohybujici se objekty. pro TTMO
+	void NajdiPrusecik(int ret pCellX, int ret pCellY, int pfdir,objptr ::obj) {
+		int c1x,c1y,c1z;
+		int c2x,c2y,c2z;
+		@FindObjCell(this,&c1x,&c1y,&c1z);
+		pCellX = c1x; pCellY = c1y;
+
+		if (Moving && BlockingObjs && BlockingObjs->GetCount()) {
+			int f,g;
+			@FindObjCell(obj,&c2x,&c2y,&c2z);
+			inta path = Moves->oMoves::GetPath(pfdir);
+			for (g=0; g<path->GetCount()/2; g++) {
+				if (c1x==c2x+path[g*2] && c1y==c2y+path[g*2+1]) {		
+					pCellX = c1x; pCellY = c1y;
+					return;
+				}
+			}
+			for (f=0; f<BlockingObjs->GetCount(); f++) {
+				@FindObjCell(BlockingObjs[f],&c1x,&c1y,&c1z);
+				for (g=0; g<path->GetCount()/2; g++) {
+					if (c1x==c2x+path[g*2] && c1y==c2y+path[g*2+1]) {		
+						pCellX = c1x; pCellY = c1y;
+						return;
+					}
+				}
+			}		
+		} 
+	}
+
+}
+
+
+////////////////////////////////////////////////////////////
+
+objptra Veci::objs;
+
+object Veci inherit {
+	// veci se nepohybuji do objektu LezeNadVecma, ale muzou se pohybovat, kdyz uz jsou pod nimi
+	int retor IsInMoveCollision(int pCellX, int pCellY) {
+		@FindObjsInArea(::objs,this,LezeNadVecma,pCellX,pCellY,pCellX,pCellY);
+		int re = ::objs->GetCount();
+		if (!re) return 0;
+		int f;
+		int X,Y,Z;
+		@FindObjCell(this,&X,&Y,&Z);
+		for (f=0; f<::objs->GetCount(); f++) if (Map->IsObjInCell(::x:X,::y:Y,::obj: ::objs[f])) re--;
+		return re;
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+objectname oMoves;
+methodname TeleportLook;
+voidname TeleportLookConsumer;
+
+oMoves Moves;
+
+///////////////////////////////////////////////////////////////////
+///
+///		Staticky objekt, ktery obsahuje data pro pohyby.
+///		Vzhled trajektorii, s kterymi bunkami ktera trajektorie koliduje a pod.
+
+object oMoves {
+	int banning[17][17]; // tabulkovany bannyng test. tabulka rika, jak to dopadne, kdyz porovnam silu, proti zakazove sile
+	inta path[17]; // dvojice souradnic. policka po kterych cesta vede
+	inta pathp[17]; // popis trajektorije - dx,dy,cas
+	uconstructor() {
+	
+		int f,g;
+		int a,b;
+		int f2;
+		for (g=0; g<17; g++) banning[0][g] = g;
+		for (f=1; f<17; f++) banning[f][0] = 0;
+		for (f=1; f<17; f++) for (g=1; g<17; g++) {
+			if (f&1) {
+				if (f&2) f2 = f-1; else f2 = f+1;
+			} else f2 = f;
+			a = f2+6; if (a>16) a -=16;
+			b = f2+10; if (b>16) b-=16;
+			if (g==a) {
+				a = g-1; if (a==0) a=16;
+				banning[f][g] = a;
+			} else if (g==b) {
+				a = g+1; if (a==17) a=1;
+				banning[f][g] = a;
+			} else if ((g>a && (g<b ||b<a)) || (b<a && g<b)) {
+				banning[f][g] = 0;
+			} else banning[f][g] = g;
+		}
+	}
+	
+	uconstructor() {
+		int f,g;
+		for (f=0; f<17; f++) {
+			path[f] = new inta;
+			path[f][0] = 0; path[f][1] = 0;	
+		}
+		path[1][2] = 0; path[1][3] = -1;
+		path[1][4] = 1; path[1][5] = -1;
+		
+		path[2][2] = 1; path[2][3] = -1;
+		path[2][4] = 0; path[2][5] = -1;
+		path[2][6] = 1; path[2][7] = 0;
+		
+		path[3][2] = 1; path[3][3] = 0;
+		path[3][4] = 1; path[3][5] = -1;
+		
+		path[4][2] = 1; path[4][3] = 0;
+
+		for (f=1; f<5; f++) {
+			for (g=0; g<path[f]->GetCount()/2; g++) {
+				path[4+f][g*2] = -1 * path[f][g*2+1];
+				path[4+f][g*2+1] =  path[f][g*2];
+			}
+		}
+		for (f=1; f<9; f++) {
+			for (g=0; g<path[f]->GetCount(); g++) {
+				path[8+f][g] = -1 * path[f][g];
+			}
+		}
+
+	}
+
+	uconstructor() {
+		int f,g;
+		for (f=0; f<17; f++) {
+			pathp[f] = new inta;
+		}
+		
+		pathp[1][0] = 0; pathp[1][1] = -30; pathp[1][2] = 2;
+		pathp[1][3] = 10; pathp[1][4] = -10; pathp[1][5] = 1;
+		pathp[1][6] = 30; pathp[1][7] = 0; pathp[1][8] = 2;
+		
+		pathp[2][0] = 40; pathp[2][1] = -40; pathp[2][2] = 5;
+
+		pathp[3][0] = 30; pathp[3][1] = 0; pathp[3][2] = 2;
+		pathp[3][3] = 10; pathp[3][4] = -10; pathp[3][5] = 1;
+		pathp[3][6] = 0; pathp[3][7] = -30; pathp[3][8] = 2;
+		
+		pathp[4][0] = 40; pathp[4][1] = 0; pathp[4][2] = 5;
+		
+		for (f=1; f<5; f++) {
+			for (g=0; g<pathp[f]->GetCount()/3; g++) {
+				pathp[4+f][g*3] = -1 * pathp[f][g*3+1];
+				pathp[4+f][g*3+1] = pathp[f][g*3];
+				pathp[4+f][g*3+2] = pathp[f][g*3+2];
+			}
+		}
+		for (f=1; f<9; f++) {
+			for (g=0; g<pathp[f]->GetCount()/3; g++) {
+				pathp[8+f][g*3] = -1 * pathp[f][g*3];
+				pathp[8+f][g*3+1] = -1 * pathp[f][g*3+1];
+				pathp[8+f][g*3+2] =  pathp[f][g*3+2];
+			}
+		}
+
+	}
+
+	destructor(){
+		int f;
+		for (f=0; f<17; f++) delete path[f];
+	}
+
+	destructor() {
+		int f;
+		for (f=0; f<17; f++) delete pathp[f];
+	}
+	
+	// Jak dopadne slozeni banning sily a nejaky jine sily. Funkce vraci vysledny smer, ktery muze byt i nula
+	int direct BanningTest(int bfdirection, int direction) {
+		if (bfdirection < 0 || bfdirection > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		if (direction < 0 || direction > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		return banning[bfdirection][direction];
+	}
+	
+	// vrati souradnice bunek, ktere trajektorie zasahne. dx,dy
+	inta direct GetPath(int dir) {
+		if (dir < 0 || dir > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		return path[dir];
+	}
+	// vrati popis jednotlivych casti trajektorie. dx,dy,cas
+	// Trejektorie se sklada z jednoho az vice rovnych primych useku
+	inta direct GetPathP(int dir) {
+		if (dir < 0 || dir > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		return pathp[dir];
+	}
+	
+	// popis oblasti, kterou musim po ukonceni pohybu odblokovat
+	int DeBlockAreaX1[17];
+	int DeBlockAreaY1[17];
+	int DeBlockAreaX2[17];
+	int DeBlockAreaY2[17];
+	uconstructor() {
+		int f;
+		DeBlockAreaX1[0] = 0; DeBlockAreaX2[0] = 0;
+		DeBlockAreaY1[0] = 0; DeBlockAreaY2[0] = 0;
+
+		DeBlockAreaX1[1] = -1; DeBlockAreaX2[1] = 1;
+		DeBlockAreaY1[1] = -2; DeBlockAreaY2[1] = 1;
+
+		DeBlockAreaX1[2] = -1; DeBlockAreaX2[2] = 2;
+		DeBlockAreaY1[2] = -2; DeBlockAreaY2[2] = 1;
+
+		DeBlockAreaX1[3] = -1; DeBlockAreaX2[3] = 2;
+		DeBlockAreaY1[3] = -1; DeBlockAreaY2[3] = 1;
+
+		DeBlockAreaX1[4] = -1; DeBlockAreaX2[4] = 1;
+		DeBlockAreaY1[4] = -1; DeBlockAreaY2[4] = 1;
+		
+		for (f=1; f<5; f++) {
+			DeBlockAreaX1[f+4] = -1*DeBlockAreaY2[f]; DeBlockAreaX2[f+4] = -1*DeBlockAreaY1[f];
+			DeBlockAreaY1[f+4] = DeBlockAreaX1[f]; DeBlockAreaY2[f+4] = DeBlockAreaX2[f];
+		}
+		for (f=1; f<9; f++) {
+			DeBlockAreaX1[f+8] = -1*DeBlockAreaX2[f]; DeBlockAreaX2[f+8] = -1*DeBlockAreaX1[f];
+			DeBlockAreaY1[f+8] = -1*DeBlockAreaY2[f]; DeBlockAreaY2[f+8] = -1*DeBlockAreaY1[f];
+		}
+	}
+
+	// vrati popis oblasti, kterou musim po ukonceni pohybu odblokovat
+	void direct GetDeBlockArea(int dir, int *x1, int *x2, int *y1, int *y2) {
+		if (dir < 0 || dir > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		*x1 = DeBlockAreaX1[dir];
+		*x2 = DeBlockAreaX2[dir];
+		*y1 = DeBlockAreaY1[dir];
+		*y2 = DeBlockAreaY2[dir];
+	}
+
+	name LastDirs[17];
+	uconstructor()  {
+		int f;
+		for (f=0; f<17; f++) switch(f) {
+			case 16:
+			case 13:
+			case 3 : LastDirs[f] = Sever; break;
+			case 9:
+			case 12:
+			case 15 : LastDirs[f] = Zapad; break;
+			case 5:
+			case 8:
+			case 11 : LastDirs[f] = Jih; break;
+			case 1:
+			case 4:
+			case 7 : LastDirs[f] = Vychod; break;
+			case 2 : LastDirs[f] = smSV; break;
+			case 6 : LastDirs[f] = smJV; break;
+			case 10 : LastDirs[f] = smJZ; break;
+			case 14 : LastDirs[f] = smSZ; break;
+			default: LastDirs[f] = nnull;
+		}
+	}
+	
+	// preveda ciselny dir na smer typu name. Jedna se o zaverecny smer trajektorie
+	name direct ConvertLastDir(int dir) {
+		if (dir < 0 || dir > 16) @LogUserError(@eKEGPanicError,0,"Pristup Mimo Meze!");
+		return LastDirs[dir];
+	}
+	
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+
+// Obj slouzici pro blokovani zabrane trajektorie
+
+objectname oBlockedPath;
+methodname GetFather returns objptr;
+
+object oBlockedPath inherit {
+	objptr Father;
+	constructor()  {Father = sender; }
+	objptr GetFather()  { return Father; }
+	
+	int @ObjPosX, @ObjPosY;
+	void SetPos(int ::X, int ::Y) {
+		@ObjPosX = X; @ObjPosY = Y;
+	}
+	
+	void @CollisionKill() { return; }
+}
+
+// specialni verze blockedpath pro veci
+objectname oBlockedPath::Veci;
+depend {oBlockedPath, Veci} << oBlockedPath::Veci;
+
+// specialni verze blockedpath pro LezeNadVecma
+objectname oBlockedPath::LezeNadVecma;
+depend {oBlockedPath, LezeNadVecma} << oBlockedPath::LezeNadVecma;
+
+object oMoveable {
+	inherit void SetBlockedPath(){ 
+		if (typeof(this)<=Veci) BlockedPath = oBlockedPath::Veci; 
+		if (typeof(this)<=LezeNadVecma) BlockedPath = oBlockedPath::LezeNadVecma; 
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+// Objekt oPas a objekt oOnOff 
+
+objectname oPas;
+depend {oSeSmerem, floors} << oPas;
+depend oStartsMove << {EditTest,oLaser,oMagnet,mina,oklic,wall};
+voidname VeciStrkatelnePasem;
+depend VeciStrkatelnePasem << {mina, oklic}
+voidname PriorityOPas;
+voidname ForceOPas;
+depend BanningForce << ForceOPas;
+
+voidname nOnOff, On, Off;
+depend nOnOff << {On, Off};
+methodname SetOnOff,ChangeOnOff,TurnOn,TurnOff, GetOnOff returns name;
+paramname pOnOff;
+
+objectname oOnOff;
+// u potomku je treba doprogramovat metodu SetOnOff
+object oOnOff inherit {
+	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages."}; 
+	void TurnOn() { SetOnOff(pOnOff:On); }
+	void TurnOff() { SetOnOff(pOnOff:Off); }
+	name GetOnOff() { return OnOff; }
+	constructor() { OnOff = On; }
+	void ChangeOnOff() {if (OnOff==Off) SetOnOff(pOnOff:On); else SetOnOff(pOnOff:Off);}
+}
+
+// PAS. strak predmety, ktere jsou na nem. Muze byt zapnut nebo vypnut
+object oPas {
+	edit {InMap, UserName="Conveyor", Comment="If not moving on their own, all moveable items (excepting the balloon) are transported by the conveyor. You cannot move against the conveyor direction and you do not increase your speed when moving in the same direction, but you can slip out from the conveyor or even cross it quickly without being transported. The conveyor may be off power, in which case it behaves just like an ordinary floor."}
+	objptr triger;
+	
+	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages."}; 
+	void TurnOn() { SetOnOff(pOnOff:On); }
+	void TurnOff() { SetOnOff(pOnOff:Off); }
+	name GetOnOff() { return OnOff; }
+	constructor() { OnOff = On; }
+	void ChangeOnOff() {if (OnOff==Off) SetOnOff(pOnOff:On); else SetOnOff(pOnOff:Off);}
+
+	void SetOnOff(name pOnOff)  {
+		if (pOnOff==OnOff) return;
+		OnOff = pOnOff;
+		if (!@IsObjInMap(this)) return;
+		if (pOnOff==On) ::Activate();
+		if (pOnOff==Off) ::Deactivate();
+		@ResetAuto(this,0,1);
+		
+		// kdyz prepnu pas, pas prepne stejnym zpusobem i dalsi pas na ktery pripadne navazuje
+		int x,y,z;
+		@FindObjCell(this,&x,&y,&z);
+		if (smer==Sever) y--;
+		else if (smer==Vychod) x++;
+		else if (smer==Zapad) x--;
+		else if (smer==Jih) y++;
+		if (OnOff==On) @AreaMessage(TurnOn,onull,oPas,x,y,x,y);
+		else @AreaMessage(TurnOff,onull,oPas,x,y,x,y);
+	}
+
+	// zapnuti triggeru	
+	void ::Activate() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:VeciStrkatelnePasem, ::SubGr:nnull, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+
+	// vypnuti triggeru
+	void ::Deactivate() {	
+		if (@IsEditor()) return;	
+		delete triger;
+		triger = onull;
+		@AreaMessage(RemoveForce,this,VeciStrkatelnePasem);
+	}
+
+	void @MapPlaced() {
+		if (OnOff==On) ::Activate();
+	}
+
+	void @TriggerOn(objptr @Object) {
+		if (!triger) return;
+		@PlaySound(sPas,@ObjPosX,@ObjPosY);
+		if (smer==Sever) @Object->AddForce(pfdir:16,pfpriority:PriorityOPas,pftype:ForceOPas,pfspeed:33) message;
+		else if (smer==Zapad) @Object->AddForce(pfdir:12,pfpriority:PriorityOPas,pftype:ForceOPas,pfspeed:33) message;
+		else if (smer==Vychod) @Object->AddForce(pfdir:4,pfpriority:PriorityOPas,pftype:ForceOPas,pfspeed:33) message;
+		else if (smer==Jih) @Object->AddForce(pfdir:8,pfpriority:PriorityOPas,pftype:ForceOPas,pfspeed:33) message;
+	}
+	void @TriggerOff(objptr @Object) {
+		if (!triger) return;
+		@Object->RemoveForce() message;
+	}
+		
+	void @MapRemoved() {
+		::Deactivate();
+	}	
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+// Na ledu se vsichni pohubuji tak joko predtim
+
+objectname oLed;
+depend floors << oLed;
+voidname KlouzePoLedu;
+depend KlouzePoLedu << {mina, oklic}
+voidname PriorityOLed;
+voidname ForceOLed;
+depend PriorityOPas >> PriorityOLed;
+
+object oLed {
+	edit {InMap, UserName="Ice", Comment="Only the Slime Guy does not slide on the ice. Everything else that gets on the ice - no matter if it steps there or is pushed there - starts sliding. Sliding means that the object will keep moving straight until it either leaves the ice field or hits some wall or another obstacle. While sliding, it is not possible to stop or to change a direction of the movement. Explosion melts the ice, which then turns to the water."}
+	objptr triger;
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:KlouzePoLedu, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object) {
+		if (!@ExistsObj(@Object)) return;
+		name smer = @Object->GetLastDir();
+		if (smer==Sever) @Object->AddForce(pfdir:16,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Zapad) @Object->AddForce(pfdir:12,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Vychod) @Object->AddForce(pfdir:4,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else if (smer==Jih) @Object->AddForce(pfdir:8,pfpriority:PriorityOLed,pftype:ForceOLed) message;
+		else return;
+		@Object->RemoveForce() nextturn;
+	}
+		
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+		
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+
+objectname oPrisera;
+objectname oPriseraOt;
+
+depend oPrisera << oPriseraOt;
+
+depend {placeable, oSeSmerem, oMoveable, oStartsMove, LezeNadVecma } << oPrisera;
+voidname ForceChci;
+voidname PriChci1, PriChci2, PriChci3, PriChci4;
+depend PriorityOLed << PriChci1 << PriChci2 << PriChci3 << PriChci4 << PriorityOPas;
+depend {AktivujeMinu, KlouzePoLedu, VeciStrkatelnePasem, VeciPadajiciDoDiry, ZnicitelneVeVybuchu} << oPriseraOt;
+voidname nTocivost, LevoTociva, PravoTociva;
+depend nTocivost << {LevoTociva, PravoTociva}
+
+object oPriseraOt{
+	edit {InMap, UserName="Rotative Monster", Comment="Rotative monster walks along the walls following the rule of the right hand or the left hand (depending on its initial setting). Usually it \"patrols\" around the wall in some area, trying to get in or out. If there is no wall around, it can even start turning on the spot. Anyways, it has some basic intelligence that would prevent it from getting in an evident danger, for example, it will not walk in the pit or in the high voltage, but will die in the explosion after activated a mine, because it is too far from its view."}
+	name Tocivost edit {Editable,Is < nTocivost, UserName="Spin" Comment = "Sets whether the monster will follow the right hand rule (pravotociva) or the left hand rule (levotoiva)."};
+	constructor() {Tocivost = LevoTociva;}
+	void @MapPlaced() {
+		if (@IsGame()) MoveEnded();
+	}
+	
+	void MoveEnded(){
+		RemoveForce();
+		if (smer==Sever) {
+			if (Tocivost==LevoTociva) {
+				AddForce(pfdir:12,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			} else {
+				AddForce(pfdir:4,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			}
+		} else if (smer==Vychod) {
+			if (Tocivost==LevoTociva) {
+				AddForce(pfdir:16,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			} else {
+				AddForce(pfdir:8,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			}
+		} else if (smer==Jih) {
+			if (Tocivost==LevoTociva) {
+				AddForce(pfdir:4,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			} else {
+				AddForce(pfdir:12,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			}
+		} else if (smer==Zapad) {
+			if (Tocivost==LevoTociva) {
+				AddForce(pfdir:8,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:16,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			} else {
+				AddForce(pfdir:16,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:12,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:8,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+				AddForce(pfdir:4,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+			}
+		}
+	}
+
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////
+
+// Trigger hlidajici paprsek, do ktereho se objekty musi presne vycentrovat
+
+objectname oLineTr;
+object oLineTr {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	int @NumCellX, @NumCellY;
+	name @clzAddGr, @clzSubGr;
+	objptr @MsgRedirect;
+	constructor()  {
+		@CollisionCfg = @eKCCrect1 | @eKCCcell | @eKCCtriggerBit | @eKCCcenterColBit;
+		@NumCellX = 0; @NumCellY = 0;
+		@clzAddGr = @Everything; @clzSubGr = @Nothing;
+		@MsgRedirect = onull;
+	}
+	void SetPosSz(int ::X, int ::Y, int ::ncX = 0, int ::ncY = 0) {
+		@ObjPosX = X; @ObjPosY = Y;
+		@NumCellX = ncX; @NumCellY = ncY;
+	}
+	void SetClzGr(name ::AddGr=@Everything, name ::SubGr=@Nothing, objptr ::Redirect=onull) {
+		@clzAddGr = AddGr; @clzSubGr = SubGr;
+		@MsgRedirect = Redirect;
+	}
+}
+
+
+////////////////////////////////////////////////
+
+// magnet force byla zamyslena k tomu, ze mela branit pohybum proti smeru magnetu
+// v soucasnosti nedela nic
+
+objectname oMagnetForce;
+object oMagnetForce {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	int @NumCellX, @NumCellY;
+	constructor() {
+		@CollisionCfg = @eKCCrect1 | @eKCCnothing;
+		@NumCellX = 0; @NumCellY = 0;
+	}
+	void SetPosSz(int ::X, int ::Y, int ::ncX = 0, int ::ncY = 0) {
+		@ObjPosX = X; @ObjPosY = Y;
+		@NumCellX = ncX; @NumCellY = ncY;
+	}
+}
+
+//////////////////////////////////////////////////
+
+objectname oAntiMagnet;
+depend {placeable, oStartsMove} << oAntiMagnet;
+object oAntiMagnet {
+	edit {InMap, UserName="AntiMagnet", Comment="This wall cancels the effect of the magnet, so the magnetic force does not affect the space behind the wall. It cannot be destroyed, climbed over or pushed."}
+}
+
+//////////////////////////////////////////////////
+
+voidname ZajimaMagnet;
+voidname PritahovanoMagnetem;
+depend ZajimaMagnet << {oAntiMagnet, PritahovanoMagnetem}
+depend PritahovanoMagnetem << {mina, oklic}
+voidname ForceMagnet,PriMagnet;
+depend PriChci4 << PriMagnet << PriorityOPas;
+depend BanningForce << ForceMagnet;
+
+objptra oMagnet::objsA;
+objptra oMagnet::objsD;
+
+object oMagnet {
+	objptr triger;
+	objptr mforce;
+
+	uconstructor() {
+		triger = onull;
+		mforce = onull;
+	}
+	
+	void direct GetDxDy(int *dx, int *dy) {
+		if (smer==Sever) { *dx=0; *dy=-1; return;}
+		if (smer==Vychod) { *dx=1; *dy=0; return;}
+		if (smer==Zapad) { *dx=-1; *dy=0; return;}
+		if (smer==Jih) { *dx=0; *dy=1; return;}
+	}
+	
+	int x,y;
+	int x2,y2;
+	
+	void ::Activate() {
+		if (triger) return;
+		int z,dx,dy;
+		int f;
+		@FindObjCell(this,&x,&y,&z);
+		x2=x; y2=y;
+		GetDxDy(&dx,&dy);
+		
+		while(@IsCellInMap(x+dx,y+dy,z)) {
+			x+=dx; y+=dy;
+			@FindObjsInArea(::objsA,onull,oAntiMagnet,x,y,x,y);
+			if (::objsA->GetCount()) break;
+			@FindObjsInArea(::objsA,onull,oMagnet,x,y,x,y);
+			for (f=0; f<::objsA->GetCount(); f++) {
+				if (::objsA[f]->GetSmer() == smer) ::objsA[f]->oMagnet::Deactivate(::kill:1);
+			}
+		}
+		if (x==x2 && y==y2) return;
+		x2+=dx; y2+=dy;
+		if (x>x2) {f=x; x=x2; x2=f;}
+		if (y>y2) {f=y; y=y2; y2=f;}
+		if (dx<0) dx=1;
+		if (dy<0) dy=1;
+		
+		triger = new oLineTr;
+		triger->SetPosSz(::X:x*40,::Y:y*40,::ncX:x2-x+dx,::ncY:y2-y+dy);
+		triger->SetClzGr(::AddGr:PritahovanoMagnetem, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+		triger->SetClzGr(::AddGr:ZajimaMagnet, ::Redirect:this);
+
+		mforce = new oMagnetForce;
+		mforce->SetPosSz(::X:x*40,::Y:y*40,::ncX:x2-x+dx,::ncY:y2-y+dy);
+		@PlaceObjToMap(mforce);
+		@MvConnectObjs(mforce,this);
+	}
+
+
+	void direct Deactivate2(int x, int y, int z) {
+		int dx,dy;
+		int f;
+		GetDxDy(&dx,&dy);
+		while(@IsCellInMap(x+dx,y+dy,z)) {
+			x+=dx; y+=dy;
+			@FindObjsInArea(::objsD,onull,oAntiMagnet,x,y,x,y);
+			if (::objsD->GetCount()) return;
+			@FindObjsInArea(::objsD,onull,oMagnet,x,y,x,y);
+			for (f=0; f<::objsD->GetCount(); f++) {
+				if (::objsD[f]->GetSmer() == smer) ::objsD[f]->oMagnet::Activate();
+				return;
+			}
+		}
+	}	
+	
+	void ::Deactivate(int ::kill=0) {
+		if(!triger) return;
+		@AreaCall(RemoveForce,onull,PritahovanoMagnetem,x,y,x2,y2);
+		delete triger;
+		delete mforce;
+		triger = onull;
+		mforce = onull;
+		if (kill) return;
+	
+		int z;		
+		@FindObjCell(this,&x,&y,&z);
+		Deactivate2(x,y,z);
+	}
+	
+	void @MapPlaced() {
+		if (@IsGame()) ::Activate();
+	}
+	void @MapRemoved() {
+		if (@IsGame()) ::Deactivate();
+	}
+	
+	void @TriggerOn(objptr @Object, name @ObjType) {
+		if (triger) {
+			if (@ObjType<=oAntiMagnet) {
+				::Deactivate(::kill:1);
+				int x,y,z;
+				@FindObjCell(@Object,&x,&y,&z);
+				Deactivate2(x,y,z);
+				::Activate();
+			} else {
+				if (smer==Sever) @Object->AddForce(pfdir:8,pfpriority:PriMagnet,pftype:ForceMagnet,pfspeed:33) message;
+				else if (smer==Vychod) @Object->AddForce(pfdir:12,pfpriority:PriMagnet,pftype:ForceMagnet,pfspeed:33) message;
+				else if (smer==Zapad) @Object->AddForce(pfdir:4,pfpriority:PriMagnet,pftype:ForceMagnet,pfspeed:33) message;
+				else if (smer==Jih) @Object->AddForce(pfdir:16,pfpriority:PriMagnet,pftype:ForceMagnet,pfspeed:33) message;
+			}
+		}
+	}
+	
+	void @TriggerOff(objptr @Object, name @ObjType) {
+		if (triger) {
+			if (@ObjType<=oAntiMagnet) {
+				::Deactivate(::kill:1);
+				::Activate();
+			} else {
+				@Object->RemoveForce() message;
+			}
+		}
+	}
+	
+}
+
+
+
+
+/////////////////////////////////////////////////////////////
+
+// PREDMETY PUSOBICI KULATE
+// Jsou to predmety, ktere modifikuji trajektorii.
+// Vyvolavaji takzvane obkutaleni.
+
+objectname oPusobiKulate;
+depend oModifyTr << oPusobiKulate << {mina, oklic}
+
+object oPusobiKulate inherit {
+	int ModifyTrajektory(int ptrpos, inta Pfdir, namea Pfpriority, inta Pfspeed, namea Pftype) {
+		if (sender!=this && typeof(sender)<=oPusobiKulate && Pftype[ptrpos]!= ForceStrkani &&(!(typeof(this)<=oMoveable) || GetLastDir()==nnull)) {
+			if ((Pfdir[ptrpos]&3) == 0) {
+				Pfdir[ptrpos+1] = Pfdir[ptrpos]+3;
+				if (Pfdir[ptrpos+1]>16) Pfdir[ptrpos+1]-=16;
+				Pfdir[ptrpos] = Pfdir[ptrpos]-3;
+				if (Pfdir[ptrpos]<1) Pfdir[ptrpos]+=16;
+			} else if ((Pfdir[ptrpos]&1) == 0) {
+				Pfdir[ptrpos+1] = Pfdir[ptrpos]+3;
+				if (Pfdir[ptrpos+1]>16) Pfdir[ptrpos+1]-=16;
+				Pfdir[ptrpos] = Pfdir[ptrpos]-3;
+				if (Pfdir[ptrpos]<1) Pfdir[ptrpos]+=16;
+			} else return ptrpos;
+			if (sender->GetLastDir() == Moves->oMoves::ConvertLastDir(Pfdir[ptrpos])) sender->NarazilJsem() message;
+			Pfpriority[ptrpos+1] = Pfpriority[ptrpos];
+			Pfspeed[ptrpos+1] = Pfspeed[ptrpos];
+			Pftype[ptrpos+1] = Pftype[ptrpos];
+			return ptrpos+1;
+		}
+		return ptrpos;
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+voidname keyLeft, keyRight, keyUp, keyDown;
+
+objectname oManik;
+depend {oSeSmerem,oMoveable,oStartsMove, LezeNadVecma} << oManik;
+depend oVybuchuje << {oPrisera,oManik,mina}
+
+/// Zaklad MANIKA
+// Tady je naprogramovan pohyb a muflon. Muflon funguje tak,
+// ze manik nahazuje sily chci se hnout, do vsech smeru, kde je zmacknuta klavesa
+// A plati, ze posledne zmacknuta klavesa ma nejvyzsi prioritu, pak je predposledne zmacknuta atd.
+
+object oManik inherit {
+	int muflon[4]; // 0 znamena ze klavesa zmacknuta neni. 1 .. 4 proirity od nejvyssi k nejnizsi
+	int ziju;
+	uconstructor()  {ziju=0;}
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		if (!ziju) {
+			ziju=1;
+			ManikControler->IncManik(); // ohlasim noveho ziveho manika
+		}
+		muflon[0]=0; muflon[1]=0; 
+		muflon[2]=0; muflon[3]=0;
+		::EveryTurn();
+	}
+	void @MapRemoved() {
+		@DeleteMessages(this, ::EveryTurn);
+	}
+	destructor() {
+		if (ziju) ManikControler->DecManik();
+	}
+	
+	void direct ReSort(int keep) { // pridana klavesa. Dostane nejvyssi prioritu, ostatnim se priorita snizi
+		muflon[keep]=1;
+		if (muflon[0] && keep!=0) muflon[0]++;
+		if (muflon[1] && keep!=1) muflon[1]++;
+		if (muflon[2] && keep!=2) muflon[2]++;
+		if (muflon[3] && keep!=3) muflon[3]++;
+	}
+	void direct DecSort(int muf) { // klavesa odebrana, zvednu prioritu tem klacesam, ktere meli horsi prioritu nez odebirana klavesa
+		if (!muflon[muf]) return;
+		if (muflon[0]>muflon[muf]) muflon[0]--;
+		if (muflon[1]>muflon[muf]) muflon[1]--;
+		if (muflon[2]>muflon[muf]) muflon[2]--;
+		if (muflon[3]>muflon[muf]) muflon[3]--;
+		muflon[muf]=0;
+	}
+	name direct GetMuflonPri(int muf) {
+		switch(muflon[muf]) {
+			case 1:return PriChci1;
+			case 2:return PriChci2;
+			case 3:return PriChci3;
+			case 4:return PriChci4;
+		}
+		return nnull;
+	}
+	
+	void ::EveryTurn() {
+		if (@IsObjInMap(this)) {
+			if((Focus || SdileneOvladani)) {
+				if (@IsKeyDown(keyLeft)) { if (muflon[0]==0) ReSort(0);} else DecSort(0);
+				if (@IsKeyDown(keyRight)) { if (muflon[1]==0) ReSort(1);} else DecSort(1);
+				if (@IsKeyDown(keyUp)) { if (muflon[2]==0) ReSort(2);} else DecSort(2);
+				if (@IsKeyDown(keyDown)) { if (muflon[3]==0) ReSort(3);} else DecSort(3);
+				RemoveForce();
+				if (muflon[0]) AddForce(pfdir:12,pfpriority:GetMuflonPri(0),pftype:ForceChci,pfspeed:33);
+				if (muflon[1]) AddForce(pfdir:4,pfpriority:GetMuflonPri(1),pftype:ForceChci,pfspeed:33);
+				if (muflon[2]) AddForce(pfdir:16,pfpriority:GetMuflonPri(2),pftype:ForceChci,pfspeed:33);
+				if (muflon[3]) AddForce(pfdir:8,pfpriority:GetMuflonPri(3),pftype:ForceChci,pfspeed:33);
+			}	
+			::EveryTurn() nextturn;
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+objectname oDracek;
+depend oManik << oDracek;
+depend {AktivujeMinu,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu} << oDracek;
+
+object oDracek {
+	edit {InMap, UserName="Dragon", Comment="The Dragon is the only one who can swim in the water."}
+}
+
+
+/////////////////////////////////////////////////////////
+
+objectname oExit;
+depend floors << oExit;
+
+object oExit {
+	edit {InMap, UserName="Exit", Comment="This floor is your goal. You will successfully complete the level as you step on it."}
+	objptr triger;
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:oManik, ::SubGr:nnull, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object) {
+		@GameVictory();
+		ManikControler->oManikControler::Terminate();
+		delete @Object;
+	}
+		
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+}
+
+//////////////////////////////////////////////////////
+
+// MANIK KONTROLER
+
+// stara se o maniky, udrzuje jejich seznam a pocet.
+// kdyz vsichni manici umrou, kontroler ukonci hru
+// Dale kontroler umoznuje mezi maniky prepinat TABem
+// a v hernim menu zobrazuje inventar aktualniho manika
+
+
+objectname oManikControler;
+methodname IncManik, DecManik;
+oManikControler ManikControler;
+voidname keyTab;
+
+int SdileneOvladani edit {Editable, UserName="Shared Control", EditType = bool, Comment = "If checked, the keyboard control will be shared to all player characters in the level. They will be moving simultaneously."};
+
+object oManikControler {
+	int ManikCount;
+	uconstructor() { 
+		ManikCount=0;
+		ZmacknutTab = 0;
+		Manici = new objptra;
+		if (@IsGame()) ::EveryTurn();
+	}
+	void IncManik() {  // vola manik, kdyz obzivne
+		Manici[Manici->GetCount()] = sender;
+		ManikCount++; 
+		if (ManikCount==1) sender->SetFocus();
+	}	
+	void DecManik() {  // vola manik, kdyz umre
+		if (@IsEditor()) return;
+		ManikCount--;
+		if (ManikCount <= 0) ::Terminate() timed 1000;
+		int f = NajdiManika(sender);
+		if (f>=0) Manici[f] = onull;
+	}
+	void ::Terminate() { 
+		if (@IsAnyKeyDown()) ::Terminate() nextturn;
+		else @TerminateKernel(); 
+	}
+	
+	direct int NajdiManika(objptr m) {
+		int f;
+		for (f=0; f<Manici->GetCount(); f++) if (Manici[f] == m) return f;
+		return -1;
+	}
+	
+	// prepinani maniku:
+	void ::PrepniManika() {
+		int f, oldf;
+		oldf = f = NajdiManika(ManikFocus);
+		f++;
+		if (f>=Manici->GetCount()) {
+			f=0;
+			if (oldf==-1) return;
+		}
+		while (f!=oldf) {
+			if (@ExistsObj(Manici[f]) && @IsObjInMap(Manici[f])) {
+				Manici[f]->SetFocus();
+				return;
+			}
+			f++;
+			if (f>=Manici->GetCount()) {
+				f=0;
+				if (oldf==-1) return;
+			}
+		}
+	}
+	
+	int ZmacknutTab;
+	void ::EveryTurn() {
+		if (@IsKeyDown(keyTab)) {
+			if (ZmacknutTab==0) ::PrepniManika();
+			ZmacknutTab = 1;	
+		} else ZmacknutTab = 0;
+		::EveryTurn() nextturn;
+	}
+	
+	// sprava herniho menu
+	int Klic1, Klic2, Klic3;
+	int Bomba, Mina;
+	int Znacky[4];
+	objptra Manici;
+	uconstructor() {
+		::InitMenu();
+	}
+	
+	void ::InitMenu() {
+		@MnuAddBars(0xFFFF0088,0xFF00FFFF);
+		objptr o = new oklic;
+		o->SetBarva(::Barva:Cervena);
+		Klic1 = @MnuAddItemO(o);
+		o->SetBarva(::Barva:Modra);
+		Klic2 = @MnuAddItemO(o);
+		o->SetBarva(::Barva:Zluta);
+		Klic3 = @MnuAddItemO(o);
+		Bomba = @MnuAddItemN(oSebratelnaBomba);
+		Mina = @MnuAddItemN(oSebratelnaMina);
+		Znacky[0] = @MnuAddItemN(oZnSmerova);
+		Znacky[1] = @MnuAddItemN(oZnZakazVjezdu);
+		Znacky[2] = @MnuAddItemN(oZnSedesat);
+		Znacky[3] = @MnuAddItemN(oZnNeSedesat);
+		@MnuRefresh();
+		delete o;
+	}
+	
+	decl void MnuSetKlic(name ::Barva, int decl pCount) {
+		if (Barva==Cervena) @MnuSetItem(Klic1,pCount);
+		else if (Barva==Modra) @MnuSetItem(Klic2,pCount);
+		else if (Barva==Zluta) @MnuSetItem(Klic3,pCount);
+	}
+	decl void MnuSetBomba(int pCount) {
+		@MnuSetItem(Bomba,pCount);
+	}
+	decl void MnuSetMina(int pCount) {
+		@MnuSetItem(Mina,pCount);
+	}
+	
+	decl void MnuSetZnacka(int ::Typ, int pCount) {
+		@MnuSetItem(Znacky[Typ],pCount);
+	}
+	
+	// Tuto metodu vola teleport, kdyz chce neco zobrazit.
+	// Metoda nemuze byt u teleportu, protoze hrozi, teleport, nez dokonci teleportaci, muze byt znicen
+	void decl ZobrazHo(objptr ::obj, int ::x, int ::y) {
+		if (!@ExistsObj(obj)) return;
+		@WriteObjCoords(obj,x,y);
+		if (@IsObjInCollision(obj)) delete obj;
+		else {
+			@PlaceObjToMap(obj);
+			if (typeof(obj) <= oManik) OznacHo(::manik:obj);
+		}
+	}
+	
+	// Házi svìtlo nad maníka - bliká. První parametr urèuje maníka (nezadáte-li ho, maník se urèí ze senderu)
+	// Zbylé parametry nevyplòovat
+	void decl OznacHo(objptr ::manik=onull, int ::svetlo=0, int ::faze=0) {
+		if (!manik) manik = sender;
+		if (svetlo) {
+			@DeleteLight(svetlo);
+			svetlo = 0;
+		}
+		if (!@IsObjInMap(manik)) return;
+		
+		int x,y,z;
+		@ReadObjCoords(manik, &x, &y, &z);
+		
+		switch (faze) {
+			case 0:
+				svetlo = @AddLight(x,y,z+50,255,255,255,80);
+				OznacHo(::manik : manik, ::svetlo : svetlo, ::faze : faze+1) timed 33*1;
+				break;
+			case 1:
+				OznacHo(::manik : manik, ::svetlo : svetlo, ::faze : faze+1) timed 33*1;
+				break;
+			case 2:
+				svetlo = @AddLight(x,y,z+50,255,255,255,80);
+				OznacHo(::manik : manik, ::svetlo : svetlo, ::faze : faze+1) timed 33*3;
+				break;
+			case 3:
+				svetlo = @AddLight(x,y,z+50,160,160,160,50);
+				OznacHo(::manik : manik, ::svetlo : svetlo, ::faze : faze+1) timed 33*3;
+				break;
+		}
+	}
+	
+	
+	void @LoadGame() {
+		@DeleteMessages(onull,OznacHo);
+		::InitMenu();
+	}
+}
+
+
+
+///////////////////////////////////////////////////////////////////
+
+objectname oZabijak1, oObet1;
+depend oZabijak1 << oPriseraOt;
+depend oObet1 << oDracek;
+methodname Zabij, Umri;
+depend ZnicSeVybuchem << {Zabij, Umri}
+
+// Priserami znicitelne objekty
+object oObet1 {
+	void inherit TraingToMoveOver(int pfdir) {
+		if (typeof(sender)<=oZabijak1) {
+			if (typeof(this) <= oMoveable) {
+				int x,y;
+				NajdiPrusecik(ret pCellX : x, ret pCellY : y, pfdir : pfdir, ::obj : sender);
+				Umri(pCellX : x, pCellY : y) callend this;
+			} else Umri() callend this;
+			sender->Zabij() message;
+		}
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+
+objectname oHlina;
+depend {placeable, oStartsMove, ZnicitelneVeVybuchu, TTMOConsumer} << oHlina;
+
+object oHlina  {
+	edit {InMap, UserName="Soil", Comment="The soil can be easily destroyed. You can even destroy it simply by getting on it. The soil does not prevent you from moving; you can dig through it, leaving empty space behind you. Neither monsters nor any objects are able to move in the soil. For example - if the stone falls on the soil, it stops and will not destroy the soil. There may be dangerous floors (like pits) hidden under the soil."}
+	void TraingToMoveOver() {
+		if (typeof(sender)<=oManik) {
+			delete this;
+		}
+	}
+	void TeleportLook(objptr ::obj) {
+		if (typeof(obj)<=oManik) {
+			delete this;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////
+
+objectname oObetPohybu1, oZabijiPohybem1;
+methodname ZnicSePadem;
+depend ZnicSeVybuchem << ZnicSePadem;
+depend TTMOConsumer << oObetPohybu1 << {oDracek, oPriseraOt}
+depend oZabijiPohybem1 << {oklic, mina}
+voidname NezabijackaForce;
+
+// Padem znicitelne objekty
+object oObetPohybu1 inherit {
+	void TraingToMoveOver(int pfdir, name pftype) {
+		if (typeof(sender)<=oZabijiPohybem1 && !(pftype<=NezabijackaForce)) {
+			if ((pfdir&3)==0 && Moves->oMoves::ConvertLastDir(pfdir) == sender->GetLastDir()) {
+				if (typeof(this) <= oMoveable) {
+					int x,y;
+					NajdiPrusecik(ret pCellX : x, ret pCellY : y, pfdir : pfdir, ::obj : sender);
+					ZnicSePadem(pCellX : x, pCellY : y) callend this;
+				} else ZnicSePadem() callend this;
+			}	
+		}
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////////
+
+objectname oKamen;
+depend {oMoveable, oStartsMove, placeable, oPusobiKulate, oZabijiPohybem1,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, PritahovanoMagnetem} << oKamen;
+object oKamen {
+	edit {InMap, UserName="Stone", Comment="The stone can be pushed, it is heavy, so it falls in the pits, activates the floors, will kill you if it falls on you. The stone is affected by the conveyor, the magnet and the ice. It is destroyable and has a round nature."}
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+objectname oZnicitelnaStena;
+depend {oStartsMove, oPusobiKulate, placeable,ZnicitelneVeVybuchu} << oZnicitelnaStena;
+object oZnicitelnaStena {
+	edit {InMap, UserName="Destroyable Wall", Comment="This wall can be destroyed. It cannot be climbed over or pushed. Destroyable wall has a round nature, which means that any object of a round nature that hits this wall will roll around it (if there is enough space)."}
+}
+
+/////////////////////////////////////////////////////////
+
+objectname oSebratelnaBomba;
+depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu, oZabijiPohybem1,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oPusobiKulate} << oSebratelnaBomba;
+object oSebratelnaBomba {
+	edit {InMap, UserName="Pickupable Bomb", Comment="You can pick up this bomb. It is destroyable and if destroyed, it explodes immediately."}
+}
+
+/////////////////////////////////////////////////////////
+
+objectname oSebratelnaMina;
+depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oZabijiPohybem1, oPusobiKulate} << oSebratelnaMina;
+object oSebratelnaMina {
+	edit {InMap, UserName="Pickupable Mine", Comment="You can pick up this mine. It is destroyable and if destroyed, it explodes immediately."}
+}
+/////////////////////////////////////////////////////////
+
+objectname oBomba;
+depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu, oZabijiPohybem1,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oPusobiKulate} << oBomba;
+object oBomba {
+	edit {InMap, UserName="Bomb", Comment="Once dropped, the bomb is activated and placed right under you. In few seconds, the bomb explodes. The explosion always affects squared area of 3 times 3 cells with the bomb in its center. Explosion destroys every destroyable item in the affected area. Therefore, you should run out from the explosion-affected area as soon as possible. If destroyed, the bomb explodes immediately. This allows an initiation of a chained explosion of the bombs placed in line, one next to other."}
+	void @MapPlaced() {
+		if (@IsGame()) ZnicSeVybuchem() timed 660;
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+// MANIK - Sbirani veci:
+
+object oManik inherit {
+	int SKlice[3];
+	objptr triger;
+	uconstructor() {
+		SKlice[0]=0; SKlice[1]=0; SKlice[2]=0;
+	}
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new otrigger;
+		triger->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:Veci, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object)  {
+		name b;
+		if (typeof(@Object)<=oklic) {
+			b=@Object->GetBarva();
+			if (b==Cervena && SKlice[0]<12) {
+				@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+				SKlice[0]++;
+				if (Focus) ManikControler->MnuSetKlic(::Barva:Cervena,pCount:SKlice[0]);
+				delete @Object;
+			} else if (b==Modra && SKlice[1]<12) {
+				@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+				SKlice[1]++;
+				if (Focus) ManikControler->MnuSetKlic(::Barva:Modra,pCount:SKlice[1]);
+				delete @Object;
+			} else if (b==Zluta && SKlice[2]<12) {
+				@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+				SKlice[2]++;
+				if (Focus) ManikControler->MnuSetKlic(::Barva:Zluta,pCount:SKlice[2]);
+				delete @Object;
+			} 
+		}
+	}
+	
+	int decl DecKlic(name ::b) {
+		if (b==Cervena && SKlice[0]) {
+			SKlice[0]--;
+			if (Focus) ManikControler->MnuSetKlic(::Barva:Cervena,pCount:SKlice[0]);
+			return 1;
+		}
+		if (b==Modra && SKlice[1]) {
+			SKlice[1]--;
+			if (Focus) ManikControler->MnuSetKlic(::Barva:Modra,pCount:SKlice[1]);
+			return 1;
+		}
+		if (b==Zluta && SKlice[2]) {
+			SKlice[2]--;
+			if (Focus) ManikControler->MnuSetKlic(::Barva:Zluta,pCount:SKlice[2]);
+			return 1;
+		}
+		return 0;
+	}
+		
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+}
+
+
+////////////////////////////////////////////////////////////
+
+objectname oZamek;
+depend {placeable, oStartsMove, TTMOConsumer} << oZamek;
+methodname OdemkniSe;
+depend Destructor << OdemkniSe;
+
+object oZamek {
+	edit {InMap, UserName="Lock", Comment="The locks behave like the ordinary wall. You can unlock them if you have at least one key of the same color as the lock. Once unlocked, the lock disappears forever."}
+	name barva edit {Editable, UserName="Color", Auto=Barva, Is < Barva};
+	constructor() { barva = Cervena; }
+	name decl GetBarva() { return barva;}
+
+	void TraingToMoveOver() {
+		if (typeof(sender)<=oManik) {
+			if (sender->DecKlic(::b:barva)) OdemkniSe() callend this;
+		}
+	}
+	void TeleportLook(objptr ::obj) {
+		if (typeof(obj)<=oManik) {
+			if (obj->DecKlic(::b:barva)) OdemkniSe() callend this;
+		}
+	}
+	
+	void OdemkniSe() {
+		@PlaySound(sPrepinac,@ObjPosX,@ObjPosY);
+		delete this;
+	}
+
+}
+
+//////////////////////////////////////////////////////////////
+
+
+object @ScrollObj {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	uconstructor()  { @CollisionCfg = @eKCCpoint | @eKCCnothing;}
+}
+
+
+@ScrollObj Skrolnik;
+
+
+//////////////////////////////////////////////////////////////
+
+voidname keyZ, keyX, keyC;
+objptr ManikFocus;
+
+object oManik inherit {
+	int SBomby;
+	int SMiny;
+	int KeyBombaDown;
+	int KeyMinaDown;
+	objptr koliznik;
+	uconstructor() {
+		SBomby=0; SMiny=0;
+		if (@IsGame()) koliznik = new oSebratelnaBomba;
+		KeyBombaDown=0;
+		KeyMinaDown=0;
+	}
+	destructor() {
+		if (@IsGame()) delete koliznik;
+	}
+	
+	// sbirani bomb a min
+	void @TriggerOn(objptr @Object) {
+		if (typeof(@Object)<=oSebratelnaBomba && SBomby<12) {
+			@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+			SBomby++;
+			if (Focus) ManikControler->MnuSetBomba(pCount:SBomby);
+			delete @Object;
+		}
+		if (typeof(@Object)<=oSebratelnaMina && SMiny<12) {
+			@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+			SMiny++;
+			if (Focus) ManikControler->MnuSetMina(pCount:SMiny);
+			delete @Object;
+		}
+	}
+	
+	int cellX, cellY;
+
+	int direct TestKolize() {
+		int z;
+		@FindObjCell(this,&cellX,&cellY,&z);
+		@WriteObjCoords(koliznik,cellX*40,cellY*40);
+		if (@IsObjInCollision(koliznik)) return 0; else return 1;
+	}
+	
+	// pokladani bomb a min
+	void ::EveryTurn() {
+		if (@IsObjInMap(this) && (Focus || SdileneOvladani))	{
+			objptr o;
+			if (@IsKeyDown(keyZ)) {
+			 	if (!KeyBombaDown && SBomby && TestKolize()) {
+					SBomby--;
+					if (Focus) ManikControler->MnuSetBomba(pCount:SBomby);
+					o = new oBomba;
+					@WriteObjCoords(o,cellX*40,cellY*40);
+					@PlaceObjToMap(o);
+					KeyBombaDown=1;
+				}
+			} else KeyBombaDown=0;
+			if (@IsKeyDown(keyX)) {
+				if (!KeyMinaDown && SMiny && TestKolize()) {
+					SMiny--;
+					if (Focus) ManikControler->MnuSetMina(pCount:SMiny);
+					o = new mina;
+					@WriteObjCoords(o,cellX*40,cellY*40);
+					@PlaceObjToMap(o);
+					KeyMinaDown=1;
+				} 
+			} else KeyMinaDown=0;
+		}	
+	}
+	
+	
+	// prepinani fokusu
+	int Focus;
+	uconstructor() { Focus = 0;}
+	cconstructor() { Focus = 0;}
+	void decl SetFocus(int ::focus=1) { 
+		if (@IsEditor()) return;
+		Focus=focus;
+		if (focus) {
+			if (ManikFocus != this) {
+				ManikControler->OznacHo();
+				ResetMenu();
+			  	if (@ExistsObj(ManikFocus)) ManikFocus->SetFocus(::focus:0);
+				ManikFocus = this;
+				if (@IsObjInMap(this)) {
+					@RemoveObjFromMap(Skrolnik);
+					@WriteObjCoords(Skrolnik,@ObjPosX,@ObjPosY);
+					@PlaceObjToMap(Skrolnik);
+					@MvConnectObjs(Skrolnik,this);
+				}
+			}
+		} else {
+			if (!SdileneOvladani) RemoveForce() message;
+			if (ManikFocus == this) ManikFocus=onull;
+		}
+	}
+	int decl GetFocus() { return Focus; }
+	
+	void @MapPlaced() {
+		if (Focus && @IsGame()) {
+			@RemoveObjFromMap(Skrolnik);
+			@WriteObjCoords(Skrolnik,@ObjPosX,@ObjPosY);
+			@PlaceObjToMap(Skrolnik);
+			@MvConnectObjs(Skrolnik,this);
+		}
+	}
+	
+	
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+objectname oVoda;
+voidname PadaDoVody;
+depend floors << oVoda;
+depend PadaDoVody << {mina, oBomba, oKamen, oklic, oPriseraOt, oSebratelnaBomba, oSebratelnaMina, smejdic}
+methodname SpadniDoVody;
+depend SpadniDoDiry << SpadniDoVody;
+
+object oVoda {
+	edit {InMap, UserName="Water", Comment="Only the Dragon can swim. Your other forms, monsters and objects sink in the water and they are destroyed just like in the pit/lava."}
+	objptr triger;
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		triger = new oPointTr;
+		triger->SetPos(::X:@ObjPosX,::Y:@ObjPosY);
+		triger->SetClzGr(::AddGr:PadaDoVody, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object) {
+		@Object->SpadniDoVody() message;
+	}
+	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+objectname oKrabice;
+depend {KlouzePoLedu, oMoveable, oStartsMove, oZabijiPohybem1, PadaDoVody, PritahovanoMagnetem, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu} << oKrabice;
+object oKrabice {
+	edit {InMap, UserName="Box", Comment="The box floats over the floor on the air cushion, so the Slime Guy can crawl under it. Otherwise, it is similar to the stone; except it has not a round nature and it cannot be destroyed."}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+objectname oPneumatika;
+depend {oMoveable, oPusobiKulate, oStartsMove, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu} << oPneumatika;
+object oPneumatika {
+	edit {InMap, UserName="Tire", Comment="The tire is similar to the stone, but it is not affected by the magnet."}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+objectname oBalonek;
+depend {KlouzePoLedu, oMoveable, oPusobiKulate, oStartsMove, oObetPohybu1, PritahovanoMagnetem, ZnicitelneVeVybuchu} << oBalonek;
+object oBalonek {
+	edit {InMap, UserName="Balloon", Comment="The balloon is light as it is filled with the hot air. Therefore the balloon floats over the floors (it does not interact with them), it will not hurt you if it falls on you, it is destroyable (even if some heavy item falls on it) and it has a round nature."}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+depend ZnicitelneVeVybuchu << oLed;
+object oLed {
+	void ZnicSeVeVybuchu() {
+		if (@IsObjInMap(this)) {
+			objptr o = new oVoda;
+			@WriteObjCoords(o,@ObjPosX,@ObjPosY);
+			@PlaceObjToMap(o);
+			delete this;
+		}
+	}
+}
+
+//////////////////////////////////////////////////////////////////////
+
+objectname oHemr;
+depend {AktivujeMinu, oManik, oObet1, oObetPohybu1, VeciPadajiciDoDiry, VeciStrkatelnePasem, PadaDoVody, ZnicitelneVeVybuchu} << oHemr;
+object oHemr {
+	edit {InMap, UserName="Slime Guy", Comment="Slime Guy's body consists mostly of slime. He is very sticky and therefore can move over the ice without sliding. Having a very low profile, he is also capable of moving through the crawlable wall and can move under the floating box as well."}
+}
+
+/////////////////////////////////////////////////////////////////////////
+
+objectname oPasovec;
+depend {AktivujeMinu, KlouzePoLedu, oManik, oObet1, VeciPadajiciDoDiry, VeciStrkatelnePasem, PadaDoVody, ZnicitelneVeVybuchu} << oPasovec;
+object oPasovec {
+	edit {InMap, UserName="Armadillo", Comment="The Armadillo is a very tough, armored creature. He resists if a stone falls on him, even from a great height."}
+}
+
+//////////////////////////////////////////////////////////////
+
+objectname oTeleport;
+depend {placeable, oStartsMove, TTMOConsumer, ZnicitelneVeVybuchu} << oTeleport;
+voidname TeleportujeSe;
+depend oMoveable << TeleportujeSe << oManik;
+methodname TeleportniHo;
+
+
+voidname SoundTest; // zvuk pro teleport
+
+objptra oTeleport::objs;
+
+object oTeleport {
+	edit {InMap, UserName="Teleport", Comment="If you enter the teleport, you are teleported to a different place in the level. Often but not necessarily, this is another teleport. While teleporting, you keep the direction of your very last movement. For example if you enter the teleport from left, you will appear on right to the teleport destination. If there is not empty space, you will be placed on one of two upright places considering the original direction of your movement (this would be up and down from the target in our previous example). If neither this is possible, you will appear on the same side of the target according to the side, from which you entered the teleport. If an obstacle blocks even this place, the teleportation will not start. Teleport can be destroyed in explosion."}
+	inherit cell2D edit {Editable, UserName = "destination", Comment = "The place the teleport teleports to."} { 
+		inherit int DestX edit {DefaultValue=2456128},DestY edit {DefaultValue=-2456128};
+	}
+	inherit constructor() {DestX = 2456128; DestY = -2456128;}
+	inherit void @MapPlaced() {
+		int z;
+		if (DestX==2456128 && DestY == -2456128) {
+			@FindObjCell(this,&DestX,&DestY,&z);
+		}
+	}
+	
+	inherit int direct TestujCil(int dir, int x, int y, objptr obj) {
+		int f;
+		switch (dir) {
+			case 16: y--; break;
+			case 8: y++; break;
+			case 4: x++; break;
+			case 12: x--; break;
+		}
+		int OldX, OldY, OldZ;
+		@FindObjsInArea(::objs,onull,TeleportLookConsumer,x,y,x,y);
+		for (f=0; f<::objs->GetCount(); f++) ::objs[f]->TeleportLook(::obj:obj);
+		@ReadObjCoords(obj,&OldX,&OldY,&OldZ);
+		if (@IsObjInCollision(obj,x*40-OldX,y*40-OldY)) return 0;
+		obj->CalcMove();
+		@PlaySound(SoundTest,@ObjPosX,@ObjPosY);
+		TeleportniHo(::obj:obj,::x:x*40,::y:y*40) callend obj;
+		return 1;
+	}
+	
+	inherit direct void TestujCile(int pfdir,objptr obj) {
+		int dir;
+		if (TestujCil(pfdir,DestX,DestY,obj)) return;
+		dir = pfdir-4;
+		if (dir<1) dir+=16;
+		if (TestujCil(dir,DestX,DestY,obj)) return;
+		dir = pfdir+4;
+		if (dir>16) dir-=16;
+		if (TestujCil(dir,DestX,DestY,obj)) return;
+		dir = pfdir+8;
+		if (dir>16) dir-=16;
+		if (TestujCil(dir,DestX,DestY,obj)) return;
+	}
+	
+	void TraingToMoveOver(int pfdir) {
+		if (typeof(sender) <= TeleportujeSe && @IsGame()) TestujCile(pfdir, sender);
+	}
+	
+	void TeleportniHo(objptr ::obj, int ::x, int ::y) {
+		int OldX, OldY, OldZ;
+		int dx,dy;
+		if (!@ExistsObj(obj)) return;
+		@RemoveObjFromMap(obj);
+		if (typeof(obj) <= oManik && obj->GetFocus()) {
+			@ReadObjCoords(obj,&OldX,&OldY,&OldZ);
+			dx = x-OldX; dy = y-OldY;
+			@CalcScrollDistance(OldX,OldY,&dx,&dy);
+			int a = @round(@sqrt(dx*dx + dy*dy)) + 165;
+			@WindowScroll(x-OldX, y-OldY,a);
+			ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed a;
+		} else ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed 165;
+	}
+}
+
+
+////////////////////////////////////////////////////////////
+
+objectname oStrkatelne;
+depend {oMoveable,TTMOConsumer} << oStrkatelne << {oBalonek, oKamen, oKrabice, oPneumatika};
+methodname SetStrkTimeOut;
+objectname oStrka;
+depend placeable << oStrka << oManik;
+methodname ZjistiCoStrka returns name;
+voidname PriStrkani, ForceStrkani;
+depend PriChci4 << PriStrkani << PriMagnet;
+depend NezabijackaForce << ForceStrkani;
+methodname StrkamTo returns int;
+voidname StrkatelneSKamennymZvukem;
+depend StrkatelneSKamennymZvukem << {oKamen, oKrabice, oPneumatika};
+
+// strkatelne objekty.
+// stkajici objekt na ne musi chvili pusobit silou a pak se daji do pohybu
+// Kdyz objekt busobit prestane, strkani se zrusi
+
+object oStrkatelne inherit {
+	objptr LastStrkac;
+	int StrkTime;
+	int StrkTimeOut;
+	int Time;
+	uconstructor() {
+		Time = 0;
+		LastStrkac = onull;
+		StrkTime = 0;
+		StrkTimeOut = 4;
+		SetStrkTimeOut() callend this;
+	}
+	
+	void TraingToMoveOver(int pfdir, int pfspeed=33) {
+		if (@IsEditor() || !(typeof(sender)<=oStrka)) return;
+		if (Moving) return;
+		if (!(typeof(this)<=sender->ZjistiCoStrka())) return;
+		if (Time == @GetKernelTime()) return;
+
+		if (!LastStrkac || LastStrkac==sender) {
+			// nekdo do mne strka. hlidam si aby to byl furt ten samy objekt
+			if (!LastStrkac) ::DisableStrkac() nextturn;
+			LastStrkac = sender;
+			StrkTime++;
+			Time = @GetKernelTime();
+			if (StrkTime>StrkTimeOut) {
+				// uz strka dost dlouho, zkusim se hnout
+				AddForce(pfdir:pfdir,pfpriority:PriStrkani,pftype:ForceStrkani,pfspeed:pfspeed);
+				RemoveForce() nextturn;
+				sender->CalcMove() end; // a reknu senderu, at si pohyby spocita znovu o chvili pozdeji, kdy uz ja pripadne pojedu
+				::StrkaniStarted() end;
+			} 
+			sender->CalcMove() nextturn; // at sender zkusi strcit pristi kolo
+		}
+	}
+
+	void ::StrkaniStarted() {
+		if (Moving && typeof(this) <= StrkatelneSKamennymZvukem) {
+			@PlaySound(sKutaleni,@ObjPosX,@ObjPosY);
+		}	
+	}
+
+	void ::DisableStrkac() {
+		if (Moving && Time<@GetKernelTime()) Time = @GetKernelTime()-1;
+		if (Time+40 < @GetKernelTime()) {
+			// uz do me mikdo nestrka, zrusim strkace
+			StrkTime=0;
+			LastStrkac=onull;
+		} else ::DisableStrkac() nextturn;
+	}
+	
+	int StrkamTo() {
+		if (sender==LastStrkac && LastStrkac && Moving) return 1;
+		return 0;
+	}
+}
+
+
+//////////////////////////////////
+
+methodname SetCoStrka;
+voidname StrkatelnePBlocked;
+depend StrkatelnePBlocked << {oStrkatelne,oBlockedPath}
+
+// objekty, ktere umeji strkat
+object oStrka inherit {
+	name CoStrka;
+	name @clzFceGr;
+	uconstructor() {
+		CoStrka = oStrkatelne;
+		@clzFceGr = StrkatelnePBlocked;
+		SetCoStrka() callend this;
+	}
+	name ZjistiCoStrka() { return CoStrka; }
+	
+	//  musim naprogramovat specialni funkci pro zjistovani kolizi.
+	// Nekoliduji s tim, co se pohybuuje, protoze to zrovna strkam
+	int retor @TestCollision(objptr @Object)  {
+		objptr o;
+		if (typeof(@Object) <= oBlockedPath) o = @Object->GetFather(); else o = @Object;
+		if (typeof(o) <= oStrkatelne) if (o->StrkamTo()) return 0;
+		return 1;	
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+objectname oHajzl;
+depend oTeleport << oHajzl; 
+methodname CopyManik;
+objectname oManikE;
+depend oManikE << {oPasovec, oDracek, oHemr}
+
+object oHajzl {
+	edit {InMap, UserName="Converter", Comment="The converter behaves like the teleport, but it will change your form in addition. In fact, this is often the only effect as the target of teleportation is set to the same place as the source."}
+	name MeniNa edit {Is < oManikE, UserName="Changes to", Auto = oManikE, Comment="The resultant form."};
+	constructor() 2197{MeniNa = oPasovec;}
+	
+		
+	void TraingToMoveOver(int pfdir) {
+		if (typeof(sender) <= oManik && @IsGame()) oTeleport::TestujCile(pfdir, sender);
+	}
+	
+	void TeleportniHo(objptr ::obj, int ::x, int ::y) {
+		int OldX, OldY, OldZ;
+		int dx,dy;
+		if (!@ExistsObj(obj)) return;
+		@RemoveObjFromMap(obj);
+		@ReadObjCoords(obj,&OldX,&OldY,&OldZ);
+		if (typeof(obj) != MeniNa) {
+			// manik bude zmenen, musim okopirovat inventar
+			objptr obj2 = obj;
+			obj = new vartype MeniNa;
+			obj->CopyManik(::obj:obj2);
+			delete obj2;
+		}
+		// jinak se chovam jako bezny teleport
+		if (typeof(obj) <= oManik && obj->GetFocus()) {
+			dx = x-OldX; dy = y-OldY;
+			@CalcScrollDistance(OldX,OldY,&dx,&dy);
+			int a = @round(@sqrt(dx*dx + dy*dy)) + 165;
+			@WindowScroll(x-OldX, y-OldY,a);
+			ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed a;
+		} else ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed 165;
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////////////
+
+objectname oTeleport2;
+depend oTeleport << oTeleport2; 
+object oTeleport2 {
+	edit {InMap, UserName="Teleport2", Comment="Teleport, which can teleport all moveable objects or objects at your choice."}
+	name CoTeleportuje edit {EditType = object|objvoid, UserName="What Teleports", Comment = "Working set of objects."}
+	constructor() { CoTeleportuje = oMoveable;}
+	void TraingToMoveOver(int pfdir) {
+		if (typeof(sender) <= CoTeleportuje && @IsGame()) oTeleport::TestujCile(pfdir, sender);
+	}
+	
+	void TeleportniHo(objptr ::obj, int ::x, int ::y) {
+		int OldX, OldY, OldZ;
+		int dx,dy;
+		if (!@ExistsObj(obj)) return;
+		@RemoveObjFromMap(obj);
+		if (typeof(obj) <= oManik && obj->GetFocus()) {
+			@ReadObjCoords(obj,&OldX,&OldY,&OldZ);
+			dx = x-OldX; dy = y-OldY;
+			@CalcScrollDistance(OldX,OldY,&dx,&dy);
+			int a = @round(@sqrt(dx*dx + dy*dy)) + 165;
+			@WindowScroll(x-OldX, y-OldY,a);
+			ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed a;
+		} else ManikControler->ZobrazHo(::obj:obj,::x:x,::y:y) timed 165;
+	}
+}
+
+/////////////////////////////////////////////////////////////////
+
+// funkce pro kopirovani inventare
+object oManik inherit {
+	void CopyManik(objptr ::obj) {
+		int _focus,_ziju;
+		obj->ReadManik(ret ::pSBomby:SBomby,ret ::pSMiny:SMiny,ret ::pSKlic0:SKlice[0],ret ::pSKlic1:SKlice[1],ret ::pSKlic2:SKlice[2],ret ::pFocus:_focus,ret ::pziju:_ziju);
+		if (!ziju && _ziju) ManikControler->IncManik();
+		ziju = _ziju;
+		SetFocus(::focus:_focus);
+	}
+	void decl ReadManik(int ret ::pSBomby, int ret ::pSMiny, int ret ::pSKlic1, int ret ::pSKlic2, int ret ::pSKlic0, int ret ::pFocus,int ret ::pziju) {
+		pSBomby = SBomby; pSMiny = SMiny;
+		pSKlic0 = SKlice[0];pSKlic1 = SKlice[1];pSKlic2 = SKlice[2];
+		pFocus = Focus;
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+objectname oUmiraNaSlizu;
+methodname SlizOn, SlizOff;
+methodname ZemriVeSlizu;
+depend Destructor << ZemriVeSlizu;
+depend oUmiraNaSlizu << {oDracek, oPasovec, oHemr}
+
+object oUmiraNaSlizu inherit {
+	int SlizCount;
+	int SlizSmrtCount;
+	int SlizMez;
+	uconstructor() {
+		SlizCount=0; SlizSmrtCount=0; SlizMez=17;
+	}
+	void SlizOn() {
+		SlizCount++;
+		if (SlizCount==1 && SlizSmrtCount==0) ::SlizTikac();
+	}
+	void SlizOff() {
+		if (SlizCount>0) SlizCount--;
+	}
+	
+	void ::SlizTikac() {
+		if (SlizCount) {
+			SlizSmrtCount++;
+			if (SlizSmrtCount > SlizMez) ZemriVeSlizu() message;
+		} else if (SlizSmrtCount) SlizSmrtCount--;
+		else return;
+		::SlizTikac() nextturn;
+	}
+}
+
+//////////////////////////////////////////////////////////////
+
+objectname oSliz;
+depend floors << oSliz;
+object oSliz {
+	edit {InMap, UserName="Toxic Slime", Comment="When you appear in the toxic slime, you start to become intoxicated. The bar in the bottom of the game menu indicates the level of intoxication. As the intoxication level reaches the maximum, you die and mutate into a monster. The Armadillo becomes either a rotating monster or a homing monster. The Slime Guy becomes a claustrophobic monster and the Dragon becomes a traffic monster. If you disappear from the slime, your intoxication will disappear too, in a short time. You are able to walk across 3 cells of a toxic slime. No monsters or objects are affected by a toxic slime."}
+	objptr triger;
+
+	void @MapPlaced()  {
+		if (@IsEditor()) return;
+		triger = new otrigger;
+		triger->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY,::ncX:0,::ncY:0);
+		triger->SetClzGr(::AddGr:oUmiraNaSlizu, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+	
+	void @TriggerOn(objptr @Object)  {
+		if (triger) @Object->SlizOn() message;
+	}
+	void @TriggerOff(objptr @Object) {
+		if (triger) @Object->SlizOff() message;
+	}
+	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+		@AreaMessage(SlizOff,this,oUmiraNaSlizu);
+	}	
+	
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+objectname oPriseraSNavadeci;
+
+depend oPrisera << oPriseraSNavadeci;
+
+depend {AktivujeMinu, KlouzePoLedu, VeciStrkatelnePasem, VeciPadajiciDoDiry, ZnicitelneVeVybuchu, oObetPohybu1, oZabijak1, PadaDoVody} << oPriseraSNavadeci;
+
+// pohybuje se za manikem, ktery ma zrovna fokus
+object oPriseraSNavadeci{
+	edit {InMap, UserName="Homing Monster", Comment="The homing monster tries to go to you. Although it is not smart enough to run through a complex labyrinth, it is still very dangerous, especially when in higher number. It can avoid an evident danger, just like a rotative monster."}
+	
+	void MoveCalculating() {
+		RemoveForce();
+		int x,y,z;
+		int dx, dy;
+		if (!@IsObjInMap(ManikFocus)) {
+			CalcMove() nextturn;
+			return;
+		}
+		@ReadObjCoords(ManikFocus,&x,&y,&z);
+		if (@ObjPosX>x) dx = @ObjPosX-x; else dx = x-@ObjPosX;
+		if (@ObjPosY>y) dy = @ObjPosY-y; else dy = y-@ObjPosY;
+
+		int sm1,sm2,sm3,sm4;
+		if (x<@ObjPosX) { sm1=12; sm3=4;}
+		else {sm1=4; sm3=12;}
+		if (y<@ObjPosY) { sm2=16; sm4=8;}
+		else {sm2=8; sm4=16;}
+		
+		int randret = @randInt(dx+dy);
+		if ( randret < dx) {
+			AddForce(pfdir:sm1,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+			AddForce(pfdir:sm2,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+		} else {
+			AddForce(pfdir:sm2,pfpriority:PriChci1,pftype:ForceChci,pfspeed:33);
+			AddForce(pfdir:sm1,pfpriority:PriChci2,pftype:ForceChci,pfspeed:33);
+		}
+		if (@randInt(1)) {
+			AddForce(pfdir:sm3,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+			AddForce(pfdir:sm4,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+		} else {
+			AddForce(pfdir:sm4,pfpriority:PriChci3,pftype:ForceChci,pfspeed:33);
+			AddForce(pfdir:sm3,pfpriority:PriChci4,pftype:ForceChci,pfspeed:33);
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////
+
+methodname ResetMenu;
+
+// kvuli zobrazovani pruhu s indikaci otravy
+objectname oManikSliz;
+depend {oManik, oUmiraNaSlizu} << oManikSliz << {oDracek, oPasovec, oHemr};
+object oManikSliz inherit {
+	void oUmiraNaSlizu::SlizTikac() {
+		if (Focus) ::AktualizujSlizPruh() callend this;
+	}
+	void ::AktualizujSlizPruh() {
+		@MnuSetBar(1,(SlizSmrtCount*100)/SlizMez);
+	}
+	void ResetMenu() {
+		if (Focus) @MnuSetBar(1,(SlizSmrtCount*100)/SlizMez);
+	}
+}
+
+/////////////////////////////////////////////////////////////////
+
+objectname oZnacky;
+depend {KlouzePoLedu, oMoveable, oPusobiKulate, oStartsMove, PadaDoVody, Veci, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu} << oZnacky;
+
+objectname oZnSmerova;
+depend oSeSmerem << oZnSmerova;
+object oZnSmerova {
+	edit {InMap, UserName="Direction Sign", Comment="The monster follows the direction of the direction sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+}
+
+objectname oZnZakazVjezdu;
+object oZnZakazVjezdu {
+	edit {InMap, UserName="No Fare Sign", Comment="The monster turns back (by 180°) after getting to no fare sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+}
+
+objectname oZnSedesat;
+object oZnSedesat {
+	edit {InMap, UserName="Speed Limit", Comment="The speed limit of 60 km/h (37 mph) makes the monster to travel at its usual speed. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+}
+
+objectname oZnNeSedesat;
+object oZnNeSedesat {
+	edit {InMap, UserName="End Speed Limit", Comment="The end of the speed limit makes the monster to travel really fast. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+}
+
+depend oZnacky << {oZnSmerova, oZnZakazVjezdu, oZnSedesat, oZnNeSedesat}
+
+////////////////////////////////////////////////////////////////////////
+
+voidname keyA, key1, key2, key3, key4;
+objptra oManik::objs;
+
+
+// MANIK - sbirani znacek
+
+object oManik inherit {
+	int SZnacky[4];
+	int KeyZnackyDown;
+	int KeyZnackyDown1;
+	int ZmacknutoA;
+	uconstructor() {
+		int f;
+		for (f=0; f<4; f++) SZnacky[f]=0;
+		KeyZnackyDown = 0;
+		KeyZnackyDown1 = 0;
+		ZmacknutoA = 0;
+	}
+	void @TriggerOn(objptr @Object) {
+		if (typeof(@Object)<=oZnacky && @IsKeyDown(keyA) && (Focus || SdileneOvladani)) {
+			int typ=0;
+			if (typeof(@Object) <= oZnSmerova) typ=0;
+			else if (typeof(@Object) <= oZnZakazVjezdu) typ=1;
+			else if (typeof(@Object) <= oZnSedesat) typ=2;
+			else if (typeof(@Object) <= oZnNeSedesat) typ=3;
+			if (SZnacky[typ] < 12) {
+				@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+				SZnacky[typ]++;
+				if (Focus) ManikControler->MnuSetZnacka(::Typ:typ, pCount:SZnacky[typ]);
+				delete @Object;
+			}
+		}
+	}
+	
+	void ::EveryTurn() {
+		if (@IsObjInMap(this) && (Focus || SdileneOvladani)) {
+			if (@IsKeyDown(keyA)) {
+				if (!ZmacknutoA) {	// prave jsem zmackl A, seberu znacky pod sebou
+					ZmacknutoA = 1;
+					@FindObjsInArea(::objs,this,oZnacky);
+					int f;
+					for (f=0; f<::objs->GetCount(); f++) @TriggerOn(@Object: ::objs[f]) message;
+				}
+			} else ZmacknutoA = 0;
+		}	
+	}
+	
+	void ::EveryTurn() {
+		if (!@IsObjInMap(this) || (!Focus && !SdileneOvladani)) return;
+		objptr o;
+		int typ=-1;
+		name smer = nnull;
+		if (@IsKeyDown(key2)) typ=1;
+		else if (@IsKeyDown(key3)) typ=2;
+		else if (@IsKeyDown(key4)) typ=3;
+		if (typ==-1) KeyZnackyDown = 0;
+		
+		if (@IsKeyDown(key1)) { // nepohybuju se, ale otacim nebo pokladam znacky
+			RemoveForce() message;
+			if (@IsKeyDown(keyUp)) smer = Sever;
+			else if (@IsKeyDown(keyDown)) smer = Jih;
+			else if (@IsKeyDown(keyRight)) smer = Vychod;
+			else if (@IsKeyDown(keyLeft)) smer = Zapad;
+			if (smer) typ=0; else KeyZnackyDown1 = 0;
+		}
+		
+		if (typ==-1) return;
+		
+		if (typ==0) {
+			@FindObjsInArea(::objs,this,oZnSmerova);
+			if (::objs->GetCount() && !KeyZnackyDown1) {
+				// otaceni znacek
+				@PlaySound(sSbirani,@ObjPosX,@ObjPosY);
+				::objs[0]->SetSmer(::Smer:smer);
+				KeyZnackyDown1 = 1;
+				return;
+			}
+		}
+		
+		// pokladani znacek
+		if (SZnacky[typ] && !KeyZnackyDown && !KeyZnackyDown1 && TestKolize()) {
+			SZnacky[typ]--;
+			if (Focus) ManikControler->MnuSetZnacka(::Typ:typ, pCount:SZnacky[typ]);
+			switch (typ) {
+				case 0 : 
+					o = new oZnSmerova;
+					o->SetSmer(::Smer:smer);
+					KeyZnackyDown1 = 1;
+					break;
+				case 1 : o = new oZnZakazVjezdu; break;
+				case 2 : o = new oZnSedesat; break;
+				case 3 : o = new oZnNeSedesat; break;								
+			}
+			@WriteObjCoords(o,cellX*40,cellY*40);
+			@PlaceObjToMap(o);
+			if (typ) KeyZnackyDown = 1;
+		}
+	}
+
+	// kopirovani znacek
+	void CopyManik(objptr ::obj) {
+		int f;
+		int *p = obj->GetPointerToZnacky();
+		for (f=0; f<4; f++) SZnacky[f] = p[f];
+	}
+	int direct *GetPointerToZnacky() {
+		return SZnacky;
+	}
+	
+	// pri zmene fokusu musim prekreslit herni menu
+	void ResetMenu() {
+		int f;
+		if (Focus) {
+			ManikControler->MnuSetKlic(::Barva:Cervena,pCount:SKlice[0]);
+			ManikControler->MnuSetKlic(::Barva:Modra,pCount:SKlice[1]);
+			ManikControler->MnuSetKlic(::Barva:Zluta,pCount:SKlice[2]);
+			ManikControler->MnuSetBomba(pCount:SBomby);
+			ManikControler->MnuSetMina(pCount:SMiny);
+			for (f=0; f<4; f++) ManikControler->MnuSetZnacka(::Typ:f, pCount:SZnacky[f]);
+		}
+	}
+	void @LoadGame() {
+		if (Focus) {
+			ResetMenu() message;
+			::OznacHo2() message;
+		}
+	}
+	void ::OznacHo2() {
+		ManikControler->OznacHo() message;
+	}
+	
+}
+
+
+//////////////////////////////////////////////////////////////
+
+objectname oPriseraZnackova;
+depend oPrisera << oPriseraZnackova;
+
+objptra oPriseraZnackova::objs;
+
+object oPriseraZnackova inherit {
+	int Rychlost edit {List = {16,33}, UserName="Speed", Comment="How much time it takes to move to next cell."};
+	constructor() {Rychlost = 33;}
+
+	void MoveCalculating() {
+		RemoveForce();
+		@FindObjsInArea(::objs,this,oZnacky);
+		name _smer = smer;
+		int _prikaz = 0;
+		int invert=0;
+		int dir=16;
+		if (::objs->GetCount()) {
+			if(typeof(::objs[0]) <= oZnSmerova) {_smer = ::objs[0]->GetSmer(); _prikaz = 1;}
+			else if(typeof(::objs[0]) <= oZnZakazVjezdu) {invert=1; _prikaz = 1;}
+			else if(typeof(::objs[0]) <= oZnSedesat) Rychlost = 33;
+			else if(typeof(::objs[0]) <= oZnNeSedesat) Rychlost = 16;
+		}
+		
+		if (_smer == Sever) dir=16;
+		else if (_smer == Jih) dir=8;
+		else if (_smer == Zapad) dir=12;
+		else if (_smer == Vychod) dir=4;
+		if (invert) {
+			dir+=8; if (dir>16) dir-=16;
+		}
+		AddForce(pfdir:dir,pfpriority:PriChci1,pftype:ForceChci,pfspeed:Rychlost);
+		dir+=8; if (dir>16) dir-=16;
+		if (!_prikaz) AddForce(pfdir:dir,pfpriority:PriChci2,pftype:ForceChci,pfspeed:Rychlost);
+	}
+}
+
+///////////////////////////////////
+
+objectname oPriseraDopravni;
+depend {AktivujeMinu, KlouzePoLedu, oObetPohybu1, oPriseraZnackova, oZabijak1, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu } << oPriseraDopravni;
+object oPriseraDopravni {
+	edit {InMap, UserName="Traffic Monster", Comment="Traffic monster follows the traffic signs. It can travel at normal or high speed, which can be also controlled by the signs. It turns back when it hits some obstacle, but it cannot avoid the danger - it will go wherever the signs will tell it to go, even directly in the pit."}
+}
+
+///////////////////////////////////
+
+objectname oPriseraKlaustrofobni;
+depend {AktivujeMinu, KlouzePoLedu, oObetPohybu1, oPriseraZnackova, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu } << oPriseraKlaustrofobni;
+object oPriseraKlaustrofobni{
+	edit {InMap, UserName="Claustrophobic Mo.", Comment="Like a traffic monster, the claustrophobic monster follows the traffic signs. In contrast to every other monster, this one does not kill you. However, it will panic and explode whenever it gets to such place, it cannot escape from. It is enough to have both ways forth and back blocked because the claustrophobic monster will not turn left or right unless is told so by a traffic sign."}
+	void MoveCalculating() {
+		::KlaustrofobniKill() nextturn;
+	}
+	void ::KlaustrofobniKill() {
+		if (!Moving && @IsObjInMap(this)) ZnicSeVybuchem() callend this;
+	}
+}
+
+
+/////////////////////////////////////////////////////
+
+objectname Bestiar;
+depend Bestiar << {oManik, oPrisera}
+object Bestiar {
+	edit {Editor, UserName="Creatures", Comment="Living objects - your forms and monsters."}
+}
+
+objectname Testy;
+depend Testy << { EditTest, oAreaTest, smejdic}
+object Testy {
+	edit {Editor, UserName="Tests", Comment="Objects for testing functionality of the System Krkal. They don't belong to the game."}
+}
+
+object floors {
+	edit {Editor, UserName="Floors",Comment="Floors"}
+}
+
+object Veci {
+	edit {Editor, UserName="Pickups", Comment="Pickups"}
+}
+
+objectname Steny;
+depend Steny << {wall, oHlina, oZnicitelnaStena, oAntiMagnet, oZamek}
+object Steny {
+	edit {Editor, UserName="Walls", Comment="Solid walls, non moving obstacles."}
+}
+
+objectname Predmety;
+depend Predmety << {oTeleport, oLaser, oMagnet, oKamen, oKrabice, oBalonek, oPneumatika}
+object Predmety {
+	edit {Editor, UserName="Items", Comment="Pushable and other active items."}
+}
+
+///////////////////////////////////////////////////////////////
+
+objectname oScriptedTest;
+depend Testy << oScriptedTest;
+
+// Test na skriptovatelne polozky
+object oScriptedTest {
+	edit {OutMap}
+	int blb;
+	char chr;
+	name *pole;
+	scripted Slunicko constructor ::Init1(20);
+	scripted Mesicek constructor ::Init1 edit {Comment = "FujTajXl"};
+	
+	constructor() {
+		int f;
+		pole = new name[5];
+		for (f=0; f<5; f++) pole[f] = oKrabice;
+	}
+	lconstructor() {
+		int f;
+		pole = new name[5];
+		chr = @LoadChar();
+		blb = @LoadInt();
+		for (f=0; f<5; f++) pole[f] = @LoadName();
+	}
+	
+	void @ESaveMe() {
+		int f;
+		@SaveChar(chr);
+		@SaveInt(blb);
+		for (f=0; f<5; f++) @SaveName(pole[f]);
+	}
+	
+	void @SaveGame(){
+		int f;
+		for (f=0; f<5; f++) @SaveName(pole[f]);
+	}
+	void @LoadGame() {
+		int f;
+		pole = new name[5];
+		for (f=0; f<5; f++) pole[f] = @LoadName();
+	}
+	
+	destructor()  {
+		delete pole;
+	}
+	
+	void ::Init1(int @ItemID)  {
+		if (@ItemID==20) {
+			int f;
+			@ECreateInt(&blb,"Tuflik");
+			@EPlaceItem();
+			@EAddGap();
+			for(f=0; f<5; f++) {
+				@ECreateName(pole+f,"Polozka");
+				@EPlaceItem();
+			}
+		} else {
+			@ECreateChar(&chr,"Chrochta","To Teda JO!");
+			@EPlaceItem();
+		}
+		@ERefresh();
+	}
+}
+
+
+///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
+///
+///			P R E P I N A C
+///
+///////////////////////////////////////////////////////////////
+
+objectname oPrepinace;
+voidname PrepAkce, PrepUmisti, PrepOdeber, PrepVymen, PrepMessage, PrepOdeberUmisti,PrepOdeberUmisti2;
+depend PrepAkce << {PrepUmisti, PrepOdeber, PrepVymen, PrepMessage, PrepOdeberUmisti}
+voidname PrepPusobnost, NaOblast, NaObjekty;
+voidname PrepinacNezarovnavaSouradnice;
+depend PrepPusobnost << {NaOblast, NaObjekty}
+methodname Prepni;
+
+objptra oPrepinace::objs;
+
+object oPrepinace inherit {
+	edit {Editor, UserName="Switches", Comment="Switches"}
+
+	scripted Akce constructor ::InitAkce();
+	int PocetAkci edit {LevelLoad};
+	
+	struct sAkce {
+		sAkce *next;
+		int x1,x2,y1,y2; // oblast pusobnosti
+		objptra objs1, objs2; //skupiny objektu
+		name typ1,typ2;
+		name typ;
+		name akce;	// popis akce
+		name Pusobnost;
+	}
+	
+	name DruhAkce edit {NoLevelLoad, UserName="Action Type", Is < PrepAkce, Comment = "Set the attribute Action Type to select what shall the action do (placing = PrepUmisti, removing = PrepOdeber, swapping = PrepVymen ...). After that set Action Target and press the button\"Add Action\"."};
+	name Pusobnost edit {NoLevelLoad, UserName="Action Target", Is < PrepPusobnost, Comment = "Set the attribute Action Target to select what shall the action affect. You can choose either to manage existing objects (=NaObjekty) or to work with an area within the map (=NaOblast). After that set Action Type and press the button\"Add Action\"."};
+	int Prepina edit {Editable, EditType = bool, UserName="Switches", Comment = "If checked, the switch will be switching between two states (will do the actions and then will undo them), otherwise the switch will only and always do the actions."}
+	int Nekoliduj edit {Editable, EditType = bool, UserName="Don't colide", Comment = "If checked, the switch will place only the non colliding objects. This flag doesn't affect swapping."}
+	uconstructor() {
+		DruhAkce = PrepUmisti;
+		Pusobnost = NaOblast;
+	}
+
+	sAkce *Akce; // spojak akci
+	
+	void ::SaveAkce(int ::sg) {
+		int f;
+		sAkce *a = Akce;
+		for (f=0; f<PocetAkci; f++) {
+			if (!a) @LogUserError(@eKEGPanicError);
+			@SaveName(a->akce);
+			@SaveName(a->Pusobnost);
+			if (sg) {
+				@SaveInt(a->x1); @SaveInt(a->y1);
+				@SaveInt(a->x2); @SaveInt(a->y2);
+				@SaveObjPtrA(a->objs1);
+				@SaveObjPtrA(a->objs2);
+			} else if (a->Pusobnost == NaOblast) {
+				@SaveInt(a->x1); @SaveInt(a->y1);
+				@SaveInt(a->x2); @SaveInt(a->y2);
+			} else {
+				@SaveObjPtrA(a->objs1);
+				@SaveObjPtrA(a->objs2);
+			}
+			@SaveName(a->typ1); @SaveName(a->typ2); @SaveName(a->typ);
+			a = a->next;
+		}
+		if (a) @LogUserError(@eKEGPanicError);		
+	}
+
+	void @ESaveMe() {
+		::SaveAkce(::sg : 0);
+	}
+	void @SaveGame() {
+		::SaveAkce(::sg : 1);
+	}
+	
+	void ::LoadAkce(int ::sg) {
+		int f;
+		sAkce **a2 = &Akce,*a;
+		for (f=0; f<PocetAkci; f++) {
+			a = new sAkce;
+			a->next = null;
+			a->akce = @LoadName();
+			a->Pusobnost = @LoadName();
+			if (sg) {
+				a->x1 = @LoadInt(); a->y1 = @LoadInt();
+				a->x2 = @LoadInt(); a->y2 = @LoadInt();
+				a->objs1 = @LoadObjPtrA();
+				a->objs2 = @LoadObjPtrA();
+			} else if (a->Pusobnost == NaOblast) {
+				a->x1 = @LoadInt(); a->y1 = @LoadInt();
+				a->x2 = @LoadInt(); a->y2 = @LoadInt();
+				a->objs1 = new objptra;
+				a->objs2 = new objptra;
+			} else {
+				a->x1=0; a->x2=0; a->y1=0; a->y2=0;
+				a->objs1 = @LoadObjPtrA();
+				a->objs2 = @LoadObjPtrA();
+			}
+			a->typ1 = @LoadName(); a->typ2 = @LoadName(); a->typ = @LoadName();
+			*a2 = a;
+			a2 = &a->next;
+		}
+	}
+	
+	lconstructor() {
+		::LoadAkce(::sg : 0);
+	}
+	void @LoadGame() {
+		::LoadAkce(::sg : 1);
+	}
+	
+	cconstructor() {
+		sAkce **a2, *a, *b;
+		b = Akce; a2 = &Akce;
+		while (b) {
+			a = new sAkce;
+			a->next = null;
+			a->akce = b->akce;
+			a->Pusobnost = b->Pusobnost;
+			a->objs1 = @CopyObjPtrA(b->objs1);
+			a->objs2 = @CopyObjPtrA(b->objs2);
+			a->x1 = b->x1; a->y1 = b->y1;
+			a->x2 = b->x2; a->y2 = b->y2;
+			a->typ1 = b->typ1; a->typ2 = b->typ2; a->typ = b->typ;
+			
+			*a2 = a;
+			a2 = &a->next;
+			b = b->next;
+		}
+	}
+
+	
+	
+	constructor() {
+		Prepina = 1;
+		PocetAkci = 0;
+		Akce = null;
+		Nekoliduj = 0;
+	}
+	destructor() {
+		sAkce *a = Akce, *a2;
+		while (a) {
+			a2 = a;
+			a = a->next;
+			delete a2->objs1;
+			delete a2->objs2;
+			delete a2;
+		}
+	}
+	
+	// Prida novou akci a zobrazi v editoru jeji ovladaci prvky
+	void ::PridejPolozku() {
+		sAkce *a = new sAkce;
+		sAkce **a2 = &Akce;
+		while (*a2) a2 = &(**a2).next;
+		*a2 = a;
+		a->next = null;
+		a->x1=0; a->x2=0; a->y1=0; a->y2=0;
+		a->objs1 = new objptra;
+		a->objs2 = new objptra;
+		if (DruhAkce==PrepMessage) {
+			a->typ1 = TurnOn; a->typ2 = TurnOff;
+		} else {
+			a->typ1 = nnull; a->typ2 = nnull;
+		}
+		a->typ = nnull;
+		a->akce = DruhAkce;
+		a->Pusobnost = Pusobnost;
+		ZobrazPolozku(a,PocetAkci);
+		PocetAkci++;
+	}
+	
+	
+	void ::OdeberPolozku(int @ButtonUserID) {
+		int a=0;
+		sAkce **ptr = &Akce,*ptr2;
+		while (*ptr) {
+			if (a==@ButtonUserID) {
+				ptr2 = *ptr;
+				*ptr = ptr2->next;
+				delete ptr2->objs1;
+				delete ptr2->objs2;
+				delete ptr2;
+				PocetAkci--;
+				@EDeleteAllGroupItems(0); // vyklirovani vseho
+				::InitAkce();
+				break;
+			}
+			a++;
+			ptr = &((**ptr).next);
+		}
+	}
+	
+	// zobrazeni ovladacich prvku pro editaci jedne akce
+	void direct ZobrazPolozku(sAkce *a, int index) {
+		@EAddGap();
+		if (a->akce == PrepUmisti) @EAddText(">> Place <<");
+		else if (a->akce == PrepOdeber) @EAddText(">> Remove <<");
+		else if (a->akce == PrepVymen) @EAddText(">> Swap <<");
+		else if (a->akce == PrepMessage) @EAddText(">> Message <<");
+		else if (a->akce == PrepOdeberUmisti) @EAddText(">> Remove and Place <<");
+		
+		if (a->Pusobnost == NaOblast) {
+			@EAdd2DAreaC(&a->x1, &a->y1, &a->x2, &a->y2, "Area");
+			if (a->akce == PrepUmisti || a->akce == PrepOdeber) {
+				@ECreateName(&a->typ1, "Object type","Which object will be placed to area / removed from area");
+				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
+				@EPlaceItem();
+			} else if (a->akce == PrepVymen) {
+				@ECreateName(&a->typ1, "This type");
+				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
+				@EPlaceItem();
+				@ECreateName(&a->typ2, "swap for");
+				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
+				@EPlaceItem();
+			} else if (a->akce == PrepMessage) {
+				@ECreateName(&a->typ, "Object type","To which object messages will be sent.");
+				@ESetVarTags(0,@eEdNTobject);
+				@EPlaceItem();
+			} else if (a->akce == PrepOdeberUmisti) {
+				@ECreateName(&a->typ1, "Remove type");
+				@ESetVarTags(@eKVUBobjInMap|@eKVUBincludeNull,@eEdNTobject);
+				@EPlaceItem();
+				@ECreateName(&a->typ2, "Place type");
+				@ESetVarTags(@eKVUBobjInMap|@eKVUBincludeNull,@eEdNTobject);
+				@EPlaceItem();
+			}
+		} else {
+			if (a->akce == PrepUmisti || a->akce == PrepOdeber) {
+				@ECreateObjPtrA(&a->objs1, "Objects","Which object will be placed / removed. Don't forget to set the object coordinates.");
+				@ESetVarTags(@eKVUBobjInMap);
+				@EPlaceItem();
+			} else if (a->akce == PrepVymen) {
+				@ECreateObjPtrA(&a->objs1, "This objects","The first object will be swapped for the first object from the second array, the second for the second and so on.");
+				@ESetVarTags(@eKVUBobjInMap);
+				@EPlaceItem();
+				@ECreateObjPtrA(&a->objs2, "swap for","The first object from the first array will be swapped for the first object, the second for the second and so on.");
+				@ESetVarTags(@eKVUBobjInMap);
+				@EPlaceItem();
+			} else if (a->akce == PrepMessage) {
+				@ECreateObjPtrA(&a->objs1, "Objects","To which object messages will be sent.");
+				@EPlaceItem();
+			} else if (a->akce == PrepOdeberUmisti) {
+				@ECreateObjPtrA(&a->objs1, "Remove o.");
+				@ESetVarTags(@eKVUBobjInMap);
+				@EPlaceItem();
+				@ECreateObjPtrA(&a->objs2, "Place o.");
+				@ESetVarTags(@eKVUBobjInMap);
+				@EPlaceItem();
+			}
+		}
+		
+		if (a->akce == PrepMessage) {
+			@ECreateName(&a->typ1, "First message","It is sent when switched on.");
+			@ESetVarTags(0,@eEdNTmethod);
+			@EPlaceItem();
+			if (Prepina) {
+				@ECreateName(&a->typ2, "second message","It is sent when switched off.");
+				@ESetVarTags(0,@eEdNTmethod);
+				@EPlaceItem();
+			}	
+		}
+		@EAddButton(0,1,"Remove Action","Removes this action",index,::OdeberPolozku);
+	}
+	
+	// Konstruktor skriptovatelne polozky
+	void ::InitAkce() {
+		int f;
+		sAkce *a = Akce;
+		@EAddButton(0,1,"Add Action","It adds a new action for the switch. Before you press this button, set the attributes Action Type and Action Target.",0,::PridejPolozku);
+		for (f=0; f<PocetAkci; f++) {
+			if (!a) @LogUserError(@eKEGPanicError);
+			ZobrazPolozku(a,f);
+			a = a->next;
+		}
+	}
+	
+	
+	///////////////
+	// Vlastni prepnuti
+	// pomocne rutiny
+	
+	// pro umisteni objektu.
+	direct int KillPlace(objptr o, objptra objs) {
+		if (Nekoliduj && @IsObjInCollision(o)) return 0; // neumistim, protoze koliduji
+		if (Prepina) {
+			int f,p;	// zapomatuji si objekty s kterymi koliduji a musim je vyhodit z mapy, abych mohl akci vratit
+			@FindCollidingObjs(o,::objs);
+			p = objs->GetCount();
+			for (f=0; f<::objs->GetCount(); f++,p++) {
+				@RemoveObjFromMap(::objs[f]);
+				objs[p] = ::objs[f];
+			}
+			@PlaceObjToMap(o);
+		} else @PlaceObjToMapKill(o); // akci nevracim
+		return 1;
+	}
+	
+	// na souradnice objektu o umistim objekt.
+	// a to bud ze seznemu objektu, pokud nejaky ma shodne souradnice, nebo vytvorim objekt novy
+	direct void PlaceOrFindPlace(objptr o, objptra objs, name typ) {
+		int f;
+		objptr o2;
+		int x,y,z;
+		int x2,y2,z2;
+		if (!@ExistsObj(o)) return;
+		@ReadObjCoords(o,&x,&y,&z);
+		for (f=0; f<objs->GetCount(); f++) {
+			if (@ExistsObj(objs[f])) {
+				@ReadObjCoords(objs[f],&x2,&y2,&z2);
+				if (x==x2 && y==y2 && z==z2) {
+					@PlaceObjToMapKill(objs[f]);
+					return;
+				}
+			}			
+		}
+		o2 = new vartype typ;
+		@WriteObjCoords(o2,x,y,z);
+		@PlaceObjToMapKill(o2);
+	}
+	
+	// odeberu z mapy a zarovnam souradnice objektu na bunku	
+	direct void OdeberAZarovnej(objptr o) {
+		int x,y,z;
+		if (@IsObjInMap(o)) {
+			@RemoveObjFromMap(o);
+			if (!(typeof(o) <= PrepinacNezarovnavaSouradnice)) {
+				@FindObjCell(o,&x,&y,&z);
+				@WriteObjCoords(o,x*40,y*40,z*40);
+			}	
+		}
+	}
+	
+	// test jestli je v poli nejaky objekt, ktery ma shodne souradnice
+	direct int JsouSouradniceObsazene(objptra objs, int x, int y) {
+		int f;
+		int x2,y2,z2;
+		for (f=0; f<objs->GetCount(); f++) {
+			if (@ExistsObj(objs[f])) {
+				@ReadObjCoords(objs[f],&x2,&y2,&z2);
+				if (x==x2 && y==y2) return 1;
+			}			
+		}
+		return 0;
+	}
+	
+	
+	// Vlastni funkce ktera uskutecni PREPNUTI
+	void Prepni() {
+		sAkce *a = Akce;
+		objptr o;
+		int f,g;
+		name _t;
+		objptra _o;
+		int x,y,z;
+
+		while (a) {
+			if (a->akce == PrepUmisti) { // prevedu na PrepUmistiOdeber
+				a->typ2 = a->typ1; a->typ1 = nnull;
+				_o = a->objs1; a->objs1 = a->objs2; a->objs2 = _o;
+				a->akce = PrepOdeberUmisti;
+			}
+			
+			if (a->akce == PrepOdeber) a->akce = PrepOdeberUmisti; // prevedu na PrepUmistiOdeber
+				
+			if (a->akce == PrepOdeberUmisti ||a->akce == PrepOdeberUmisti2) {
+				// odebrani
+				if (a->Pusobnost == NaOblast) {
+					if (!a->typ1) a->objs1->SetCount(0);
+					else @FindObjsInArea(a->objs1,onull,a->typ1,a->x1,a->y1,a->x2,a->y2);
+				} 
+				for (f=0; f<a->objs1->GetCount(); f++) {
+					if (Prepina || a->Pusobnost==NaObjekty) OdeberAZarovnej(a->objs1[f]);
+					else delete a->objs1[f];
+				}
+
+				// umisteni
+				if (a->Pusobnost == NaOblast) {
+					if (a->typ2 && a->akce == PrepOdeberUmisti) for (f=a->x1; f<=a->x2; f++) for (g=a->y1; g<=a->y2; g++) {
+						if (!JsouSouradniceObsazene(a->objs2,f*40,g*40)) {
+							o = new vartype a->typ2;
+							@WriteObjCoords(o,f*40,g*40);
+							if (!KillPlace(o,a->objs1)) delete o;
+						}	
+					}
+				} 
+				for (f=0; f<a->objs2->GetCount(); f++) {
+					KillPlace(a->objs2[f],a->objs1);
+				}
+				if (Prepina) { 
+					// prohodim umisteni s odebiranim
+					_t = a->typ1; a->typ1 = a->typ2; a->typ2 = _t;
+					_o = a->objs1; a->objs1 = a->objs2; a->objs2 = _o;
+					if (a->akce == PrepOdeberUmisti) a->akce = PrepOdeberUmisti2; else a->akce = PrepOdeberUmisti;
+				}
+			} else
+			
+			if (a->akce == PrepVymen) {
+				if (a->Pusobnost == NaOblast) {
+					// najdu objekty, ktere chci vymenit
+					@FindObjsInArea(a->objs1,onull,a->typ1,a->x1,a->y1,a->x2,a->y2);
+					for (f=0; f<a->objs1->GetCount(); f++) {
+						if (Prepina) OdeberAZarovnej(a->objs1[f]);
+						else delete a->objs1[f];
+					}
+					// umistim misto nich objekty jine
+					for (f=0; f<a->objs1->GetCount(); f++) {
+						PlaceOrFindPlace(a->objs1[f], a->objs2, a->typ2);
+					}
+				} else {
+					// odeberu objekty
+					for (f=0; f<a->objs1->GetCount(); f++) {
+						OdeberAZarovnej(a->objs1[f]);
+					}	
+					// umistim misto nich objekty jine
+					for (f=0; f<a->objs1->GetCount(); f++) {
+						if (f<a->objs2->GetCount() && @ExistsObj(a->objs2[f]) && !@IsObjInMap(a->objs2[f]) && @ExistsObj(a->objs1[f])) {
+							@ReadObjCoords(a->objs1[f],&x,&y,&z);
+							@WriteObjCoords(a->objs2[f],x,y,z);
+							@PlaceObjToMapKill(a->objs2[f]);
+						}
+					}
+				}
+				if (Prepina) {
+					_t = a->typ1; a->typ1 = a->typ2; a->typ2 = _t;
+					_o = a->objs1; a->objs1 = a->objs2; a->objs2 = _o;
+				}	
+			} else
+
+			if (a->akce == PrepMessage) {
+				// posilam zpravy
+				if (a->Pusobnost == NaOblast) {
+					@AreaMessage(a->typ1,onull,a->typ,a->x1,a->y1,a->x2,a->y2);
+				} else {
+					for (f=0; f<a->objs1->GetCount(); f++) {
+						_t = a->typ1;
+						a->objs1[f]->_t() message;
+					}
+				}
+				if (Prepina) {
+					_t = a->typ1; a->typ1 = a->typ2; a->typ2 = _t;	
+				}
+			}
+
+			a = a->next;
+		}
+	}
+}
+
+
+//////////////////////////////////////////////////////////////
+
+objectname oPrepinac;
+depend {placeable, oStartsMove, oPrepinace} << oPrepinac;
+voidname ZapinaPrepinac;
+depend ZapinaPrepinac << oManik;
+
+object oPrepinac {
+	edit {InMap, UserName="Switch", Comment="Only you can set the switch on and off by touching it. The switch usually changes something in the level. After switched back to its original state, the switch either undoes the changes or does nothing (\"nonswitching switch\" is only for a single use)."}
+	name OnOff edit {Is < nOnOff,Auto = nOnOff, Comment = "Determines if the switch is initially on or off."}; 
+	int prepnuto;
+	int time;
+	uconstructor() { prepnuto = 0; time=0;}
+	constructor()  { OnOff = Off; }
+
+	void TraingToMoveOver()  {
+		if (prepnuto) return;
+		if (typeof(sender) <= ZapinaPrepinac) {
+			if  (time+40 > @GetKernelTime()) {
+				time = @GetKernelTime();
+				return;
+			}
+			time = @GetKernelTime();
+			@PlaySound(sPrepinac,@ObjPosX,@ObjPosY);
+			Prepni();
+			if (Prepina == 0) prepnuto = 1;
+			if (OnOff==On) OnOff=Off; else OnOff = On;
+			@ResetAuto(this,0,1);		
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+objectname oTriggerPrepinac;
+depend oPrepinace << oTriggerPrepinac;
+voidname KdyReagujePrepinac, PriZapnuti, PriVypnuti, ReagujeVzdy;
+depend KdyReagujePrepinac << { PriZapnuti, PriVypnuti, ReagujeVzdy};
+
+// Zaklad vsech prepinacu, ktere pouzivaji trigger.
+// Tady je implementovano prepinani, tvar a ty triggeru uz je na potomcich
+object oTriggerPrepinac inherit {
+	name OnOff edit {Auto = nOnOff};
+	int citac;
+	name Reaguje edit {Is < KdyReagujePrepinac, UserName="Reacts", Comment= "Determines when the switch triggers. (when switched on = PriZapnuti; when switched off = PriVypnuti; in both cases = RegujeVzdy)"}
+	objptr triger;
+	uconstructor() { 
+		OnOff = Off;
+		triger = onull;
+	}
+	constructor() {Reaguje = ReagujeVzdy;}
+	
+	direct void _Prepni(int hned) {
+		if (Reaguje == ReagujeVzdy || (OnOff==On && Reaguje==PriVypnuti) || (OnOff==Off && Reaguje==PriZapnuti)) {
+			if (hned) Prepni(); else Prepni() nextturn;
+		}
+		if (OnOff==On) OnOff=Off; else OnOff = On;
+		@ResetAuto(this,0,1);		
+	}	
+	
+	void @TriggerOn() {
+		if (!triger) return;
+		citac++;
+		if (OnOff==Off) _Prepni(0);
+	}
+	void @TriggerOff() {
+		if (!triger) return;
+		citac--;
+		if (citac==0) _Prepni(0);
+	}	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+		if (OnOff==On) _Prepni(1);
+	}	
+}
+
+
+////////////////////////////////////////////////////////////
+
+objectname oFotobunka;
+depend {placeable, oStartsMove, oTriggerPrepinac} << oFotobunka;
+voidname AktivujeFotobunku;
+depend AktivujeFotobunku << {oManik, oPrisera, oVybuch1};
+
+object oFotobunka {
+	edit {InMap, UserName="Photocell", Comment="Photocell is switched on when some living creature (you or some monster) gets in the adjacent area (one cell all around). It also reacts on the explosion. When there is no such creature (or explosion) nearby, the photocell is switched off."}
+	void @MapPlaced() {
+		OnOff = Off;
+		citac = 0;
+		if (@IsGame()) {
+			triger = new otrigger;
+			triger->SetPosSz(::X:@ObjPosX-40,::Y:@ObjPosY-40,::ncX:3,::ncY:3);
+			triger->SetClzGr(::AddGr:AktivujeFotobunku, ::Redirect:this);
+			@PlaceObjToMap(triger);
+			@MvConnectObjs(triger,this);
+		}
+	}
+	void @TriggerOn() {
+		@PlaySound(sFotobunka,@ObjPosX,@ObjPosY);
+	}
+}
+
+////////////////////////////////////////////////////////////
+
+objectname oNaslapnaPodlaha;
+depend {floors, oTriggerPrepinac} << oNaslapnaPodlaha;
+object oNaslapnaPodlaha {
+	edit {InMap, UserName="Floor Trigger", Comment="The floor trigger is switched on when some heavy object (like a stone) is placed on it. Otherwise, the floor trigger is switched off."}
+	void @MapPlaced() {
+		OnOff = Off;
+		citac = 0;
+		if (@IsGame()) {
+			triger = new otrigger;
+			triger->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY,::ncX:0,::ncY:0);
+			triger->SetClzGr(::AddGr:VeciPadajiciDoDiry, ::Redirect:this);
+			@PlaceObjToMap(triger);
+			@MvConnectObjs(triger,this);
+		}
+	}
+	void @TriggerOn() {
+		@PlaySound(sNaslPodlaha,@ObjPosX,@ObjPosY);
+	}
+//	void @TriggerOff() {
+//		@PlaySound(sNaslPodlaha,@ObjPosX,@ObjPosY);
+//	}
+}
+
+////////////////////////////////////////////////
+
+// triger, fungujici na oblast zadanou s presnosti na pixel
+objectname oAreaTrigger;
+object oAreaTrigger {
+	int @ObjPosX, @ObjPosY;
+	char @CollisionCfg;
+	int @BCubeX1, @BCubeY1, @BCubeZ1;
+	int @BCubeX2, @BCubeY2, @BCubeZ2;
+	name @clzAddGr, @clzSubGr;
+	objptr @MsgRedirect;
+	constructor() {
+		@CollisionCfg = @eKCCcolCube | @eKCCcell | @eKCCtriggerBit;
+		@clzAddGr = @Everything; @clzSubGr = @Nothing;
+		@BCubeX1=0; @BCubeY1=0; @BCubeZ1=0;
+		@BCubeX2=0; @BCubeY2=0; @BCubeZ2=40;
+		@MsgRedirect = onull;
+	}
+	void SetPosSz(int ::X1, int ::Y1, int ::X2, int ::Y2) {
+		@ObjPosX = X1; @ObjPosY = Y1;
+		@BCubeX2 = X2-X1; @BCubeY2 = Y2-Y1;
+	}
+	void SetClzGr(name ::AddGr=@Everything, name ::SubGr=@Nothing, objptr ::Redirect=onull) {
+		@clzAddGr = AddGr; @clzSubGr = SubGr;
+		@MsgRedirect = Redirect;
+	}
+}
+
+///////////////////////////////////////////////
+
+// Prepinac, ktery se umistuje mimo mapu (sam tedy neni videt)
+// Je mozno u nej nakonfigurovat trigger. Velikost a mnozina pusobnosti
+objectname oGlobalniPrepinac;
+depend oTriggerPrepinac << oGlobalniPrepinac;
+object oGlobalniPrepinac {
+	edit {OutMap, UserName="Global Switch", Comment="This switch does not have its own graphics, as it is not placed in the map, but in the global objects list instead. It behaves like a photocell, but the trigger area and the types of recognized objects are set in the level editor."}
+	uconstructor() {
+		OnOff = Off;
+		citac = 0;
+	}
+	lconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+	
+	area2D trigger edit {Editable, UserName="Trigger area", Comment = "Trigger area. Here the switch looks for objects of type React."} {
+		int x1,y1;
+		int x2,y2;
+	}
+	name Reaguj edit { UserName="React",Comment = "Type of recognized objects.", DefaultValue = @Everything, EditType = objvoid|object}
+	name Ignoruj edit { UserName="Ignore",Comment = "Type of ignored objects.", /*DefaultValue = nnull,*/ EditType = objvoid|object}
+	
+	constructor() {
+		x1=0; y1=0; x2=0; y2=0;
+		Reaguj = @Everything;
+		Ignoruj = nnull;
+	}
+	
+	cconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+	
+	void ::Activate() {
+		triger = new oAreaTrigger;
+		triger->SetPosSz(::X1:x1,::Y1:y1,::X2:x2,::Y2:y2);
+		triger->SetClzGr(::AddGr: Reaguj, ::SubGr: Ignoruj, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+}
+
+
+/////////////////////////////////////////////
+
+objptra oOpatrnaPrisera::objs;
+voidname NebezpeciProPriseru;
+depend NebezpeciProPriseru << {oDira, oVoda};
+
+// Aby se chytrejsi prisery vyhybaly nebezpeci a nepadaly napr. do der
+objectname oOpatrnaPrisera;
+depend oPrisera << oOpatrnaPrisera << {oPriseraSNavadeci, oPriseraOt}
+object oOpatrnaPrisera inherit {
+	int retor IsInMoveCollision(int pCellX, int pCellY, name pftype) {
+		if (pftype != ForceChci) return 0;
+		@FindObjsInArea(::objs,this,NebezpeciProPriseru,pCellX,pCellY,pCellX,pCellY);
+		if (::objs->GetCount()) return 1;
+		return 0;
+	}
+}
+
+
+////////////////////////////////////////////
+
+objectname oSvetlo;
+depend placeable << oSvetlo;
+
+// svetlo. Da se umistovat. V editoru ma grafiku, ve hre je neviditelne jen sviti.
+// pohyb objektu svetlo nevyvola pohyb setla :-(
+object oSvetlo {
+	edit {InMap, NoGrid, UserName="Light", Comment="Invisible object, working as a source of point light."}
+	char r edit {EditType = number, Comment = "Red component of the light."}
+	char g edit {EditType = number, Comment = "Green component of the light."}
+	char b edit {EditType = number, Comment = "Blue component of the light."}
+	int radius edit {Editable, UserName="Radius", Comment = "radius"}
+	int vyska edit {Editable, UserName="Height", Comment="height"}
+	
+	int svetlo;
+
+	char @CollisionCfg;
+	
+	constructor() {
+		r=255; g=255; b=255;
+		radius = 64;
+		vyska = 50;
+	}
+	
+	uconstructor() {
+		svetlo = 0;
+		if (@IsEditor()) @CollisionCfg = @eKCCpoint;
+		else @CollisionCfg = @eKCCpoint|@eKCCinvisible;
+	}
+	
+	void @LoadGame() {
+		svetlo = 0;
+		::ZmenNasviceni() message;
+	}
+	
+	void @MapPlaced() {	
+		svetlo = @AddLight(@ObjPosX,@ObjPosY,vyska,r,g,b,radius);
+	}
+	
+	void @MapRemoved() {
+		@DeleteLight(svetlo);
+	}
+	
+	direct void SetSvetlo(char R, char G, char B, int Radius, int Vyska) {
+		r=R; g=G; b=B;
+		vyska = Vyska; radius = Radius;
+	}
+	
+	scripted www constructor ::AddButton();
+	
+	void ::AddButton() {
+		@EAddButton(0,1,"Changes lighting",null,0,::ZmenNasviceni);
+	}
+	
+	void ::ZmenNasviceni() {
+		if (@IsObjInMap(this)) {
+			@DeleteLight(svetlo);
+			svetlo = @AddLight(@ObjPosX,@ObjPosY,vyska,r,g,b,radius);
+		}
+	}
+}
+
+
+
+////////////////////////////////////////////////////////////
+
+// nasviceni celeho levlu
+objectname oGlobalniSvetlo;
+oGlobalniSvetlo GlobalniSvetlo;
+
+object oGlobalniSvetlo {
+	edit { UserName="Global Light",Comment="This object serves to change the global lighting in the whole level."}
+	char r edit {EditType = number, Comment = "Red component of the light."}
+	char g edit {EditType = number, Comment = "Green component of the light."}
+	char b edit {EditType = number, Comment = "Blue component of the light."}
+
+	constructor() {
+		@GetTopLightIntenzity(&r,&g,&b);
+	}
+	
+	lconstructor() {
+		@SetTopLightIntenzity(r,g,b);
+	}
+	
+	scripted xxx constructor ::AddButton();
+	
+	void ::AddButton() {
+		@EAddButton(0,1,"Changes lighting",null,0,::ZmenNasviceni);
+	}
+	
+	void ::ZmenNasviceni() {
+		@SetTopLightIntenzity(r,g,b);
+	}
+}
+
+/////////////////////////////////////////////////////////////
+
+voidname Patro;
+depend Patro << {Bestiar, Predmety, Steny, Veci, oPrepinac, oFotobunka}
+depend TeleportLookConsumer << {oHlina, oZamek}
+
+//////////////////////////////////////////////////////////////
+
+objectname oPriseraSeZvukem1;
+object oPriseraSeZvukem1 inherit {
+	void MoveStarted() {
+		if (@randInt(25)==0) @PlaySound(sPfiii,@ObjPosX,@ObjPosY);
+	}
+}
+depend oPriseraSeZvukem1 << {oPriseraKlaustrofobni, oPriseraOt}
+
+objectname oPriseraSeZvukem2;
+object oPriseraSeZvukem2 inherit {
+	void MoveStarted() {
+		if (@randInt(5)==0) @PlaySound(sPrisera1,@ObjPosX,@ObjPosY);
+	}
+}
+depend oPriseraSeZvukem1 << {oPriseraDopravni, oPriseraSNavadeci}
+//depend oPriseraSeZvukem2 << {oPriseraDopravni, oPriseraSNavadeci}
+depend placeable << {oPriseraSeZvukem1,oPriseraSeZvukem2}
+
+
+////////////////////////////////////////////////////////////////
+
+objectname oBouraDoSten;
+depend placeable << oBouraDoSten << { oKamen, oKrabice, mina, oSebratelnaMina, oBomba, oSebratelnaBomba}
+
+object oBouraDoSten inherit {
+	int cas;
+	void NarazilJsem() {
+		if (cas==@GetKernelTime()) return;
+		cas = @GetKernelTime();
+		@PlaySound(sPadKamenu,@ObjPosX,@ObjPosY,0.65);		
+	}
+}
+
+///////////////////////////////////////////////////////////////////
+
+depend BlokujeVybuch << {wall, oPrepinac, oFotobunka, oAntiMagnet, oKrabice, oZamek}
+
+objectname oPrulezny;
+objectname oProlejza;
+depend LezeNadVecma << oProlejza;
+
+objptra oPrulezny::objs;
+object oPrulezny inherit {
+	name @clzSubGr;
+	uconstructor() {
+		@clzSubGr = oProlejza;
+	}
+
+	// veci se nepohybuji do objektu Prolejza, ale muzou se pohybovat, kdyz uz jsou pod nimi
+	int retor IsInMoveCollision(int pCellX, int pCellY) {
+		@FindObjsInArea(::objs,this,oProlejza,pCellX,pCellY,pCellX,pCellY);
+		int re = ::objs->GetCount();
+		if (!re) return 0;
+		int f;
+		int X,Y,Z;
+		@FindObjCell(this,&X,&Y,&Z);
+		for (f=0; f<::objs->GetCount(); f++) if (Map->IsObjInCell(::x:X,::y:Y,::obj: ::objs[f])) re--;
+		return re;
+	}
+}
+
+voidname ProlejzaNekoliduje;
+depend ProlejzaNekoliduje << {Veci, oPrulezny}
+object oProlejza inherit {
+	uconstructor() {
+		::SetClzGr1() callend this;
+	}
+	
+	void ::SetClzGr1() {
+		@clzSubGr = ProlejzaNekoliduje;
+	}
+}
+
+depend oProlejza << oHemr;
+
+voidname StrkatelneHemrem;
+depend StrkatelneHemrem << oBalonek;
+object oHemr {
+	void SetCoStrka() {
+		CoStrka = StrkatelneHemrem;
+	}
+}
+
+
+objectname oPruleznaStena;
+depend {oStartsMove, Steny, ZnicitelneVeVybuchu, oPrulezny} << oPruleznaStena;
+object oPruleznaStena {
+	edit {InMap, UserName="Crawlable Wall", Comment="Only the Slime Guy may crawl through this wall and it behaves as the ordinary wall for everything else. This wall can be destroyed in the explosion."}
+}
+
+depend oPrulezny << oKrabice;
+depend PrepinacNezarovnavaSouradnice << oSvetlo;
+
+
+////////////////////////////////////////////////////////////////////////
+
+// Kdyz zemre postavicka ve slizu, zmeni se v nejakou priseru
+voidname sZmenaVPriseru;
+
+object oDracek {
+	void ZemriVeSlizu() {
+		objptr o;
+		int cx,cy,cz;
+		@FindObjCell(this,&cx,&cy,&cz);
+		@RemoveObjFromMap(this);
+		o = new oPriseraDopravni;
+		o->SetSmer(::Smer:smer);
+		@WriteObjCoords(o,cx*40,cy*40);
+		@PlaceObjToMap(o);
+		@PlaySound(sZmenaVPriseru,@ObjPosX,@ObjPosY);
+		delete this;
+	}
+}
+object oHemr {
+	void ZemriVeSlizu() {
+		objptr o;
+		int cx,cy,cz;
+		@FindObjCell(this,&cx,&cy,&cz);
+		@RemoveObjFromMap(this);
+		o = new oPriseraKlaustrofobni;
+		o->SetSmer(::Smer:smer);
+		@WriteObjCoords(o,cx*40,cy*40);
+		@PlaceObjToMap(o);
+		@PlaySound(sZmenaVPriseru,@ObjPosX,@ObjPosY);
+		delete this;
+	}
+}
+object oPasovec {
+	void ZemriVeSlizu() {
+		objptr o;
+		int cx,cy,cz;
+		@FindObjCell(this,&cx,&cy,&cz);
+		@RemoveObjFromMap(this);
+		if (@randInt(1)) o = new oPriseraOt; else o = new oPriseraSNavadeci;
+		o->SetSmer(::Smer:smer);
+		@WriteObjCoords(o,cx*40,cy*40);
+		@PlaceObjToMap(o);
+		@PlaySound(sZmenaVPriseru,@ObjPosX,@ObjPosY);
+		delete this;
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////
+
+depend oModifyTr << oPas;
+object oPas {
+	int ModifyTrajektory(int ptrpos, inta Pfdir) {
+		if (OnOff == On && typeof(sender) <= VeciStrkatelnePasem) {
+			int cx,cy,cz;
+			int dx,dy;
+			@FindObjCell(this,&dx,&dy,&cz);
+			@FindObjCell(sender,&cx,&cy,&cz);
+			dx-=cx;  dy-=cy;
+			
+			if (!dx && !dy) return ptrpos;
+			if (smer==Sever) {
+				if ((dy == 1 && dx==0) || Pfdir[ptrpos]==5 || Pfdir[ptrpos] == 11) return 0; else return ptrpos;
+			}
+			if (smer==Jih) {
+				if ((dy == -1 && dx==0) || Pfdir[ptrpos]==13 || Pfdir[ptrpos] == 3) return 0; else return ptrpos;
+			}
+			if (smer==Zapad) {
+				if ((dx == 1 && dy==0) || Pfdir[ptrpos]==1 || Pfdir[ptrpos] == 7) return 0; else return ptrpos;
+			}
+			if (smer==Vychod) {
+				if ((dx == -1 && dy==0) || Pfdir[ptrpos]==15 || Pfdir[ptrpos] == 9) return 0; else return ptrpos;
+			}
+			return 0;
+		} else return ptrpos;
+	}
+}
+
+/////////////////////////////////////////////////////////////////
+
+//methodname @PublicMethods;
+//depend @PublicMethods << {ChangeOnOff,CalcMove,NarazilJsem,oManikControler::Terminate, OznacHo, Prepni, SlizOn, SlizOff,TurnOn, TurnOff}

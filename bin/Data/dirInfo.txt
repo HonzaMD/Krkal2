@@ -1,0 +1,5 @@
+Data
+----
+
+Tento adresar obsahuje konfiguracni soubory Krkala 
+a nektere datove soubory potrebne pro beh Krkala.

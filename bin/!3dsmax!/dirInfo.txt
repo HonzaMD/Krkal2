@@ -1,0 +1,11 @@
+!3dsmax!
+--------
+
+Z tohoto adresare se importuje grafika v editoru packagi.
+
+Obsahuje scripty pro 3Dstudio, ktere nastavi kameru, svetlo jako ve hre Krkal.
+(krkal.ms, krkal2.ms)
+
+Podrobnosti viz. uzivatelska dokumentace - jak vytvaret novou grafiku
+
+Obsahuje jeden vymodelovany objekt na ukazku - fotobunka.

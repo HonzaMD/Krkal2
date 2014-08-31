@@ -1,0 +1,14 @@
+
+///////////////////////////////////////////////////////////
+///
+///		AUTOMATICKE URCOVANI ZDA SE BUDOU TVORIT KOMPILOVANE SCRIPTY
+///		Ridi to batche empty a new
+///
+///////////////////////////////////////////////////////////
+
+//#ifndef CREATE_COMPILED_SCRIPTS 
+//	#define CREATE_COMPILED_SCRIPTS
+//#endif
+
+
+

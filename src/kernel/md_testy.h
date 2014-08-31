@@ -1,0 +1,21 @@
+/////////////////////////////////////////////////////////////////////////////////
+///
+///		M D   T E S T Y 
+///
+///		Pokusné volání, rùzných vìcí zaúèelem ladìní a testování
+///		A: M.D.
+///
+/////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef MD_TESTY_H
+#define MD_TESTY_H
+
+#include "types.h"
+
+extern void MDTcreate_files();
+extern void MDTestKernel();
+
+
+
+#endif

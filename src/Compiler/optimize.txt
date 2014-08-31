@@ -1,0 +1,11 @@
+TODO:
+
+- PUT a PUTD pro krátké operandy (byte a word) jednou instrukcí
+- inty pøevedené na double (I2D) zùstávají v registrech, ale pøi dalším výskytu se znovu pøevádìjí
+- nahráváni konstant - napøíklad pøi testovaní výrazu ve forku - se poøád opakuje
+- alokace registrù je hodnì košatá - alokuje se pro každý mezivýsledek, což vede èasto k situacím typu:
+	MOV 10, 6
+	MOV 11, 10
+	MOV 12, 11
+	...
+- konverze integer <-> double pøi pøedávání parametrù pøi direct volání - poøadí volání a líné konverze, záložní int vyplnit rovnou pøi (D)PUSH128

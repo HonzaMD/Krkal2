@@ -1,0 +1,69 @@
+0	No note.
+1	May be the trailing end of comment.
+2	Check #define syntax. It is: #define <symbolName> [<symbolValue>]
+3	Check #undef syntax. It is: #undef <symbolName>
+4	Character violates number constant syntax.
+5	Check object declaration syntax. It is: object <name> { <member_declarations> }; Members can be either attributes: <type> <name>; or methods: [direct|safe] <return_type> <name> (<argument_list>) { <method_body> };
+6	Check #ifdef syntax. It is: #ifdef <symbolName>
+7	Check #ifndef syntax. It is: #ifndef <symbolName>
+8	Check #head-#endhead block syntax. 
+9	Incomplete declaration.
+10	Check syntax of function definition. In KRKAL C, there are some differencies from the classical C.
+11	Did you forget ',' or ';'?
+12	Did you forget '}'?
+13	Check if-else command syntax. It is: if(<test_expr>) <command> [else <command>]
+14	Check while command syntax. It is: while(<test_expr>) <command>
+15	Check do-while command syntax. It is: do <command> while(<expr>)
+16	Check for command syntax. It is: for(<init_expr>;<test_expr>;<eval_expr>) <command>
+17	Check conditional operator '?' syntax. It is: <test_expr> ? <result_expr1> : <result_expr2>.
+18	Function call time can be specified only with 'safe' call.
+19	Missing ';' before '}'. Did you forget?
+20	Check rules for identifier names. Each character must be 'a'-'z' or 'A'-'Z' or '0'-'9' or '_' and may not start with a digit.
+21	Missing #endhead
+22	Check top level syntax - always starts with a global declaration or an object definition.
+23	Already defined as a global variable within current version.
+24	Check in-object declaration rules. Object member declaration consists of: type, name and argument list followed by function body when declaring a method.
+25	Will be compiled as pointer.
+26	Check available base types. In KRKAL C, there are some differencies from the classical C. There is no signed char and unsigned int for example.
+27	Member seems to be neither a method (missing '()') nor attribute (missing ';').
+28	There is an attribute already declared under this name within this object. Maybe in some previous version so you can't see it? Only methods can be multiple declared under certain circumstances.
+29	There is a method already declared under this name within this object. Maybe in some previous version so you can't see it?
+30	To declare more than one method of the same name, only one of them may return value. 
+31	To declare more than one method of the same name, all of them have to be declared as safe.
+32	Default values can be used only on arguments of a method declared as 'safe'. They don't work with the 'direct' methods.
+33	Check argument list syntax. It is: [ret] <type> <name> [=<init_value>], <next_arguments>. Init_value can be used only in safe methods.
+34	There is an argument already declared under this name within this method argument list. 
+35	When allocating object, the type has to be followed by a constructor argument list, even if it is empty: '()'.
+36	Can't continue parsing function call parameter list. Expected ',' and next parameters, or ':' and parameter value in case of safe call, or ')' which should finish the list.
+37	Check local definition syntax. It is: <type_spec> [*] <name1> [,[*]<name2>,...]; Type can be either a base type or 'struct'|'union'|'objptr' keyword followed by type name.
+38	There is a local variable already declared under this name within this block. You have to use another name or declare it in the nested block.
+39	Check name definition syntax. It is:  name|attributename|methodname|objectname <defined_name> [dependson <parent_name>];
+40	There is a name already defined under this name. Maybe in some previous version so you can't see it?
+41	This name is already defined and specified to be an object name.
+42	This name is already defined and specified to be a method name.
+43	This name is already defined and specified to be an attribute name.
+44	Name has to be defined before used as parent in 'dependson' statement.
+45	Object type name is supposed to follow 'objptr' keyword.
+46	Did you forget 'objptr','struct' or 'union'?
+47	Check global definition syntax. It is: <type_spec> [*] <name1> [,[*] <name2>,...]; Type specification is either a base type or 'struct'|'union'|'objptr' keyword followed by type name.
+48	Data cannot be declared with void type. Only methods that doesn't return value should be declared void.
+49	Missing #endif directive. Every #if should have a corresponding #endif.
+50	There is a declaration of the same named object within this version. You can declare object only once per version.
+51	Check operator semantic. 
+52	Lvalue operand is needed.
+53	Void pointer cannot be dereferenced.
+54	Left from '.' must be object, structure or union.
+55	Left from '->' must be pointer to structure or union.
+56	Object, structure or union doesn't have such member.
+57	Right operand must be a member identifier valid within the object, struct or union described by the left operand.
+58	Check escape sequence syntax. It starts with a backslash, which is followed by one of [a|b|f|n|r|t|v|'|"|?] or integer number in decimal/octal/hexadecimal format that determines character ASCII code.
+59	Check character constant syntax. It is either a single character or an escape sequence, enclosed in pair of single quotes: 'character|escape_seq'.
+60	Check string syntax. It is a sequence of characters or escape sequences enclosed in double quotes: "chars|escapes" Strings may contain up to 250 characters. Did you forget finishing " ?
+61	Did you forget to finish string constant using a double quote " ?
+62	Identifier is not a method.
+63	Expected direct parameter format (just value).
+64	Expected safe parameter format (name: value).
+65	Check method call time issue. When calling method safely (via kernel), only 'instant' call can return value. Other time specifications produces the message call.
+66	Did you try to pass time or name just like with the safe method? But this one is direct.
+67	Constructor must have the same name as the object within it is defined. So does destructor, but it must be precceded with '~'.
+68	There is a structure member already declared under this name within this structure. You have to use another name.

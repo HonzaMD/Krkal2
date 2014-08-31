@@ -1,0 +1,42 @@
+#head
+game	?
+author	?
+version	BA8D_5C99_D74D_0D0E
+include test_0001_FFFF_0001_0001.kc
+#endhead
+
+objectname oMattoni;
+depend floors << oMattoni;
+objptra oMattoni::objs;
+
+int CasMeziTakty edit {Editable};
+
+object oMattoni {
+	edit {InMap}
+	void @MapPlaced() {
+		if (CasMeziTakty<=0) CasMeziTakty = 10;
+		int time = CasMeziTakty*33 - (@GetKernelTime() % (CasMeziTakty*33));
+		if (@IsGame()) ::Turn() timed time;
+	}
+	
+	void ::Turn() {
+		objptr o;
+		@FindObjsInArea(::objs,this,oBalonek);
+		if (::objs->GetCount()) {
+			o = ::objs[0];
+			@FindObjsInArea(::objs,this,oBalonek,-1,-1,1,1);
+			if (::objs->GetCount()<=2 || ::objs->GetCount() >= 5) o->Destructor() end;
+		} else {
+			@FindObjsInArea(::objs,this,oBalonek,-1,-1,1,1);
+			if (::objs->GetCount() == 3) ::Vytvor() end;
+		}
+		::Turn() timed CasMeziTakty*33;
+	}
+	
+	void ::Vytvor() {
+		objptr o = new oBalonek;
+		@WriteObjCoords(o,@ObjPosX,@ObjPosY,0);
+		@PlaceObjToMap(o);
+	}
+}
+
