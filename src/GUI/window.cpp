@@ -1016,7 +1016,8 @@ CGUITitle::CGUITitle(char *title, CGUIRectHost *_icon, CGUIWindow *wnd, float he
 		titleText=new char[strlen(title)+1];
 		strcpy(titleText,title);
 	}else{
-		titleText=new char[] = "\0";
+		titleText=new char[1];
+		titleText[0] = 0;
 	}
 
 
@@ -1185,7 +1186,8 @@ void CGUITitle::SetText(char *text, int labelColor, int text_height)
 		titleText=new char[strlen(text)+1];
 		strcpy(titleText,text);
 	}else{
-		titleText=new char[] = "\0";
+		titleText = new char[1];
+		titleText[0] = 0;
 	}
 
 	if(icon)

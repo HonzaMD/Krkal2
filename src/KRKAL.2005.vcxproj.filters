@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{ef1e1018-ae43-4310-bbdf-61cad1df9c1b}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{c2fd7530-aef3-4289-9367-3230ef933e33}</UniqueIdentifier>
+      <Extensions>txt;doc;html</Extensions>
+    </Filter>
+    <Filter Include="Source&amp;Header Files">
+      <UniqueIdentifier>{17414e25-00f1-4741-910c-ca73206f12db}</UniqueIdentifier>
+      <Extensions>cpp;h;c</Extensions>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\FileSystem">
+      <UniqueIdentifier>{1e64c6cc-39d4-45fb-88b3-b41d022c5b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\KScripts">
+      <UniqueIdentifier>{66c236ae-f133-4fe0-9fb3-1ca57d92ae87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\GUI">
+      <UniqueIdentifier>{73218a2d-3c05-415b-bd57-36442e62aa95}</UniqueIdentifier>
+      <Extensions>cpp</Extensions>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\GEn">
+      <UniqueIdentifier>{d04f0a25-6614-4571-bce3-5c62edd41c02}</UniqueIdentifier>
+      <Extensions>cpp</Extensions>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\Kernel">
+      <UniqueIdentifier>{ed0755b4-1b92-4b35-9606-287c9be623fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\Compiler">
+      <UniqueIdentifier>{72c8cf6b-3566-4820-a76f-c6792f051ac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\Editor">
+      <UniqueIdentifier>{220d9f3b-1a08-4707-a8eb-2311d99dced1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\DX">
+      <UniqueIdentifier>{4bf0b4c0-66a7-42b8-841b-40b90c4bc434}</UniqueIdentifier>
+      <Extensions>cpp</Extensions>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\SEd">
+      <UniqueIdentifier>{bf908842-d351-4705-b2a0-a50643dd3dd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\MusicEng">
+      <UniqueIdentifier>{820ebbad-f69b-4976-af6f-535d46b4509a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\MainMenu">
+      <UniqueIdentifier>{1fa2b1d4-7fdf-4430-851f-fc32064cab74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source&amp;Header Files\TinyXml">
+      <UniqueIdentifier>{2f4e72d3-11c0-4a12-96e4-d0d0f02f34c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other Files">
+      <UniqueIdentifier>{d4f7505c-be97-44b9-bf2e-3fd076c3a75b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LevelIntros">
+      <UniqueIdentifier>{671453ca-eac5-4238-a991-23b44c301439}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\krkal.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="doc\DXbliter.jpg">
+      <Filter>Documentation</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="krkal.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\Compiler.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\DXbliter.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\FileSys.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\GEn.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\GUI.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\keys-DX.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\keys-win.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\KRKAL - specifikace.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\KRKAL AUTOMATICS.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\KRKAL SCRIPT CODE.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\Scripts.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="doc\zprava.doc">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="KRKALfs.cfg">
+      <Filter>Other Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ident.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="krkal.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="version.h">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSys\crc.h">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSys\fs.h">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSys\register.h">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="KScripts\CreateCompiledScripts.h">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClInclude>
+    <ClInclude Include="KScripts\ks.h">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClInclude>
+    <ClInclude Include="KScripts\ks_version.h">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\button.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\dialogs.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\element.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\gameWindow.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GUI.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\GUIConstants.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui\list.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\menu.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\MersenneTwister.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\message.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\objectList.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\panel.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\primitives.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\refmgr.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\scriptInterface.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\scrollbar.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\testy.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\textedit.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\toolbar.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\tree.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\widget.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\widgets.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\window.h">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\elemgrid.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\genanim.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\genelement.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\genmain.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\genpackage.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\genresource.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\lightcache.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\lights.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\lighttex.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\lighttexcase.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\lighttexcmp.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Gen\normalizer.h">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\autos.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\interpret.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\KerArray.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\KerConstants.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\KerErrors.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\kernel.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\KerServices.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\KrkalConvertor.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\LevelMap.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\md_testy.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\names.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\objects.h">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComCodeGen.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComCompiler.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComConstants.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComCSGenerator.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComError.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComExpression.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComFunctions.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComHeadInfo.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComInstructions.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComKerServices.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComLexical.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComObjectBrowser.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComPart.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComPosition.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComSemantic.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComString.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComSymbolTable.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler\ComSyntax.h">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\desktop.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\editor.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\editorLevelWin.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\editorMenu.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\ObjProperty.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\regedit.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor\reseditor.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\Cache.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\d3dfont.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\dx.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\dxbliter.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\dxfont.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\DXHighlight.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\dxtext.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\Input.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\texture.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="DX\timer.h">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\NameBrowser.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\scriptedit.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\SEdDesktop.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\SEdFileBrowser.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\SEdObjectBrowser.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="SEd\SEdOpenedFiles.h">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEng\audiere.h">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEng\fileReader.h">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEng\music.h">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicEng\musicmod.h">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\GameMenu.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\levels.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\MainMenuDesktop.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\MMDesktop.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\MMhelp.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\MMLevelIntro.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu\ProfileDesktop.h">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXml\tinystr.h">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXml\tinyxml.h">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="krkal.cpp">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="types.cpp">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Source&amp;Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSys\crc.cpp">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSys\fs.cpp">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="FileSys\register.cpp">
+      <Filter>Source&amp;Header Files\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\allscripts.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSDMs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSGs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSIDs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSMs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSOVs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSVGs.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_names.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="KScripts\ks.cpp">
+      <Filter>Source&amp;Header Files\KScripts</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\button.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\dialogs.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\element.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\gameWindow.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GUI.CPP">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\GUIConstants.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui\list.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\loader.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\menu.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\message.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\panel.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\primitives.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\refmgr.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\scriptInterface.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\scrollbar.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\testy.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\textedit.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\toolbar.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\tree.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\widgets.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\window.cpp">
+      <Filter>Source&amp;Header Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\elemgrid.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\genanim.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\genelement.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\genmain.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\genpackage.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\genresource.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\lightcache.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\lights.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\lighttex.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Gen\normalizer.cpp">
+      <Filter>Source&amp;Header Files\GEn</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\autos.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\interpret.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\KerConstants.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\KerErrors.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\kernel.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\KerServices.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\KrkalConvertor.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\LevelMap.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\md_testy.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\names.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\objects.cpp">
+      <Filter>Source&amp;Header Files\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComCodeGen.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComCompiler.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComCSGenerator.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComError.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComExpression.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComFunctions.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComLexical.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComObjectBrowser.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComPart.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComPosition.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComSemantic.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComString.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComSymbolTable.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler\ComSyntax.cpp">
+      <Filter>Source&amp;Header Files\Compiler</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\desktop.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\editor.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\editorLevelWin.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\editorMenu.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\ObjProperty.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\regedit.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\reseditor.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\Cache.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\d3dfont.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\dx.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\dxbliter.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\dxfont.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\DXHighlight.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\dxtext.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\Input.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\texture.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="DX\timer.cpp">
+      <Filter>Source&amp;Header Files\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\NameBrowser.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\scriptedit.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\SEdDesktop.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\SEdFileBrowser.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\SEdObjectBrowser.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="SEd\SEdOpenedFiles.cpp">
+      <Filter>Source&amp;Header Files\SEd</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEng\fileReader.cpp">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEng\music.cpp">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicEng\musicmod.cpp">
+      <Filter>Source&amp;Header Files\MusicEng</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\GameMenu.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\levels.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\MainMenuDesktop.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\MMDesktop.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\MMhelp.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\MMLevelIntro.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu\ProfileDesktop.cpp">
+      <Filter>Source&amp;Header Files\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXml\tinystr.cpp">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXml\tinyxml.cpp">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXml\tinyxmlerror.cpp">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXml\tinyxmlparser.cpp">
+      <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(01)Land of Moles_76A7_96F4_40B6_544F.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

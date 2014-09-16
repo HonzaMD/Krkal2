@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDebug|Win32">
+      <Configuration>ReleaseDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}</ProjectGuid>
+    <RootNamespace>KRKAL.2005</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\bin\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>Krkal</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\bin\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>Krkal</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">
+    <OutDir>..\bin\</OutDir>
+    <IntDir>.\ReleaseDebug\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>Krkal</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/KRKAL.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;Gen;GUI;DX;Kernel;KScripts;FileSys;zlib;Compiler;Editor;SEd;MusicEng;MainMenu;DirecX\include;TinyXml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release/KRKAL.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat />
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0405</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /NODEFAULTLIB:libci.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>d3d8.lib;d3dx8.lib;dinput8.lib;dxguid.lib;dsound.lib;zlib.lib;audiere.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../bin/KRKAL.exe</OutputFile>
+      <Version />
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>zlib;MusicEng;DirecX\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>.\Release/KRKAL.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/KRKAL.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;Gen;GUI;DX;Kernel;KScripts;FileSys;zlib;Compiler;Editor;SEd;MusicEng;MainMenu;DirecX\include;TinyXml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug/KRKAL.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0405</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /NODEFAULTLIB:libci.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>d3d8.lib;d3dx8.lib;dinput8.lib;dxguid.lib;dsound.lib;zlib.lib;audiere.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../bin/KRKAL.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>zlib;MusicEng;DirecX\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/KRKAL.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\ReleaseDebug/KRKAL.tlb</TypeLibraryName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;Gen;GUI;DX;Kernel;KScripts;FileSys;zlib;Compiler;Editor;SEd;MusicEng;MainMenu;DirecX\include;TinyXml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;RELEASE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\ReleaseDebug/KRKAL.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\ReleaseDebug/</AssemblerListingLocation>
+      <ObjectFileName>.\ReleaseDebug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\ReleaseDebug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0405</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /NODEFAULTLIB:libci.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>d3d8.lib;d3dx8.lib;dinput8.lib;dxguid.lib;dsound.lib;zlib.lib;audiere.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../bin/KRKAL.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>zlib;MusicEng;DirecX\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\ReleaseDebug/KRKAL.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="res\krkal.ico" />
+    <Image Include="doc\DXbliter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="krkal.rc">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">NDEBUG;RELEASE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\Compiler.doc" />
+    <None Include="doc\DXbliter.doc" />
+    <None Include="doc\FileSys.doc" />
+    <None Include="doc\GEn.doc" />
+    <None Include="doc\GUI.doc" />
+    <None Include="doc\keys-DX.html" />
+    <None Include="doc\keys-win.html" />
+    <None Include="doc\KRKAL - specifikace.doc" />
+    <None Include="doc\KRKAL AUTOMATICS.doc" />
+    <None Include="doc\KRKAL SCRIPT CODE.doc" />
+    <None Include="doc\Scripts.doc" />
+    <None Include="doc\zprava.doc" />
+    <None Include="KRKALfs.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ident.h" />
+    <ClInclude Include="krkal.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="FileSys\crc.h" />
+    <ClInclude Include="FileSys\fs.h" />
+    <ClInclude Include="FileSys\register.h" />
+    <ClInclude Include="KScripts\CreateCompiledScripts.h" />
+    <ClInclude Include="KScripts\ks.h" />
+    <ClInclude Include="KScripts\ks_version.h" />
+    <ClInclude Include="GUI\button.h" />
+    <ClInclude Include="GUI\dialogs.h" />
+    <ClInclude Include="GUI\element.h" />
+    <ClInclude Include="GUI\gameWindow.h" />
+    <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="GUI\GUIConstants.h" />
+    <ClInclude Include="Gui\list.h" />
+    <ClInclude Include="GUI\menu.h" />
+    <ClInclude Include="GUI\MersenneTwister.h" />
+    <ClInclude Include="GUI\message.h" />
+    <ClInclude Include="GUI\objectList.h" />
+    <ClInclude Include="GUI\panel.h" />
+    <ClInclude Include="GUI\primitives.h" />
+    <ClInclude Include="GUI\refmgr.h" />
+    <ClInclude Include="GUI\scriptInterface.h" />
+    <ClInclude Include="GUI\scrollbar.h" />
+    <ClInclude Include="GUI\testy.h" />
+    <ClInclude Include="GUI\textedit.h" />
+    <ClInclude Include="GUI\toolbar.h" />
+    <ClInclude Include="GUI\tree.h" />
+    <ClInclude Include="GUI\widget.h" />
+    <ClInclude Include="GUI\widgets.h" />
+    <ClInclude Include="GUI\window.h" />
+    <ClInclude Include="Gen\elemgrid.h" />
+    <ClInclude Include="Gen\genanim.h" />
+    <ClInclude Include="Gen\genelement.h" />
+    <ClInclude Include="Gen\genmain.h" />
+    <ClInclude Include="Gen\genpackage.h" />
+    <ClInclude Include="Gen\genresource.h" />
+    <ClInclude Include="Gen\lightcache.h" />
+    <ClInclude Include="Gen\lights.h" />
+    <ClInclude Include="Gen\lighttex.h" />
+    <ClInclude Include="Gen\lighttexcase.h" />
+    <ClInclude Include="Gen\lighttexcmp.h" />
+    <ClInclude Include="Gen\normalizer.h" />
+    <ClInclude Include="Kernel\autos.h" />
+    <ClInclude Include="kernel\interpret.h" />
+    <ClInclude Include="Kernel\KerArray.h" />
+    <ClInclude Include="kernel\KerConstants.h" />
+    <ClInclude Include="kernel\KerErrors.h" />
+    <ClInclude Include="kernel\kernel.h" />
+    <ClInclude Include="kernel\KerServices.h" />
+    <ClInclude Include="Kernel\KrkalConvertor.h" />
+    <ClInclude Include="kernel\LevelMap.h" />
+    <ClInclude Include="kernel\md_testy.h" />
+    <ClInclude Include="kernel\names.h" />
+    <ClInclude Include="kernel\objects.h" />
+    <ClInclude Include="Compiler\ComCodeGen.h" />
+    <ClInclude Include="Compiler\ComCompiler.h" />
+    <ClInclude Include="Compiler\ComConstants.h" />
+    <ClInclude Include="Compiler\ComCSGenerator.h" />
+    <ClInclude Include="Compiler\ComError.h" />
+    <ClInclude Include="Compiler\ComExpression.h" />
+    <ClInclude Include="Compiler\ComFunctions.h" />
+    <ClInclude Include="Compiler\ComHeadInfo.h" />
+    <ClInclude Include="Compiler\ComInstructions.h" />
+    <ClInclude Include="Compiler\ComKerServices.h" />
+    <ClInclude Include="Compiler\ComLexical.h" />
+    <ClInclude Include="Compiler\ComObjectBrowser.h" />
+    <ClInclude Include="Compiler\ComPart.h" />
+    <ClInclude Include="Compiler\ComPosition.h" />
+    <ClInclude Include="Compiler\ComSemantic.h" />
+    <ClInclude Include="Compiler\ComString.h" />
+    <ClInclude Include="Compiler\ComSymbolTable.h" />
+    <ClInclude Include="Compiler\ComSyntax.h" />
+    <ClInclude Include="Editor\desktop.h" />
+    <ClInclude Include="Editor\editor.h" />
+    <ClInclude Include="Editor\editorLevelWin.h" />
+    <ClInclude Include="Editor\editorMenu.h" />
+    <ClInclude Include="Editor\ObjProperty.h" />
+    <ClInclude Include="Editor\regedit.h" />
+    <ClInclude Include="Editor\reseditor.h" />
+    <ClInclude Include="DX\Cache.h" />
+    <ClInclude Include="DX\d3dfont.h" />
+    <ClInclude Include="DX\dx.h" />
+    <ClInclude Include="DX\dxbliter.h" />
+    <ClInclude Include="DX\dxfont.h" />
+    <ClInclude Include="DX\DXHighlight.h" />
+    <ClInclude Include="DX\dxtext.h" />
+    <ClInclude Include="DX\Input.h" />
+    <ClInclude Include="DX\texture.h" />
+    <ClInclude Include="DX\timer.h" />
+    <ClInclude Include="SEd\NameBrowser.h" />
+    <ClInclude Include="SEd\scriptedit.h" />
+    <ClInclude Include="SEd\SEdDesktop.h" />
+    <ClInclude Include="SEd\SEdFileBrowser.h" />
+    <ClInclude Include="SEd\SEdObjectBrowser.h" />
+    <ClInclude Include="SEd\SEdOpenedFiles.h" />
+    <ClInclude Include="MusicEng\audiere.h" />
+    <ClInclude Include="MusicEng\fileReader.h" />
+    <ClInclude Include="MusicEng\music.h" />
+    <ClInclude Include="MusicEng\musicmod.h" />
+    <ClInclude Include="MainMenu\GameMenu.h" />
+    <ClInclude Include="MainMenu\levels.h" />
+    <ClInclude Include="MainMenu\MainMenuDesktop.h" />
+    <ClInclude Include="MainMenu\MMDesktop.h" />
+    <ClInclude Include="MainMenu\MMhelp.h" />
+    <ClInclude Include="MainMenu\MMLevelIntro.h" />
+    <ClInclude Include="MainMenu\ProfileDesktop.h" />
+    <ClInclude Include="TinyXml\tinystr.h" />
+    <ClInclude Include="TinyXml\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="krkal.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="types.cpp" />
+    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="FileSys\crc.cpp" />
+    <ClCompile Include="FileSys\fs.cpp" />
+    <ClCompile Include="FileSys\register.cpp" />
+    <ClCompile Include="KScripts\allscripts.cpp" />
+    <ClCompile Include="KScripts\assign_KSDMs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSGs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSIDs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSMs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSOVs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_KSVGs.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\assign_names.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="KScripts\ks.cpp" />
+    <ClCompile Include="GUI\button.cpp" />
+    <ClCompile Include="GUI\dialogs.cpp" />
+    <ClCompile Include="GUI\element.cpp" />
+    <ClCompile Include="GUI\gameWindow.cpp" />
+    <ClCompile Include="GUI\GUI.CPP" />
+    <ClCompile Include="GUI\GUIConstants.cpp" />
+    <ClCompile Include="Gui\list.cpp" />
+    <ClCompile Include="GUI\loader.cpp" />
+    <ClCompile Include="GUI\menu.cpp" />
+    <ClCompile Include="GUI\message.cpp" />
+    <ClCompile Include="GUI\panel.cpp" />
+    <ClCompile Include="GUI\primitives.cpp" />
+    <ClCompile Include="GUI\refmgr.cpp" />
+    <ClCompile Include="GUI\scriptInterface.cpp" />
+    <ClCompile Include="GUI\scrollbar.cpp" />
+    <ClCompile Include="GUI\testy.cpp" />
+    <ClCompile Include="GUI\textedit.cpp" />
+    <ClCompile Include="GUI\toolbar.cpp" />
+    <ClCompile Include="GUI\tree.cpp" />
+    <ClCompile Include="GUI\widgets.cpp" />
+    <ClCompile Include="GUI\window.cpp" />
+    <ClCompile Include="Gen\elemgrid.cpp" />
+    <ClCompile Include="Gen\genanim.cpp" />
+    <ClCompile Include="Gen\genelement.cpp" />
+    <ClCompile Include="Gen\genmain.cpp" />
+    <ClCompile Include="Gen\genpackage.cpp" />
+    <ClCompile Include="Gen\genresource.cpp" />
+    <ClCompile Include="Gen\lightcache.cpp" />
+    <ClCompile Include="Gen\lights.cpp" />
+    <ClCompile Include="Gen\lighttex.cpp" />
+    <ClCompile Include="Gen\normalizer.cpp" />
+    <ClCompile Include="Kernel\autos.cpp" />
+    <ClCompile Include="kernel\interpret.cpp" />
+    <ClCompile Include="kernel\KerConstants.cpp" />
+    <ClCompile Include="kernel\KerErrors.cpp" />
+    <ClCompile Include="kernel\kernel.cpp" />
+    <ClCompile Include="kernel\KerServices.cpp" />
+    <ClCompile Include="Kernel\KrkalConvertor.cpp" />
+    <ClCompile Include="kernel\LevelMap.cpp" />
+    <ClCompile Include="kernel\md_testy.cpp" />
+    <ClCompile Include="kernel\names.cpp" />
+    <ClCompile Include="kernel\objects.cpp" />
+    <ClCompile Include="Compiler\ComCodeGen.cpp" />
+    <ClCompile Include="Compiler\ComCompiler.cpp" />
+    <ClCompile Include="Compiler\ComCSGenerator.cpp" />
+    <ClCompile Include="Compiler\ComError.cpp" />
+    <ClCompile Include="Compiler\ComExpression.cpp" />
+    <ClCompile Include="Compiler\ComFunctions.cpp" />
+    <ClCompile Include="Compiler\ComLexical.cpp" />
+    <ClCompile Include="Compiler\ComObjectBrowser.cpp" />
+    <ClCompile Include="Compiler\ComPart.cpp" />
+    <ClCompile Include="Compiler\ComPosition.cpp" />
+    <ClCompile Include="Compiler\ComSemantic.cpp" />
+    <ClCompile Include="Compiler\ComString.cpp" />
+    <ClCompile Include="Compiler\ComSymbolTable.cpp" />
+    <ClCompile Include="Compiler\ComSyntax.cpp" />
+    <ClCompile Include="Editor\desktop.cpp" />
+    <ClCompile Include="Editor\editor.cpp" />
+    <ClCompile Include="Editor\editorLevelWin.cpp" />
+    <ClCompile Include="Editor\editorMenu.cpp" />
+    <ClCompile Include="Editor\ObjProperty.cpp" />
+    <ClCompile Include="Editor\regedit.cpp" />
+    <ClCompile Include="Editor\reseditor.cpp" />
+    <ClCompile Include="DX\Cache.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="DX\d3dfont.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="DX\dx.cpp" />
+    <ClCompile Include="DX\dxbliter.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="DX\dxfont.cpp" />
+    <ClCompile Include="DX\DXHighlight.cpp" />
+    <ClCompile Include="DX\dxtext.cpp" />
+    <ClCompile Include="DX\Input.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="DX\texture.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="DX\timer.cpp" />
+    <ClCompile Include="SEd\NameBrowser.cpp" />
+    <ClCompile Include="SEd\scriptedit.cpp" />
+    <ClCompile Include="SEd\SEdDesktop.cpp" />
+    <ClCompile Include="SEd\SEdFileBrowser.cpp" />
+    <ClCompile Include="SEd\SEdObjectBrowser.cpp" />
+    <ClCompile Include="SEd\SEdOpenedFiles.cpp" />
+    <ClCompile Include="MusicEng\fileReader.cpp" />
+    <ClCompile Include="MusicEng\music.cpp" />
+    <ClCompile Include="MusicEng\musicmod.cpp" />
+    <ClCompile Include="MainMenu\GameMenu.cpp" />
+    <ClCompile Include="MainMenu\levels.cpp" />
+    <ClCompile Include="MainMenu\MainMenuDesktop.cpp" />
+    <ClCompile Include="MainMenu\MMDesktop.cpp" />
+    <ClCompile Include="MainMenu\MMhelp.cpp" />
+    <ClCompile Include="MainMenu\MMLevelIntro.cpp" />
+    <ClCompile Include="MainMenu\ProfileDesktop.cpp" />
+    <ClCompile Include="TinyXml\tinystr.cpp" />
+    <ClCompile Include="TinyXml\tinyxml.cpp" />
+    <ClCompile Include="TinyXml\tinyxmlerror.cpp" />
+    <ClCompile Include="TinyXml\tinyxmlparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(01)Land of Moles_76A7_96F4_40B6_544F.lv\LevelIntro.xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

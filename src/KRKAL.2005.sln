@@ -1,8 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KRKAL.2005", "KRKAL.2005.vcproj", "{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KRKAL.2005", "KRKAL.2005.vcxproj", "{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSutil.2005", "FileSys\FSutil\FSutil.2005.vcproj", "{544554B6-E2C3-45E3-A5CA-F2B595C41C76}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSutil.2005", "FileSys\FSutil\FSutil.2005.vcxproj", "{544554B6-E2C3-45E3-A5CA-F2B595C41C76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
