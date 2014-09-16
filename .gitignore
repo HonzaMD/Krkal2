@@ -9,3 +9,7 @@ src/*.user
 src/*.ncb
 src/*.suo
 src/TinyXml/tinyxml_2_5_3.zip
+bin/Krkal.bsc
+bin/KRKAL.ilk
+bin/Krkal.pdb
+src/KRKAL.2005.sdf
