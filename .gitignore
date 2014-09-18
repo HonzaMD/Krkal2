@@ -13,3 +13,5 @@ bin/Krkal.bsc
 bin/KRKAL.ilk
 bin/Krkal.pdb
 src/KRKAL.2005.sdf
+src/KRKAL.2005.opensdf
+src/ipch

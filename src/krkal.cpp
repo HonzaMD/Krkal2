@@ -49,6 +49,7 @@ DWORD WINAPI RenderFunction( LPVOID lpParam )
 	while(1){
 		if(WaitForSingleObject(KRKAL->RenderEvent,INFINITE)==WAIT_OBJECT_0)
 		{
+		//	OutputDebugString("DXDevice Prersent\n");
 			KRKAL->DXDevice->Present( NULL, NULL, NULL, NULL );	
 			SetEvent(KRKAL->RenderReadyEvent);
 		}
@@ -692,11 +693,17 @@ void CKrkal::Redraw()
 {
 	if(WaitForSingleObject(KRKAL->RenderReadyEvent,0)==WAIT_OBJECT_0)
 	{
+		//OutputDebugString("REDRAW\n");
+
 		DXbliter->Update();
 
 		DXapp->Render();
 
 		SetEvent(RenderEvent);
+
+
+		WaitForSingleObject(KRKAL->RenderReadyEvent, INFINITE);
+		SetEvent(KRKAL->RenderReadyEvent);
 	}
 }
 

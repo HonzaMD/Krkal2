@@ -611,6 +611,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 		}
 		catch(CKernelPanic)
 		{
+			SAFE_DELETE(levelIntro);
 			SAFE_DELETE(KerMain);
 			GEnMain->DeleteAll();
 			ok=0;

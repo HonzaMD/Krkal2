@@ -588,6 +588,7 @@ public:
 
 	void Render();
 	void Update(){
+		//OutputDebugString("DxBlitter Update\n");
 		if(rootwnd) rootwnd->Update(NULL,NULL,0);
 	}
 

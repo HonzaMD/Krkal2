@@ -1433,6 +1433,8 @@ LRESULT CDXapp::MsgProc( HWND hWnd, UINT uMsg, WPARAM wParam,
 HRESULT CDXapp::Render()
 {
     HRESULT hr;
+
+	//OutputDebugString("DxApp Render\n");
 	
     // Test the cooperative level to see if it's okay to render
     if( FAILED( hr = m_pd3dDevice->TestCooperativeLevel() ) )

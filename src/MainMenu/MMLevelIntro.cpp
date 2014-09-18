@@ -127,6 +127,7 @@ MMLevelIntro::~MMLevelIntro(void)
 {
 	if (cw != 0)
 		cw->CloseWindow();
+	cw = 0;
 }
 
 
