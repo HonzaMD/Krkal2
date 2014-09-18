@@ -533,6 +533,9 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 	
 	if(level)
 	{
+		WaitForSingleObject(KRKAL->RenderReadyEvent, INFINITE);
+		SetEvent(KRKAL->RenderReadyEvent);
+
 		MMmode = 1;
 		playingFile = levelFile;
 
