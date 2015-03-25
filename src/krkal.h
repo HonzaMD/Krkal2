@@ -84,6 +84,8 @@ public:
 	void DeleteKeyBoardMessages();
 	void Redraw();
 
+	void DeleteTextureLater(LPDIRECT3DTEXTURE8 pTexture) { texturesToDelete.Add(pTexture); }
+
 private:
 
 	class CDXapp *DXapp;
@@ -91,12 +93,14 @@ private:
 	class CGEnMain* GEnMain;
 	class CComCompiler* compiler;
 	class CDXHighLightFormat* highlightformat;
+	CListK<LPDIRECT3DTEXTURE8> texturesToDelete;
 
 	int isrunning;
 
 	void Stop(){isrunning=0;}
 	
 	int MakeTurn();
+	void DeleteTextures();
 
 	UI MinTime,MaxTime; //min a max cas na kolo v milisekundach
 	UI TimeOut1; //max cas, kdy se jeste budu snazit dohonit zpozdeni

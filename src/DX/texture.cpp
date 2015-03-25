@@ -11,13 +11,14 @@
 
 #include "texture.h"
 #include "fs.h"
+#include "krkal.h"
 
 int CTexture::CreateFromFile(const char *filename, DWORD filter)
 {
 
 	D3DXIMAGE_INFO SrcInfo[3];
 	
-	if(pTexture) {pTexture->Release();pTexture=NULL;}
+	if(pTexture) {KRKAL->DeleteTextureLater(pTexture);pTexture=NULL;}
 
 	int ln;
 	int ok=1;
@@ -58,7 +59,7 @@ int CTexture::CreateFromFile(const char *filename, DWORD filter)
 int CTexture::Create(UINT sx, UINT sy, DWORD usage, D3DFORMAT fmt, D3DPOOL pool)
 {
 
-	if(pTexture) {pTexture->Release();pTexture=NULL;}
+	if (pTexture) { KRKAL->DeleteTextureLater(pTexture); pTexture = NULL; }
 
     imgsx=sx;
     imgsy=sy;
@@ -91,7 +92,7 @@ CTexture::~CTexture()
 {
 	if(pTexture)
 	{
-		pTexture->Release();pTexture=NULL;		
+		KRKAL->DeleteTextureLater(pTexture); pTexture = NULL;
 	}
 }
 

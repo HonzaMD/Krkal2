@@ -83,6 +83,15 @@ CKrkal::CKrkal()
 
 }
 
+
+void CKrkal::DeleteTextures()
+{
+	while (!texturesToDelete.IsEmpty()) 
+	{
+		texturesToDelete.RemoveHead()->Release();
+	}
+}
+
 CKrkal::~CKrkal()
 {
 
@@ -111,6 +120,7 @@ CKrkal::~CKrkal()
 
 	SAFE_DELETE(MMProfiles);
 	SAFE_DELETE(MMLevelDirs);
+	DeleteTextures();
 
 	CFS::DoneFS(); //deinitace FS
 
@@ -118,6 +128,7 @@ CKrkal::~CKrkal()
 	SAFE_DELETE(DXapp);
 
 	SAFE_DELETE(RefMgr);
+	DeleteTextures();
 
 	if(KrkalMutex) CloseHandle(KrkalMutex);
 	if(RenderThread) CloseHandle(RenderThread);
@@ -650,6 +661,8 @@ int CKrkal::MakeTurn()
 	{
 		if(WaitForSingleObject(KRKAL->RenderReadyEvent,0)==WAIT_OBJECT_0)
 		{
+			DeleteTextures();
+
             if(!paused) GEnMain->Update(kernelTime + (UI)((tm-kernelRealTimeT)/tpms));
 			DXbliter->Update();
 
