@@ -15,3 +15,7 @@ bin/Krkal.pdb
 src/KRKAL.2005.sdf
 src/KRKAL.2005.opensdf
 src/ipch
+src/ReleaseDebug
+bin/Data/compiler/files/semantic.out
+bin/Data/compiler/files/syntax.out
+bin/Profiles

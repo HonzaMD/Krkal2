@@ -774,6 +774,91 @@ void CKrkal::GameVictory()
 }
 
 
+
+const char *CKrkal::GetTranslationCoordinates(const char *str, int &langugeLen, int &textLen, const char *&text)
+{
+	int pos = 0;
+	text = str;
+	langugeLen = 0;
+	const char *nextStr = 0;
+
+	while (str[pos] != 0)
+	{
+		if (text == str && str[pos] == '{' && str[pos + 1] == '{') 
+		{
+			text = str + pos + 2;
+			langugeLen = pos;
+		}
+		if (text != str && str[pos] == '}' && str[pos + 1] == '}') 
+		{
+			nextStr = str + pos + 2;
+			break;
+		}
+		pos++;
+	}
+
+	textLen = str + pos - text;
+	return nextStr;
+}
+
+
+char *CKrkal::CopyOutStrByLanguage(const char *str) 
+{
+	const char *text1=0, *text2=0, *text3=0;
+	int len1 = 0, len2 = 0, len3 = 0;
+
+	while (str && *str) 
+	{
+		const char* lang = str;
+		const char* text;
+		int langLen, textLen;
+		str = GetTranslationCoordinates(str, langLen, textLen, text);
+
+		if (langLen > 0) 
+		{
+			if (!text1 && strncmp(cfg.langStr, lang, langLen) == 0)
+			{
+				text1 = text;
+				len1 = textLen;
+				break;
+			}
+			if (!text2 && strncmp(cfg.langStr2, lang, langLen) == 0)
+			{
+				text2 = text;
+				len2 = textLen;
+			}
+		}
+		if (!text3)
+		{
+			text3 = text;
+			len3 = textLen;
+		}
+	}
+
+	if (!text1 && text2) 
+	{
+		text1 = text2;
+		len1 = len2;
+	}
+	if (!text1 && text3)
+	{
+		text1 = text3;
+		len1 = len3;
+	}
+
+	if (!text1)
+		return 0;
+
+	char *s;
+	if (s = new char[len1 + 1]) {
+		strncpy(s, text1, len1);
+		s[len1] = 0;
+	}
+
+	return s;
+}
+
+
 ////////////////////////////
 
 CKrkalCfg::CKrkalCfg()

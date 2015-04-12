@@ -86,6 +86,8 @@ public:
 
 	void DeleteTextureLater(LPDIRECT3DTEXTURE8 pTexture) { texturesToDelete.Add(pTexture); }
 
+	char *CopyOutStrByLanguage(const char *str);
+
 private:
 
 	class CDXapp *DXapp;
@@ -101,6 +103,8 @@ private:
 	
 	int MakeTurn();
 	void DeleteTextures();
+	
+	const char *GetTranslationCoordinates(const char *str, int &langugeLen, int &textLen, const char *&text);
 
 	UI MinTime,MaxTime; //min a max cas na kolo v milisekundach
 	UI TimeOut1; //max cas, kdy se jeste budu snazit dohonit zpozdeni

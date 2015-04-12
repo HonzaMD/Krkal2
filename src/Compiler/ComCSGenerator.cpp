@@ -48,7 +48,7 @@ void CComCSGenerator::CreateCompiledScripts()
 	CComHTE* hte;
 
 	scriptNr = KS_VERSION+1;
-	FS->ChangeDir("$KRKAL$\\KScripts");
+	FS->ChangeDir("$KSCRIPTS$");
 	FS->GetCurDir(&tmpStr);
 	sprintf(ksvgstr, "%s\\script%d.cpp", tmpStr, scriptNr);
 	FILE* f = fopen(ksvgstr, "w+t");
@@ -350,7 +350,7 @@ void CComCSGenerator::CreateCompiledScripts()
 	FinishFile(fo);
 
 	// allscripts:
-	FS->ChangeDir("$KRKAL$\\KScripts");
+	FS->ChangeDir("$KSCRIPTS$");
 	fo = StartFile("allscripts.cpp",&fo2,false);
 	fseek(fo, -(int)strlen("// STOP TAG: }"), SEEK_CUR);
 	sprintf(ksvgstr,"\n#include \"script%d.cpp\"\n", scriptNr);
@@ -359,7 +359,7 @@ void CComCSGenerator::CreateCompiledScripts()
 	FinishFile(fo, fo2);
 
 	// ks_version:
-	FS->ChangeDir("$KRKAL$\\KScripts\\New");
+	FS->ChangeDir("$KSCRIPTS$\\New");
 	fo = fopen("ks_version.h", "wt");
 	assert(fo);
 

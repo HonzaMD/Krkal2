@@ -20,6 +20,7 @@
 #include "LevelMap.h"
 #include "names.h"
 #include "register.h"
+#include "krkal.h"
 
 
 
@@ -265,8 +266,8 @@ int CKerObjs::LoadOVar(CFSRegKey *_km, CKerOVar *OV, CKerOVar ***SpecKnownVars, 
 
 	// tagy pro editor
 	if (l=km->FindKey("Edit Type")) OV->EditType = l->readi();
-	if (l=km->FindKey("User Name")) OV->UserName = newstrdup(l->GetDirectAccess());
-	if (l=km->FindKey("Comment")) OV->Comment = newstrdup(l->GetDirectAccess());
+	if (l=km->FindKey("User Name")) OV->UserName = KRKAL->CopyOutStrByLanguage(l->GetDirectAccess());
+	if (l = km->FindKey("Comment")) OV->Comment = KRKAL->CopyOutStrByLanguage(l->GetDirectAccess());
 
 	if (OV->EditType == eKETscripted) {
 		if (!(l=km->FindKey("Method")) || OV->Type != eKTvoid) RETERR
@@ -373,8 +374,8 @@ int CKerObjs::LoadObjects(CFSRegister *o) {
 		ObjectTypes[f].Name->Type=eKerNTobject;
 		ObjectTypes[f].Name->ObjectType = &ObjectTypes[f];
 		ObjectTypes[f].EditTag = ko->FindKey("Edit Tag")->readi(); // load edit tagu
-		if (l=ko->FindKey("User Name")) ObjectTypes[f].Name->UserName = ObjectTypes[f].UserName = newstrdup(l->GetDirectAccess());
-		if (l=ko->FindKey("Comment")) ObjectTypes[f].Name->Comment = ObjectTypes[f].Comment = newstrdup(l->GetDirectAccess());
+		if (l = ko->FindKey("User Name")) ObjectTypes[f].Name->UserName = ObjectTypes[f].UserName = KRKAL->CopyOutStrByLanguage(l->GetDirectAccess());
+		if (l = ko->FindKey("Comment")) ObjectTypes[f].Name->Comment = ObjectTypes[f].Comment = KRKAL->CopyOutStrByLanguage(l->GetDirectAccess());
 		// nahraju informace o alokaci kompilovanych promennych
 		if (l=ko->FindKey("KSVG")) {
 			ksKSVG = (CKSKSVG*)(KSMain->KSVGs->Member(l->GetDirectAccess()));
