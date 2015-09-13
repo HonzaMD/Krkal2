@@ -13,7 +13,7 @@ void KSAssignKSGs() {
 
 
 
-	// New lines added 07/03/04 at 00:40:32.
+	// New lines added 09/13/15 at 12:27:19.
 
 	new CKSKSG("_KSG_ovybuch_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001",&_KSG_ovybuch_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001);
 	new CKSKSG("_KSG_oVybuch1_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001",&_KSG_oVybuch1_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001);

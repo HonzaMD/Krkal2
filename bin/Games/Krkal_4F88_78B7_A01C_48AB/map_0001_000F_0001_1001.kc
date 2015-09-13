@@ -8,6 +8,7 @@ version 0001_000F_0001_1001
 /////////////////////////////////////////////////////////////////////
 ///
 /// 	O b j e c t   M A P   f o r   t h e   g a m e   K R K A L
+/// 	O b j e c t   M A P A   P r o   h r u   K R K A L
 ///
 /////////////////////////////////////////////////////////////////////
 
@@ -17,7 +18,7 @@ OMap Map;
 
 
 object OMap {
-	edit {UserName = "Map", Comment="This object controls the level map. Here you can change the dimensions of the map. After you have done this, press the refresh button."}
+	edit {UserName = "en{{Map}}cs{{Mapa}}", Comment="en{{This object controls the level map. Here you can change the dimensions of the map. After you have done this, press the refresh button.}}cs{{Tento objekt spravuje plán levlu - Mapu. Mùžete mìnit velikost mapy (mapa se zmìní až stisknutím tlaèítka refresh).}}"}
 	
 	// V kazde bunce mam spoja do ni zasahujicich objektu
 	struct CCell  {
@@ -26,10 +27,10 @@ object OMap {
 	}
 
 	// rozmery mapy v pixelech	
-	int leftx edit {Editable, Comment = "X coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button."};
-	int lefty edit {Editable, Comment = "Y coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button."};
-	int rightx edit {Editable, Comment = "X coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button."};
-	int righty edit {Editable, Comment = "Y coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button."};
+	int leftx edit {Editable, Comment = "en{{X coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button.}}cs{{X souøadnice levého horního rohu v pixelech. Až zmìníš souøadnice, zmáèkni tlaèítko refresh.}}"};
+	int lefty edit {Editable, Comment = "en{{Y coordinate of the upper left corner in pixels. When you finished the changes, press the refresh button.}}cs{{Y souøadnice levého horního rohu v pixelech. Až zmìníš souøadnice, zmáèkni tlaèítko refresh.}}"};
+	int rightx edit {Editable, Comment = "en{{X coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button.}}cs{{X souøadnice pravého dolního rohu v pixelech. Až zmìníš souøadnice, zmáèkni tlaèítko refresh.}}"};
+	int righty edit {Editable, Comment = "en{{Y coordinate of the lower right corner in pixels. When you finished the changes, press the refresh button.}}cs{{Y souøadnice pravého dolního rohu v pixelech. Až zmìníš souøadnice, zmáèkni tlaèítko refresh.}}"};
 	int lowerlevel, upperlevel; // patra
 	int startx, starty;			// prvni bunka
 	int sizex, sizey;			// pocet bunek

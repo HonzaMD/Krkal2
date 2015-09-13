@@ -7,9 +7,12 @@ version 0001_FFFF_0001_0001
 
 //////////////////////////////////////////////////////////////////////
 ////
+////		H r a   K R K A L
+////		1. Verze
 ////		G a m e   K R K A L
 ////		Version 1
 ////
+////		Obsahuje zakladni (rozsahlou) sadu objektu hry Krkal
 ////		Contains basic (huge) set of objects for the game Krkal
 ////
 /////////////////////////////////////////////////////////////////////
@@ -26,9 +29,9 @@ objectname smejdic;
 depend placeable << smejdic;
 
 object placeable inherit {
-	int @ObjPosX edit {Editable, Comment = "X coordinate of the object in pixels."};
-	int @ObjPosY edit {Editable, Comment = "Y coordinate of the object in pixels."};
-	name @APicture edit {Editable, Comment = "Graphics style. You can leave @DefaultAuto here."};
+	int @ObjPosX edit {Editable, Comment = "en{{X coordinate of the object in pixels.}}cs{{X-ová souøadnice objektu v pixelech}}"};
+	int @ObjPosY edit {Editable, Comment = "en{{Y coordinate of the object in pixels.}}cs{{Y-ová souøadnice objektu v pixelech}}"};
+	name @APicture edit {Editable, Comment = "en{{Graphics style. You can leave @DefaultAuto here.}}cs{{Styl grafiky. Muzete nechat nastaveni na @DefaultAuto}}"};
 }
 
 
@@ -105,7 +108,7 @@ object floors {
 
 // bezna podlaha	
 object floor {
-	edit {InMap, UserName="Floor", Comment="Ordinary floor has no special behavior."}
+	edit {InMap, UserName="en{{Floor}}cs{{Podlaha}}", Comment="en{{Ordinary floor has no special behavior.}}cs{{Základní podlaha}}"}
 }
 
 
@@ -117,8 +120,8 @@ objectname wall;
 depend placeable << wall;
 
 object wall {
-	edit {InMap, UserName = "Wall", Comment="Ordinary solid wall. It cannot be destroyed, climbed over or pushed."}
-	int @ANoConnect edit {Editable, Comment="Bit mask. This controls to which directions the wall will not be connected."};
+	edit {InMap, UserName = "en{{Wall}}cs{{Stìna}}", Comment="en{{Ordinary solid wall. It cannot be destroyed, climbed over or pushed.}}cs{{Klasická pevná stìna. Nelze žádným klasickým zpùsobem znièit, pøelézt nebo odstrèit.}}"}
+	int @ANoConnect edit {Editable, Comment="en{{Bit mask. This controls to which directions the wall will not be connected.}}cs{{Bitová maska, která urèuje, do kterých smìrù obrázek stìny nebude navazovat.}}"};
 }
 
 
@@ -174,7 +177,7 @@ depend placeable << PAutoTest;
 depend floors << PAutoTest;
 
 object PAutoTest {
-	edit {InMap, UserName="AT Floor", Comment="Ordinary floor has no special behavior."}
+	edit {InMap, UserName="en{{AT Floor}}cs{{AT podlaha}}", Comment="en{{Ordinary floor has no special behavior.}}cs{{Základní podlaha}}"}
 }
 
 
@@ -341,7 +344,7 @@ depend ZnicitelneVeVybuchu << {mina, smejdic};
 // Mina po umisteni chvili ceka a pak umisti triger, kterym je ji mozno
 // aktivovat. Po aktivaci chvili ceka a pak vybuchuje
 object mina {
-	edit {InMap, UserName="Mine", Comment="The activated mine has the top yellow light lit. Once dropped, the mine waits few seconds to let you run away. After that, if any living creature (you or some monster) or explosion reaches the cell next to the activated mine, the mine explodes after a short delay. It is possible to come next to the activated mine and run back quickly to escape the explosion. However, you cannot run over the activated mine without being killed by the explosion. If destroyed, the mine explodes immediately. The chained explosion occurs even if the activated mines are placed with one free cell between two of them."}
+	edit {InMap, UserName="en{{Mine}}cs{{Mina}}", Comment="en{{The activated mine has the top yellow light lit. Once dropped, the mine waits few seconds to let you run away. After that, if any living creature (you or some monster) or explosion reaches the cell next to the activated mine, the mine explodes after a short delay. It is possible to come next to the activated mine and run back quickly to escape the explosion. However, you cannot run over the activated mine without being killed by the explosion. If destroyed, the mine explodes immediately. The chained explosion occurs even if the activated mines are placed with one free cell between two of them.}}cs{{Aktivovaná mina. Po umístìní mina pár sekund èeká, než se aktivuje (abys mohl utéct). Poté, pokud se nìco živého (Ty nebo pøíšera) nebo výbuch ocitne na políèku vedle aktivované miny, mina ještì chvilku poèká a pak vybuchne. Lze stihnout aktivovanou minu vyrušit a rychle utéct pøed výbuchem. Rozhodnì ale nelze stihnout nad aktivovanou minou probìhnout. Pøi znièení mina vybuchuje. Øetìzový výbuch u min vzniká, už když jsou miny umístìny ob jedno políèko.}}"}
 	objptr triger;
 	uconstructor() { triger = onull; }
 	
@@ -412,7 +415,7 @@ depend floors << oDira;
 depend VeciPadajiciDoDiry << {mina, smejdic};
 
 object oDira {
-	edit {InMap, UserName="Pit", Comment="All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls."}
+	edit {InMap, UserName="en{{Pit}}cs{{Díra}}", Comment="en{{All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls.}}cs{{Všechny strkatelné a sebratelné pøedmìty (kromì balónku), všechny Tvoje podoby a všechny pøíšery, pokud se ocitnou nad dírou (èi díra se ocitne pod nimi), spadnou nenávratnì do díry. Díry a lávy jsou bezedné, takže do nich mùžeš nastrkat libovolné množství pøedmìtù. Do dìr nepadá balónek, jelikož se vznáší, a rùzné pevnì umístìné pøedmìty (magnet) a stìny.}}"}
 	inherit objptr triger;
 
 	inherit void @MapPlaced() {
@@ -442,7 +445,7 @@ object oDira {
 objectname oLava;
 depend oDira << oLava;
 object oLava {
-	edit {InMap, UserName="Lava", Comment="All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls."}
+	edit {InMap, UserName="en{{Lava}}cs{{Láva}}", Comment="en{{All pushable and pickupable objects (excepting the balloon), all your forms and all monsters will fall in the pit/lava whenever they step on it (or get on it). Everything is lost in the pit/lava forever; no recovery is possible. Pits are bottomless, so the number of object that can be pushed in the pit/lava is not limited. The balloon does not fall in the pit/lava as it floats over. Pit/lava does not affect several mounted objects (for example magnets) and walls.}}cs{{Všechny strkatelné a sebratelné pøedmìty (kromì balónku), všechny Tvoje podoby a všechny pøíšery, pokud se ocitnou nad dírou (èi díra se ocitne pod nimi), spadnou nenávratnì do díry. Díry a lávy jsou bezedné, takže do nich mùžeš nastrkat libovolné množství pøedmìtù. Do dìr nepadá balónek, jelikož se vznáší, a rùzné pevnì umístìné pøedmìty (magnet) a stìny.}}"}
 	void SetPos(int ::X, int ::Y) {
 		@ObjPosX = X; @ObjPosY = Y;
 	}
@@ -459,7 +462,7 @@ voidname nStavPropadu, nStavPropaduOK, nStavPropaduPad;
 depend nStavPropadu << {nStavPropaduOK, nStavPropaduPad}
 
 object oPropadlo {
-	edit {InMap, UserName="Trap", Comment="The trap behaves like a covered pit/lava. As an object gets on the trap, it is safe there for a short period of time (in which it is possible to cross the trap, turn back on the cell on the other side and return back over the trap). After that, the trap collapses and becomes pit/lava.  Explosion causes a trap to collapse immediately."}
+	edit {InMap, UserName="en{{Trap}}cs{{Propadlo}}", Comment="en{{The trap behaves like a covered pit/lava. As an object gets on the trap, it is safe there for a short period of time (in which it is possible to cross the trap, turn back on the cell on the other side and return back over the trap). After that, the trap collapses and becomes pit/lava.  Explosion causes a trap to collapse immediately.}}cs{{Pokud na propadací podlahu nìkdo vstoupí nebo se na ni dostane nìjaký pøedmìt, který by mohl spadnout do díry, zaène proces propadání. To znamená, že po urèitém èase se propadající se podlaha zmìní na díru (lávu). Pøedmìt do ní pak okamžitì spadne. Èas propadání je zvolen tak, že se dá stihnout: vlézt na podlahu, odejít na vedlejší políèko, rychle se vrátit na podlahu (ještì není propadlá) a utéct (teï se propadne). Výbuch zpùsobí okamžité propadnutí podlahy.}}"}
 	objptr triger;
 
 	name StavPropadnuti edit {Auto = nStavPropadu};
@@ -516,7 +519,7 @@ voidname AutoSmer;
 methodname SetSmer, GetSmer returns name;
 
 object oSeSmerem {
-	inherit name smer edit {Editable, UserName="Orientation", Auto=AutoSmer, Is < Smery, Comment = "Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)"};
+	inherit name smer edit {Editable, UserName="en{{Orientation}}cs{{Smìr}}", Auto=AutoSmer, Is < Smery, Comment = "en{{Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)}}cs{{Natoèení objektu}}"};
 	
 	inherit constructor()  { smer=Sever;}
 	inherit name GetSmer() { return smer; }
@@ -528,7 +531,7 @@ object oSeSmerem {
 }
 
 object oSeSmerem2 {
-	inherit name smer edit {Editable, UserName="Orientation", Auto=Smery2, Is < Smery2, Comment = "Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)"};
+	inherit name smer edit {Editable, UserName="en{{Orientation}}cs{{Smìr}}", Auto=Smery2, Is < Smery2, Comment = "en{{Object's orientation (Sever = North, Zapad = West, Jih = South, Vychod = East)}}cs{{Natoèení objektu}}"};
 	
 	inherit constructor() { smer=Sever;}
 	inherit name GetSmer() { return smer; }
@@ -548,7 +551,7 @@ depend {placeable, oSeSmerem} << oMagnet;
 
 
 object oMagnet {
-	edit {InMap, UserName="Magnet", Comment="The magnet generates a magnetic field in the way it is directed. The field is always covering an area of 1*n cells (horizontally or vertically) beginning in magnet and ending in the end of the map or in front of the antimagnetic wall. Nothing else can interrupt the magnetic field. All objects affected by the magnetism will start moving to the magnet, if the path is free of obstacles. Magnets cause the objects to fall. Falling objects would kill the Slime Guy, the Dragon, all monsters and the balloon. Magnets cannot be destroyed."}
+	edit {InMap, UserName="en{{Magnet}}cs{{Magnet}}", Comment="en{{The magnet generates a magnetic field in the way it is directed. The field is always covering an area of 1*n cells (horizontally or vertically) beginning in magnet and ending in the end of the map or in front of the antimagnetic wall. Nothing else can interrupt the magnetic field. All objects affected by the magnetism will start moving to the magnet, if the path is free of obstacles. Magnets cause the objects to fall. Falling objects would kill the Slime Guy, the Dragon, all monsters and the balloon. Magnets cannot be destroyed.}}cs{{Magnet generuje magnetické pole tím smìrem, jakým je nasmìrován. Pole jednoho magnetu je vždy omezeno na øadu èi sloupec velikosti 1*n políèek. Pole zaèíná magnetem a konèí okrajem levelu nebo antimagnetickou stìnou. Nic jiného pole magnetu pøerušit nemùže. Všechny pohyblivé vìci, které jsou pøitahovány magnetem, se zaènou pohybovat smìrem k magnetu, pokud jim v tom nebrání nìjaká pøekážka. Magnet zpùsobuje tzv. padaní pøedmìtù. Padající pøedmìty zabijí Hemra, Dráèka a všechny pøíšery. Magnet je neznièitelný.}}"}
 }
 
 
@@ -561,7 +564,7 @@ depend {placeable,oSeSmerem,ZnicitelneVeVybuchu} << oLaser;
 
 
 object oLaser {
-	edit {InMap, UserName="Laser", Comment="Not implemented yet..."}
+	edit {InMap, UserName="en{{Laser}}cs{{Laser}}", Comment="en{{Not implemented yet...}}cs{{Zatím nenaprogramován .. :-(}}"}
 }
 
 
@@ -574,8 +577,8 @@ voidname Barva,Cervena, Zluta, Modra;
 depend Barva << {Cervena, Zluta, Modra}
 
 object oklic {
-	edit {InMap, UserName="Key", Comment="The key can be used to open the lock of the same color. Both the key and the lock are designed for a single use, which means that both the key and the lock will disappear after the lock is unlocked."}
-	name barva edit {Editable, UserName="Color", Auto=Barva, Is < Barva, Comment="Color"};
+	edit {InMap, UserName="en{{Key}}cs{{Klíè}}", Comment="en{{The key can be used to open the lock of the same color. Both the key and the lock are designed for a single use, which means that both the key and the lock will disappear after the lock is unlocked.}}cs{{Klíèe jsou pøedmìty, které slouží k odemykání zámkù. Zámek odemkne klíè stejné barvy. Každý klíè je na jedno použití. Tedy po odemknutí zámku zmizí nevratnì zámek i klíè.}}"}
+	name barva edit {Editable, UserName="en{{Color}}cs{{Barva}}", Auto=Barva, Is < Barva, Comment="en{{Color}}cs{{Barva}}"};
 	constructor() { barva = Cervena; }
 	name decl GetBarva() { return barva;}
 	void decl SetBarva(name ::Barva) { barva = Barva;}
@@ -1334,7 +1337,7 @@ paramname pOnOff;
 objectname oOnOff;
 // u potomku je treba doprogramovat metodu SetOnOff
 object oOnOff inherit {
-	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages."}; 
+	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "en{{Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages.}}cs{{Zda je objekt zapnut, èi vypnut. Stav lze také mìnit zasíláním zpráv TurnOn, TurnOff, ChangeOnOff}}"}; 
 	void TurnOn() { SetOnOff(pOnOff:On); }
 	void TurnOff() { SetOnOff(pOnOff:Off); }
 	name GetOnOff() { return OnOff; }
@@ -1344,10 +1347,10 @@ object oOnOff inherit {
 
 // PAS. strak predmety, ktere jsou na nem. Muze byt zapnut nebo vypnut
 object oPas {
-	edit {InMap, UserName="Conveyor", Comment="If not moving on their own, all moveable items (excepting the balloon) are transported by the conveyor. You cannot move against the conveyor direction and you do not increase your speed when moving in the same direction, but you can slip out from the conveyor or even cross it quickly without being transported. The conveyor may be off power, in which case it behaves just like an ordinary floor."}
+	edit {InMap, UserName="en{{Conveyor}}cs{{Pás}}", Comment="en{{If not moving on their own, all moveable items (excepting the balloon) are transported by the conveyor. You cannot move against the conveyor direction and you do not increase your speed when moving in the same direction, but you can slip out from the conveyor or even cross it quickly without being transported. The conveyor may be off power, in which case it behaves just like an ordinary floor.}}cs{{Všechny pohyblivé pøedmìty (kromì Balónku), pokud se samy nepohybují, jsou odsunuty ve smìru pohybu pásu. Pokud se pøedmìt (Ty) pohybuje(š) kolmo na pás a ani na chvilku se nezastaví(š), projde(š) kolmo pøes pás a ten pøedmìt (Tebe) nestaèí nijak vychýlit. Proti smìru pohybu pásu se pohybovat nelze. Pohyb po smìru nijak nezvyšuje tvoji rychlost. Pás mùže být i vypnutý, v tom pøípadì se chová jako obyèejná podlaha.}}"}
 	objptr triger;
 	
-	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages."}; 
+	name OnOff edit {Is < nOnOff, Auto = nOnOff, Comment = "en{{Determines whether the object is on power or off power. The state can be also changed by sending TurnOn, TurnOff and ChangeOnOff messages.}}cs{{Zda je objekt zapnut, èi vypnut. Stav lze také mìnit zasíláním zpráv TurnOn, TurnOff, ChangeOnOff}}"}; 
 	void TurnOn() { SetOnOff(pOnOff:On); }
 	void TurnOff() { SetOnOff(pOnOff:Off); }
 	name GetOnOff() { return OnOff; }
@@ -1429,7 +1432,7 @@ voidname ForceOLed;
 depend PriorityOPas >> PriorityOLed;
 
 object oLed {
-	edit {InMap, UserName="Ice", Comment="Only the Slime Guy does not slide on the ice. Everything else that gets on the ice - no matter if it steps there or is pushed there - starts sliding. Sliding means that the object will keep moving straight until it either leaves the ice field or hits some wall or another obstacle. While sliding, it is not possible to stop or to change a direction of the movement. Explosion melts the ice, which then turns to the water."}
+	edit {InMap, UserName="en{{Ice}}cs{{Led}}", Comment="en{{Only the Slime Guy does not slide on the ice. Everything else that gets on the ice - no matter if it steps there or is pushed there - starts sliding. Sliding means that the object will keep moving straight until it either leaves the ice field or hits some wall or another obstacle. While sliding, it is not possible to stop or to change a direction of the movement. Explosion melts the ice, which then turns to the water.}}cs{{Jediný Hemr na ledu neklouže. Všechno ostatní, co na led vkroèí, èi je strèeno, zaène klouzat. To znamená, že ona vìc se bude pohybovat stále stejným smìrem a zastaví se, až narazí na druhé stranì ledu do nìjaké stìny, èi pøedmìtu. Vìc se tedy nemùže sama zastavit, ani sama zmìnit smìr. Výbuch led rozehøeje a zmìní na vodu.}}"}
 	objptr triger;
 
 	void @MapPlaced() {
@@ -1476,8 +1479,8 @@ voidname nTocivost, LevoTociva, PravoTociva;
 depend nTocivost << {LevoTociva, PravoTociva}
 
 object oPriseraOt{
-	edit {InMap, UserName="Rotative Monster", Comment="Rotative monster walks along the walls following the rule of the right hand or the left hand (depending on its initial setting). Usually it \"patrols\" around the wall in some area, trying to get in or out. If there is no wall around, it can even start turning on the spot. Anyways, it has some basic intelligence that would prevent it from getting in an evident danger, for example, it will not walk in the pit or in the high voltage, but will die in the explosion after activated a mine, because it is too far from its view."}
-	name Tocivost edit {Editable,Is < nTocivost, UserName="Spin" Comment = "Sets whether the monster will follow the right hand rule (pravotociva) or the left hand rule (levotoiva)."};
+	edit {InMap, UserName="en{{Rotative Monster}}cs{{Pøíšera otáèivá}}", Comment="en{{Rotative monster walks along the walls following the rule of the right hand or the left hand (depending on its initial setting). Usually it \"patrols\" around the wall in some area, trying to get in or out. If there is no wall around, it can even start turning on the spot. Anyways, it has some basic intelligence that would prevent it from getting in an evident danger, for example, it will not walk in the pit or in the high voltage, but will die in the explosion after activated a mine, because it is too far from its view.}}cs{{Pøíšera otáèivá chodí kolem stìn podle pravidla levé nebo pravé ruky (záleží na tom, jak je nastavena). Vìtšinou tedy obchází vnìjší stìny nìjaké oblasti ve snaze dostat se ven z té oblasti, nebo obchází kolem nìjakého pøedmìtu, èi stìny, ve snaze dostat se dovnitø. Vrcholem jejího snažení mùže být pak to, že se zaène toèit na místì. Pøíšera otáèivá je natolik inteligentní, že neleze do viditelného nebezpeèí, napø. do díry, proudu, ale klidnì se nechá zlikvidovat od miny.}}"}
+	name Tocivost edit {Editable,Is < nTocivost, UserName="en{{Spin}}cs{{Toèivost}}" Comment = "en{{Sets whether the monster will follow the right hand rule (pravotociva) or the left hand rule (levotoiva).}}cs{{Zda pøíšera prochází bludištì podle pravidla levé nebo pravé ruky}}"};
 	constructor() {Tocivost = LevoTociva;}
 	void @MapPlaced() {
 		if (@IsGame()) MoveEnded();
@@ -1593,7 +1596,7 @@ object oMagnetForce {
 objectname oAntiMagnet;
 depend {placeable, oStartsMove} << oAntiMagnet;
 object oAntiMagnet {
-	edit {InMap, UserName="AntiMagnet", Comment="This wall cancels the effect of the magnet, so the magnetic force does not affect the space behind the wall. It cannot be destroyed, climbed over or pushed."}
+	edit {InMap, UserName="en{{AntiMagnet}}cs{{AntiMagnet}}", Comment="en{{This wall cancels the effect of the magnet, so the magnetic force does not affect the space behind the wall. It cannot be destroyed, climbed over or pushed.}}cs{{Tato stìna, jako jediná, ruší úèinky Magnetu. Stìna je neznièitelná.}}"}
 }
 
 //////////////////////////////////////////////////
@@ -1855,7 +1858,7 @@ depend oManik << oDracek;
 depend {AktivujeMinu,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu} << oDracek;
 
 object oDracek {
-	edit {InMap, UserName="Dragon", Comment="The Dragon is the only one who can swim in the water."}
+	edit {InMap, UserName="en{{Dragon}}cs{{Dráèek}}", Comment="en{{The Dragon is the only one who can swim in the water.}}cs{{Dráèek jako jediný umí plavat ve vodì.}}"}
 }
 
 
@@ -1865,7 +1868,7 @@ objectname oExit;
 depend floors << oExit;
 
 object oExit {
-	edit {InMap, UserName="Exit", Comment="This floor is your goal. You will successfully complete the level as you step on it."}
+	edit {InMap, UserName="en{{Exit}}cs{{Exit}}", Comment="en{{This floor is your goal. You will successfully complete the level as you step on it.}}cs{{Tato podlaha je cílem hry. Vstoupíš-li na ni, level úspìšnì skonèí.}}"}
 	objptr triger;
 
 	void @MapPlaced() {
@@ -1904,7 +1907,7 @@ methodname IncManik, DecManik;
 oManikControler ManikControler;
 voidname keyTab;
 
-int SdileneOvladani edit {Editable, UserName="Shared Control", EditType = bool, Comment = "If checked, the keyboard control will be shared to all player characters in the level. They will be moving simultaneously."};
+int SdileneOvladani edit {Editable, UserName="en{{Shared Control}}cs{{Sdílené ovládání}}", EditType = bool, Comment = "en{{If checked, the keyboard control will be shared to all player characters in the level. They will be moving simultaneously.}}cs{{Zda klavesy ovladaji vsechny maniky najednou, nebo jen toho, ktery ma fokus}}"};
 
 object oManikControler {
 	int ManikCount;
@@ -2093,7 +2096,7 @@ objectname oHlina;
 depend {placeable, oStartsMove, ZnicitelneVeVybuchu, TTMOConsumer} << oHlina;
 
 object oHlina  {
-	edit {InMap, UserName="Soil", Comment="The soil can be easily destroyed. You can even destroy it simply by getting on it. The soil does not prevent you from moving; you can dig through it, leaving empty space behind you. Neither monsters nor any objects are able to move in the soil. For example - if the stone falls on the soil, it stops and will not destroy the soil. There may be dangerous floors (like pits) hidden under the soil."}
+	edit {InMap, UserName="en{{Soil}}cs{{Hlína}}", Comment="en{{The soil can be easily destroyed. You can even destroy it simply by getting on it. The soil does not prevent you from moving; you can dig through it, leaving empty space behind you. Neither monsters nor any objects are able to move in the soil. For example - if the stone falls on the soil, it stops and will not destroy the soil. There may be dangerous floors (like pits) hidden under the soil.}}cs{{Hlína je znièitelná všemi klasickými zpùsoby a navíc ji mùžeš znièit i Ty tím, že na ni prostì vlezeš. (Hlína ti nebraní v pohybu a Ty tvým pohybem v ní dìláš cestièky.) Ve hlínì se nemùžou pohybovat pøíšery ani jakékoli pøedmìty. Pokud tedy kámen spadne na hlínu, zastaví se o ni a hlínu nijak neznièí. Pod hlínou mohou byt narafièeny rùzné nebezpeèné podlahy (napø. díry).}}"}
 	void TraingToMoveOver() {
 		if (typeof(sender)<=oManik) {
 			delete this;
@@ -2136,7 +2139,7 @@ object oObetPohybu1 inherit {
 objectname oKamen;
 depend {oMoveable, oStartsMove, placeable, oPusobiKulate, oZabijiPohybem1,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, PritahovanoMagnetem} << oKamen;
 object oKamen {
-	edit {InMap, UserName="Stone", Comment="The stone can be pushed, it is heavy, so it falls in the pits, activates the floors, will kill you if it falls on you. The stone is affected by the conveyor, the magnet and the ice. It is destroyable and has a round nature."}
+	edit {InMap, UserName="en{{Stone}}cs{{Kámen}}", Comment="en{{The stone can be pushed, it is heavy, so it falls in the pits, activates the floors, will kill you if it falls on you. The stone is affected by the conveyor, the magnet and the ice. It is destroyable and has a round nature.}}cs{{Pohyblivý a šoupatelný pøedmìt, je tìžký (padá do dìr, aktivuje podlahy, zabije tì, když na tebe spadne). Pùsobí na nìj pás, magnet a led, pùsobí kulatì. Je znièitelný.}}"}
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -2144,7 +2147,7 @@ object oKamen {
 objectname oZnicitelnaStena;
 depend {oStartsMove, oPusobiKulate, placeable,ZnicitelneVeVybuchu} << oZnicitelnaStena;
 object oZnicitelnaStena {
-	edit {InMap, UserName="Destroyable Wall", Comment="This wall can be destroyed. It cannot be climbed over or pushed. Destroyable wall has a round nature, which means that any object of a round nature that hits this wall will roll around it (if there is enough space)."}
+	edit {InMap, UserName="en{{Destroyable Wall}}cs{{Znièitelná stìna}}", Comment="en{{This wall can be destroyed. It cannot be climbed over or pushed. Destroyable wall has a round nature, which means that any object of a round nature that hits this wall will roll around it (if there is enough space).}}cs{{Tato stìna již lze znièit. Znièí jí výbuch. Dále stìna pùsobí kulatì. Tedy pokud na ni spadne nebo jinak se k ní \"dopohybuje\" nìjaký jiný kulatý pøedmìt, tak tento pøedmìt se kolem stìny obkutálí (pokud na to má místo).}}"}
 }
 
 /////////////////////////////////////////////////////////
@@ -2152,7 +2155,7 @@ object oZnicitelnaStena {
 objectname oSebratelnaBomba;
 depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu, oZabijiPohybem1,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oPusobiKulate} << oSebratelnaBomba;
 object oSebratelnaBomba {
-	edit {InMap, UserName="Pickupable Bomb", Comment="You can pick up this bomb. It is destroyable and if destroyed, it explodes immediately."}
+	edit {InMap, UserName="en{{Pickupable Bomb}}cs{{Sebratelná bomba}}", Comment="en{{You can pick up this bomb. It is destroyable and if destroyed, it explodes immediately.}}cs{{Tuto bombu mùžeš sbírat, je znièitelná, pøi znièení vybuchuje.}}"}
 }
 
 /////////////////////////////////////////////////////////
@@ -2160,14 +2163,14 @@ object oSebratelnaBomba {
 objectname oSebratelnaMina;
 depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oZabijiPohybem1, oPusobiKulate} << oSebratelnaMina;
 object oSebratelnaMina {
-	edit {InMap, UserName="Pickupable Mine", Comment="You can pick up this mine. It is destroyable and if destroyed, it explodes immediately."}
+	edit {InMap, UserName="en{{Pickupable Mine}}cs{{Sebratelná mina}}", Comment="en{{You can pick up this mine. It is destroyable and if destroyed, it explodes immediately.}}cs{{Tuto minu mùžeš sbírat, je znièitelná, pøi znièení vybuchuje.}}"}
 }
 /////////////////////////////////////////////////////////
 
 objectname oBomba;
 depend {placeable, oStartsMove, oMoveable, Veci,KlouzePoLedu, oZabijiPohybem1,VeciPadajiciDoDiry,VeciStrkatelnePasem,ZnicitelneVeVybuchu, oVybuchuje, PritahovanoMagnetem, oPusobiKulate} << oBomba;
 object oBomba {
-	edit {InMap, UserName="Bomb", Comment="Once dropped, the bomb is activated and placed right under you. In few seconds, the bomb explodes. The explosion always affects squared area of 3 times 3 cells with the bomb in its center. Explosion destroys every destroyable item in the affected area. Therefore, you should run out from the explosion-affected area as soon as possible. If destroyed, the bomb explodes immediately. This allows an initiation of a chained explosion of the bombs placed in line, one next to other."}
+	edit {InMap, UserName="en{{Bomb}}cs{{Bomba}}", Comment="en{{Once dropped, the bomb is activated and placed right under you. In few seconds, the bomb explodes. The explosion always affects squared area of 3 times 3 cells with the bomb in its center. Explosion destroys every destroyable item in the affected area. Therefore, you should run out from the explosion-affected area as soon as possible. If destroyed, the bomb explodes immediately. This allows an initiation of a chained explosion of the bombs placed in line, one next to other.}}cs{{Pokud bombu použiješ, umístíš pod sebe aktivovanou bombu. Ta za pár sekund vybuchne. Výbuch je vždy veliký 3*3 políèka okolo bomby a znièí vše znièitelné na tomto území. Výbuch se nedá nijak odstínit, napø. neznièitelnou stìnou. Pokud tedy položíš bombu, je tøeba rychle utéct z oblasti výbuchu. Pokud je bomba znièena, vybuchuje. To umožòuje vznik takzvaných øetìzových výbuchù, kdy jsou bomby umístìné v øadì a na nìkterém místì dojde ke vznícení.}}"}
 	void @MapPlaced() {
 		if (@IsGame()) ZnicSeVybuchem() timed 660;
 	}
@@ -2250,8 +2253,8 @@ methodname OdemkniSe;
 depend Destructor << OdemkniSe;
 
 object oZamek {
-	edit {InMap, UserName="Lock", Comment="The locks behave like the ordinary wall. You can unlock them if you have at least one key of the same color as the lock. Once unlocked, the lock disappears forever."}
-	name barva edit {Editable, UserName="Color", Auto=Barva, Is < Barva};
+	edit {InMap, UserName="en{{Lock}}cs{{Zámek}}", Comment="en{{The locks behave like the ordinary wall. You can unlock them if you have at least one key of the same color as the lock. Once unlocked, the lock disappears forever.}}cs{{Zámek se chová jako neznièitelná stìna, odemyká ho jedinì klíè správné barvy (v tom pøípadì zámek nebrání v pohybu a zmizí).}}"}
+	name barva edit {Editable, UserName="en{{Color}}cs{{Barva}}", Auto=Barva, Is < Barva};
 	constructor() { barva = Cervena; }
 	name decl GetBarva() { return barva;}
 
@@ -2411,7 +2414,7 @@ methodname SpadniDoVody;
 depend SpadniDoDiry << SpadniDoVody;
 
 object oVoda {
-	edit {InMap, UserName="Water", Comment="Only the Dragon can swim. Your other forms, monsters and objects sink in the water and they are destroyed just like in the pit/lava."}
+	edit {InMap, UserName="en{{Water}}cs{{Voda}}", Comment="en{{Only the Dragon can swim. Your other forms, monsters and objects sink in the water and they are destroyed just like in the pit/lava.}}cs{{Jediný Dráèek umí ve vodì plavat. Pro všechny tvé ostatní podoby, pøíšery a pøedmìty pùsobí voda stejnì jako díra.}}"}
 	objptr triger;
 
 	void @MapPlaced() {
@@ -2438,7 +2441,7 @@ object oVoda {
 objectname oKrabice;
 depend {KlouzePoLedu, oMoveable, oStartsMove, oZabijiPohybem1, PadaDoVody, PritahovanoMagnetem, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu} << oKrabice;
 object oKrabice {
-	edit {InMap, UserName="Box", Comment="The box floats over the floor on the air cushion, so the Slime Guy can crawl under it. Otherwise, it is similar to the stone; except it has not a round nature and it cannot be destroyed."}
+	edit {InMap, UserName="en{{Box}}cs{{Krabice}}", Comment="en{{The box floats over the floor on the air cushion, so the Slime Guy can crawl under it. Otherwise, it is similar to the stone; except it has not a round nature and it cannot be destroyed.}}cs{{Krabice se vznáší nad zemí na vzduchovém polštáøi, Hemr ji mùže podlézt. Krabice je neznièitelná, pohyblivá a strkatelná (pùsobí na ní pás, magnet i led), padá do dìr a aktivuje podlahy}}"}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2446,7 +2449,7 @@ object oKrabice {
 objectname oPneumatika;
 depend {oMoveable, oPusobiKulate, oStartsMove, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu} << oPneumatika;
 object oPneumatika {
-	edit {InMap, UserName="Tire", Comment="The tire is similar to the stone, but it is not affected by the magnet."}
+	edit {InMap, UserName="en{{Tire}}cs{{Pneumatika}}", Comment="en{{The tire is similar to the stone, but it is not affected by the magnet.}}cs{{Pneumatika není pøitahována magnetem, jinak se chová stejnì jako kámen.}}"}
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2454,7 +2457,7 @@ object oPneumatika {
 objectname oBalonek;
 depend {KlouzePoLedu, oMoveable, oPusobiKulate, oStartsMove, oObetPohybu1, PritahovanoMagnetem, ZnicitelneVeVybuchu} << oBalonek;
 object oBalonek {
-	edit {InMap, UserName="Balloon", Comment="The balloon is light as it is filled with the hot air. Therefore the balloon floats over the floors (it does not interact with them), it will not hurt you if it falls on you, it is destroyable (even if some heavy item falls on it) and it has a round nature."}
+	edit {InMap, UserName="en{{Balloon}}cs{{Balónek}}", Comment="en{{The balloon is light as it is filled with the hot air. Therefore the balloon floats over the floors (it does not interact with them), it will not hurt you if it falls on you, it is destroyable (even if some heavy item falls on it) and it has a round nature.}}cs{{Balónek je lehký a je nadnášen horkým plynem, takže není v kontaktu s podlahami, ani tì nezabije, když na tebe spadne, naopak sám je znièitelný. Pùsobí kulatì.}}"}
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2476,7 +2479,7 @@ object oLed {
 objectname oHemr;
 depend {AktivujeMinu, oManik, oObet1, oObetPohybu1, VeciPadajiciDoDiry, VeciStrkatelnePasem, PadaDoVody, ZnicitelneVeVybuchu} << oHemr;
 object oHemr {
-	edit {InMap, UserName="Slime Guy", Comment="Slime Guy's body consists mostly of slime. He is very sticky and therefore can move over the ice without sliding. Having a very low profile, he is also capable of moving through the crawlable wall and can move under the floating box as well."}
+	edit {InMap, UserName="en{{Slime Guy}}cs{{Hemr}}", Comment="en{{Slime Guy's body consists mostly of slime. He is very sticky and therefore can move over the ice without sliding. Having a very low profile, he is also capable of moving through the crawlable wall and can move under the floating box as well.}}cs{{Jeho tìlo je tvoøeno pøevážnì slizem. Je velmi lepkavý, a proto dokáže neklouzat po ledu. Dále, díky své nízké výšce, mùže podlézat prùleznou stìnu a vznášející se krabicí, ale nedokáže strkat tìžké pøedmìty.}}"}
 }
 
 /////////////////////////////////////////////////////////////////////////
@@ -2484,7 +2487,7 @@ object oHemr {
 objectname oPasovec;
 depend {AktivujeMinu, KlouzePoLedu, oManik, oObet1, VeciPadajiciDoDiry, VeciStrkatelnePasem, PadaDoVody, ZnicitelneVeVybuchu} << oPasovec;
 object oPasovec {
-	edit {InMap, UserName="Armadillo", Comment="The Armadillo is a very tough, armored creature. He resists if a stone falls on him, even from a great height."}
+	edit {InMap, UserName="en{{Armadillo}}cs{{Pásovec}}", Comment="en{{The Armadillo is a very tough, armored creature. He resists if a stone falls on him, even from a great height.}}cs{{Pásovec je odolný a obrnìný tvor. Nevadí mu, když na nìj spadne z výšky kámen.}}"}
 }
 
 //////////////////////////////////////////////////////////////
@@ -2501,8 +2504,8 @@ voidname SoundTest; // zvuk pro teleport
 objptra oTeleport::objs;
 
 object oTeleport {
-	edit {InMap, UserName="Teleport", Comment="If you enter the teleport, you are teleported to a different place in the level. Often but not necessarily, this is another teleport. While teleporting, you keep the direction of your very last movement. For example if you enter the teleport from left, you will appear on right to the teleport destination. If there is not empty space, you will be placed on one of two upright places considering the original direction of your movement (this would be up and down from the target in our previous example). If neither this is possible, you will appear on the same side of the target according to the side, from which you entered the teleport. If an obstacle blocks even this place, the teleportation will not start. Teleport can be destroyed in explosion."}
-	inherit cell2D edit {Editable, UserName = "destination", Comment = "The place the teleport teleports to."} { 
+	edit {InMap, UserName="en{{Teleport}}cs{{Teleport}}", Comment="en{{If you enter the teleport, you are teleported to a different place in the level. Often but not necessarily, this is another teleport. While teleporting, you keep the direction of your very last movement. For example if you enter the teleport from left, you will appear on right to the teleport destination. If there is not empty space, you will be placed on one of two upright places considering the original direction of your movement (this would be up and down from the target in our previous example). If neither this is possible, you will appear on the same side of the target according to the side, from which you entered the teleport. If an obstacle blocks even this place, the teleportation will not start. Teleport can be destroyed in explosion.}}cs{{Pokud vstoupíš do teleportu, jsi teleportován na jiné místo levelu, vìtšinou to bývá také teleport - ale není to nutné. Platí pravidlo, že když vlezeš do teleportu urèitým smìrem, z druhého teleportu pak vylezeš stejným smìrem. (Pøíklad : vstoupíš-li do teleportu z levé strany, pak se objevíš napravo od místa, kam teleport teleportuje.) Pokud je toto místo zablokováno nìjakou pøekážkou, vyzkouší se nejprve smìry kolmé na tvùj pùvodní smìr, až nakonec se testuje smìr otoèený o 180°. Pokud je i on zablokován, teleportace se neuskuteèní. Teleport je znièitelný.}}"}
+	inherit cell2D edit {Editable, UserName = "en{{destination}}cs{{cíl}}", Comment = "en{{The place the teleport teleports to.}}cs{{Místo, kam se bude teleportovat}}"} { 
 		inherit int DestX edit {DefaultValue=2456128},DestY edit {DefaultValue=-2456128};
 	}
 	inherit constructor() {DestX = 2456128; DestY = -2456128;}
@@ -2681,8 +2684,8 @@ objectname oManikE;
 depend oManikE << {oPasovec, oDracek, oHemr}
 
 object oHajzl {
-	edit {InMap, UserName="Converter", Comment="The converter behaves like the teleport, but it will change your form in addition. In fact, this is often the only effect as the target of teleportation is set to the same place as the source."}
-	name MeniNa edit {Is < oManikE, UserName="Changes to", Auto = oManikE, Comment="The resultant form."};
+	edit {InMap, UserName="en{{Converter}}cs{{Promìòovaè}}", Comment="en{{The converter behaves like the teleport, but it will change your form in addition. In fact, this is often the only effect as the target of teleportation is set to the same place as the source.}}cs{{Promìòovaè funguje stejnì jako teleport, ale navíc zmìní tvoji podobu. Èasto je místo teleportace nastaveno na stejné místo, kde je promìòovaè.}}"}
+	name MeniNa edit {Is < oManikE, UserName="en{{Changes to}}cs{{Mìní na}}", Auto = oManikE, Comment="en{{The resultant form.}}cs{{Mìní na}}"};
 	constructor() 2197{MeniNa = oPasovec;}
 	
 		
@@ -2721,8 +2724,8 @@ object oHajzl {
 objectname oTeleport2;
 depend oTeleport << oTeleport2; 
 object oTeleport2 {
-	edit {InMap, UserName="Teleport2", Comment="Teleport, which can teleport all moveable objects or objects at your choice."}
-	name CoTeleportuje edit {EditType = object|objvoid, UserName="What Teleports", Comment = "Working set of objects."}
+	edit {InMap, UserName="Teleport2", Comment="en{{Teleport, which can teleport all moveable objects or objects at your choice.}}cs{{Teleport, ktery dokaze premistovat pohyblive predmety nebo takove predmety, ktere nastavis.}}"}
+	name CoTeleportuje edit {EditType = object|objvoid, UserName="en{{What Teleports}}cs{{Co teleportuje}}", Comment = "en{{Working set of objects.}}cs{{Množina objektù, se kterými pracuje}}"}
 	constructor() { CoTeleportuje = oMoveable;}
 	void TraingToMoveOver(int pfdir) {
 		if (typeof(sender) <= CoTeleportuje && @IsGame()) oTeleport::TestujCile(pfdir, sender);
@@ -2800,7 +2803,7 @@ object oUmiraNaSlizu inherit {
 objectname oSliz;
 depend floors << oSliz;
 object oSliz {
-	edit {InMap, UserName="Toxic Slime", Comment="When you appear in the toxic slime, you start to become intoxicated. The bar in the bottom of the game menu indicates the level of intoxication. As the intoxication level reaches the maximum, you die and mutate into a monster. The Armadillo becomes either a rotating monster or a homing monster. The Slime Guy becomes a claustrophobic monster and the Dragon becomes a traffic monster. If you disappear from the slime, your intoxication will disappear too, in a short time. You are able to walk across 3 cells of a toxic slime. No monsters or objects are affected by a toxic slime."}
+	edit {InMap, UserName="en{{Toxic Slime}}cs{{Toxický sliz}}", Comment="en{{When you appear in the toxic slime, you start to become intoxicated. The bar in the bottom of the game menu indicates the level of intoxication. As the intoxication level reaches the maximum, you die and mutate into a monster. The Armadillo becomes either a rotating monster or a homing monster. The Slime Guy becomes a claustrophobic monster and the Dragon becomes a traffic monster. If you disappear from the slime, your intoxication will disappear too, in a short time. You are able to walk across 3 cells of a toxic slime. No monsters or objects are affected by a toxic slime.}}cs{{Pokud vstoupíš na sliz, zaène docházet k intoxikaci. Stupeò otravy indikuje pruh dole v herním menu. Pokud otrava stoupne na maximum, zemøeš a promìníš se v pøíšeru. Pásovec se promìòuje buï v pøíšeru Otáèivou nebo Samonavádìcí. Hemr v pøíšeru klaustrofóbní a Dráèek v pøíšeru Dopravní. Jestliže sliz zase opustíš, intoxikace opìt postupnì klesne na nulu. Dokážeš pøejít 3 políèka slizu. Sliz neubližuje žádné pøíšeøe nebo pøedmìtu.}}"}
 	objptr triger;
 
 	void @MapPlaced()  {
@@ -2838,7 +2841,7 @@ depend {AktivujeMinu, KlouzePoLedu, VeciStrkatelnePasem, VeciPadajiciDoDiry, Zni
 
 // pohybuje se za manikem, ktery ma zrovna fokus
 object oPriseraSNavadeci{
-	edit {InMap, UserName="Homing Monster", Comment="The homing monster tries to go to you. Although it is not smart enough to run through a complex labyrinth, it is still very dangerous, especially when in higher number. It can avoid an evident danger, just like a rotative monster."}
+	edit {InMap, UserName="en{{Homing Monster}}cs{{Pøíšera samonavádìcí}}", Comment="en{{The homing monster tries to go to you. Although it is not smart enough to run through a complex labyrinth, it is still very dangerous, especially when in higher number. It can avoid an evident danger, just like a rotative monster.}}cs{{Snaží se jít tím smìrem, kde jsi ty. Není sice natolik inteligentní, aby dokázala procházet složitá bludištì, ale pøesto je velmi nebezpeèná. Stejnì jako pøíšera otáèivá se vyhýbá viditelnému nebezpeèí.}}"}
 	
 	void MoveCalculating() {
 		RemoveForce();
@@ -2904,22 +2907,22 @@ depend {KlouzePoLedu, oMoveable, oPusobiKulate, oStartsMove, PadaDoVody, Veci, V
 objectname oZnSmerova;
 depend oSeSmerem << oZnSmerova;
 object oZnSmerova {
-	edit {InMap, UserName="Direction Sign", Comment="The monster follows the direction of the direction sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+	edit {InMap, UserName="en{{Direction Sign}}cs{{Pøikázaný smìr}}", Comment="en{{The monster follows the direction of the direction sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet.}}cs{{Pokud pøíšera vkroèí na smìrovou znaèku, zmìní podle ní svùj smìr. Znaèky nesbíráš automaticky, ale jen když držíš klávesu pro sbírání znaèek. (defaultnì je to 'A'). Znaèky nejsou pøitahovány magnetem.}}"}
 }
 
 objectname oZnZakazVjezdu;
 object oZnZakazVjezdu {
-	edit {InMap, UserName="No Fare Sign", Comment="The monster turns back (by 180°) after getting to no fare sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+	edit {InMap, UserName="en{{No Fare Sign}}cs{{Zákaz vjezdu}}", Comment="en{{The monster turns back (by 180°) after getting to no fare sign. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet.}}cs{{U zákazu vjezdu se pøíšera otoèí o 180°. Znaèky nesbíráš automaticky, ale jen když držíš klávesu pro sbírání znaèek. (defaultnì je to 'A'). Znaèky nejsou pøitahovány magnetem.}}"}
 }
 
 objectname oZnSedesat;
 object oZnSedesat {
-	edit {InMap, UserName="Speed Limit", Comment="The speed limit of 60 km/h (37 mph) makes the monster to travel at its usual speed. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+	edit {InMap, UserName="en{{Speed Limit}}cs{{Omezení rychlosti}}", Comment="en{{The speed limit of 60 km/h (37 mph) makes the monster to travel at its usual speed. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet.}}cs{{Šedesátka sníží rychlost pøíšery na normální. Znaèky nesbíráš automaticky, ale jen když držíš klávesu pro sbírání znaèek. (defaultnì je to 'A'). Znaèky nejsou pøitahovány magnetem.}}"}
 }
 
 objectname oZnNeSedesat;
 object oZnNeSedesat {
-	edit {InMap, UserName="End Speed Limit", Comment="The end of the speed limit makes the monster to travel really fast. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet."}
+	edit {InMap, UserName="en{{End Speed Limit}}cs{{Konec omezení rychlosti}}", Comment="en{{The end of the speed limit makes the monster to travel really fast. You do not pick up the traffic signs unless you hold the key for the traffic signs pickup (which is 'A' by default). The signs are not attracted to the magnet.}}cs{{Konec šedesátky zpùsobí, že se pøíšera bude pohybovat fakt rychle. Znaèky nesbíráš automaticky, ale jen když držíš klávesu pro sbírání znaèek. (defaultnì je to 'A'). Znaèky nejsou pøitahovány magnetem.}}"}
 }
 
 depend oZnacky << {oZnSmerova, oZnZakazVjezdu, oZnSedesat, oZnNeSedesat}
@@ -3068,7 +3071,7 @@ depend oPrisera << oPriseraZnackova;
 objptra oPriseraZnackova::objs;
 
 object oPriseraZnackova inherit {
-	int Rychlost edit {List = {16,33}, UserName="Speed", Comment="How much time it takes to move to next cell."};
+	int Rychlost edit {List = {16,33}, UserName="en{{Speed}}cs{{Rychlost}}", Comment="en{{How much time it takes to move to next cell.}}cs{{Jak dlouho pøíšeøe trvá pohyb o jednu buòku.}}"};
 	constructor() {Rychlost = 33;}
 
 	void MoveCalculating() {
@@ -3103,7 +3106,7 @@ object oPriseraZnackova inherit {
 objectname oPriseraDopravni;
 depend {AktivujeMinu, KlouzePoLedu, oObetPohybu1, oPriseraZnackova, oZabijak1, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu } << oPriseraDopravni;
 object oPriseraDopravni {
-	edit {InMap, UserName="Traffic Monster", Comment="Traffic monster follows the traffic signs. It can travel at normal or high speed, which can be also controlled by the signs. It turns back when it hits some obstacle, but it cannot avoid the danger - it will go wherever the signs will tell it to go, even directly in the pit."}
+	edit {InMap, UserName="en{{Traffic Monster}}cs{{Pøíšera dopravní}}", Comment="en{{Traffic monster follows the traffic signs. It can travel at normal or high speed, which can be also controlled by the signs. It turns back when it hits some obstacle, but it cannot avoid the danger - it will go wherever the signs will tell it to go, even directly in the pit.}}cs{{Pøíšera dopravní øídí svùj pohyb podle dopravních znaèek. Mùže se pohybovat normální nebo rychlou rychlostí, rychlost se dá také mìnit znaèkami. Pokud pøíšera narazí na neprùchodnou pøekážku, otoèí se o 180°. Tato pøíšera už není inteligentní, a proto ochotnì padá do dìr.}}"}
 }
 
 ///////////////////////////////////
@@ -3111,7 +3114,7 @@ object oPriseraDopravni {
 objectname oPriseraKlaustrofobni;
 depend {AktivujeMinu, KlouzePoLedu, oObetPohybu1, oPriseraZnackova, PadaDoVody, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneVeVybuchu } << oPriseraKlaustrofobni;
 object oPriseraKlaustrofobni{
-	edit {InMap, UserName="Claustrophobic Mo.", Comment="Like a traffic monster, the claustrophobic monster follows the traffic signs. In contrast to every other monster, this one does not kill you. However, it will panic and explode whenever it gets to such place, it cannot escape from. It is enough to have both ways forth and back blocked because the claustrophobic monster will not turn left or right unless is told so by a traffic sign."}
+	edit {InMap, UserName="en{{Claustrophobic Mo.}}cs{{Pøíšera klaustrofóbní}}", Comment="en{{Like a traffic monster, the claustrophobic monster follows the traffic signs. In contrast to every other monster, this one does not kill you. However, it will panic and explode whenever it gets to such place, it cannot escape from. It is enough to have both ways forth and back blocked because the claustrophobic monster will not turn left or right unless is told so by a traffic sign.}}cs{{Pohybuje se podle úplnì stejných pravidel, jako pøíšera dopravní. Na rozdíl od všech ostatních pøíšer tì nezabíjí. Její nebezpeènost spoèívá v tom, že jakmile se dostane na nìjaké místo, ze kterého nemùže odejít, strachem vybouchne. Staèí, když nemùže jít ani dopøedu, ani dozadu, do stran totiž sama od sebe nepùjde, nedostane-li k tomu pokyn dopravní znaèkou.}}"}
 	void MoveCalculating() {
 		::KlaustrofobniKill() nextturn;
 	}
@@ -3126,33 +3129,33 @@ object oPriseraKlaustrofobni{
 objectname Bestiar;
 depend Bestiar << {oManik, oPrisera}
 object Bestiar {
-	edit {Editor, UserName="Creatures", Comment="Living objects - your forms and monsters."}
+	edit {Editor, UserName="en{{Creatures}}cs{{Bestiáø}}", Comment="en{{Living objects - your forms and monsters.}}cs{{Živé objekty - Tvoje podoby a Pøíšery}}"}
 }
 
 objectname Testy;
 depend Testy << { EditTest, oAreaTest, smejdic}
 object Testy {
-	edit {Editor, UserName="Tests", Comment="Objects for testing functionality of the System Krkal. They don't belong to the game."}
+	edit {Editor, UserName="en{{Tests}}cs{{Testy}}", Comment="en{{Objects for testing functionality of the System Krkal. They don't belong to the game.}}cs{{Objekty pro testování funkènosti Systému Krkal. Do hry Krkal nepatøí.}}"}
 }
 
 object floors {
-	edit {Editor, UserName="Floors",Comment="Floors"}
+	edit {Editor, UserName="en{{Floors}}cs{{Podlahy}}",Comment="en{{Floors}}cs{{Podlahy}}"}
 }
 
 object Veci {
-	edit {Editor, UserName="Pickups", Comment="Pickups"}
+	edit {Editor, UserName="en{{Pickups}}cs{{Vìci}}", Comment="en{{Pickups}}cs{{Sebratelné vìci}}"}
 }
 
 objectname Steny;
 depend Steny << {wall, oHlina, oZnicitelnaStena, oAntiMagnet, oZamek}
 object Steny {
-	edit {Editor, UserName="Walls", Comment="Solid walls, non moving obstacles."}
+	edit {Editor, UserName="en{{Walls}}cs{{Stìny}}", Comment="en{{Solid walls, non moving obstacles.}}cs{{Pevné stìny, nepohybují se, brání v pohybu}}"}
 }
 
 objectname Predmety;
 depend Predmety << {oTeleport, oLaser, oMagnet, oKamen, oKrabice, oBalonek, oPneumatika}
 object Predmety {
-	edit {Editor, UserName="Items", Comment="Pushable and other active items."}
+	edit {Editor, UserName="en{{Items}}cs{{Pøedmìty}}", Comment="en{{Pushable and other active items.}}cs{{Strkatelné pøedmìty a rùzné aktivní objekty}}"}
 }
 
 ///////////////////////////////////////////////////////////////
@@ -3240,7 +3243,7 @@ methodname Prepni;
 objptra oPrepinace::objs;
 
 object oPrepinace inherit {
-	edit {Editor, UserName="Switches", Comment="Switches"}
+	edit {Editor, UserName="en{{Switches}}cs{{Pøepínaèe}}", Comment="en{{Switches}}cs{{Pøepínaèe}}"}
 
 	scripted Akce constructor ::InitAkce();
 	int PocetAkci edit {LevelLoad};
@@ -3255,10 +3258,10 @@ object oPrepinace inherit {
 		name Pusobnost;
 	}
 	
-	name DruhAkce edit {NoLevelLoad, UserName="Action Type", Is < PrepAkce, Comment = "Set the attribute Action Type to select what shall the action do (placing = PrepUmisti, removing = PrepOdeber, swapping = PrepVymen ...). After that set Action Target and press the button\"Add Action\"."};
-	name Pusobnost edit {NoLevelLoad, UserName="Action Target", Is < PrepPusobnost, Comment = "Set the attribute Action Target to select what shall the action affect. You can choose either to manage existing objects (=NaObjekty) or to work with an area within the map (=NaOblast). After that set Action Type and press the button\"Add Action\"."};
-	int Prepina edit {Editable, EditType = bool, UserName="Switches", Comment = "If checked, the switch will be switching between two states (will do the actions and then will undo them), otherwise the switch will only and always do the actions."}
-	int Nekoliduj edit {Editable, EditType = bool, UserName="Don't colide", Comment = "If checked, the switch will place only the non colliding objects. This flag doesn't affect swapping."}
+	name DruhAkce edit {NoLevelLoad, UserName="en{{Action Type}}cs{{Druh akce}}", Is < PrepAkce, Comment = "en{{Set the attribute Action Type to select what shall the action do (placing = PrepUmisti, removing = PrepOdeber, swapping = PrepVymen ...). After that set Action Target and press the button\"Add Action\".}}cs{{Nastav Druh Akce a Pusobnost a pak zmackni button \"Vytvor Akci\".}}"};
+	name Pusobnost edit {NoLevelLoad, UserName="en{{Action Target}}cs{{Pùsobnost}}", Is < PrepPusobnost, Comment = "en{{Set the attribute Action Target to select what shall the action affect. You can choose either to manage existing objects (=NaObjekty) or to work with an area within the map (=NaOblast). After that set Action Type and press the button\"Add Action\".}}cs{{Nastav Druh Akce a Pusobnost a pak zmackni button \"Vytvor Akci\".}}"};
+	int Prepina edit {Editable, EditType = bool, UserName="en{{Switches}}cs{{Pøepíná}}", Comment = "en{{If checked, the switch will be switching between two states (will do the actions and then will undo them), otherwise the switch will only and always do the actions.}}cs{{Zda Prepinac prepina mezi dvema stavy nebo jen vytvari stav jeden}}"}
+	int Nekoliduj edit {Editable, EditType = bool, UserName="en{{Don't colide}}cs{{Nekoliduj}}", Comment = "en{{If checked, the switch will place only the non colliding objects. This flag doesn't affect swapping.}}cs{{Zda Prepinac umistuje jen objekty, ktere nekoliduji. Tento tag nema vliv na vymenu.}}"}
 	uconstructor() {
 		DruhAkce = PrepUmisti;
 		Pusobnost = NaOblast;
@@ -3419,80 +3422,80 @@ object oPrepinace inherit {
 	// zobrazeni ovladacich prvku pro editaci jedne akce
 	void direct ZobrazPolozku(sAkce *a, int index) {
 		@EAddGap();
-		if (a->akce == PrepUmisti) @EAddText(">> Place <<");
-		else if (a->akce == PrepOdeber) @EAddText(">> Remove <<");
-		else if (a->akce == PrepVymen) @EAddText(">> Swap <<");
+		if (a->akce == PrepUmisti) @EAddText("en{{>> Place <<}}cs{{>> Umisti <<}}");
+		else if (a->akce == PrepOdeber) @EAddText("en{{>> Remove <<}}cs{{>> Odeber <<}}");
+		else if (a->akce == PrepVymen) @EAddText("en{{>> Swap <<}}cs{{>> Vymen <<}}");
 		else if (a->akce == PrepMessage) @EAddText(">> Message <<");
-		else if (a->akce == PrepOdeberUmisti) @EAddText(">> Remove and Place <<");
+		else if (a->akce == PrepOdeberUmisti) @EAddText("en{{>> Remove and Place <<}}cs{{>> Odeber a Umisti <<}}");
 		
 		if (a->Pusobnost == NaOblast) {
-			@EAdd2DAreaC(&a->x1, &a->y1, &a->x2, &a->y2, "Area");
+			@EAdd2DAreaC(&a->x1, &a->y1, &a->x2, &a->y2, "en{{Area}}cs{{Oblast}}");
 			if (a->akce == PrepUmisti || a->akce == PrepOdeber) {
-				@ECreateName(&a->typ1, "Object type","Which object will be placed to area / removed from area");
+				@ECreateName(&a->typ1, "en{{Object type}}cs{{Typ Objektu}}","en{{Which object will be placed to area / removed from area}}cs{{Jaky objekt se bude do oblasti pridavat/odebirat}}");
 				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
 				@EPlaceItem();
 			} else if (a->akce == PrepVymen) {
-				@ECreateName(&a->typ1, "This type");
+				@ECreateName(&a->typ1, "en{{This type}}cs{{Tento Typ}}");
 				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
 				@EPlaceItem();
-				@ECreateName(&a->typ2, "swap for");
+				@ECreateName(&a->typ2, "en{{swap for}}cs{{Vymen Za}}");
 				@ESetVarTags(@eKVUBobjInMap,@eEdNTobject);
 				@EPlaceItem();
 			} else if (a->akce == PrepMessage) {
-				@ECreateName(&a->typ, "Object type","To which object messages will be sent.");
+				@ECreateName(&a->typ, "en{{Object type}}cs{{Typ Objektu}}","en{{To which object messages will be sent.}}cs{{Jakym objektum budou zpravy zasilany}}");
 				@ESetVarTags(0,@eEdNTobject);
 				@EPlaceItem();
 			} else if (a->akce == PrepOdeberUmisti) {
-				@ECreateName(&a->typ1, "Remove type");
+				@ECreateName(&a->typ1, "en{{Remove type}}cs{{Odeber typ}}");
 				@ESetVarTags(@eKVUBobjInMap|@eKVUBincludeNull,@eEdNTobject);
 				@EPlaceItem();
-				@ECreateName(&a->typ2, "Place type");
+				@ECreateName(&a->typ2, "en{{Place type}}cs{{Pridej typ}}");
 				@ESetVarTags(@eKVUBobjInMap|@eKVUBincludeNull,@eEdNTobject);
 				@EPlaceItem();
 			}
 		} else {
 			if (a->akce == PrepUmisti || a->akce == PrepOdeber) {
-				@ECreateObjPtrA(&a->objs1, "Objects","Which object will be placed / removed. Don't forget to set the object coordinates.");
+				@ECreateObjPtrA(&a->objs1, "en{{Objects}}cs{{Objekty}}","en{{Which object will be placed / removed. Don't forget to set the object coordinates.}}cs{{Jake objekty se budou pridavat/odebirat. Nezapomen u objektu zadat souradnice}}");
 				@ESetVarTags(@eKVUBobjInMap);
 				@EPlaceItem();
 			} else if (a->akce == PrepVymen) {
-				@ECreateObjPtrA(&a->objs1, "This objects","The first object will be swapped for the first object from the second array, the second for the second and so on.");
+				@ECreateObjPtrA(&a->objs1, "en{{This objects}}cs{{Tyto Objekty}}","en{{The first object will be swapped for the first object from the second array, the second for the second and so on.}}cs{{Prvni objekt pude vymenen za prvni objekt z druheho pole, druhy za druhy, atd.}}");
 				@ESetVarTags(@eKVUBobjInMap);
 				@EPlaceItem();
-				@ECreateObjPtrA(&a->objs2, "swap for","The first object from the first array will be swapped for the first object, the second for the second and so on.");
+				@ECreateObjPtrA(&a->objs2, "en{{swap for}}cs{{Vymen Za}}","en{{The first object from the first array will be swapped for the first object, the second for the second and so on.}}cs{{Prvni objekt z prvniho pole pude vymenen za prvni objekt, druhy za druhy, atd.}}");
 				@ESetVarTags(@eKVUBobjInMap);
 				@EPlaceItem();
 			} else if (a->akce == PrepMessage) {
-				@ECreateObjPtrA(&a->objs1, "Objects","To which object messages will be sent.");
+				@ECreateObjPtrA(&a->objs1, "en{{Objects}}cs{{Objekty}}","en{{To which object messages will be sent.}}cs{{Jakym objektum budou zpravy zasilany}}");
 				@EPlaceItem();
 			} else if (a->akce == PrepOdeberUmisti) {
-				@ECreateObjPtrA(&a->objs1, "Remove o.");
+				@ECreateObjPtrA(&a->objs1, "en{{Remove o.}}cs{{Odeber o.}}");
 				@ESetVarTags(@eKVUBobjInMap);
 				@EPlaceItem();
-				@ECreateObjPtrA(&a->objs2, "Place o.");
+				@ECreateObjPtrA(&a->objs2, "en{{Place o.}}cs{{Pridej o.}}");
 				@ESetVarTags(@eKVUBobjInMap);
 				@EPlaceItem();
 			}
 		}
 		
 		if (a->akce == PrepMessage) {
-			@ECreateName(&a->typ1, "First message","It is sent when switched on.");
+			@ECreateName(&a->typ1, "en{{First message}}cs{{Prvni Zprava}}","en{{It is sent when switched on.}}cs{{Posila se pri zapnuti}}");
 			@ESetVarTags(0,@eEdNTmethod);
 			@EPlaceItem();
 			if (Prepina) {
-				@ECreateName(&a->typ2, "second message","It is sent when switched off.");
+				@ECreateName(&a->typ2, "en{{second message}}cs{{Druha Zprava}}","en{{It is sent when switched off.}}cs{{Posila se pri vypnuti}}");
 				@ESetVarTags(0,@eEdNTmethod);
 				@EPlaceItem();
 			}	
 		}
-		@EAddButton(0,1,"Remove Action","Removes this action",index,::OdeberPolozku);
+		@EAddButton(0,1,"en{{Remove Action}}cs{{Odeber Akci}}","en{{Removes this action}}cs{{Odebere tuto akci}}",index,::OdeberPolozku);
 	}
 	
 	// Konstruktor skriptovatelne polozky
 	void ::InitAkce() {
 		int f;
 		sAkce *a = Akce;
-		@EAddButton(0,1,"Add Action","It adds a new action for the switch. Before you press this button, set the attributes Action Type and Action Target.",0,::PridejPolozku);
+		@EAddButton(0,1,"en{{Add Action}}cs{{Vytvoø Akci}}","en{{It adds a new action for the switch. Before you press this button, set the attributes Action Type and Action Target.}}cs{{Prida novou cinnost prepinace. Napred zvol Druh Akce a Pusobnost}}",0,::PridejPolozku);
 		for (f=0; f<PocetAkci; f++) {
 			if (!a) @LogUserError(@eKEGPanicError);
 			ZobrazPolozku(a,f);
@@ -3681,8 +3684,8 @@ voidname ZapinaPrepinac;
 depend ZapinaPrepinac << oManik;
 
 object oPrepinac {
-	edit {InMap, UserName="Switch", Comment="Only you can set the switch on and off by touching it. The switch usually changes something in the level. After switched back to its original state, the switch either undoes the changes or does nothing (\"nonswitching switch\" is only for a single use)."}
-	name OnOff edit {Is < nOnOff,Auto = nOnOff, Comment = "Determines if the switch is initially on or off."}; 
+	edit {InMap, UserName="en{{Switch}}cs{{Pøepínaè}}", Comment="en{{Only you can set the switch on and off by touching it. The switch usually changes something in the level. After switched back to its original state, the switch either undoes the changes or does nothing (\"nonswitching switch\" is only for a single use).}}cs{{Mùžeš ho zapnout jedinì Ty tím, že se snažíš jít na jeho políèko. Pøepínaè mùžeš buï pøehazovat z polohy zapnuto do polohy vypnuto (a obrácenì) a on vždy nìco udìlá a pak to vrátí do pùvodního stavu. Nebo je nastaven tak, že lze pøepnout jen jednou.}}"}
+	name OnOff edit {Is < nOnOff,Auto = nOnOff, Comment = "en{{Determines if the switch is initially on or off.}}cs{{zda je pøepínaè na zaèátku zapnut, èi vypnut.}}"}; 
 	int prepnuto;
 	int time;
 	uconstructor() { prepnuto = 0; time=0;}
@@ -3717,7 +3720,7 @@ depend KdyReagujePrepinac << { PriZapnuti, PriVypnuti, ReagujeVzdy};
 object oTriggerPrepinac inherit {
 	name OnOff edit {Auto = nOnOff};
 	int citac;
-	name Reaguje edit {Is < KdyReagujePrepinac, UserName="Reacts", Comment= "Determines when the switch triggers. (when switched on = PriZapnuti; when switched off = PriVypnuti; in both cases = RegujeVzdy)"}
+	name Reaguje edit {Is < KdyReagujePrepinac, UserName="en{{Reacts}}cs{{Reaguje}}", Comment= "en{{Determines when the switch triggers. (when switched on = PriZapnuti; when switched off = PriVypnuti; in both cases = RegujeVzdy)}}cs{{Kdy reaguje pøepínaè?}}"}
 	objptr triger;
 	uconstructor() { 
 		OnOff = Off;
@@ -3759,7 +3762,7 @@ voidname AktivujeFotobunku;
 depend AktivujeFotobunku << {oManik, oPrisera, oVybuch1};
 
 object oFotobunka {
-	edit {InMap, UserName="Photocell", Comment="Photocell is switched on when some living creature (you or some monster) gets in the adjacent area (one cell all around). It also reacts on the explosion. When there is no such creature (or explosion) nearby, the photocell is switched off."}
+	edit {InMap, UserName="en{{Photocell}}cs{{Fotobuòka}}", Comment="en{{Photocell is switched on when some living creature (you or some monster) gets in the adjacent area (one cell all around). It also reacts on the explosion. When there is no such creature (or explosion) nearby, the photocell is switched off.}}cs{{Fotobuòka reaguje, pokud se na políèko vedle ní (i v šikmých smìrech) dostane nìjaká živá bytost (ty nebo pøíšera), také reaguje na výbuch. Deaktivace nastává, když tato bytost nebo výbuch \"odejde\". Opìt stejnì jako nášlapná podlaha mùže pøepínat stavy nebo jenom urèitý stav uskuteèòovat.}}"}
 	void @MapPlaced() {
 		OnOff = Off;
 		citac = 0;
@@ -3781,7 +3784,7 @@ object oFotobunka {
 objectname oNaslapnaPodlaha;
 depend {floors, oTriggerPrepinac} << oNaslapnaPodlaha;
 object oNaslapnaPodlaha {
-	edit {InMap, UserName="Floor Trigger", Comment="The floor trigger is switched on when some heavy object (like a stone) is placed on it. Otherwise, the floor trigger is switched off."}
+	edit {InMap, UserName="en{{Floor Trigger}}cs{{Nášlapná podlaha}}", Comment="en{{The floor trigger is switched on when some heavy object (like a stone) is placed on it. Otherwise, the floor trigger is switched off.}}cs{{Nášlapná podlaha reaguje, pokud je zatížena nìjakým tìžkým pøedmìtem. Mùže být nastavena tak, že pøi zatížení nìco zapne a pøi uvolnìní to zase vrátí do pùvodního stavu. Druhá možnost je, že pøi zatížení (nebo uvolnìní) nìco udìlá a už to tak nechá.}}"}
 	void @MapPlaced() {
 		OnOff = Off;
 		citac = 0;
@@ -3836,7 +3839,7 @@ object oAreaTrigger {
 objectname oGlobalniPrepinac;
 depend oTriggerPrepinac << oGlobalniPrepinac;
 object oGlobalniPrepinac {
-	edit {OutMap, UserName="Global Switch", Comment="This switch does not have its own graphics, as it is not placed in the map, but in the global objects list instead. It behaves like a photocell, but the trigger area and the types of recognized objects are set in the level editor."}
+	edit {OutMap, UserName="en{{Global Switch}}cs{{Globální pøepínaè}}", Comment="en{{This switch does not have its own graphics, as it is not placed in the map, but in the global objects list instead. It behaves like a photocell, but the trigger area and the types of recognized objects are set in the level editor.}}cs{{Tento pøepínaè není v levlu reprezentován žádnou grafikou, není umísován do mapy, ale mezi globální objekty. Funguje podobnì jako fotobuòka s tím, že oblast, kde reaguje na objekty, a typy tìch objektù se zadávají až bìhem editace.}}"}
 	uconstructor() {
 		OnOff = Off;
 		citac = 0;
@@ -3845,12 +3848,12 @@ object oGlobalniPrepinac {
 		if (@IsGame()) ::Activate() message;
 	}
 	
-	area2D trigger edit {Editable, UserName="Trigger area", Comment = "Trigger area. Here the switch looks for objects of type React."} {
+	area2D trigger edit {Editable, UserName="en{{Trigger area}}cs{{Hlídaná oblast}}", Comment = "en{{Trigger area. Here the switch looks for objects of type React.}}cs{{Oblast kterou pøepínaè hlídá, jestli se tam nevyskytne obekt typu Reaguj}}"} {
 		int x1,y1;
 		int x2,y2;
 	}
-	name Reaguj edit { UserName="React",Comment = "Type of recognized objects.", DefaultValue = @Everything, EditType = objvoid|object}
-	name Ignoruj edit { UserName="Ignore",Comment = "Type of ignored objects.", /*DefaultValue = nnull,*/ EditType = objvoid|object}
+	name Reaguj edit { UserName="en{{React}}cs{{Reaguj}}",Comment = "en{{Type of recognized objects.}}cs{{Typ objektu, na ktery trigger reaguje}}", DefaultValue = @Everything, EditType = objvoid|object}
+	name Ignoruj edit { UserName="en{{Ignore}}cs{{Ignoruj}}",Comment = "en{{Type of ignored objects.}}cs{{Typ objektu, na ktery trigger nereaguje}}", /*DefaultValue = nnull,*/ EditType = objvoid|object}
 	
 	constructor() {
 		x1=0; y1=0; x2=0; y2=0;
@@ -3899,12 +3902,12 @@ depend placeable << oSvetlo;
 // svetlo. Da se umistovat. V editoru ma grafiku, ve hre je neviditelne jen sviti.
 // pohyb objektu svetlo nevyvola pohyb setla :-(
 object oSvetlo {
-	edit {InMap, NoGrid, UserName="Light", Comment="Invisible object, working as a source of point light."}
-	char r edit {EditType = number, Comment = "Red component of the light."}
-	char g edit {EditType = number, Comment = "Green component of the light."}
-	char b edit {EditType = number, Comment = "Blue component of the light."}
-	int radius edit {Editable, UserName="Radius", Comment = "radius"}
-	int vyska edit {Editable, UserName="Height", Comment="height"}
+	edit {InMap, NoGrid, UserName="en{{Light}}cs{{Svìtlo}}", Comment="en{{Invisible object, working as a source of point light.}}cs{{Nevidítelný objekt, který funguje jako zdroj bodového svìtla}}"}
+	char r edit {EditType = number, Comment = "en{{Red component of the light.}}cs{{Èervená složka svìtla}}"}
+	char g edit {EditType = number, Comment = "en{{Green component of the light.}}cs{{Zelená složka svìtla}}"}
+	char b edit {EditType = number, Comment = "en{{Blue component of the light.}}cs{{Modrá složka svìtla}}"}
+	int radius edit {Editable, UserName="en{{Radius}}cs{{Polomìr}}", Comment = "en{{radius}}cs{{Polomìr}}"}
+	int vyska edit {Editable, UserName="en{{Height}}cs{{Výška}}", Comment="en{{height}}cs{{Jak vysoko je svìtlo umístìno?}}"}
 	
 	int svetlo;
 
@@ -3943,7 +3946,7 @@ object oSvetlo {
 	scripted www constructor ::AddButton();
 	
 	void ::AddButton() {
-		@EAddButton(0,1,"Changes lighting",null,0,::ZmenNasviceni);
+		@EAddButton(0,1,"en{{Changes lighting}}cs{{Zmen Nasviceni}}",null,0,::ZmenNasviceni);
 	}
 	
 	void ::ZmenNasviceni() {
@@ -3963,10 +3966,10 @@ objectname oGlobalniSvetlo;
 oGlobalniSvetlo GlobalniSvetlo;
 
 object oGlobalniSvetlo {
-	edit { UserName="Global Light",Comment="This object serves to change the global lighting in the whole level."}
-	char r edit {EditType = number, Comment = "Red component of the light."}
-	char g edit {EditType = number, Comment = "Green component of the light."}
-	char b edit {EditType = number, Comment = "Blue component of the light."}
+	edit { UserName="en{{Global Light}}cs{{Globální svìtlo}}",Comment="en{{This object serves to change the global lighting in the whole level.}}cs{{Tento objekt umožòuje nastavovat globální osvìtlení v celém levlu}}"}
+	char r edit {EditType = number, Comment = "en{{Red component of the light.}}cs{{Èervená složka svìtla}}"}
+	char g edit {EditType = number, Comment = "en{{Green component of the light.}}cs{{Zelená složka svìtla}}"}
+	char b edit {EditType = number, Comment = "en{{Blue component of the light.}}cs{{Modrá složka svìtla}}"}
 
 	constructor() {
 		@GetTopLightIntenzity(&r,&g,&b);
@@ -3979,7 +3982,7 @@ object oGlobalniSvetlo {
 	scripted xxx constructor ::AddButton();
 	
 	void ::AddButton() {
-		@EAddButton(0,1,"Changes lighting",null,0,::ZmenNasviceni);
+		@EAddButton(0,1,"en{{Changes lighting}}cs{{Zmen Nasviceni}}",null,0,::ZmenNasviceni);
 	}
 	
 	void ::ZmenNasviceni() {
@@ -4082,7 +4085,7 @@ object oHemr {
 objectname oPruleznaStena;
 depend {oStartsMove, Steny, ZnicitelneVeVybuchu, oPrulezny} << oPruleznaStena;
 object oPruleznaStena {
-	edit {InMap, UserName="Crawlable Wall", Comment="Only the Slime Guy may crawl through this wall and it behaves as the ordinary wall for everything else. This wall can be destroyed in the explosion."}
+	edit {InMap, UserName="en{{Crawlable Wall}}cs{{Prùlezná stìna}}", Comment="en{{Only the Slime Guy may crawl through this wall and it behaves as the ordinary wall for everything else. This wall can be destroyed in the explosion.}}cs{{Touto stìnou mùže prolézat jedinì Hemr, pro vše ostatní se chová jako pøekážka. Stìna je znièitelná.}}"}
 }
 
 depend oPrulezny << oKrabice;

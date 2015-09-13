@@ -14,7 +14,7 @@ void KSAssignKSVGs() {
 	CKSKSVG *tmp;
 
 
-	// New lines added 07/03/04 at 00:40:32.
+	// New lines added 09/13/15 at 12:27:19.
 
 	tmp = new CKSKSVG("_KSVG_0_placeable_0001_FFFF_0001_0001",&KSAlloc_KSVG_0_placeable_0001_FFFF_0001_0001,&KSSetV_KSVG_0_placeable_0001_FFFF_0001_0001,sizeof(_KSVG_0_placeable_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");

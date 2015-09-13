@@ -29,7 +29,7 @@ CKSMain *KSMain=0;
 
 // Scripts:
 
-#include "script-19.cpp"
+#include "script-20.cpp"
 // STOP TAG: }
 
 

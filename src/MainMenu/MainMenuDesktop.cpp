@@ -201,7 +201,7 @@ int CMainMenuDesktop::ShowMainMenu()
 	KRKAL->ResetGameVictory();
 
 	char version[20];
-	_snprintf(version,19,"v%i.%i%s",KRKAL_MAINVERSION, KS_VERSION, KRKAL_SUBVERSION);
+	_snprintf(version,19,"v%i.%i",KRKAL_MAINVERSION, KS_VERSION);
 	CGUIStaticText *stver = new CGUIStaticText(version,(CGUIFont*) RefMgr->Find("GUI.F.Arial.12"),sx-65,3,0xFFFFFF80,60,0,aRight);
 	AddBackElem(stver);
 

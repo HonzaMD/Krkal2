@@ -58,7 +58,7 @@ CKerInterpret::CKerInterpret() {
 	argTypes = new int[MAX_SAFE_CALL_PARAMS];		// typy
 	assert(argTypes);
 	argNames = new CKerName*[MAX_SAFE_CALL_PARAMS];	// jmena
-	assert(argTypes);
+	assert(argNames);
 	argPointers = new void*[MAX_SAFE_CALL_PARAMS];	// hodnoty
 	assert(argPointers);
 
@@ -959,15 +959,23 @@ void CKerInterpret::HardJump(int addr)
 				// volani se mohou rekurzivne opakovat - nemuzu pro predavani parametru pouzivat globalne platne pole...
 				UC* oldStackTop = StackTop;
 				int* oldArgTypes = argTypes;	// stary pointer na typy parametru si schovam
+				try {
 
-				CKerName* argNames[MAX_SAFE_CALL_PARAMS];
-				void* argPointers[MAX_SAFE_CALL_PARAMS];
+					CKerName* argNames[MAX_SAFE_CALL_PARAMS];
+					void* argPointers[MAX_SAFE_CALL_PARAMS];
 
-				CKerName** argNamesPtr = argNames;
-				void** argPointersPtr = argPointers;
+					CKerName** argNamesPtr = argNames;
+					void** argPointersPtr = argPointers;
 
-				j = PrepareForSafeCall(i, argNamesPtr, argPointersPtr);		// pocet instrukci k preskoceni
-				KerMain->IScall((OPointer)op[1].intData, (CKerName*)op[2].voidPtrData, i, argTypes, argNamesPtr, argPointersPtr, instr->instr.intValue);
+					j = PrepareForSafeCall(i, argNamesPtr, argPointersPtr);		// pocet instrukci k preskoceni
+					KerMain->IScall((OPointer)op[1].intData, (CKerName*)op[2].voidPtrData, i, argTypes, argNamesPtr, argPointersPtr, instr->instr.intValue);
+				}
+				catch (CKernelPanic) {
+					StackTop = oldStackTop;		// obnoveni zasobniku
+					argTypes = oldArgTypes;		// obnoveni argTypes
+					throw;
+				}
+
 				StackTop = oldStackTop;		// obnoveni zasobniku
 				argTypes = oldArgTypes;		// obnoveni argTypes
 			}
@@ -990,9 +998,20 @@ void CKerInterpret::HardJump(int addr)
 			instr2 = instr;
 			Skip(1);
 
-			i = instr->res.intValue;		// pocet predavanych parametru
-			j = PrepareForSafeCall(i, argNames, argPointers);		// pocet instrukci k preskoceni
-			KerMain->ISmessage((OPointer)op[1].intData, (CKerName*)op[2].voidPtrData, instr->instr.intValue, (OPointer)op[0].intData, i, argTypes, argNames, argPointers);
+			{
+				int* oldArgTypes = argTypes;	// stary pointer na typy parametru si schovam
+				try {
+
+					i = instr->res.intValue;		// pocet predavanych parametru
+					j = PrepareForSafeCall(i, argNames, argPointers);		// pocet instrukci k preskoceni
+					KerMain->ISmessage((OPointer)op[1].intData, (CKerName*)op[2].voidPtrData, instr->instr.intValue, (OPointer)op[0].intData, i, argTypes, argNames, argPointers);
+				} 
+				catch (CKernelPanic) {
+					argTypes = oldArgTypes;		// obnoveni argTypes
+					throw;
+				}
+				argTypes = oldArgTypes;		// obnoveni argTypes
+			}
 			Skip(j+1);
 			continue;		// uz jsem na dalsi instrukci - nechci delat Step()
 

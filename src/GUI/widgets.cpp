@@ -20,6 +20,7 @@
 #include "gui.h"
 
 #include "dxbliter.h"
+#include "krkal.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -328,9 +329,8 @@ CGUIStaticText::CGUIStaticText(const char *_text, CGUIFont* _font, float _x, flo
 	guiFont = _font;
 	font = guiFont->font;
 
-	int lengthText = strlen(_text);
-	originalText = new char[lengthText+1];
-	strcpy(originalText,_text);
+	originalText = KRKAL->CopyOutStrByLanguage(_text);
+	int lengthText = strlen(originalText);
 	SIZE vel;
 
 	SelectObject(mainGUI->dc,font);

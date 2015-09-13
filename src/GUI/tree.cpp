@@ -207,7 +207,7 @@ CGUITreeItem::CGUITreeItem(CGUITree* _tree, char *labelString, bool _rootTree, C
 
 	if(_help)
 	{
-		help = newstrdup(_help);
+		help = KRKAL->CopyOutStrByLanguage(_help);
 	}else
 		help = 0;
 

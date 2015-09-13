@@ -9,6 +9,8 @@ include test_0001_FFFF_0001_0001.kc
 ////
 ////		G a m e   K R K A L
 ////		Adds Dynamic lights to the first version
+////		H r a   K R K A L
+////		Doplneni 1.verze o Dynamicka Svetla
 ////
 /////////////////////////////////////////////////////////////////
 
@@ -18,12 +20,12 @@ methodname ZvysStav, SnizStav;
 /// Objekt ma ve trech kernelich polich (r,g,b) uloeny barvy postupnì pro kadı stav.
 /// zasíláním zprav ZvysStav, SnizStav se zmìní nasvícení levelu
 object oMenicGlobalnihoSvetla {
-	edit {OutMap, UserName="Changer of Global Light", Comment="This object allows you to change the global lighting while playing the level. You can define several states (lighting configurations) and then change them by sending messages ZvysStav (increase state), SnizStav (decrease state). Place this object in the global objects list; it will take the control over the lighting from the object Global Light."}
+	edit {OutMap, UserName="en{{Changer of Global Light}}cs{{Mìniè globálního svìtla}}", Comment="en{{This object allows you to change the global lighting while playing the level. You can define several states (lighting configurations) and then change them by sending messages ZvysStav (increase state), SnizStav (decrease state). Place this object in the global objects list; it will take the control over the lighting from the object Global Light.}}cs{{Tento objekt umoòuje pøepínat globální osvìtlení mezi nìkolika stavy, to se provádí zasíláním zpráv ZvysStav, SnizStav. Objekt má pøednost pøed oGlobalniSvetlo. Umístìte mezi globální objekty.}}"}
 
 	int stav;
-	chara r edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Red."};
-	chara g edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Green."};
-	chara b edit {Editable, EditType = number, DefaultMember = 175, Comment="Let each array has as many fields as the number of states. Blue."};
+	chara r edit {Editable, EditType = number, DefaultMember = 175, Comment="en{{Let each array has as many fields as the number of states. Red.}}cs{{A kadé pole má tolik prvkù, kolik je stavù. Èervená.}}"};
+	chara g edit {Editable, EditType = number, DefaultMember = 175, Comment="en{{Let each array has as many fields as the number of states. Green.}}cs{{A kadé pole má tolik prvkù, kolik je stavù. Zelená.}}"};
+	chara b edit {Editable, EditType = number, DefaultMember = 175, Comment="en{{Let each array has as many fields as the number of states. Blue.}}cs{{A kadé pole má tolik prvkù, kolik je stavù. Modrá.}}"};
 	
 	constructor() {
 		r = new chara;
@@ -68,8 +70,8 @@ object oMenicGlobalnihoSvetla {
 	scripted xxx constructor ::AddButton();
 	
 	void ::AddButton() {
-		@EAddButton(0,1,"Increase State","It is changing the states - for testing the lighting.",0,ZvysStav);
-		@EAddButton(0,1,"Decrease State","It is changing the states - for testing the lighting.",0,SnizStav);
+		@EAddButton(0,1,"en{{Increase State}}cs{{Zvyš Stav}}","en{{It is changing the states - for testing the lighting.}}cs{{Pøepíná stavy - pro otestování svìtla}}",0,ZvysStav);
+		@EAddButton(0,1,"en{{Decrease State}}cs{{Sni Stav}}","en{{It is changing the states - for testing the lighting.}}cs{{Pøepíná stavy - pro otestování svìtla}}",0,SnizStav);
 	}
 }
 
@@ -85,7 +87,7 @@ objectname oDynamickeSvetlo;
 depend {placeable, PrepinacNezarovnavaSouradnice} << oDynamickeSvetlo;
 
 object oDynamickeSvetlo {
-	edit {InMap, NoGrid, UserName="Dynamic Light", Comment="Point light with more states. You can change the states by sending the massage ZvysStav (increase state)."}
+	edit {InMap, NoGrid, UserName="en{{Dynamic Light}}cs{{Dynamické svìtlo}}", Comment="en{{Point light with more states. You can change the states by sending the massage ZvysStav (increase state).}}cs{{Bodové, nìkolika stavové svìtlo. Pøepínání stavù vyvoláte zasláním zprávy ZvysStav}}"}
 	
 	struct sLcfg {
 		char r,g,b;
@@ -117,8 +119,8 @@ object oDynamickeSvetlo {
 	scripted www constructor ::AddButton();
 	
 	void ::AddButton() {
-		@EAddButton(0,1,"Refresh lighting","Press after changes has been made.",0,::ZmenNasviceni);
-		@EAddButton(0,1,"Increase State","It is changing the states - for testing the lighting.",0,ZvysStav);
+		@EAddButton(0,1,"en{{Refresh lighting}}cs{{Zmìò Nasvícení}}","en{{Press after changes has been made.}}cs{{Aktualizuj svìtlo}}",0,::ZmenNasviceni);
+		@EAddButton(0,1,"en{{Increase State}}cs{{Zvyš stav}}","en{{It is changing the states - for testing the lighting.}}cs{{Pøepíná stavy - pro otestování svìtla}}",0,ZvysStav);
 	}
 	
 	void ::ZmenNasviceni() {
@@ -235,35 +237,35 @@ object oDynamickeSvetlo {
 		::ZmenNasviceni() message;
 	}
 	
-	scripted StavySvetla constructor ::Init() edit {UserName="States of the light"};
+	scripted StavySvetla constructor ::Init() edit {UserName="en{{States of the light}}cs{{Stavy svìtla}}"};
 
 	void direct zobrazPolozku(sLcfg *p, int pocet) {
 		@EAddGap();
-		@ECreateChar(&p->r,"R","Red");
+		@ECreateChar(&p->r,"R","en{{Red}}cs{{èervená}}");
 		@ESetEditType(@eKETnumeric);
 		@EPlaceItem();
-		@ECreateChar(&p->g,"G","Green");
+		@ECreateChar(&p->g,"G","en{{Green}}cs{{zelená}}");
 		@ESetEditType(@eKETnumeric);
 		@EPlaceItem();
-		@ECreateChar(&p->b,"B","Blue");
+		@ECreateChar(&p->b,"B","en{{Blue}}cs{{modrá}}");
 		@ESetEditType(@eKETnumeric);
 		@EPlaceItem();
-		@ECreateInt(&p->radius,"Radius","Light radius");
+		@ECreateInt(&p->radius,"Radius","en{{Light radius}}cs{{polomìr svìtla}}");
 		@EPlaceItem();
-		@ECreateInt(&p->dx,"X shift","Relative shift of the X coordinate.");
+		@ECreateInt(&p->dx,"en{{X shift}}cs{{X Posun}}","en{{Relative shift of the X coordinate.}}cs{{relativní posun X-ové souøadnice}}");
 		@EPlaceItem();
-		@ECreateInt(&p->dy,"Y shift","Relative shift of the Y coordinate.");
+		@ECreateInt(&p->dy,"en{{Y shift}}cs{{Y Posun}}","en{{Relative shift of the Y coordinate.}}cs{{relativní posun Y-ové souøadnice}}");
 		@EPlaceItem();
-		@ECreateInt(&p->vyska,"Height","Light height");
+		@ECreateInt(&p->vyska,"en{{Height}}cs{{Vıška}}","en{{Light height}}cs{{vıška svìtla}}");
 		@EPlaceItem();
-		@EAddButton(0,1,"Remove State","Removes this state.",pocet,::OdeberPolozku);
+		@EAddButton(0,1,"en{{Remove State}}cs{{Odeber Stav}}","en{{Removes this state.}}cs{{Odebere Tento Stav}}",pocet,::OdeberPolozku);
 	}
 
 	
 	void ::Init() {
 		sLcfg *p = Spojak;
 		int pocet=0;
-		@EAddButton(0,1,"Add State",null,0,::PridejPolozku);
+		@EAddButton(0,1,"en{{Add State}}cs{{Pøidej Stav}}",null,0,::PridejPolozku);
 		while (p) {
 			zobrazPolozku(p,pocet);
 			pocet++;
@@ -335,15 +337,15 @@ objectname oCasovac;
 depend oOnOff << oCasovac;
 
 object oCasovac {
-	edit {OutMap, UserName="Timer", Comment="This object sends messages in given time intervals."}
+	edit {OutMap, UserName="en{{Timer}}cs{{Èasovaè}}", Comment="en{{This object sends messages in given time intervals.}}cs{{Objekt, kterı slouí k rozesílání zpráv v urèitıch èasovıch intervalech}}"}
 	
-	inta Casy edit { Is >= 0, UserName="Times", Comment = "Delay before the corresponding message is sent. In milliseconds."};
-	int NahRozptyl edit { Is >= 0, UserName="RandomVariance", Comment = "Determines how much the actual time shall vary from the given time. Flat value for all times. It is used when the array Random variances is not filled."}
-	inta NahRozptyly edit { Is >= 0, UserName="RandomVariances", Comment = "Determines how much the actual time shall vary from the given time."}
-	objptra Objekty edit { UserName="Objects",Comment = "Set of objects the massages are sent to."}
-	name Zprava edit { EditType = method, IncludeNull, UserName="Message", Comment="Message. One for all given times. It is used when the array Messages is not filled."}
-	namea Zpravy edit { /*EditType = method,*/ UserName="Messages", Comment = "Every time will be sent a different message."}
-	int Opakuj edit {EditType = bool, UserName="Repeat"}
+	inta Casy edit { Is >= 0, UserName="en{{Times}}cs{{Èasy}}", Comment = "en{{Delay before the corresponding message is sent. In milliseconds.}}cs{{Pauza ne bude poslana pøíslušná zpráva}}"};
+	int NahRozptyl edit { Is >= 0, UserName="en{{RandomVariance}}cs{{NáhodRozptyl}}", Comment = "en{{Determines how much the actual time shall vary from the given time. Flat value for all times. It is used when the array Random variances is not filled.}}cs{{O plus minus kolik se mám od daného èasu odchılit. Jednotna hodnota pro vsechny casy}}"}
+	inta NahRozptyly edit { Is >= 0, UserName="en{{RandomVariances}}cs{{NáhodRozptyly}}", Comment = "en{{Determines how much the actual time shall vary from the given time.}}cs{{O plus minus kolik se mám od daného èasu odchılit}}"}
+	objptra Objekty edit { UserName="en{{Objects}}cs{{Objekty}}",Comment = "en{{Set of objects the massages are sent to.}}cs{{Skupina objektù, které jsou zasílány zprávy}}"}
+	name Zprava edit { EditType = method, IncludeNull, UserName="en{{Message}}cs{{Zpráva}}", Comment="en{{Message. One for all given times. It is used when the array Messages is not filled.}}cs{{Posílaná zpráva}}"}
+	namea Zpravy edit { /*EditType = method,*/ UserName="en{{Messages}}cs{{Zprávy}}", Comment = "en{{Every time will be sent a different message.}}cs{{Toto pole zadávám, pokud chci, aby se pro kadı èas posílala jiná zpráva}}"}
+	int Opakuj edit {EditType = bool, UserName="en{{Repeat}}cs{{Opakuj}}"}
 	
 	int faze;
 	uconstructor() { faze = 0;}

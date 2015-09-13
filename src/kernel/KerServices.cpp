@@ -20,6 +20,7 @@
 #include "scriptInterface.h"
 #include "MersenneTwister.h"
 #include "Ident.h"
+#include "krkal.h"
 
 
 // Objekty obsahujici sluzby Kernelu
@@ -1067,8 +1068,8 @@ void CKerEditI::ECreateItem(void *data, int typ, char *label, char *comment) {
 	OVar = new CKerOVar();
 	OVar->_KSVar = data;
 	OVar->KSVar = &OVar->_KSVar;
-	OVar->NameStr = newstrdup(label);
-	if (comment) OVar->Comment = newstrdup(comment);
+	OVar->NameStr = KRKAL->CopyOutStrByLanguage(label);
+	if (comment) OVar->Comment = KRKAL->CopyOutStrByLanguage(comment);
 	OVar->Use = eKVUBeditable;
 	OVar->Type = typ;
 }
@@ -1114,8 +1115,8 @@ int CKerEditI::EAddGroup(char *label, char *comment,int where, int before, int t
 
 	// vytvorim hlavicku skupiny
 	OVar = new CKerOVar();
-	OVar->NameStr = newstrdup(label);
-	if (comment) OVar->Comment = newstrdup(comment);
+	OVar->NameStr = KRKAL->CopyOutStrByLanguage(label);
+	if (comment) OVar->Comment = KRKAL->CopyOutStrByLanguage(comment);
 	OVar->Use = eKVUBeditable;
 	OVar->Type = eKTvoid;
 	OVar->EditType = type;

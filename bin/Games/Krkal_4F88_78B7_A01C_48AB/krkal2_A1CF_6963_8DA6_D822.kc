@@ -10,10 +10,16 @@ include SkakavaStena_E3CB_FBA9_E57B_1ECD.kc
 ////
 ////		G a m e   K R K A L
 ////		Version 2
+////		H r a   K R K A L
+////		2. Verze
 ////
 ////		This version improves the game Krkal from test.kc and adds:
 ////		Dynamic Lights and Jumping Wall
 ////		Objects: Bump floor, Doors, Electrodes, Nitroglycerin, SavePoint, Ice Ball
+////
+////		Tato verze rozviji zaklad Krkala z test.kc a pridava 
+////		Dynamicka svetla a Skakavou Stenu
+////		Objekty: Hrbolata Podlaha, Dvere, Proudy, Nitroglycerin, SavePoint, LedovaKoule
 ////
 /////////////////////////////////////////////////////////////////
 
@@ -30,7 +36,7 @@ depend {floors, oModifyTr} << oHrbolataP;
 	// jsem podlaha a jsem objekt, který modifikuje trajektorie.
 
 object oHrbolataP {
-	edit {InMap, UserName="Bump Floor", Comment = "On that type of floor, the bumps preserve pushing or moving objects, but you and the monsters can still move over it, just like over the ordinary floor."}
+	edit {InMap, UserName="en{{Bump Floor}}cs{{Hrbolatá podlaha}}", Comment = "en{{On that type of floor, the bumps preserve pushing or moving objects, but you and the monsters can still move over it, just like over the ordinary floor.}}cs{{Po hrbolaté podlaze se nemohou pohybovat nìkteré objekty. Typicky jsou to ty \"neživé\"}}"}
 	int ModifyTrajektory(int ptrpos) {
 		// jestliže se na de mnou zkoušel hýbat objekt z množiny oBlokovanoHrP,
 		// tak pohyb zamítnu.
@@ -51,7 +57,7 @@ depend Smery3 << {Sever, Vychod}
 paramname pSmer, pObject;
 
 object oSeSmerem3 {
-	inherit name smer edit {Editable, Auto=AutoSmer, Is < Smery3, UserName="Orientation", Comment = "Object's orientation (Sever = North, Vychod = East)"};
+	inherit name smer edit {Editable, Auto=AutoSmer, Is < Smery3, UserName="en{{Orientation}}cs{{Smìr}}", Comment = "en{{Object's orientation (Sever = North, Vychod = East)}}cs{{Natoèení objektu}}"};
 	
 	inherit constructor()  { smer=Sever;}
 	inherit name GetSmer() { return smer; }
@@ -92,7 +98,7 @@ depend {oStartsMove, oSeSmerem3, NebezpeciProPriseru} << oProud;
 
 objptra oElektroda::objsA;
 object oElektroda {
-	edit {InMap, UserName="Electrode", Comment="One electrode generates discharges of electric power in short periods. Each discharge creates a long beam, which stops on the first obstacle in its way. If the obstacle is destroyable, it will be destroyed and the beam will enlarge even more. The beam would kill you, but you can pass through in the short time between two discharges. If there are two electrodes located to discharge one against the other in the same time, the beam will be stabilized. However, you can push some object between the electrodes - they will lose contact, which makes the beam unstable again. Electrodes cannot be destroyed."}
+	edit {InMap, UserName="en{{Electrode}}cs{{Elektroda}}", Comment="en{{One electrode generates discharges of electric power in short periods. Each discharge creates a long beam, which stops on the first obstacle in its way. If the obstacle is destroyable, it will be destroyed and the beam will enlarge even more. The beam would kill you, but you can pass through in the short time between two discharges. If there are two electrodes located to discharge one against the other in the same time, the beam will be stabilized. However, you can push some object between the electrodes - they will lose contact, which makes the beam unstable again. Electrodes cannot be destroyed.}}cs{{Jedna elektroda generuje v urèitých intervalech výboj elektrického proudu. Tento výboj je dlouhý paprsek, který konèí až na první pøekážce, pokud je tato pøekážka znièitelná, bude znièena. Proudem se dá probìhnout v intervalech mezi výboji. Pokud je naproti Elektrodì jiná Elektroda, která vysílá výboje ve stejných èasech, proud mezi nimi se ustalí a už se nepøerušuje. Pokud mezi Elektrody narafièíš nìjakou vìc, Elektrody mezi sebou ztratí kontakt a dojde k chvilkovému pøerušení proudu, v tom okamžiku mùžeš místem, kde byl proud, probìhnout. Elektrody jsou neznièitelné.}}"}
 	
 	int Prouduju;	// zda probíhá výboj
 	objptra Proudy; // proudy, které vygenerovala. Muže je sdílet s elektrodou naproti. Proudy jsou setøídìné od nejblížšího
@@ -100,7 +106,7 @@ object oElektroda {
 	cconstructor() { Prouduju=0; Proudy = new objptra;}
 	destructor() { delete Proudy;}
 	
-	int StartDelay edit {Is>=0, UserName="StartDelay", Comment = "The starting delay after placed in the map and before the electrode starts to work. In milliseconds."}
+	int StartDelay edit {Is>=0, Comment = "en{{The starting delay after placed in the map and before the electrode starts to work. In milliseconds.}}cs{{Èas, za jak dlouho zaène proud proudovat po umístìní do mapy. V milisekundách.}}"}
 	constructor() { StartDelay = 0;}
 	
 	void SetOnOff(name pOnOff)  {
@@ -290,7 +296,7 @@ depend {PadaDoVody,Predmety,PritahovanoMagnetem, VeciPadajiciDoDiry, VeciStrkate
 depend {ZnicitelneProudem, ZnicitelneVeVybuchu, oObetPohybu1, StrkatelneHemrem, oVybuchuje} << oNitroGlycerin;
 
 object oNitroGlycerin {
-	edit {InMap, UserName="Nitroglycerin", Comment="The nitroglycerin explodes if it hits some obstacle or gets in the explosion. If pushing it, you should be careful not to hit some wall!"}
+	edit {InMap, UserName="en{{Nitroglycerin}}cs{{Nitroglycerin}}", Comment="en{{The nitroglycerin explodes if it hits some obstacle or gets in the explosion. If pushing it, you should be careful not to hit some wall!}}cs{{Je to strkatelný pøedmìt, který vybuchuje po nárazu, pøi pádu z výšky nebo v jiném výbuchu. Pøi strkání pozor, a s ním nikde nenarazíš do stìny!}}"}
 	int cas2;
 	void NarazilJsem() {
 		if (cas2==@GetKernelTime()) return;
@@ -322,8 +328,8 @@ object oBlokovacProudu {
 }
 
 object oDvere {
-	edit {InMap, UserName="Door", Comment="When closed, the door acts like an ordinary wall. Opened door does not represent an obstacle and anything (including the high voltage discharge, for instance) may pass through it. Usually the door is set to open whenever you come in front of it. Alternatively, another object can trigger it or it can be off power."}
-	name ReagujeNa edit {EditType = object|objvoid, UserName="ReactsOn", Comment="Determines the object, before which the door opens."}
+	edit {InMap, UserName="en{{Door}}cs{{Dveøe}}", Comment="en{{When closed, the door acts like an ordinary wall. Opened door does not represent an obstacle and anything (including the high voltage discharge, for instance) may pass through it. Usually the door is set to open whenever you come in front of it. Alternatively, another object can trigger it or it can be off power.}}cs{{Pokud jsou dveøe zavøené, pùsobí jako neznièitelná stìna. Otevøené neznamenají žádnou pøekážku, vše vèetnì tøeba Proudu mùže projít skrz. Vìtšinou jsou dveøe nastaveny tak, aby se otevíraly, když se pøed nì postavíš ty. Mùžou ale reagovat i na jiné objekty nebo mùžou být vypnuty.}}"}
+	name ReagujeNa edit {EditType = object|objvoid, UserName="en{{ReactsOn}}cs{{ReagujeNa}}", Comment="en{{Determines the object, before which the door opens.}}cs{{Pøed jakám objektem se dveøe otvírají?}}"}
 	constructor() {ReagujeNa = oManik;}
 	
 	void SetOnOff(name pOnOff)  {
@@ -430,10 +436,10 @@ depend {floors, oOnOff} << oSavePoint;
 voidname sSavePoint;
 
 object oSavePoint {
-	edit {InMap, UserName="Save Point", Comment="If you step on the savepoint (which must be on power), entire game state will be stored. Later, if you do something wrong, you may restore this state and try playing again from that savepoint. You can use the savepoint as many times as you like, always only the last state will be stored. However, be careful not to save an unusable state (such state that it is impossible to reach the victory from)."}
+	edit {InMap, UserName="Save Point", Comment="en{{If you step on the savepoint (which must be on power), entire game state will be stored. Later, if you do something wrong, you may restore this state and try playing again from that savepoint. You can use the savepoint as many times as you like, always only the last state will be stored. However, be careful not to save an unusable state (such state that it is impossible to reach the victory from).}}cs{{Vstoupíš-li na SavePoint, zapamatuje se celý stav levelu. Pokud nìkde pozdìji udìláš chybu, mùžeš se k tomuto stavu vrátit a zkusit to tentokrát zahrát správnì. Pokud SavePoint není vypnutý, mùžeš na nìj vstupovat kolikrát chceš, pøedchozí stav se zapomene, zapamatován bude ten nejnovìjší. Jen dávej pozor, aby sis neuložil stav, ze kterého už level nejde dohrát!}}"}
 	objptr triger;
 	
-	int JenJednou edit {Editable, EditType = bool, UserName="Only once", Comment = "If checked, the SavePoint will turn off after use."};
+	int JenJednou edit {Editable, EditType = bool, UserName="en{{Only once}}cs{{Jen jednou}}", Comment = "en{{If checked, the SavePoint will turn off after use.}}cs{{Zda se má SavePoint po prvním použití vypnout.}}"};
 	constructor() { JenJednou = 0;}
 
 	void @MapPlaced() {
@@ -474,7 +480,7 @@ objectname oLedovaKoule;
 depend {BlokovanoHrP, oBouraDoSten, oPusobiKulate, oStartsMove, oStrkatelne, oZabijiPohybem1, PadaDoVody, Predmety, VeciPadajiciDoDiry, VeciStrkatelnePasem, ZnicitelneProudem, ZnicitelneVeVybuchu} << oLedovaKoule;
 
 object oLedovaKoule {
-	edit {InMap, UserName="Ice Ball", Comment = "The ice ball is entirely made of the ice, so it keeps sliding straight once pushed. It stops after hitting some solid obstacle. The ice ball is destroyable, is not affected by the magnet and it has a round nature."}
+	edit {InMap, UserName="en{{Ice Ball}}cs{{Ledová koule}}", Comment = "en{{The ice ball is entirely made of the ice, so it keeps sliding straight once pushed. It stops after hitting some solid obstacle. The ice ball is destroyable, is not affected by the magnet and it has a round nature.}}cs{{Tato koule je tvoøena celá z ledu, a proto, jakmile už se jednou dá do pohybu, tak se pohybuje stále stejným smìrem a zastaví se až o nìjakou pevnou pøekážku. Ledová koule je znièitelná, pùsobí kulatì a není pøitahována magnetem.}}"}
 	
 	void MoveEnded() { // Kdyz skonci pohyb, necht se pohybuji dal stejnym smerem
 		name smer = GetLastDir();

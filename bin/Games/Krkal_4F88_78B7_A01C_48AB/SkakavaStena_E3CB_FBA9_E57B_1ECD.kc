@@ -10,6 +10,9 @@ include test_0001_FFFF_0001_0001.kc
 ////		G a m e   K R K A L
 ////		Adds Jumping Wall to the first version
 ////
+////		H r a   K R K A L
+////		Doplneni 1.verze o Skakavou Stenu
+////
 /////////////////////////////////////////////////////////////////
 
 objectname oSkakavaStena;
@@ -21,12 +24,12 @@ methodname OdstartujSkoky, OtevriStenu, ZavriStenu;
 //depend @PublicMethods << {OdstartujSkoky, OtevriStenu, ZavriStenu}
 
 object oSkakavaStena {
-	edit {InMap, UserName="Jumping Wall", Comment="This wall can jump up and let you to pass under it, or it can jump up and down - which makes passing by more dangerous. Usually the wall is controlled by some switch - this can send messages OdstartujSkoky (jumping), OtevriStenu (jump up) and ZavriStenu (jump down). Like an ordinary wall, the jumping wall cannot be destroyed, climbed over or pushed."}
-	name stav edit {Editable, Is < StavSkoku, UserName="Initial State", Comment="Initial activity of the wall."}; 
-	int faze; // 0 dele, 3 nahore
-	int PauzaPredZapnutim edit {Editable, Is >= 0, UserName="DelayBeforeStart", Comment = "How long it takes before the wall will start jumping. Usable only when initial state is set to not jumping. 0 - Disabled. Time is in turns."}
-	int DobaSkoku edit {Editable, Is >= 0, UserName="JumpTime", Comment = "Time of the jump in turns."}
-	int DobaNaZemi edit {Editable, Is >= 0, UserName="OnFloorTime", Comment = "How long the wall rests on a floor between jumps. Time is in turns."}
+	edit {InMap, UserName="en{{Jumping Wall}}cs{{Skákavá stìna}}", Comment="en{{This wall can jump up and let you to pass under it, or it can jump up and down - which makes passing by more dangerous. Usually the wall is controlled by some switch - this can send messages OdstartujSkoky (jumping), OtevriStenu (jump up) and ZavriStenu (jump down). Like an ordinary wall, the jumping wall cannot be destroyed, climbed over or pushed.}}cs{{Stìna, která mùe vyskoèit nahoru a nechat tì pod sebou projít, ale pozor, a tì nerozmáèkne! Stìna typicky bıvá ovládána pøepínaèi (posíláním zpráv OdstartujSkoky, OtevriStenu a ZavriStenu), které ji mohou poslat nahoru nebo dolu, dále stìna mùe opakovanì skákat. Nelze ádnım klasickım zpùsobem znièit, pøelézt nebo odstrèit.}}"}
+	name stav edit {Editable, Is < StavSkoku, UserName="en{{Initial State}}cs{{Poèáteèní stav}}", Comment="en{{Initial activity of the wall.}}cs{{Co stìna zrovna dìlá?}}"}; 
+	int faze; // 0 dele, 3 nahore	
+	int PauzaPredZapnutim edit {Editable, Is >= 0, UserName="en{{DelayBeforeStart}}cs{{PauzaPøedZapnutím}}", Comment = "en{{How long it takes before the wall will start jumping. Usable only when initial state is set to not jumping. 0 - Disabled. Time is in turns.}}cs{{Za jak dlouho stena zacne skakat, pokud jeji pocatecni stav je NaZemi nebo VeVzduchu. 0 - Vypnuto. Cas je v taktech}}"}
+	int DobaSkoku edit {Editable, Is >= 0, UserName="en{{JumpTime}}cs{{DobaSkoku}}", Comment = "en{{Time of the jump in turns.}}cs{{Cas po ktery trva skok. Cas je v taktech.}}"}
+	int DobaNaZemi edit {Editable, Is >= 0, UserName="en{{OnFloorTime}}cs{{DobaNaZemi}}", Comment = "en{{How long the wall rests on a floor between jumps. Time is in turns.}}cs{{Jak dloho stena po skoku odpociva nehybne na zemi. Cas je v taktech.}}"}
 	
 	int OpravduSkace; 	// Zda skáèu
 	int JaOdebiram;		// Zda volám @RemoveObjFromMap já kdy nastavuji @eKCCoutMap tag

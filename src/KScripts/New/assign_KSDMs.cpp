@@ -14,7 +14,7 @@ void KSAssignKSDMs() {
 
 
 
-	// New lines added 07/03/04 at 00:40:32.
+	// New lines added 09/13/15 at 12:27:19.
 
 	new CKSKSDM("_KSDM_oMoveable_0001_FFFF_0001_0001__M_TestDir_0001_FFFF_0001_0001",(void (**)())&_KSDM_oMoveable_0001_FFFF_0001_0001__M_TestDir_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oMoveable_0001_FFFF_0001_0001__M_StartMove_0001_FFFF_0001_0001",(void (**)())&_KSDM_oMoveable_0001_FFFF_0001_0001__M_StartMove_0001_FFFF_0001_0001);

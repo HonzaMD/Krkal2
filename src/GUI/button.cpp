@@ -15,6 +15,7 @@
 #include "primitives.h"
 #include "widgets.h"
 #include "refmgr.h"
+#include "krkal.h"
 
 #include "dxbliter.h"
 
@@ -124,7 +125,7 @@ void CGUIButton::CreateButton(float _x, float _y, float _sx, float _sy, CGUIStyl
 
 	if(_help)
 	{
-		help = newstrdup(_help);
+		help = KRKAL->CopyOutStrByLanguage(_help);
 	}else
 		help = 0;
 
@@ -193,7 +194,7 @@ void CGUIButton::CreateSimpleButton(float _x, float _y, float _sx, float _sy, CG
 
 	if(_help)
 	{
-		help = newstrdup(_help);
+		help = KRKAL->CopyOutStrByLanguage(_help);
 	}else
 		help = 0;
 

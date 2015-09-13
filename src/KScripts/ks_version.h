@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 
-#define KS_VERSION -19
+#define KS_VERSION -20
 #define KS_NUM_VG 115
 #define KS_KSVGs_HTS 128
 #define KS_KSGs_HTS 64
