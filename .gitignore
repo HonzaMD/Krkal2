@@ -19,3 +19,4 @@ src/ReleaseDebug
 bin/Data/compiler/files/semantic.out
 bin/Data/compiler/files/syntax.out
 bin/Profiles
+bin/Data/gui_error.log

@@ -565,7 +565,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 		KRKAL->ResetGameVictory(0);
 
 		SAFE_DELETE(levelIntro);
-		levelIntro = new MMLevelIntro(levelFile->LevelDir);
+		levelIntro = new MMLevelIntro(levelFile->LevelDir, levelFile->UserName);
 		if (levelIntro->WindowShown()) {
 			KRKAL->PauseGame();
 		} else {

@@ -12,7 +12,7 @@
 
 
 
-MMLevelIntro::MMLevelIntro(const char *levelDirPath)
+MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *levelUserName)
 {
 
 	cw = 0; font=0; fontB=0; fontN=0;
@@ -35,7 +35,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath)
 
 		font=(CGUIFont*) RefMgr->Find("GUI.F.Verdana.10");
 		fontB=(CGUIFont*) RefMgr->Find("GUI.F.Verdana.10.B");
-		fontN=(CGUIFont*) RefMgr->Find("GUI.F.Courier.14.B");
+		fontN=(CGUIFont*) RefMgr->Find("GUI.F.Courier.18.B");
 
 
 		TiXmlDocument doc("LevelIntro.xml");
@@ -44,7 +44,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath)
 		if (doc.Error()) {
 			ShowXmlError(doc);
 		} else {
-			DisplayIntro(SelectRootByLanguage(doc));
+			DisplayIntro(SelectRootByLanguage(doc), levelUserName);
 		}
 	}
 
@@ -159,14 +159,19 @@ TiXmlElement * MMLevelIntro::SelectRootByLanguage(TiXmlDocument &doc) {
 }
 
 
-void MMLevelIntro::DisplayIntro(TiXmlElement * root) {
+void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName) {
 	if (!root)
 		return;
 
-	TiXmlElement *elem = root->FirstChildElement("Header");
-	if (elem)
-		DisplayHeader(elem);
+	float windowSX, windowSY;
+	cw->GetVPSize(windowSX, windowSY);
+	UI tc = 0xFFFFFFFF;
 
+	CGUIStaticText *st = new CGUIStaticText(levelUserName, fontN, 0, 50, tc, windowSX, windowSY, aCenter);
+	cw->AddBackElem(st);
+
+
+	TiXmlElement *elem;
 	for (elem = root->FirstChildElement(); elem; elem = elem->NextSiblingElement()) {
 		if (elem->ValueStr() == "Text") {
 			DisplayText(elem);
@@ -179,17 +184,12 @@ void MMLevelIntro::DisplayIntro(TiXmlElement * root) {
 
 
 
-
-void MMLevelIntro::DisplayHeader(TiXmlElement * header){
-}
-
-
-
 void MMLevelIntro::DisplayText(TiXmlElement * text){
 	CGUIStaticText *st;
 
 	float windowSX, windowSY;
 	cw->GetVPSize(windowSX, windowSY);
+	windowSY -= headerSize;
 
 	float x1=0,x2=0,y1=0,y2=0;
 	text->QueryFloatAttribute("x1", &x1);
@@ -200,16 +200,16 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 	UI tc=0xFFFFFFFF;
 
 	float xx = x1 / 100 * windowSX;
-	float yy = y1 / 100 * windowSY;
+	float yy = (y1 / 100 * windowSY) + headerSize;
 	float mx = x2 / 100 * windowSX;
-	float my = y2 / 100 * windowSY;
+	float my = (y2 / 100 * windowSY) + headerSize;
 
 	float sxx, syy;
 
 	for (TiXmlNode *node = text->FirstChild(); node; node = node->NextSibling()) {
 		if (node->Type() == TiXmlNode::TEXT) {
 			st=new CGUIStaticText(node->ToText()->Value(),font,xx,yy,tc,mx-xx,my-yy);
-			st->GetSize(sxx,syy); yy+=syy+8; cw->AddBackElem(st);
+			st->GetSize(sxx,syy); yy+=syy+2; cw->AddBackElem(st);
 		}
 	}
 }
@@ -219,6 +219,7 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 void MMLevelIntro::DisplayImage(TiXmlElement * image) {
 	float windowSX, windowSY;
 	cw->GetVPSize(windowSX, windowSY);
+	windowSY -= headerSize;
 
 	float x1=0,x2=0,y1=0,y2=0;
 	image->QueryFloatAttribute("x1", &x1);
@@ -227,7 +228,7 @@ void MMLevelIntro::DisplayImage(TiXmlElement * image) {
 	image->QueryFloatAttribute("y2", &y2);
 
 	float xx = floorf(x1 / 100 * windowSX);
-	float yy = floorf(y1 / 100 * windowSY);
+	float yy = floorf(y1 / 100 * windowSY) + headerSize;
 	
 	CGUIStaticPicture* picture = new CGUIStaticPicture(xx,yy,image->GetText());
 

@@ -516,6 +516,7 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(01)Land of Moles_76A7_96F4_40B6_544F.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(02)Tomy%27s 2 Ways_9B46_44A9_CD78_9A98.lv\LevelIntro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
