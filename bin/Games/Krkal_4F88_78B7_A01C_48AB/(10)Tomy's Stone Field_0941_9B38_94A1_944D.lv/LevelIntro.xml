@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Víš, co mi přijde divné? Že vždycky, když narazíme na nové bludiště, jsou dveře zavřené, klíče k nalezení, kameny připravené na těch správných místech ...<br/>
+      No samozřejmě, bludiště je hlavolam a my musíme najít řešení.<br/>
+      Ale někdo šel před náma. Kdo pak dává bludiště do výchozího stavu?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Hrbolatá podlaha znemožňuje tlačení předmětů.
+    </Text>
+  </Language>
+</LevelIntro>

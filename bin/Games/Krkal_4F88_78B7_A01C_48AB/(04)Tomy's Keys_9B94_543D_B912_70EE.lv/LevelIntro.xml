@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Všiml sis toho zeleného slizu?<br/>
+      Jo, dost smrdí.<br/>
+      Mě se to vůbec nelíbí. A taky ta podlaha, co se pod tebou zhroutí, že se nemůžeš vrátit ...<br/>
+      Klid, na to jsme se přeci připravovali, trénovali jsme. A víme že každé bludiště má řešení.<br/>
+      Každé?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Zmáčkni ESC pro návrat do menu nebo restart levelu. Postup bude zapomenut.<br/>
+      Některé věci (např. kameny) se dají tlačit.
+    </Text>
+  </Language>
+</LevelIntro>

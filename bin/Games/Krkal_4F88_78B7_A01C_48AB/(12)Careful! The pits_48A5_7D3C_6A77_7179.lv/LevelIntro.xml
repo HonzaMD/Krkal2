@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Máš?<br/>
+      Tady.<br/>
+      Už jsem tam naházel snad 50 šutráků, ale jen zmizí ve tmě a pak nic. Musí to být šíleně hluboké.<br/>
+      Takže připrav si stopky, zapaluji.. Tři, dva, jedna, teď!<br/>
+      Stále padá ...<br/>
+      Vidíš?<br/>
+      Ne.<br/>
+      Nic.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Při každém vstoupení na Save Point se uloží stav levelu. Když se pak něco nepovede, můžeš restartovat level z uloženého stavu (tak se děje automaticky zvolíš-li level k hraní).<br/>
+      Můžeš save i ignorovat a hrát od začátku. Tlačítko Restart Level.
+    </Text>
+  </Language>
+</LevelIntro>

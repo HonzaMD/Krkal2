@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Hrajem si na babu!<br/>
+      Sem jsem neměl lézt.<br/>
+      Až tě chytím, tak tě sním!<br/>
+      Ježiš, jsem v pěkné bryndě.<br/>
+      Jedna dvě, Honza jde!
+    </Text>
+    <Image x1="10" y1="55">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Text x1="30" x2="90" y1="55" y2="95">
+      Je čas naučit se mistrně ovládat pohyb tvé postavy. Je možné držet více směrových kláves najednou. 
+      Šipku nového směru tedy zmáčkni s předstihem, daleko před zatáčkou. Původní šipku nepouštěj, jinak se zastavíš. 
+      V zatáčce postava zatočí, protože půjde tím směrem, který jsi zmáčkl jako poslední. 
+      Až za zatáčkou uvolni starý směr, současný drž a zmáčkni nový, pro novou zatáčku.
+    </Text>
+  </Language>
+</LevelIntro>

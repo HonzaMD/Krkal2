@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Nesmíš se zastavit<br/>
+      Nesmím se zastavit.<br/>
+      Vezmeš klíč.<br/>
+      Vezmu klíč.<br/>
+      A pustíš nás dál.<br/>
+      Ano,<br/>
+      Běž !!!
+    </Text>
+  </Language>
+</LevelIntro>

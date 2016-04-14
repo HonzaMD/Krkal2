@@ -517,6 +517,15 @@
   <ItemGroup>
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(01)Land of Moles_76A7_96F4_40B6_544F.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(02)Tomy%27s 2 Ways_9B46_44A9_CD78_9A98.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(04)Tomy%27s Keys_9B94_543D_B912_70EE.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(05)Ice Town_7D6C_B83F_55B5_FA6E.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(07)Run!_27B9_F4D9_D1C6_D12C.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(08)Duck%27s Lake_0E28_9E7F_CD89_AD78.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(10)Tomy%27s Stone Field_0941_9B38_94A1_944D.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(12)Careful! The pits_48A5_7D3C_6A77_7179.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(14)3 Water Surfaces_E6C5_65DD_CA15_89BA.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(17)Tomy%27s Transport_C0AB_FC1D_2669_F852.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(18)Run Around_A7AB_5E60_DD41_544B.lv\LevelIntro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

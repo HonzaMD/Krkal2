@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Den Sedmý.<br/>
+      Dnes jsme si museli přiznat, že už se neumíme vrátit. Mám čím dál tím větší pocit, že si s námi labyrint hraje. Je plný záhad a náznaků. Už už máme pocit, že něco objevíme, jenže pak nic, jen další záhada a další bludiště.<br/>
+      Ledové město bylo prázdné. Ještě teď mám husí kůži, když si vzpomenu, jak se Ripleyová roztekla v louži slizu. Fuj. Ale nakonec to dala, je jiná, náladovější, ale jinak vitální. Má schopnosti, které se v bludišti hodí.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Každá z postav má unikátní schopnosti. Různě se chovají na ledu, ve vodě, při strkání předmětů. Vyzkoušej si to.
+    </Text>
+  </Language>
+</LevelIntro>
