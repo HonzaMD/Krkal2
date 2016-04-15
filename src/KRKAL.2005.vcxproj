@@ -526,6 +526,8 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(14)3 Water Surfaces_E6C5_65DD_CA15_89BA.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(17)Tomy%27s Transport_C0AB_FC1D_2669_F852.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(18)Run Around_A7AB_5E60_DD41_544B.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(21)Exchange_5159_51C9_3663_D8F5.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(23)So Einfach!_9770_0069_FBAB_C98C.lv\LevelIntro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,7 +6,7 @@
       Štìstí nám pøeje. Objevili jsme opuštìné mìsto, budovy se vynoøují z temnì modré vody a jsou pospojované ledovými mosty.<br/>
       Rozhodli jsme se pár dnù zùstat a prozkoumat pradávné technologie a artefakty. Jones se do toho hned pustil. Mám starost o Ripleyovou, nadýchala se toho zeleného slizu a onemocnìla, mìní se, je jakoby prùsvitná... Snad pøestávka pomùže.
     </Text>
-    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\led.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Led je natolik kluzký, že, jakmile se po nìm dáš do pohybu, nelze zastavit ani zmìnit smìr.
     </Text>

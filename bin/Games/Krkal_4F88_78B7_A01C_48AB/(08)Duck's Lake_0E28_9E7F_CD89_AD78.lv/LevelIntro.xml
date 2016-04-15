@@ -7,8 +7,8 @@
       Ticho! ... Ticho, zdá se mi, že támhle se nìco hýbe ...<br/>
       Jonesi, ty umíš plavat
     </Text>
-    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
-    <Text x1="20" x2="90" y1="71" y2="95">
+    <Image x1="10" y1="65">$GAME$\LevelImages.pkg\vyboj.png</Image>
+    <Text x1="20" x2="90" y1="65" y2="95">
       Zkus najít zpùsob, jak elektrický výboj doèasnì pøerušit.
     </Text>
   </Language>

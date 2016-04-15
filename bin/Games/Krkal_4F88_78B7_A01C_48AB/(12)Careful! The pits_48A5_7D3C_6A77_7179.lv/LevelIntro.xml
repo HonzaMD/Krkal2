@@ -11,8 +11,8 @@
       Ne.<br/>
       Nic.
     </Text>
-    <Image x1="10" y1="71">$GAME$\(01)Land of Moles_76A7_96F4_40B6_544F.lv\exit.png</Image>
-    <Text x1="20" x2="90" y1="71" y2="95">
+    <Image x1="10" y1="65">$GAME$\LevelImages.pkg\save.png</Image>
+    <Text x1="20" x2="90" y1="65" y2="95">
       Pøi každém vstoupení na Save Point se uloží stav levelu. Když se pak nìco nepovede, mùžeš restartovat level z uloženého stavu (tak se dìje automaticky zvolíš-li level k hraní).<br/>
       Mùžeš save i ignorovat a hrát od zaèátku. Tlaèítko Restart Level.
     </Text>

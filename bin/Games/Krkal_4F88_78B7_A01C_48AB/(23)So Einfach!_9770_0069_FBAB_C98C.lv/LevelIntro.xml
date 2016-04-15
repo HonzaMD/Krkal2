@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Picarde, Ripleyová tam zůstala, musíme něco udělat!<br/>
+      Počkej, víš přeci kolik jich tam bylo ...<br/>
+      Picarde! Oni ji nezabili.<br/>
+      Pak musíme tudy.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\mina.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Mina střeží oblast 3x3 polí kolem sebe. Reaguje na živé tvory a na výbuch. Po detekci a po krátké prodlevě exploduje.<br/>
+      Neaktivovanou minu lze sebrat a poté použít (a aktivovat) stiskem klávesy X.
+    </Text>
+  </Language>
+</LevelIntro>

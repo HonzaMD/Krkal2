@@ -237,7 +237,7 @@ void MMLevelIntro::DisplayImage(TiXmlElement * image) {
 		if (x2 != 0)
 			sx = x2 / 100 * windowSX - xx;
 		if (y2 != 0)
-			sy = y2 / 100 * windowSY - yy;
+			sy = y2 / 100 * windowSY + headerSize - yy;
 
 		picture->GetSize(sxx,syy);
 		if (sx == 0)
