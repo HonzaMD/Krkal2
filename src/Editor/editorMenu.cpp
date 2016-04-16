@@ -153,21 +153,44 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 				if(ext==eEXTlevel)
 				{
-					int len = strlen(dir)+strlen(file)+10;
-					char *level = new char[len];
-					if(dir[0]==0)
-						_snprintf(level,len,"%s\\!level",file);
+					int len = strlen(root) + strlen(dir) + 10;
+					char *dirPath = new char[len];
+					if (dir[0] == 0)
+						_snprintf(dirPath, len, "%s", root);
 					else
-						_snprintf(level,len,"%s\\%s\\!level",dir,file);
+						_snprintf(dirPath, len, "%s\\%s", root, dir);
 
-					CGUICheckBox* cb = GetObjFromID<CGUICheckBox>(chBoxID);
-					cb->Sync(true);
 
-					editor->CloseLevel();
-					editor->InitLevel(level);
+					CMMLevelDir* ldir = MMLevelDirs->LoadDir(dirPath);
+					CMMDirFile* dfile = ldir->Files;
+					bool ok = false;
+					while (dfile)
+					{
+						if (_strcmpi(dfile->Name, file) == 0 && (dfile->Tags & eMMLTeditable)) {
+							ok = true;
+							break;
+						}
+						dfile = dfile->next;
+					}
+					SAFE_DELETE_ARRAY(dirPath);
+					
+					if (ok) {
+						int len = strlen(dir) + strlen(file) + 10;
+						char *level = new char[len];
+						if (dir[0] == 0)
+							_snprintf(level, len, "%s\\!level", file);
+						else
+							_snprintf(level, len, "%s\\%s\\!level", dir, file);
 
-					fs->CloseWindow();
-					SAFE_DELETE_ARRAY(level);
+						CGUICheckBox* cb = GetObjFromID<CGUICheckBox>(chBoxID);
+						cb->Sync(true);
+
+						editor->CloseLevel();
+						editor->InitLevel(level);
+
+						fs->CloseWindow();
+						SAFE_DELETE_ARRAY(level);
+					}
 				}
 
 				SAFE_DELETE_ARRAY(root);
@@ -1158,6 +1181,7 @@ int CEDLevelSaveSelectorDlg::Ok()
 	}
 	
 	SAFE_DELETE_ARRAY(KerMain->LevelInfo.LevelFile);
+	SAFE_DELETE(KerMain->LevelInfo.LocalNames);
 
 	KerMain->LevelInfo.LevelFile = new char[strlen(levelPath)+strlen(levelName)+10];	// + 2 lomitka a !level
 	if(levelPath[0]==0)
