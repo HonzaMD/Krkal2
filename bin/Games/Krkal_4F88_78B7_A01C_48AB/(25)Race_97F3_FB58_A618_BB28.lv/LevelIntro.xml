@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Den Jedenáctý.<br/>
+      Záchranná mise nedopadla podle představ. Dostali nás. Jsme v osadě provizorně postavené na troskách proteanské architektury. Říkají si Navi. Stále nevím, kde se tu vzali, žijí hodně primitivním způsobem a domluva je téměř nemožná.<br/>
+      Když jsme se náhodou zmínili o tom, že pátráme po proteanské civiliaci, jejich chování k nám se změnilo. Prý nás i Ripleyovou pustí a pomohou nám. Ovšem jen, pokud jsme dost dobří.<br/>
+      Zítra běžíme závod na život a na smrt. Musíme vyhrát.
+    </Text>
+  </Language>
+</LevelIntro>

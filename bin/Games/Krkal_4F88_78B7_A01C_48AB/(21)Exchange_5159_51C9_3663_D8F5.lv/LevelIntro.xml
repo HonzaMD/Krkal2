@@ -11,6 +11,7 @@
     </Text>
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\priseraOt.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
+      TAB pøepíná mezi postavami.<br/>
       Pøíšera otáèivá se pohybuje podle pravidla levé (nebo pravé) ruky. Zabíjí, když se pøipleteš na políèko, kam chce vstoupit.<br/>
       Jen Ripleyová (Hemr) mùže projít pod Prùleznou stìnou.
     </Text>

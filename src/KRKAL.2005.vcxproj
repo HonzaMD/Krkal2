@@ -528,6 +528,10 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(18)Run Around_A7AB_5E60_DD41_544B.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(21)Exchange_5159_51C9_3663_D8F5.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(23)So Einfach!_9770_0069_FBAB_C98C.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(25)Race_97F3_FB58_A618_BB28.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(26)Falling Stones_ECDF_0C60_DEA0_9A72.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(28)Way on Conveyors_DB03_8940_38AE_720B.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(31)Lock_7226_A8B6_71A7_4430.lv\LevelIntro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
