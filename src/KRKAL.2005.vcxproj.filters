@@ -838,5 +838,14 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(31)Lock_7226_A8B6_71A7_4430.lv\LevelIntro.xml">
       <Filter>LevelIntros</Filter>
     </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(32)Super Lev_FE30_734E_2DBE_3800.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(33)Where’s Up_EF3C_E4E7_D1CB_73AF.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(35)Sandpit_62FD_8444_570B_CDF4.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

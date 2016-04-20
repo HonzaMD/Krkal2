@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Ripleyová, máš ráda horrory?<br/>
+      Některé ...<br/>
+      Tady mi to jeden připomíná ...<br/>
+      Rozdělíme se?<br/>
+      Já jdu tudy.<br/>
+      Haló, Jonesi, jsem tu zavřená!<br/>
+      Hej, já tady taky!
+    </Text>
+    <Image x1="10" y1="68">$GAME$\LevelImages.pkg\LedovaKoule.png</Image>
+    <Text x1="20" x2="90" y1="68" y2="95">
+      Ledová koule je dokonale kluzká a pokud se dá do pohybu, zastaví se až o překážku. Navíc, pokud může, kutálí se kolem kulatých předmětů. Pozor, její náraz je nebezpečný.<br/>
+      Balónek se vznáší, takže na něj nemají vliv podlahy.
+    </Text>
+  </Language>
+</LevelIntro>
