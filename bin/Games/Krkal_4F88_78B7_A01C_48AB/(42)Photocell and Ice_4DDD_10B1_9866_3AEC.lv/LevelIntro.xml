@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Tak jsme špatně, ale už tomu začínám rozumět, ještě chvilku a objevíme Bránu.<br/>
+      To už je dneska 4. slepá ulička, ty fakt věříš té pohádce od Navi?<br/>
+      O labyrintu se toho říká ...<br/>
+      Třeba, že v jeho centru je proteanské město, plné vyspělé technologie a kultury.<br/>
+      Třeba Proteané ještě žijí.<br/>
+      Nebo že tam je portál do jiného světa, například do ráje, země hojnosti ...<br/>
+      Jenže všechno bude jinak, možná žádná Brána neexistuje.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Fotobunka.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Fotobuňka je přepínač, který reaguje na aktivitu ve své bezprostřední blízkosti. Stejně jako mina si všímá živých tvorů a výbuchu.
+    </Text>
+  </Language>
+</LevelIntro>

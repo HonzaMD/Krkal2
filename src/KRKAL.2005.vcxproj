@@ -535,6 +535,13 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(32)Super Lev_FE30_734E_2DBE_3800.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(33)Where’s Up_EF3C_E4E7_D1CB_73AF.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(35)Sandpit_62FD_8444_570B_CDF4.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(37)Destroy the Walls_3425_D244_2DB0_EC83.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(41)Plenty of Bombs_B588_4101_4FA1_61C6.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(42)Photocell and Ice_4DDD_10B1_9866_3AEC.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(44)MiniSokoban_4618_7887_7667_87B6.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(45)Fight Thru_2BDA_1E78_B5AF_C101.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(47)Jumping Wall_ED35_4BC8_6130_A1D5.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(48)Connected_59F1_C705_BC2C_9045.lv\LevelIntro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Den Dvacátý první.<br/>
+      Tak je to pravda. Někdo si kolem nás hraje s realitou, větví ji a zase skládá dohromady.<br/>
+      Původně jsme mysleli, že najdeme jonesovu značku, jenže pak jsme našli samotného Jonese. Jsou stejní, mají stejnou minulost až na posledních asi 18 hodin, pak zažili každý trochu něco jiného ... a teď jsou tu dvakrát!
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Dracek.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      V tomto levelu je ovládání propojeno. Stejnými příkazy ovládáš dvě postavy najednou.
+    </Text>
+  </Language>
+</LevelIntro>

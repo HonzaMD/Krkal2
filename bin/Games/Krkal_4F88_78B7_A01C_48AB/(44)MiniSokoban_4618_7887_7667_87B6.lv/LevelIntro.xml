@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Den Osmnáctý.<br/>
+      Našli jsme Bránu do Vnitřního labyrintu. Úžasné, ta stavba bere dech ...<br/>
+      Na pověstech Navi možná něco bude. Podle nich Proteané utíkali před smrtící hrozbou. Poslední útočiště našli ve středu labyrintu, tam také objevili řešení, jenže už bylo pozdě.<br/>
+      Navi věří, že po stopách Proteanů se vydají hrdinové. Ti, kteří překonají všechny překážky, se dostanou až do srdce labyrintu, najdou poslední útočiště a budou si přát Přání. Přání bude splněno a Proteané i labyrint budou opět svobodní.
+    </Text>
+  </Language>
+</LevelIntro>

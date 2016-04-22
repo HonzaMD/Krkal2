@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Začal jsem si dělat značky.<br/>
+      Chceš nechat návod pro někoho dalšího?<br/>
+      Víš, co si myslím, že znamenají ty sny a ta naše nesmrtelnost?<br/>
+      Prostě nejsme géniové, než na to bludiště přijdem, musíme to x krát zkusit a třeba x krát zemřít.<br/>
+      Jako, že ty sny mohou být realita?<br/>
+      Ano, někdo pak vybere ten úspěšný pokus a realitu z něj udělá.<br/>
+      To by vysvětlovalo tu nesmrtelnost.<br/>
+      Jenže je to složitější, my se z těch neúspěšných pokusů nějak učíme, proto občas víme, co dělat ...<br/>
+      Proto dělám ty značky, už se mi i zdálo jak dělám značky a třeba někde objevím značku, kterou jsem udělal ve snu ...
+    </Text>
+    <Image x1="10" y1="68">$GAME$\LevelImages.pkg\PrKlaustrofobni.png</Image>
+    <Text x1="20" x2="90" y1="68" y2="95">
+      Příšera klaustrofóbní řídí svůj pohyb dopravními značkami. Za normálních okolností není nebezpečná, jen pokud se nemůže pohnout, strachem vybuchuje.<br/>
+      Dopravní značky můžeš sbírat: Klávesa A.<br/>
+      A pokládat či otáčet: 1 + šipka směru.
+    </Text>
+  </Language>
+</LevelIntro>
