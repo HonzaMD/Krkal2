@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Mám hotovou analýzu stáří labyrintu.<br/>
+      Tak ukaž.<br/>
+      Nečekal jsem takový rozptyl, jsou tu velmi staré oblasti, mnohem starší než proteanská města.<br/>
+      To znamená, že labyrint tu mohl být dříve, než Proteané bojovali o svou existenci.<br/>
+      Jenže pak jsou tu části třeba jen pár let staré.<br/>
+      Labyrint ještě někdo staví? To snad Proteané stale žijí?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\nitro.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Nitroglycerin vybuchuje při jakémkoli nárazu.
+    </Text>
+  </Language>
+</LevelIntro>

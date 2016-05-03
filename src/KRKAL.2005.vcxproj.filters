@@ -868,5 +868,14 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(48)Connected_59F1_C705_BC2C_9045.lv\LevelIntro.xml">
       <Filter>LevelIntros</Filter>
     </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(49)8x Blue Key_F685_E5BE_1BD3_AA2F.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(51)Dangerous Load_FD83_FF3E_77DC_3708.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(53)level 04_705B_D2AB_3E2A_93D8.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

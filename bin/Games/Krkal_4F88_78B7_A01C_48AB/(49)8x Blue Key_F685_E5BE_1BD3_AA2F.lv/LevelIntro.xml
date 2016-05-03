@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Nerozumíme tomu. Ani trochu. Třeba teď máme najít 8 klíčů, k tomu potřebujeme vyřešit 8 hlavolamů... 
+      ale jaký to dává smysl? Proč to tu Proteané postavili? Kdyby se snažili ubránit před nějakým hrozivým nepřítelem, 
+      nebylo by lepší postavit pořádné hradby a děla?<br/>
+      Možná se chtěli v labyrintu schovat, třeba nemohli bojovat přímo.<br/>
+      Vybudovat tak rozsáhlý labyrint muselo být velmi náročné, i pro Proteany.<br/>
+      Takže musí existovat nějaký zásadní důvod: K čemu labyrint slouží?
+    </Text>
+  </Language>
+</LevelIntro>
