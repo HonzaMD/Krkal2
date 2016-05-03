@@ -474,6 +474,9 @@ object oSavePoint {
 
 
 
+
+
+
 ///////////////////////////////////////////////////////////////////////////
 
 objectname oLedovaKoule;
@@ -490,6 +493,26 @@ object oLedovaKoule {
 		else if (smer==Jih) AddForce(pfdir:8,pfpriority:PriorityOLed,pftype:ForceOLed) message;
 		else return;
 		RemoveForce() nextturn;
+	}
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Objekt, který slouží k rozesílání zpráv v urèitých èasových intervalech
+
+objectname oLevelIntro;
+methodname ShowText;
+
+object oLevelIntro {
+	edit {OutMap, UserName="LevelIntro", Comment="en{{Shows story text window.}}cs{{Zoberazi textove okno s pribehem}}"}
+
+	string[30] FileName edit {Editable};
+	string[60] Header edit {Editable};
+	
+	void ShowText() {
+		@ShowLevelIntro(FileName, Header);
 	}
 }
 

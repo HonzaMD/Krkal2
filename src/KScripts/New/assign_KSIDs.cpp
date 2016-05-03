@@ -13,7 +13,7 @@ void KSAssignKSIDs() {
 
 
 
-	// New lines added 09/13/15 at 12:27:19.
+	// New lines added 05/03/16 at 21:00:57.
 
 	new CKSKSID("_KSID_Constructor");
 	new CKSKSID("_KSID_LoadConstructor");
@@ -462,4 +462,6 @@ void KSAssignKSIDs() {
 	new CKSKSID("_KSID_oSavePoint_A1CF_6963_8DA6_D822");
 	new CKSKSID("_KSID_sSavePoint_A1CF_6963_8DA6_D822");
 	new CKSKSID("_KSID_oLedovaKoule_A1CF_6963_8DA6_D822");
+	new CKSKSID("_KSID_oLevelIntro_A1CF_6963_8DA6_D822");
+	new CKSKSID("_KSID_ShowText_A1CF_6963_8DA6_D822");
 }

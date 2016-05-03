@@ -438,7 +438,7 @@ void CComExpTreeNode::FlushItem(int arrayCount)
 			if(stringOp && !assigning)
 				fprintf(f, "CComString(%d, ", d->dType - kwString);
 
-			if(stringOp)
+			if (stringOp || CComPart::IsStringType(d->dType))
 				fprintf(f, "((char*");
 			else
 			{
@@ -447,7 +447,7 @@ void CComExpTreeNode::FlushItem(int arrayCount)
 				bool deref;
 
 				fprintf(f, "(");
-				if(deref = (arrayCount < pointer-array || (arrayCount == 0 && (pointer != array || !pointer))))
+				if (deref = (arrayCount < pointer - array || (arrayCount == 0 && (pointer != array || !pointer))))
 					fprintf(f, "*");
 
 				const char* tmp = p->GetTypeString(d->dType);

@@ -14,7 +14,7 @@ void KSNamesAssign() {
 	CKerName *name;
 
 
-	// New lines added 09/13/15 at 12:27:19.
+	// New lines added 05/03/16 at 21:00:57.
 
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_Constructor")) _KSID_Constructor = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_LoadConstructor")) _KSID_LoadConstructor = name;
@@ -463,4 +463,6 @@ void KSNamesAssign() {
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oSavePoint_A1CF_6963_8DA6_D822")) _KSID_oSavePoint_A1CF_6963_8DA6_D822 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_sSavePoint_A1CF_6963_8DA6_D822")) _KSID_sSavePoint_A1CF_6963_8DA6_D822 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oLedovaKoule_A1CF_6963_8DA6_D822")) _KSID_oLedovaKoule_A1CF_6963_8DA6_D822 = name;
+	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oLevelIntro_A1CF_6963_8DA6_D822")) _KSID_oLevelIntro_A1CF_6963_8DA6_D822 = name;
+	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_ShowText_A1CF_6963_8DA6_D822")) _KSID_ShowText_A1CF_6963_8DA6_D822 = name;
 }

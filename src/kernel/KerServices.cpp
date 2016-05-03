@@ -21,6 +21,7 @@
 #include "MersenneTwister.h"
 #include "Ident.h"
 #include "krkal.h"
+#include "MMDesktop.h"
 
 
 // Objekty obsahujici sluzby Kernelu
@@ -1184,6 +1185,12 @@ void CKerServices::RandomKropic() {
 	}
 	delete rnd;
 	#endif
+}
+
+
+void CKerServices::ShowLevelIntro(const char *textPath, const char *header) {
+	if (MMDesktop)
+		MMDesktop->ShowLevelIntro(textPath, KRKAL->CopyOutStrByLanguage(header));
 }
 
 

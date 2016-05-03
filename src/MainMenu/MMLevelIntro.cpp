@@ -12,7 +12,7 @@
 
 
 
-MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *levelUserName)
+MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const char *levelUserName)
 {
 
 	cw = 0; font=0; fontB=0; fontN=0;
@@ -20,7 +20,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *levelUserName)
 	KRKAL->GetScreenRes(screenx,screeny);
 
 	char path[MAX_PATH];
-	sprintf(path, "%s/LevelIntro.xml", levelDirPath);
+	sprintf(path, "%s/%s", levelDirPath, fileName);
 
 	int size = FS->GetFileSize(path);
 	if (!size) return;
@@ -167,8 +167,15 @@ void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName) 
 	cw->GetVPSize(windowSX, windowSY);
 	UI tc = 0xFFFFFFFF;
 
-	CGUIStaticText *st = new CGUIStaticText(levelUserName, fontN, 0, 50, tc, windowSX, windowSY, aCenter);
-	cw->AddBackElem(st);
+	if (!levelUserName || !*levelUserName)
+	{
+		headerSize = 0;
+	}
+	else 
+	{
+		CGUIStaticText *st = new CGUIStaticText(levelUserName, fontN, 0, 50, tc, windowSX, windowSY, aCenter);
+		cw->AddBackElem(st);
+	}
 
 
 	TiXmlElement *elem;

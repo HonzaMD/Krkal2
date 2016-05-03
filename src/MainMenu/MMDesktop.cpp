@@ -565,7 +565,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 		KRKAL->ResetGameVictory(0);
 
 		SAFE_DELETE(levelIntro);
-		levelIntro = new MMLevelIntro(levelFile->LevelDir, levelFile->UserName);
+		levelIntro = new MMLevelIntro(levelFile->LevelDir, "LevelIntro.xml", levelFile->UserName);
 		if (levelIntro->WindowShown()) {
 			KRKAL->PauseGame();
 		} else {
@@ -765,3 +765,24 @@ void CMMDesktop::ShowHelp()
 	CMainMenuHelp h;
 	h.ShowHelp();
 }
+
+
+void CMMDesktop::ShowLevelIntro(const char *textPath, const char *header) 
+{
+	SAFE_DELETE(levelIntro);
+	levelIntro = new MMLevelIntro(playingFile->LevelDir, textPath, header);
+	if (levelIntro->WindowShown()) {
+		KRKAL->PauseGame();
+		KRKAL->Redraw();
+		while (Input->KeyPressed())
+		{
+			Sleep(1);
+			Input->GetKeyState();
+		}
+		KRKAL->DeleteKeyBoardMessages();
+	}
+	else {
+		SAFE_DELETE(levelIntro);
+	}
+}
+

@@ -142,6 +142,8 @@ public:
 	void KernelEnd() {IntBuff = 0; ObjBuff = 0; } // pri destructoru kernelu
 
 	void RandomKropic();
+
+	void ShowLevelIntro(const char *textPath, const char *header = 0);
 private:
 	char strbuff[16000];
 	CKerArrInt *IntBuff; // buffer pro funkce hledajici objekty na oblasti

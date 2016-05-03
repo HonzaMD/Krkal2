@@ -2183,6 +2183,15 @@ myInline void CKerInterpret::KernelServiceCall(int kerServiceID, int paramCount)
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;
 
+	case 133: 		 //ShowLevelIntro
+		if (paramCount == 1)
+			KerServices.ShowLevelIntro((char*)op[0].strData);
+		else if (paramCount == 2)
+			KerServices.ShowLevelIntro((char*)op[0].strData, (char*)op[1].strData);
+		else
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
 	default:
 		KerMain->Errors->LogError(eKRTECorruptedInstr);
 	}

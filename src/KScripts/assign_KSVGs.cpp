@@ -14,7 +14,7 @@ void KSAssignKSVGs() {
 	CKSKSVG *tmp;
 
 
-	// New lines added 09/13/15 at 12:27:19.
+	// New lines added 05/03/16 at 21:00:57.
 
 	tmp = new CKSKSVG("_KSVG_0_placeable_0001_FFFF_0001_0001",&KSAlloc_KSVG_0_placeable_0001_FFFF_0001_0001,&KSSetV_KSVG_0_placeable_0001_FFFF_0001_0001,sizeof(_KSVG_0_placeable_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
@@ -1318,5 +1318,9 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001");
+
+	tmp = new CKSKSVG("_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822,&KSSetV_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822,sizeof(_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822));
+	tmp->AddAttribute("_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822");
+	tmp->AddAttribute("_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822");
 
 }

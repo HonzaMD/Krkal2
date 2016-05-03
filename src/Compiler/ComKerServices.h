@@ -231,6 +231,7 @@ const static SComKerServiceRec cKerServices[cKerServicesNr] =
 	{ {kwVoid, 0},	"ESetEditType", "KerEditI.ESetEditType", 2},	//void ESetEditType(int CodeLine, int tags); // nastavi EditType (eKET..).
 
 	{ {kwVoid, 0},	"SaveTheGame", "KerMain->SaveGame",	1},		
+	{ {kwVoid, 0 }, "ShowLevelIntro", "KerServices.ShowLevelIntro", 2 },
 };
  
 // popis parametru sluzeb kernelu - vsechny jejich zaznamy; jejich pocet maximalni pocet (cKerSevicesMaxParams) je definovan v ComConstants.h
@@ -1063,6 +1064,13 @@ const static SComKerParam cKerServiceParams[cKerServicesNr][cKerServicesMaxParam
 	{
 		{kwChar,1,true,0},
 	},
+
+	//	{ { kwVoid, 0 }, "ShowLevelIntro", "MMDesktop->ShowLevelIntro", 2 },
+	{
+		{ kwChar, 1, false, 0 },
+		{ kwChar, 1, true, 0 },
+	},
+
 };
 
 

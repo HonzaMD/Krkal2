@@ -7,7 +7,7 @@ class CGUIFont;
 class MMLevelIntro
 {
 public:
-	MMLevelIntro(const char *levelDirPath, const char *levelUserName);
+	MMLevelIntro(const char *levelDirPath, const char *fileName, const char *levelUserName);
 	~MMLevelIntro();
 	bool WindowShown() {return cw != 0;}
 private:
@@ -21,6 +21,6 @@ private:
 	CGUIFont *font;
 	CGUIFont *fontB;
 	CGUIFont *fontN;
-	const int headerSize = 90;
+	int headerSize = 90;
 
 };

@@ -38,6 +38,8 @@ public:
 
 	int ShouldShowCursor(){if(MMmode==1) return 0; else return 1;}
 
+	void ShowLevelIntro(const char *textPath, const char *header = 0);
+
 protected:
 
 	int MMmode; //0 = mainmenu, 1=playlevel	

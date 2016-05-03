@@ -462,6 +462,8 @@ CKerName* _KSID_oDvere_A1CF_6963_8DA6_D822__M_Zavri_A1CF_6963_8DA6_D822 = 0;
 CKerName* _KSID_oSavePoint_A1CF_6963_8DA6_D822 = 0;
 CKerName* _KSID_sSavePoint_A1CF_6963_8DA6_D822 = 0;
 CKerName* _KSID_oLedovaKoule_A1CF_6963_8DA6_D822 = 0;
+CKerName* _KSID_oLevelIntro_A1CF_6963_8DA6_D822 = 0;
+CKerName* _KSID_ShowText_A1CF_6963_8DA6_D822 = 0;
 
 
 
@@ -801,6 +803,8 @@ void* _KSOV_oDvere_A1CF_6963_8DA6_D822__M_StavOtevreni_A1CF_6963_8DA6_D822;
 void* _KSOV_oBlokovacProudu_A1CF_6963_8DA6_D822__M__KN_CollisionCfg_A1CF_6963_8DA6_D822;
 void* _KSOV_oSavePoint_A1CF_6963_8DA6_D822__M_triger_A1CF_6963_8DA6_D822;
 void* _KSOV_oSavePoint_A1CF_6963_8DA6_D822__M_JenJednou_A1CF_6963_8DA6_D822;
+void* _KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822;
+void* _KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822;
 
 
 
@@ -4042,6 +4046,20 @@ void KSSetV_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822(void* KSVG) {
 	_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001 = &( (_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822*)KSVG)->_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001;
 	_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001 = &( (_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822*)KSVG)->_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001;
 	_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001 = &( (_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822*)KSVG)->_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001;
+}
+
+struct _KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822 {
+	char _KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822[31];
+	char _KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822[61];
+};
+
+void* KSAlloc_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822() {
+	return new _KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822;
+}
+
+void KSSetV_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822(void* KSVG) {
+	_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822 = &( (_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822*)KSVG)->_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822;
+	_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822 = &( (_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822*)KSVG)->_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822;
 }
 
 
@@ -11035,26 +11053,31 @@ void _KSM_469__KN_MapRemoved_A1CF_6963_8DA6_D822() {
 }
 
 //_KSID_oLedovaKoule_A1CF_6963_8DA6_D822::_KSID_MoveEnded_0001_FFFF_0001_0001
-void _KSM_485_MoveEnded_0001_FFFF_0001_0001() {
+void _KSM_488_MoveEnded_0001_FFFF_0001_0001() {
 	CKerName* _KSL_smer;
-	_KSL_smer = (CKerName*)KerMain->callint(486, KerContext->KCthis, _KSID_GetLastDir_0001_FFFF_0001_0001, 5, 0);
+	_KSL_smer = (CKerName*)KerMain->callint(489, KerContext->KCthis, _KSID_GetLastDir_0001_FFFF_0001_0001, 5, 0);
 
 	if(_KSL_smer == _KSID_Sever_0001_FFFF_0001_0001)
-		KerMain->message(487, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 16, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
+		KerMain->message(490, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 16, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
 	else
 
 		if(_KSL_smer == _KSID_Zapad_0001_FFFF_0001_0001)
-			KerMain->message(488, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 12, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
+			KerMain->message(491, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 12, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
 		else
 
 			if(_KSL_smer == _KSID_Vychod_0001_FFFF_0001_0001)
-				KerMain->message(489, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 4, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
+				KerMain->message(492, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 4, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
 			else
 
 				if(_KSL_smer == _KSID_Jih_0001_FFFF_0001_0001)
-					KerMain->message(490, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 8, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
+					KerMain->message(493, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 3, eKTint, eKTname, eKTname, _KSID_pfdir_0001_FFFF_0001_0001, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_pftype_0001_FFFF_0001_0001, 8, _KSID_PriorityOLed_0001_FFFF_0001_0001, _KSID_ForceOLed_0001_FFFF_0001_0001);
 				else
 					return;
-	KerMain->message(492, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+	KerMain->message(495, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+}
+
+//_KSID_oLevelIntro_A1CF_6963_8DA6_D822::_KSID_ShowText_A1CF_6963_8DA6_D822
+void _KSM_514_ShowText_A1CF_6963_8DA6_D822() {
+	KerServices.ShowLevelIntro(((char*)_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822), ((char*)_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822));
 }
 
