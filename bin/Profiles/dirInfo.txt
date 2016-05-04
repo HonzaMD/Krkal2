@@ -1,0 +1,4 @@
+Profiles
+--------
+
+Zde jsou profily uzivatelu, obsahuji ulozeny postup hrou.

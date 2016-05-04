@@ -877,5 +877,23 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(53)level 04_705B_D2AB_3E2A_93D8.lv\LevelIntro.xml">
       <Filter>LevelIntros</Filter>
     </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(55)Covered Traps_2807_E6DB_940C_5F4F.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(57)Ice Stronghold_3DBA_C16D_9174_108D.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(59)Samoobsluha_7C51_34CA_7B74_6583.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(61)Cooperation_9AF3_3D04_8579_C794.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(63)Kill Them!_8983_03FE_C499_71D3.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(65)Where it Topples_91DD_C690_2B53_11F5.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

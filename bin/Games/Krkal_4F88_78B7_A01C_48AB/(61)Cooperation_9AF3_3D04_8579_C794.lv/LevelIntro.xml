@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Haló Jonesi, jsi to ty?<br/>
+      Rád tě vidím, Picarde!<br/>
+      A co Ripleyová, je v pořádku?<br/>
+      Ano, jen se k ní budem muset dostat, potřebujem spolupracovat.<br/>
+      To je sakra lepší pocit, než být na to sám.
+    </Text>
+  </Language>
+</LevelIntro>

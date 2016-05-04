@@ -18,5 +18,6 @@ src/ipch
 src/ReleaseDebug
 bin/Data/compiler/files/semantic.out
 bin/Data/compiler/files/syntax.out
-bin/Profiles
+bin/Profiles/*
+!bin/Profiles/dirInfo.txt
 bin/Data/gui_error.log
