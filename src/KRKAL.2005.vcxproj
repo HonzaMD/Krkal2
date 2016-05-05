@@ -551,6 +551,7 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(61)Cooperation_9AF3_3D04_8579_C794.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(63)Kill Them!_8983_03FE_C499_71D3.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(65)Where it Topples_91DD_C690_2B53_11F5.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(71)Rama%27s Fields_8FC2_C188_BF3F_B70B.lv\Outro.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
