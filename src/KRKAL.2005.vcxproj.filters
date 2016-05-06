@@ -898,5 +898,14 @@
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(71)Rama%27s Fields_8FC2_C188_BF3F_B70B.lv\Outro.xml">
       <Filter>LevelIntros</Filter>
     </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(67)Nitro_8327_FA68_F2E1_15F3.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(69)Up and Down_2355_2CF5_9C9A_FC05.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(71)Rama%27s Fields_8FC2_C188_BF3F_B70B.lv\LevelIntro.xml">
+      <Filter>LevelIntros</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

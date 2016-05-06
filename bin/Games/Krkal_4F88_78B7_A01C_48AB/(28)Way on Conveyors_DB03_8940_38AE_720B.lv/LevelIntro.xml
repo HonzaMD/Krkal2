@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
   <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+    <Image x1="55" x2="90" y1="5">$GAME$\LevelImages.pkg\Lava.jpg</Image>
+    <Text x1="10" x2="50" y1="5" y2="70">
       Vidíš ty pásy?<br/>
       Kde to jde, tak se tě snaží odvézt do díry.<br/>
       Budem muset být hbití a včas uskočit.<br/>

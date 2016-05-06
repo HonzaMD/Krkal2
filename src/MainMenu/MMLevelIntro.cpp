@@ -229,10 +229,14 @@ void MMLevelIntro::DisplayImage(TiXmlElement * image) {
 	windowSY -= headerSize;
 
 	float x1=0,x2=0,y1=0,y2=0;
+	int vAlign = 0, hAlign = 0;
 	image->QueryFloatAttribute("x1", &x1);
 	image->QueryFloatAttribute("x2", &x2);
 	image->QueryFloatAttribute("y1", &y1);
 	image->QueryFloatAttribute("y2", &y2);
+
+	image->QueryIntAttribute("vAlign", &vAlign);
+	image->QueryIntAttribute("hAlign", &hAlign);
 
 	float xx = floorf(x1 / 100 * windowSX);
 	float yy = floorf(y1 / 100 * windowSY) + headerSize;
@@ -247,10 +251,31 @@ void MMLevelIntro::DisplayImage(TiXmlElement * image) {
 			sy = y2 / 100 * windowSY + headerSize - yy;
 
 		picture->GetSize(sxx,syy);
-		if (sx == 0)
-			sx = sy / syy * sxx;
-		if (sy == 0)
-			sy = sx / sxx * syy;
+
+		if (x2 != 0 && y2 != 0) {
+			float sx2 = sy / syy * sxx;
+			float sy2 = sx / sxx * syy;
+			if (sx2 < sx && hAlign != 0) {
+				if (hAlign == 1)
+					picture->MoveRel(floorf((sx - sx2) / 2), 0);
+				if (hAlign == 2)
+					picture->MoveRel(floorf(sx - sx2), 0);
+				sx = sx2;
+			}
+			if (sy2 < sy && vAlign != 0) {
+				if (vAlign == 1)
+					picture->MoveRel(0, floorf((sy - sy2) / 2));
+				if (vAlign == 2)
+					picture->MoveRel(0, floorf(sy - sy2));
+				sy = sy2;
+			}
+		}
+		else {
+			if (sx == 0)
+				sx = sy / syy * sxx;
+			if (sy == 0)
+				sy = sx / sxx * syy;
+		}
 
 		picture->Resize(ceilf(sx),ceilf(sy));
 	}

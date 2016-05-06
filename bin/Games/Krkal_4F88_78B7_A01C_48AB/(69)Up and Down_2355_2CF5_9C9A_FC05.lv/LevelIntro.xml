@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Den Třicátý.<br/>
+      Sen pokračoval. Dobrodruzi procházejí bludištěm, řeší hádanky a umírají. Zkouší to znova a znova, zkouší přežít, ale umírají na mnoho způsobů. 
+      Evoluce. Ty úspěšné pokusy jsou vybrány, dojde ke křížení a opět k další vlně náhodných pokusů. 
+      Evoluce slouží k vývoji druhu, k vytvoření požadovaných vlastností a potlačení toho, co v labyrintu potřeba není.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\khemr.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Tip: Chceš-li zažít spoustu dalších dobrodružství a vyřešit desítky levelů, zkus si zahrát v DosBoxu Krkala 1
+    </Text>
+  </Language>
+</LevelIntro>
