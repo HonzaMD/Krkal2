@@ -3,10 +3,10 @@
   <Language name="en">
     <Text x1="10" x2="90" y1="5" y2="70">
       Den Dvacátý pátý.<br/>
-      Nalezl jsem deník výpravy, která tu byla pøed námi. Èetl jsem, jak zkoumali labyrint, jak øešili jedno bludištì za druhým, jak pátrali po Proteanech. 
-      Snažili se objevit srdce labyrintu, dny, týdny, docházeli jim zásoby, propadali beznadìji. Ze zoufalství zkusili jíst místní rostliny. 
+      Nalezl jsem deník výpravy, která tu byla pøed námi. Èetl jsem, jak zkoumali Labyrint, jak øešili jedno bludištì za druhým, jak pátrali po Proteanech. 
+      Snažili se objevit srdce Labyrintu, dny, týdny, docházeli jim zásoby, propadali beznadìji. Ze zoufalství zkusili jíst místní rostliny. 
       Bohužel se dostavily vedlejší úèinky a divoké sny, ale také nadìje, že sny ukazují cestu. 
-      Poslední záznam popisoval objev techniky pro stavbu labyrintu. Zajímavé.
+      Poslední záznam popisoval objev techniky pro stavbu Labyrintu. Zajímavé.
     </Text>
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\exit.png</Image>
   </Language>

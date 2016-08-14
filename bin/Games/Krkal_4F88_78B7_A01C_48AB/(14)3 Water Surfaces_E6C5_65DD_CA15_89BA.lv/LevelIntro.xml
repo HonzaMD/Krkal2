@@ -3,8 +3,8 @@
   <Language name="en">
     <Text x1="10" x2="90" y1="5" y2="70">
       Den Sedmý.<br/>
-      Dnes jsme si museli pøiznat, že už se neumíme vrátit. Mám èím dál tím vìtší pocit, že si s námi labyrint hraje. Je plný záhad a náznakù. Už už máme pocit, že nìco objevíme, jenže pak nic, jen další záhada a další bludištì.<br/>
-      Ledové mìsto bylo prázdné. Ještì teï mám husí kùži, když si vzpomenu, jak se Ripleyová roztekla v louži slizu. Fuj. Ale nakonec to dala, je jiná, náladovìjší, ale jinak vitální. Má schopnosti, které se v bludišti hodí.
+      Dnes jsme si museli pøiznat, že už se neumíme vrátit. Mám èím dál tím vìtší pocit, že si s námi Labyrint hraje. Je plný záhad a náznakù. Už už máme pocit, že nìco objevíme, jenže pak nic, jen další záhada a další bludištì.<br/>
+      Ledové mìsto bylo prázdné. Ještì teï mám husí kùži, když si vzpomenu, jak se Ripleyová roztekla v louži slizu. Fuj. Ale pøežila, nová podoba jí, zdá se, svìdèí. Má schopnosti, které se v bludišti hodí.
     </Text>
     <Image x1="10" y1="71" x2="25">$GAME$\LevelImages.pkg\postavy.png</Image>
     <Text x1="29" x2="90" y1="71" y2="95">
