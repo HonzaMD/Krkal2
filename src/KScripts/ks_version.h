@@ -9,7 +9,7 @@
 
 
 #define KS_VERSION -20
-#define KS_NUM_VG 116
+#define KS_NUM_VG 117
 #define KS_KSVGs_HTS 128
 #define KS_KSGs_HTS 64
 #define KS_KSDMs_HTS 16

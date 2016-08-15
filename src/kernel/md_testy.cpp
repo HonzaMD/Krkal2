@@ -1889,6 +1889,57 @@ void MDTcreate_files() {
 		k->writei(190);
 		k->writei(191);
 
+	// 252
+	r3 = r2->AddKey("_KSAD_VeVode_0002_4521_FFFF_0001__M_zapad_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATpicture);
+	r3->AddKey("Sons Num", FSRTint)->writei(1);
+	r3->AddKey("Textures", FSRTstring)->stringwrite("manici_9F25_D0A5_007B_90B3.pkg\\dracek4.tex");
+	// 253
+	r3 = r2->AddKey("_KSAD_VeVode_0002_4521_FFFF_0001__M_jih_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATpicture);
+	r3->AddKey("Sons Num", FSRTint)->writei(1);
+	r3->AddKey("Textures", FSRTstring)->stringwrite("manici_9F25_D0A5_007B_90B3.pkg\\dracek2.tex");
+	// 254
+	r3 = r2->AddKey("_KSAD_VeVode_0002_4521_FFFF_0001__M_vychod_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATpicture);
+	r3->AddKey("Sons Num", FSRTint)->writei(1);
+	r3->AddKey("Textures", FSRTstring)->stringwrite("manici_9F25_D0A5_007B_90B3.pkg\\dracek6.tex");
+	// 255
+	r3 = r2->AddKey("_KSAD_VeVode_0002_4521_FFFF_0001__M_sever_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATpicture);
+	r3->AddKey("Sons Num", FSRTint)->writei(1);
+	r3->AddKey("Textures", FSRTstring)->stringwrite("manici_9F25_D0A5_007B_90B3.pkg\\dracek8.tex");
+
+	// 256
+	r3 = r2->AddKey("_KSAD_VeVode_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATvar);
+	r3->AddKey("Sons Num", FSRTint)->writei(4);
+	r3->AddKey("Var Name", FSRTint)->writei(61);
+	k = r3->AddKey("GoDown", FSRTint);
+	k->writei(252);
+	k->writei(253);
+	k->writei(254);
+	k->writei(255);
+	k = r3->AddKey("Int", FSRTint);
+	k->writei(62);
+	k->writei(63);
+	k->writei(64);
+	k->writei(65);
+
+	// 257
+	r3 = r2->AddKey("_KSAD_dracek1_0002_4521_FFFF_0001", FSRTregister)->GetSubRegister();
+	r3->AddKey("Type", FSRTint)->writei(eKATvar);
+	r3->AddKey("Sons Num", FSRTint)->writei(2);
+	r3->AddKey("Var Name", FSRTint)->writei(174);
+	k = r3->AddKey("GoDown", FSRTint);
+	k->writei(103);
+	k->writei(256);
+	k = r3->AddKey("Int", FSRTint);
+	k->writei(176);
+	k->writei(175);
+
+
+
 
 	k = r->AddKey("Dependencies",FSRTint);
 	k->writei(0); k->writei(1);
@@ -1912,7 +1963,7 @@ void MDTcreate_files() {
 	k->writei(92); k->writei(197);
 	k->writei(98); k->writei(152);
 	k->writei(104); k->writei(105);
-	k->writei(107); k->writei(103);
+	k->writei(107); k->writei(257);
 	k->writei(108); k->writei(125);
 	k->writei(109); k->writei(124);
 	k->writei(110); k->writei(126);
@@ -2293,6 +2344,14 @@ void MDTcreate_files() {
 	k->writei(251); k->writei(189);
 	k->writei(251); k->writei(190);
 	k->writei(251); k->writei(191);
+
+	k->writei(256); k->writei(252);
+	k->writei(256); k->writei(253);
+	k->writei(256); k->writei(254);
+	k->writei(256); k->writei(255);
+
+	k->writei(257); k->writei(256);
+	k->writei(257); k->writei(103);
 
 
 	r->WriteFile();

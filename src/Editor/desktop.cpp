@@ -55,7 +55,6 @@ CEDEditorDesktop::CEDEditorDesktop()
 
 		//AddContextMenu();
 		AddStartMenu();
-		AddEditorMenu();
 
 		InitDefaultIcons();
 
@@ -89,11 +88,11 @@ void CEDEditorDesktop::AddStartMenu()
 	CGUIMenu* menu;
 	CGUIMenuItem* mi;
 
-	menu = new CGUIMenu(185);
+	menu = new CGUIMenu(220);
 	menu->SetPictureStripSize(44);
 	menu->SetMenuPictureSize(40);
 
-	mi = new CGUIMenuItem(menu,0,0,185,40,"Quit",new CGUIRectHost(0,0,styleSet->Get("LebkyTB3")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Quit", new CGUIRectHost(0, 0, styleSet->Get("LebkyTB3")->GetTexture(0)));
 	CGUIFont *font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
 	mi->SetLabelFormated("Quit",font);
@@ -104,7 +103,7 @@ void CEDEditorDesktop::AddStartMenu()
 	mi->AcceptEvent(mainGUI->handler->GetID(),EClicked);
 	mainGUI->handler->icons[2]=mi->GetID();
 
-	mi = new CGUIMenuItem(menu,0,0,185,40,"Script Editor",new CGUIRectHost(0,0,styleSet->Get("StartMenu_Script")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Script Editor", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Script")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
 	mi->SetLabelFormated("Script Editor",font);
@@ -116,10 +115,10 @@ void CEDEditorDesktop::AddStartMenu()
 	mainGUI->handler->icons[3]=mi->GetID();
 
 
-	mi = new CGUIMenuItem(menu,0,0,185,40,"Level Editor",new CGUIRectHost(0,0,styleSet->Get("StartMenu_Level")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Restart Editor", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Level")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
-	mi->SetLabelFormated("Level Editor",font);
+	mi->SetLabelFormated("Restart Editor",font);
 	mi->SetShortCut("F2",false,false,false,VK_F2,true);
 	font->Release();
 	menu->AddMenuItem(0,mi);
@@ -128,7 +127,7 @@ void CEDEditorDesktop::AddStartMenu()
 	mainGUI->handler->icons[0]=mi->GetID();
 
 
-	mi = new CGUIMenuItem(menu,0,0,185,60,"Game",new CGUIRectHost(0,0,styleSet->Get("StartMenu_Game")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 60, "Game", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Game")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,20);
 	mi->SetLabelFormated("GAME",font);
@@ -140,69 +139,57 @@ void CEDEditorDesktop::AddStartMenu()
 	mainGUI->handler->icons[1]=mi->GetID();
 
 
+	font = new CGUIFont();
+	font->CreateFont(ARIAL, 13);
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "New Level", new CGUIRectHost(0, 0, styleSet->Get("LM_NewLevel")->GetTexture(0)));
+	mi->SetLabelFormated("New Level", font);
+	mi->SetShortCut("Ctrl+N", true, false, false, 'N');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[0] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Load Level", new CGUIRectHost(0, 0, styleSet->Get("LM_LoadLevel")->GetTexture(0)));
+	mi->SetLabelFormated("Load Level", font);
+	mi->SetShortCut("Ctrl+L", true, false, false, 'L');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[1] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Save Level", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
+	mi->SetLabelFormated("Save Level", font);
+	mi->SetShortCut("Ctrl+S", true, false, false, 'S');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[2] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Save As ...", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
+	mi->SetLabelFormated("Save As ...", font);
+	mi->SetShortCut("Ctrl+Shift+S", true, false, true, 'S');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[3] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Clear Level", new CGUIRectHost(0, 0, styleSet->Get("LM_ClearLevel")->GetTexture(0)));
+	mi->SetLabelFormated("Clear Level", font);
+	mi->SetShortCut("Ctrl+Shift+N", true, false, true, 'N');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[4] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Close Level", new CGUIRectHost(0, 0, styleSet->Get("LM_CloseLevel")->GetTexture(0)));
+	mi->SetLabelFormated("Close Level", font);
+	mi->SetShortCut("Ctrl+X", true, false, false, 'X');
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[5] = mi->GetID();
+
+	font->Release();
+
 	startMenu=menu;
 
 }
 
-void CEDEditorDesktop::AddEditorMenu()
-{
-	CGUIMenu* menu;
-	CGUIMenuItem* mi;
-
-	menu = new CGUIMenu(220);
-	menu->SetPictureStripSize(30);
-	menu->SetMenuPictureSize(26);
-
-	CGUIFont *font = new CGUIFont();
-	font->CreateFont(ARIAL,13);
-
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"New Level",new CGUIRectHost(0,0,styleSet->Get("LM_NewLevel")->GetTexture(0)));
-	mi->SetLabelFormated("New Level",font);
-	mi->SetShortCut("Ctrl+N",true,false,false,'N');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[0]=mi->GetID();
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"Load Level",new CGUIRectHost(0,0,styleSet->Get("LM_LoadLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Load Level",font);
-	mi->SetShortCut("Ctrl+L",true,false,false,'L');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[1]=mi->GetID();
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"Save Level",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)));
-	mi->SetLabelFormated("Save Level",font);
-	mi->SetShortCut("Ctrl+S",true,false,false,'S');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[2]=mi->GetID();
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"Save As ...",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)));
-	mi->SetLabelFormated("Save As ...",font);
-	mi->SetShortCut("Ctrl+Shift+S",true,false,true,'S');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[3]=mi->GetID();
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"Clear Level",new CGUIRectHost(0,0,styleSet->Get("LM_ClearLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Clear Level",font);
-	mi->SetShortCut("Ctrl+Shift+N",true,false,true,'N');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[4]=mi->GetID();
-
-	mi = new CGUIMenuItem(menu,0,0,220,30,"Close Level",new CGUIRectHost(0,0,styleSet->Get("LM_CloseLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Close Level",font);
-	mi->SetShortCut("Ctrl+X",true,false,false,'X');
-	menu->AddMenuItem(0,mi);
-	mi->AcceptEvent(editorMenuHandler->GetID(),EClicked);
-	editorMenuHandler->icons[5]=mi->GetID();
-
-	font->Release();
-
-	editorMenu=menu;
-}
 
 
 void CEDEditorDesktop::CloseAllObjPropertyWins()
@@ -500,7 +487,6 @@ void CEDEditorDesktop::InitDefaultIcons()
 	CGUIButton *icon=0;
 
 	((CEDEditorDesktop*)desktop)->startMenu->AcceptEvent(iconDefaultHandler->GetID(),EOff);
-	((CEDEditorDesktop*)desktop)->editorMenu->AcceptEvent(iconDefaultHandler->GetID(),EOff);
 
 	if(desktop->panel)
 	{
@@ -515,40 +501,20 @@ void CEDEditorDesktop::InitDefaultIcons()
 			delete icon;
 	}
 
-	if(desktop->panel)
-	{
-		desktop->panel->AddGap(10);
-		CGUIButton* icon = new CGUIButton(100,100,20,20,styleSet->Get("LevelMenuTB1"),styleSet->Get("LevelMenuTB2"),styleSet->Get("LevelMenuTB3"),false,0,0);
-		if(!desktop->panel->AddIcon(icon,4))
-		{
-			iconDefaultHandler->icons[6] = icon->GetID();
-			icon->AcceptEvent(iconDefaultHandler->GetID(),EClicked);
-			icon->AcceptEvent(iconDefaultHandler->GetID(),EDown);
-			icon->AcceptEvent(iconDefaultHandler->GetID(),EUp);
-		}else
-			delete icon;
-	}
+	//if(desktop->panel)
+	//{
+	//	desktop->panel->AddGap(10);
+	//	CGUIButton* icon = new CGUIButton(100,100,20,20,styleSet->Get("LevelMenuTB1"),styleSet->Get("LevelMenuTB2"),styleSet->Get("LevelMenuTB3"),false,0,0);
+	//	if(!desktop->panel->AddIcon(icon,4))
+	//	{
+	//		iconDefaultHandler->icons[6] = icon->GetID();
+	//		icon->AcceptEvent(iconDefaultHandler->GetID(),EClicked);
+	//		icon->AcceptEvent(iconDefaultHandler->GetID(),EDown);
+	//		icon->AcceptEvent(iconDefaultHandler->GetID(),EUp);
+	//	}else
+	//		delete icon;
+	//}
 
-	if(desktop->panel)
-	{
-		icon = desktop->panel->AddIcon(styleSet->Get("EditorModTB1"),styleSet->Get("EditorModTB2"),styleSet->Get("EditorModTB3"),"EditorMod Settings");
-		if(icon)
-		{
-			iconDefaultHandler->icons[4] = icon->GetID();
-			icon->AcceptEvent(iconDefaultHandler->GetID(),EClicked);
-		}
-	}
-
-	if(desktop->panel)
-	{
-		CGUIButton* icon = new CGUIButton(100,100,40,13,styleSet->Get("GlobalObjsTB1"),styleSet->Get("GlobalObjsTB2"),styleSet->Get("GlobalObjsTB3"),false,0,0,"GlobalObjects ToolBar");
-		if(!desktop->panel->AddIcon(icon,8))
-		{
-			iconDefaultHandler->icons[5] = icon->GetID();
-			icon->AcceptEvent(iconDefaultHandler->GetID(),EClicked);
-		}else
-			delete icon;
-	}
 
 	if(desktop->panel)
 	{
@@ -609,6 +575,28 @@ void CEDEditorDesktop::InitDefaultIcons()
 		}
 	}
 
+	if (desktop->panel)
+	{
+		desktop->panel->AddGap(10);
+		icon = desktop->panel->AddIcon(styleSet->Get("EditorModTB1"), styleSet->Get("EditorModTB2"), styleSet->Get("EditorModTB3"), "EditorMod Settings");
+		if (icon)
+		{
+			iconDefaultHandler->icons[4] = icon->GetID();
+			icon->AcceptEvent(iconDefaultHandler->GetID(), EClicked);
+		}
+	}
+
+	if (desktop->panel)
+	{
+		CGUIButton* icon = new CGUIButton(100, 100, 40, 13, styleSet->Get("GlobalObjsTB1"), styleSet->Get("GlobalObjsTB2"), styleSet->Get("GlobalObjsTB3"), false, 0, 0, "GlobalObjects ToolBar");
+		if (!desktop->panel->AddIcon(icon, 8))
+		{
+			iconDefaultHandler->icons[5] = icon->GetID();
+			icon->AcceptEvent(iconDefaultHandler->GetID(), EClicked);
+		}
+		else
+			delete icon;
+	}
 
 }
 
@@ -676,56 +664,56 @@ void CEDDesktopIconHandler::EventHandler(CGUIEvent *event)
 
 	// Obsluha Editor Menu ---------------------------------------------
 	// finta pro zavreni menu pri opetovnem stisku tlacitka menu
-	if(event->sender == icons[6])	// prisla udalost od moji ikony
-	{	
+	//if(event->sender == icons[6])	// prisla udalost od moji ikony
+	//{	
 
-		if(event->eventID==EClicked)
-		{
-			if(editButtonDown)
-				editButtonDown=false;
-			else{
-				CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
-				float msx,msy,dsx,dsy;
-				desktop->GetVPSize(dsx,dsy);
-				menu->GetSize(msx,msy);
-				CGUIButton* b =  GetObjFromID<CGUIButton>(event->sender);
-				float bx=0,by=0;
-				desktop->GetDesktopPos(b,bx,by);
-				menu->On(0,bx,dsy-msy-10);
-			}
-		}
+	//	if(event->eventID==EClicked)
+	//	{
+	//		if(editButtonDown)
+	//			editButtonDown=false;
+	//		else{
+	//			CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
+	//			float msx,msy,dsx,dsy;
+	//			desktop->GetVPSize(dsx,dsy);
+	//			menu->GetSize(msx,msy);
+	//			CGUIButton* b =  GetObjFromID<CGUIButton>(event->sender);
+	//			float bx=0,by=0;
+	//			desktop->GetDesktopPos(b,bx,by);
+	//			menu->On(0,bx,dsy-msy-10);
+	//		}
+	//	}
 
-		if(event->eventID==EDown)
-		{
-			if(editButtonOff)
-				editButtonDown=true;
-		}
-	}
+	//	if(event->eventID==EDown)
+	//	{
+	//		if(editButtonOff)
+	//			editButtonDown=true;
+	//	}
+	//}
 
-	if(event->eventID == EOff)
-	{
-		CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
-		if(event->sender == menu->GetID())
-		{
-			CGUIEvent* e = new CGUIEvent();
-			e->eventID = EEvent;
-			e->sender = GetID();
-			e->recipient = GetID();
-			eventServer->AddEventToQueue(e);
-			editButtonOff=true;
-		}
-	}
+	//if(event->eventID == EOff)
+	//{
+	//	CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
+	//	if(event->sender == menu->GetID())
+	//	{
+	//		CGUIEvent* e = new CGUIEvent();
+	//		e->eventID = EEvent;
+	//		e->sender = GetID();
+	//		e->recipient = GetID();
+	//		eventServer->AddEventToQueue(e);
+	//		editButtonOff=true;
+	//	}
+	//}
 
-	if(event->eventID == EEvent)
-	{
-		// vlastni inicializacni kod "aplikace" (vytvareneho okna)
-		CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
-		if(menu->isActive()) //  && !startButtonClicked
-		{
-			menu->Off();
-		}
-		editButtonOff=false;		
-	}
+	//if(event->eventID == EEvent)
+	//{
+	//	// vlastni inicializacni kod "aplikace" (vytvareneho okna)
+	//	CGUIMenu* menu = ((CEDEditorDesktop*)desktop)->editorMenu;
+	//	if(menu->isActive()) //  && !startButtonClicked
+	//	{
+	//		menu->Off();
+	//	}
+	//	editButtonOff=false;		
+	//}
 	// konec obsluhy Editor Menu ------------------------------------------
 
 

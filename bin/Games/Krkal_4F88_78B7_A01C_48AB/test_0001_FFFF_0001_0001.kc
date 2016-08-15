@@ -3832,6 +3832,73 @@ object oAreaTrigger {
 	}
 }
 
+
+///////////////////////////////////////////////
+
+objectname oDracekTriggerHelper;
+object oDracekTriggerHelper {
+	objptr dracek;
+	direct void Init(objptr d) {
+		dracek = d;
+	}
+
+	void @TriggerOn(objptr @Object) {
+		dracek->VodaTriggerOn();
+	}
+	void @TriggerOff(objptr @Object) {
+		dracek->VodaTriggerOff();
+	}
+}
+
+object oDracek {
+
+	name VeVode edit { Auto = nOnOff };
+	int veVodeCounter;
+	objptr trigerVoda;
+	objptr trigerHelper;
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+		if (veVodeCounter > 0) 
+		{
+			VeVode = Off;
+			@ResetAuto(this,0,1);				
+		}
+		veVodeCounter = 0;
+		trigerHelper = new oDracekTriggerHelper;
+		trigerHelper->Init(this);
+		trigerVoda = new oAreaTrigger;
+		trigerVoda->SetPosSz(::X1:@ObjPosX-5,::Y1:@ObjPosY-5,::X2:@ObjPosX+5,::Y2:@ObjPosY+5);
+		trigerVoda->SetClzGr(::AddGr: oVoda, ::Redirect:trigerHelper);
+		@PlaceObjToMap(trigerVoda);
+		@MvConnectObjs(trigerVoda,this);
+	}
+	
+	direct void VodaTriggerOn() {
+		veVodeCounter++;
+		if (veVodeCounter == 1) {
+			VeVode = On;
+			@ResetAuto(this,0,1);	
+		}
+	}
+	direct void VodaTriggerOff() {
+		veVodeCounter--;
+		if (veVodeCounter == 0) {
+			VeVode = Off;
+			@ResetAuto(this,0,1);	
+		}
+	}
+
+	
+	void @MapRemoved() {
+		delete trigerVoda;
+		delete trigerHelper
+		trigerVoda = onull;
+		trigerHelper = onull;
+	}	
+}
+
+
 ///////////////////////////////////////////////
 
 // Prepinac, ktery se umistuje mimo mapu (sam tedy neni videt)

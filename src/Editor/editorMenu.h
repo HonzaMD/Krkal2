@@ -99,8 +99,8 @@ protected:
 		// po stisku tlacitek vytvari FileSelectory pro vyber skriptu ci levelu
 
 
-	CGUIEditWindow *edScript, *edLevel, *edLevelPath;
-	CGUIButton *bScriptSelector,  *bLevelSelector;
+	CGUIEditWindow *edScript, *edLevel;
+	CGUIButton *bScriptSelector;
 	char *scriptName;
 	char *levelName;
 	char *levelPath;
@@ -132,7 +132,7 @@ protected:
 	virtual void EventHandler(CGUIEvent *event);
 		// ridi ovladaci prvky dialogu
 
-	CGUIEditWindow *edLevel, *edLevelPath;
+	CGUIEditWindow *edLevel;
 	CGUIButton *bLevelSelector;
 	char *levelName;
 	char *levelPath;

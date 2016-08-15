@@ -14,7 +14,7 @@ void KSAssignKSDMs() {
 
 
 
-	// New lines added 05/03/16 at 21:00:57.
+	// New lines added 08/15/16 at 18:37:37.
 
 	new CKSKSDM("_KSDM_oMoveable_0001_FFFF_0001_0001__M_TestDir_0001_FFFF_0001_0001",(void (**)())&_KSDM_oMoveable_0001_FFFF_0001_0001__M_TestDir_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oMoveable_0001_FFFF_0001_0001__M_StartMove_0001_FFFF_0001_0001",(void (**)())&_KSDM_oMoveable_0001_FFFF_0001_0001__M_StartMove_0001_FFFF_0001_0001);
@@ -30,6 +30,8 @@ void KSAssignKSDMs() {
 	new CKSKSDM("_KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001",(void (**)())&_KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001",(void (**)())&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oManik_0001_FFFF_0001_0001__M_GetPointerToZnacky_0001_FFFF_0001_0001",(void (**)())&_KSDM_oManik_0001_FFFF_0001_0001__M_GetPointerToZnacky_0001_FFFF_0001_0001);
+	new CKSKSDM("_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOn_0001_FFFF_0001_0001",(void (**)())&_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOn_0001_FFFF_0001_0001);
+	new CKSKSDM("_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001",(void (**)())&_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001",(void (**)())&_KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001",(void (**)())&_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001",(void (**)())&_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001);
@@ -39,6 +41,7 @@ void KSAssignKSDMs() {
 	new CKSKSDM("_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001",(void (**)())&_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oPrepinace_0001_FFFF_0001_0001__M_JsouSouradniceObsazene_0001_FFFF_0001_0001",(void (**)())&_KSDM_oPrepinace_0001_FFFF_0001_0001__M_JsouSouradniceObsazene_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001",(void (**)())&_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001);
+	new CKSKSDM("_KSDM_oDracekTriggerHelper_0001_FFFF_0001_0001__M_Init_0001_FFFF_0001_0001",(void (**)())&_KSDM_oDracekTriggerHelper_0001_FFFF_0001_0001__M_Init_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oSvetlo_0001_FFFF_0001_0001__M_SetSvetlo_0001_FFFF_0001_0001",(void (**)())&_KSDM_oSvetlo_0001_FFFF_0001_0001__M_SetSvetlo_0001_FFFF_0001_0001);
 	new CKSKSDM("_KSDM_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_zobrazPolozku_3436_6AFC_3322_FB73",(void (**)())&_KSDM_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_zobrazPolozku_3436_6AFC_3322_FB73);
 	new CKSKSDM("_KSDM_oElektroda_0001_FFFF_0001_0001__M_GetDxDy_0001_FFFF_0001_0001",(void (**)())&_KSDM_oElektroda_0001_FFFF_0001_0001__M_GetDxDy_0001_FFFF_0001_0001);

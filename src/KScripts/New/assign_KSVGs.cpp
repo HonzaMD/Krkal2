@@ -14,7 +14,7 @@ void KSAssignKSVGs() {
 	CKSKSVG *tmp;
 
 
-	// New lines added 05/03/16 at 21:00:57.
+	// New lines added 08/15/16 at 18:37:37.
 
 	tmp = new CKSKSVG("_KSVG_0_placeable_0001_FFFF_0001_0001",&KSAlloc_KSVG_0_placeable_0001_FFFF_0001_0001,&KSSetV_KSVG_0_placeable_0001_FFFF_0001_0001,sizeof(_KSVG_0_placeable_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
@@ -387,6 +387,10 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oStrka_0001_FFFF_0001_0001__M__KN_clzFceGr_0001_FFFF_0001_0001");
 
 	tmp = new CKSKSVG("_KSVG_41_oDracek_0001_FFFF_0001_0001",&KSAlloc_KSVG_41_oDracek_0001_FFFF_0001_0001,&KSSetV_KSVG_41_oDracek_0001_FFFF_0001_0001,sizeof(_KSVG_41_oDracek_0001_FFFF_0001_0001));
+	tmp->AddAttribute("_KSOV_oDracek_0001_FFFF_0001_0001__M_VeVode_0001_FFFF_0001_0001");
+	tmp->AddAttribute("_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001");
+	tmp->AddAttribute("_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001");
+	tmp->AddAttribute("_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
@@ -1074,7 +1078,10 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_MsgRedirect_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_91_oGlobalniPrepinac_0001_FFFF_0001_0001",&KSAlloc_KSVG_91_oGlobalniPrepinac_0001_FFFF_0001_0001,&KSSetV_KSVG_91_oGlobalniPrepinac_0001_FFFF_0001_0001,sizeof(_KSVG_91_oGlobalniPrepinac_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_91_oDracekTriggerHelper_0001_FFFF_0001_0001",&KSAlloc_KSVG_91_oDracekTriggerHelper_0001_FFFF_0001_0001,&KSSetV_KSVG_91_oDracekTriggerHelper_0001_FFFF_0001_0001,sizeof(_KSVG_91_oDracekTriggerHelper_0001_FFFF_0001_0001));
+	tmp->AddAttribute("_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001");
+
+	tmp = new CKSKSVG("_KSVG_92_oGlobalniPrepinac_0001_FFFF_0001_0001",&KSAlloc_KSVG_92_oGlobalniPrepinac_0001_FFFF_0001_0001,&KSSetV_KSVG_92_oGlobalniPrepinac_0001_FFFF_0001_0001,sizeof(_KSVG_92_oGlobalniPrepinac_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x1_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y1_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x2_0001_FFFF_0001_0001");
@@ -1092,7 +1099,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_92_oOpatrnaPrisera_0001_FFFF_0001_0001",&KSAlloc_KSVG_92_oOpatrnaPrisera_0001_FFFF_0001_0001,&KSSetV_KSVG_92_oOpatrnaPrisera_0001_FFFF_0001_0001,sizeof(_KSVG_92_oOpatrnaPrisera_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_93_oOpatrnaPrisera_0001_FFFF_0001_0001",&KSAlloc_KSVG_93_oOpatrnaPrisera_0001_FFFF_0001_0001,&KSSetV_KSVG_93_oOpatrnaPrisera_0001_FFFF_0001_0001,sizeof(_KSVG_93_oOpatrnaPrisera_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
@@ -1112,7 +1119,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oMoveable_0001_FFFF_0001_0001__M_LastMTime_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oMoveable_0001_FFFF_0001_0001__M_LSpeed_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_93_oSvetlo_0001_FFFF_0001_0001",&KSAlloc_KSVG_93_oSvetlo_0001_FFFF_0001_0001,&KSSetV_KSVG_93_oSvetlo_0001_FFFF_0001_0001,sizeof(_KSVG_93_oSvetlo_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_94_oSvetlo_0001_FFFF_0001_0001",&KSAlloc_KSVG_94_oSvetlo_0001_FFFF_0001_0001,&KSSetV_KSVG_94_oSvetlo_0001_FFFF_0001_0001,sizeof(_KSVG_94_oSvetlo_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_oSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001");
@@ -1124,40 +1131,40 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_94_oGlobalniSvetlo_0001_FFFF_0001_0001",&KSAlloc_KSVG_94_oGlobalniSvetlo_0001_FFFF_0001_0001,&KSSetV_KSVG_94_oGlobalniSvetlo_0001_FFFF_0001_0001,sizeof(_KSVG_94_oGlobalniSvetlo_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_95_oGlobalniSvetlo_0001_FFFF_0001_0001",&KSAlloc_KSVG_95_oGlobalniSvetlo_0001_FFFF_0001_0001,&KSSetV_KSVG_95_oGlobalniSvetlo_0001_FFFF_0001_0001,sizeof(_KSVG_95_oGlobalniSvetlo_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_95_oPriseraSeZvukem1_0001_FFFF_0001_0001",&KSAlloc_KSVG_95_oPriseraSeZvukem1_0001_FFFF_0001_0001,&KSSetV_KSVG_95_oPriseraSeZvukem1_0001_FFFF_0001_0001,sizeof(_KSVG_95_oPriseraSeZvukem1_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_96_oPriseraSeZvukem1_0001_FFFF_0001_0001",&KSAlloc_KSVG_96_oPriseraSeZvukem1_0001_FFFF_0001_0001,&KSSetV_KSVG_96_oPriseraSeZvukem1_0001_FFFF_0001_0001,sizeof(_KSVG_96_oPriseraSeZvukem1_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_96_oPriseraSeZvukem2_0001_FFFF_0001_0001",&KSAlloc_KSVG_96_oPriseraSeZvukem2_0001_FFFF_0001_0001,&KSSetV_KSVG_96_oPriseraSeZvukem2_0001_FFFF_0001_0001,sizeof(_KSVG_96_oPriseraSeZvukem2_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_97_oPriseraSeZvukem2_0001_FFFF_0001_0001",&KSAlloc_KSVG_97_oPriseraSeZvukem2_0001_FFFF_0001_0001,&KSSetV_KSVG_97_oPriseraSeZvukem2_0001_FFFF_0001_0001,sizeof(_KSVG_97_oPriseraSeZvukem2_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_97_oBouraDoSten_0001_FFFF_0001_0001",&KSAlloc_KSVG_97_oBouraDoSten_0001_FFFF_0001_0001,&KSSetV_KSVG_97_oBouraDoSten_0001_FFFF_0001_0001,sizeof(_KSVG_97_oBouraDoSten_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_98_oBouraDoSten_0001_FFFF_0001_0001",&KSAlloc_KSVG_98_oBouraDoSten_0001_FFFF_0001_0001,&KSSetV_KSVG_98_oBouraDoSten_0001_FFFF_0001_0001,sizeof(_KSVG_98_oBouraDoSten_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_98_oPrulezny_0001_FFFF_0001_0001",&KSAlloc_KSVG_98_oPrulezny_0001_FFFF_0001_0001,&KSSetV_KSVG_98_oPrulezny_0001_FFFF_0001_0001,sizeof(_KSVG_98_oPrulezny_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_99_oPrulezny_0001_FFFF_0001_0001",&KSAlloc_KSVG_99_oPrulezny_0001_FFFF_0001_0001,&KSSetV_KSVG_99_oPrulezny_0001_FFFF_0001_0001,sizeof(_KSVG_99_oPrulezny_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_oPrulezny_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_99_oProlejza_0001_FFFF_0001_0001",&KSAlloc_KSVG_99_oProlejza_0001_FFFF_0001_0001,&KSSetV_KSVG_99_oProlejza_0001_FFFF_0001_0001,sizeof(_KSVG_99_oProlejza_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_100_oProlejza_0001_FFFF_0001_0001",&KSAlloc_KSVG_100_oProlejza_0001_FFFF_0001_0001,&KSSetV_KSVG_100_oProlejza_0001_FFFF_0001_0001,sizeof(_KSVG_100_oProlejza_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_LezeNadVecma_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_100_oPruleznaStena_0001_FFFF_0001_0001",&KSAlloc_KSVG_100_oPruleznaStena_0001_FFFF_0001_0001,&KSSetV_KSVG_100_oPruleznaStena_0001_FFFF_0001_0001,sizeof(_KSVG_100_oPruleznaStena_0001_FFFF_0001_0001));
+	tmp = new CKSKSVG("_KSVG_101_oPruleznaStena_0001_FFFF_0001_0001",&KSAlloc_KSVG_101_oPruleznaStena_0001_FFFF_0001_0001,&KSSetV_KSVG_101_oPruleznaStena_0001_FFFF_0001_0001,sizeof(_KSVG_101_oPruleznaStena_0001_FFFF_0001_0001));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oPrulezny_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_101_OMap_0001_000F_0001_1001",&KSAlloc_KSVG_101_OMap_0001_000F_0001_1001,&KSSetV_KSVG_101_OMap_0001_000F_0001_1001,sizeof(_KSVG_101_OMap_0001_000F_0001_1001));
+	tmp = new CKSKSVG("_KSVG_102_OMap_0001_000F_0001_1001",&KSAlloc_KSVG_102_OMap_0001_000F_0001_1001,&KSSetV_KSVG_102_OMap_0001_000F_0001_1001,sizeof(_KSVG_102_OMap_0001_000F_0001_1001));
 	tmp->AddAttribute("_KSOV_OMap_0001_000F_0001_1001__M_leftx_0001_000F_0001_1001");
 	tmp->AddAttribute("_KSOV_OMap_0001_000F_0001_1001__M_lefty_0001_000F_0001_1001");
 	tmp->AddAttribute("_KSOV_OMap_0001_000F_0001_1001__M_rightx_0001_000F_0001_1001");
@@ -1174,7 +1181,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_OMap_0001_000F_0001_1001__M_csizeZ_0001_000F_0001_1001");
 	tmp->AddAttribute("_KSOV_OMap_0001_000F_0001_1001__M_grid_0001_000F_0001_1001");
 
-	tmp = new CKSKSVG("_KSVG_102_oSkakavaStena_E3CB_FBA9_E57B_1ECD",&KSAlloc_KSVG_102_oSkakavaStena_E3CB_FBA9_E57B_1ECD,&KSSetV_KSVG_102_oSkakavaStena_E3CB_FBA9_E57B_1ECD,sizeof(_KSVG_102_oSkakavaStena_E3CB_FBA9_E57B_1ECD));
+	tmp = new CKSKSVG("_KSVG_103_oSkakavaStena_E3CB_FBA9_E57B_1ECD",&KSAlloc_KSVG_103_oSkakavaStena_E3CB_FBA9_E57B_1ECD,&KSSetV_KSVG_103_oSkakavaStena_E3CB_FBA9_E57B_1ECD,sizeof(_KSVG_103_oSkakavaStena_E3CB_FBA9_E57B_1ECD));
 	tmp->AddAttribute("_KSOV_oSkakavaStena_E3CB_FBA9_E57B_1ECD__M_stav_E3CB_FBA9_E57B_1ECD");
 	tmp->AddAttribute("_KSOV_oSkakavaStena_E3CB_FBA9_E57B_1ECD__M_faze_E3CB_FBA9_E57B_1ECD");
 	tmp->AddAttribute("_KSOV_oSkakavaStena_E3CB_FBA9_E57B_1ECD__M_PauzaPredZapnutim_E3CB_FBA9_E57B_1ECD");
@@ -1188,13 +1195,13 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_103_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73",&KSAlloc_KSVG_103_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73,&KSSetV_KSVG_103_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73,sizeof(_KSVG_103_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73));
+	tmp = new CKSKSVG("_KSVG_104_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73",&KSAlloc_KSVG_104_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73,&KSSetV_KSVG_104_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73,sizeof(_KSVG_104_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73));
 	tmp->AddAttribute("_KSOV_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73__M_stav_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73__M_r_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73__M_g_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oMenicGlobalnihoSvetla_3436_6AFC_3322_FB73__M_b_3436_6AFC_3322_FB73");
 
-	tmp = new CKSKSVG("_KSVG_104_oDynamickeSvetlo_3436_6AFC_3322_FB73",&KSAlloc_KSVG_104_oDynamickeSvetlo_3436_6AFC_3322_FB73,&KSSetV_KSVG_104_oDynamickeSvetlo_3436_6AFC_3322_FB73,sizeof(_KSVG_104_oDynamickeSvetlo_3436_6AFC_3322_FB73));
+	tmp = new CKSKSVG("_KSVG_105_oDynamickeSvetlo_3436_6AFC_3322_FB73",&KSAlloc_KSVG_105_oDynamickeSvetlo_3436_6AFC_3322_FB73,&KSSetV_KSVG_105_oDynamickeSvetlo_3436_6AFC_3322_FB73,sizeof(_KSVG_105_oDynamickeSvetlo_3436_6AFC_3322_FB73));
 	tmp->AddAttribute("_KSOV_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_svetlo_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_faze_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oDynamickeSvetlo_3436_6AFC_3322_FB73__M__KN_CollisionCfg_3436_6AFC_3322_FB73");
@@ -1203,7 +1210,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_105_oCasovac_3436_6AFC_3322_FB73",&KSAlloc_KSVG_105_oCasovac_3436_6AFC_3322_FB73,&KSSetV_KSVG_105_oCasovac_3436_6AFC_3322_FB73,sizeof(_KSVG_105_oCasovac_3436_6AFC_3322_FB73));
+	tmp = new CKSKSVG("_KSVG_106_oCasovac_3436_6AFC_3322_FB73",&KSAlloc_KSVG_106_oCasovac_3436_6AFC_3322_FB73,&KSSetV_KSVG_106_oCasovac_3436_6AFC_3322_FB73,sizeof(_KSVG_106_oCasovac_3436_6AFC_3322_FB73));
 	tmp->AddAttribute("_KSOV_oCasovac_3436_6AFC_3322_FB73__M_Casy_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oCasovac_3436_6AFC_3322_FB73__M_NahRozptyl_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oCasovac_3436_6AFC_3322_FB73__M_NahRozptyly_3436_6AFC_3322_FB73");
@@ -1214,16 +1221,16 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oCasovac_3436_6AFC_3322_FB73__M_faze_3436_6AFC_3322_FB73");
 	tmp->AddAttribute("_KSOV_oOnOff_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_106_oHrbolataP_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_106_oHrbolataP_A1CF_6963_8DA6_D822,&KSSetV_KSVG_106_oHrbolataP_A1CF_6963_8DA6_D822,sizeof(_KSVG_106_oHrbolataP_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_107_oHrbolataP_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_107_oHrbolataP_A1CF_6963_8DA6_D822,&KSSetV_KSVG_107_oHrbolataP_A1CF_6963_8DA6_D822,sizeof(_KSVG_107_oHrbolataP_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_floors_0001_FFFF_0001_0001__M__KN_CollisionCfg_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_107_oSeSmerem3_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_107_oSeSmerem3_A1CF_6963_8DA6_D822,&KSSetV_KSVG_107_oSeSmerem3_A1CF_6963_8DA6_D822,sizeof(_KSVG_107_oSeSmerem3_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_108_oSeSmerem3_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_108_oSeSmerem3_A1CF_6963_8DA6_D822,&KSSetV_KSVG_108_oSeSmerem3_A1CF_6963_8DA6_D822,sizeof(_KSVG_108_oSeSmerem3_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oSeSmerem3_A1CF_6963_8DA6_D822__M_smer_A1CF_6963_8DA6_D822");
 
-	tmp = new CKSKSVG("_KSVG_108_oProud_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_108_oProud_A1CF_6963_8DA6_D822,&KSSetV_KSVG_108_oProud_A1CF_6963_8DA6_D822,sizeof(_KSVG_108_oProud_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_109_oProud_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_109_oProud_A1CF_6963_8DA6_D822,&KSSetV_KSVG_109_oProud_A1CF_6963_8DA6_D822,sizeof(_KSVG_109_oProud_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oProud_A1CF_6963_8DA6_D822__M_Otec1_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oProud_A1CF_6963_8DA6_D822__M_Otec2_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oProud_A1CF_6963_8DA6_D822__M__KN_CollisionCfg_A1CF_6963_8DA6_D822");
@@ -1233,7 +1240,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oSeSmerem3_A1CF_6963_8DA6_D822__M_smer_A1CF_6963_8DA6_D822");
 
-	tmp = new CKSKSVG("_KSVG_109_oElektroda_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_109_oElektroda_A1CF_6963_8DA6_D822,&KSSetV_KSVG_109_oElektroda_A1CF_6963_8DA6_D822,sizeof(_KSVG_109_oElektroda_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_110_oElektroda_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_110_oElektroda_A1CF_6963_8DA6_D822,&KSSetV_KSVG_110_oElektroda_A1CF_6963_8DA6_D822,sizeof(_KSVG_110_oElektroda_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oElektroda_A1CF_6963_8DA6_D822__M_Prouduju_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oElektroda_A1CF_6963_8DA6_D822__M_Proudy_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oElektroda_A1CF_6963_8DA6_D822__M_StartDelay_A1CF_6963_8DA6_D822");
@@ -1243,7 +1250,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oOnOff_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_110_oNitroGlycerin_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_110_oNitroGlycerin_A1CF_6963_8DA6_D822,&KSSetV_KSVG_110_oNitroGlycerin_A1CF_6963_8DA6_D822,sizeof(_KSVG_110_oNitroGlycerin_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_111_oNitroGlycerin_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_111_oNitroGlycerin_A1CF_6963_8DA6_D822,&KSSetV_KSVG_111_oNitroGlycerin_A1CF_6963_8DA6_D822,sizeof(_KSVG_111_oNitroGlycerin_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oNitroGlycerin_A1CF_6963_8DA6_D822__M_cas2_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
@@ -1267,7 +1274,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_111_oDvere_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_111_oDvere_A1CF_6963_8DA6_D822,&KSSetV_KSVG_111_oDvere_A1CF_6963_8DA6_D822,sizeof(_KSVG_111_oDvere_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_112_oDvere_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_112_oDvere_A1CF_6963_8DA6_D822,&KSSetV_KSVG_112_oDvere_A1CF_6963_8DA6_D822,sizeof(_KSVG_112_oDvere_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oDvere_A1CF_6963_8DA6_D822__M_ReagujeNa_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oDvere_A1CF_6963_8DA6_D822__M_citac_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oDvere_A1CF_6963_8DA6_D822__M_triger_A1CF_6963_8DA6_D822");
@@ -1281,13 +1288,13 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oOnOff_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oSeSmerem3_A1CF_6963_8DA6_D822__M_smer_A1CF_6963_8DA6_D822");
 
-	tmp = new CKSKSVG("_KSVG_112_oBlokovacProudu_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_112_oBlokovacProudu_A1CF_6963_8DA6_D822,&KSSetV_KSVG_112_oBlokovacProudu_A1CF_6963_8DA6_D822,sizeof(_KSVG_112_oBlokovacProudu_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_113_oBlokovacProudu_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_113_oBlokovacProudu_A1CF_6963_8DA6_D822,&KSSetV_KSVG_113_oBlokovacProudu_A1CF_6963_8DA6_D822,sizeof(_KSVG_113_oBlokovacProudu_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oBlokovacProudu_A1CF_6963_8DA6_D822__M__KN_CollisionCfg_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_113_oSavePoint_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_113_oSavePoint_A1CF_6963_8DA6_D822,&KSSetV_KSVG_113_oSavePoint_A1CF_6963_8DA6_D822,sizeof(_KSVG_113_oSavePoint_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_114_oSavePoint_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_114_oSavePoint_A1CF_6963_8DA6_D822,&KSSetV_KSVG_114_oSavePoint_A1CF_6963_8DA6_D822,sizeof(_KSVG_114_oSavePoint_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oSavePoint_A1CF_6963_8DA6_D822__M_triger_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oSavePoint_A1CF_6963_8DA6_D822__M_JenJednou_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
@@ -1296,7 +1303,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_floors_0001_FFFF_0001_0001__M__KN_CollisionCfg_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oOnOff_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822,&KSSetV_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822,sizeof(_KSVG_114_oLedovaKoule_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_115_oLedovaKoule_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_115_oLedovaKoule_A1CF_6963_8DA6_D822,&KSSetV_KSVG_115_oLedovaKoule_A1CF_6963_8DA6_D822,sizeof(_KSVG_115_oLedovaKoule_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_APicture_0001_FFFF_0001_0001");
@@ -1319,7 +1326,7 @@ void KSAssignKSVGs() {
 	tmp->AddAttribute("_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001");
 	tmp->AddAttribute("_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001");
 
-	tmp = new CKSKSVG("_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822,&KSSetV_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822,sizeof(_KSVG_115_oLevelIntro_A1CF_6963_8DA6_D822));
+	tmp = new CKSKSVG("_KSVG_116_oLevelIntro_A1CF_6963_8DA6_D822",&KSAlloc_KSVG_116_oLevelIntro_A1CF_6963_8DA6_D822,&KSSetV_KSVG_116_oLevelIntro_A1CF_6963_8DA6_D822,sizeof(_KSVG_116_oLevelIntro_A1CF_6963_8DA6_D822));
 	tmp->AddAttribute("_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_FileName_A1CF_6963_8DA6_D822");
 	tmp->AddAttribute("_KSOV_oLevelIntro_A1CF_6963_8DA6_D822__M_Header_A1CF_6963_8DA6_D822");
 

@@ -14,7 +14,7 @@ void KSNamesAssign() {
 	CKerName *name;
 
 
-	// New lines added 05/03/16 at 21:00:57.
+	// New lines added 08/15/16 at 18:37:37.
 
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_Constructor")) _KSID_Constructor = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_LoadConstructor")) _KSID_LoadConstructor = name;
@@ -370,6 +370,7 @@ void KSNamesAssign() {
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001")) _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001")) _KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001")) _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001 = name;
+	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001")) _KSID_oDracekTriggerHelper_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001")) _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001")) _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_NebezpeciProPriseru_0001_FFFF_0001_0001")) _KSID_NebezpeciProPriseru_0001_FFFF_0001_0001 = name;
@@ -423,7 +424,7 @@ void KSNamesAssign() {
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_AddButton_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_AddButton_3436_6AFC_3322_FB73 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_ZmenNasviceni_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_ZmenNasviceni_3436_6AFC_3322_FB73 = name;
-	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_3436_6AFC_3322_FB73 = name;
+	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_0001_FFFF_0001_0001")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_0001_FFFF_0001_0001 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_PridejPolozku_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_PridejPolozku_3436_6AFC_3322_FB73 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_OdeberPolozku_3436_6AFC_3322_FB73")) _KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_OdeberPolozku_3436_6AFC_3322_FB73 = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_oCasovac_3436_6AFC_3322_FB73")) _KSID_oCasovac_3436_6AFC_3322_FB73 = name;

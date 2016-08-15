@@ -13,7 +13,7 @@ void KSAssignKSIDs() {
 
 
 
-	// New lines added 05/03/16 at 21:00:57.
+	// New lines added 08/15/16 at 18:37:37.
 
 	new CKSKSID("_KSID_Constructor");
 	new CKSKSID("_KSID_LoadConstructor");
@@ -369,6 +369,7 @@ void KSAssignKSIDs() {
 	new CKSKSID("_KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001");
+	new CKSKSID("_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_NebezpeciProPriseru_0001_FFFF_0001_0001");
@@ -422,7 +423,7 @@ void KSAssignKSIDs() {
 	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73");
 	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_AddButton_3436_6AFC_3322_FB73");
 	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_ZmenNasviceni_3436_6AFC_3322_FB73");
-	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_3436_6AFC_3322_FB73");
+	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_Init_0001_FFFF_0001_0001");
 	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_PridejPolozku_3436_6AFC_3322_FB73");
 	new CKSKSID("_KSID_oDynamickeSvetlo_3436_6AFC_3322_FB73__M_OdeberPolozku_3436_6AFC_3322_FB73");
 	new CKSKSID("_KSID_oCasovac_3436_6AFC_3322_FB73");

@@ -462,7 +462,7 @@ int CEDFileSelector::CompareLevelDIR(CGUITreeItem *aa, CGUITreeItem *bb)
 #define STRINGLEN 1000
 
 CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x,_y,400,235,"NewLevel",new CGUIRectHost(0,0,styleSet->Get("LM_NewLevel")->GetTexture(0)),false)
+:CGUIDlgOkCancel(_x,_y,400,227,"NewLevel",new CGUIRectHost(0,0,styleSet->Get("LM_NewLevel")->GetTexture(0)),false)
 {
 	autogrowing = 0;
 	title->SetButtons(true,false,false);
@@ -501,20 +501,20 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	AddBackElem(new CGUIStaticText("(Don't change anything, if you don't know, what it means!)",font,10,57,STD_DLG_BORDER_COLOR));
 
 
-	AddBackElem(new CGUIStaticText("LevelPath:",font,10,85,STD_DLG_TEXT_COLOR));
-	AddBackElem(new CGUIStaticText("Script:",font,10,115,STD_DLG_TEXT_COLOR));
+//	AddBackElem(new CGUIStaticText("LevelPath:",font,10,85,STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("Script:",font,10,95,STD_DLG_TEXT_COLOR));
 
 
-	edLevelPath = new CGUIEditWindow(80,83,260);
-	edLevelPath->SetTabOrder(2.1f);
-	edLevelPath->SelectOnFocus();
-	edLevelPath->BindAttribute(levelPath,dtString,STRINGLEN+1,0);
-	edLevelPath->AcceptEvent(GetID(),EOk);
-	AddBackElem(edLevelPath);
-	edLevelPath->Sync(0);
+	//edLevelPath = new CGUIEditWindow(80,83,260);
+	//edLevelPath->SetTabOrder(2.1f);
+	//edLevelPath->SelectOnFocus();
+	//edLevelPath->BindAttribute(levelPath,dtString,STRINGLEN+1,0);
+	//edLevelPath->AcceptEvent(GetID(),EOk);
+	//AddBackElem(edLevelPath);
+	//edLevelPath->Sync(0);
 
 
-	edScript = new CGUIEditWindow(80,113,260);
+	edScript = new CGUIEditWindow(80,93,260);
 	edScript->SetTabOrder(3.1f);
 	edScript->SelectOnFocus();
 	edScript->BindAttribute(scriptName,dtString,STRINGLEN+1,0);
@@ -523,15 +523,15 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	edScript->Sync(0);
 
 
-	bLevelSelector  = new CGUIButton(350,83,20,20,"GUI.But.Std","...");
-	bLevelSelector->AcceptEvent(GetID(),EClicked);
-	bLevelSelector->AcceptEvent(GetID(),EStateChanged);
-	bLevelSelector->SetTabOrder(2.2f);
-	bLevelSelector->SetMark(1);
-    AddBackElem(bLevelSelector);
+	//bLevelSelector  = new CGUIButton(350,83,20,20,"GUI.But.Std","...");
+	//bLevelSelector->AcceptEvent(GetID(),EClicked);
+	//bLevelSelector->AcceptEvent(GetID(),EStateChanged);
+	//bLevelSelector->SetTabOrder(2.2f);
+	//bLevelSelector->SetMark(1);
+ //   AddBackElem(bLevelSelector);
 
 
-	bScriptSelector  = new CGUIButton(350,113,20,20,"GUI.But.Std","...");
+	bScriptSelector  = new CGUIButton(350,93,20,20,"GUI.But.Std","...");
 	bScriptSelector->AcceptEvent(GetID(),EClicked);
 	bScriptSelector->AcceptEvent(GetID(),EStateChanged);
 	bScriptSelector->SetTabOrder(3.2f);
@@ -541,12 +541,12 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 
 
 	//---
-	ln = new CGUILine(10,140,xx-10,140,STD_DLG_BORDER_COLOR);
+	ln = new CGUILine(10,120,xx-10,120,STD_DLG_BORDER_COLOR);
 	ln->SetAnchor(0,0,1,1);
 	AddBackElem(ln);
 	//---
 
-	CGUICheckBox* cb = new CGUICheckBox(75,147,new CGUIStaticText("GameMOD",(CGUIFont*)RefMgr->Find("GUI.F.Arial.12"),0,0,0xFF000000),0,1,0xFF000000);
+	CGUICheckBox* cb = new CGUICheckBox(75,127,new CGUIStaticText("GameMOD",(CGUIFont*)RefMgr->Find("GUI.F.Arial.12"),0,0,0xFF000000),0,1,0xFF000000);
 	cb->BindAttribute(&(mainGUI->editorGameMod),dtInt,1);
 	cb->Sync(false);
 
@@ -556,17 +556,17 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	AddBackElem(cb);
 	cb->Center(true,false);
 
-	ln = new CGUILine(10,170,xx-10,170,STD_DLG_BORDER_COLOR);
+	ln = new CGUILine(10,150,xx-10,150,STD_DLG_BORDER_COLOR);
 	ln->SetAnchor(0,0,1,1);
 	AddBackElem(ln);
 
 
-	ok = new CGUIButton(80,180,50,25,"GUI.But.Std","OK");
+	ok = new CGUIButton(80,165,50,25,"GUI.But.Std","OK");
 	ok->SetTabOrder(1000);
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(270,180,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(270,165,50,25,"GUI.But.Std","Storno");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -648,23 +648,23 @@ void CEDScriptSelectorDlg::EventHandler(CGUIEvent *event)
 				BadInput(event->sender);
 			}
 		}
-		else if(eb == edLevelPath)
-		{
-			int ret=0;
-			if(eb->Sync(1)==0)
-			{
-				FS->ChangeDir("$GAME$");
-				if(levelPath[0]==0)
-					ret=1;
-				else
-					ret = FS->ChangeDir(levelPath);
-			}
-			if(!ret)
-			{
-				eb->BadInput();
-				BadInput(event->sender);
-			}
-		}
+		//else if(eb == edLevelPath)
+		//{
+		//	int ret=0;
+		//	if(eb->Sync(1)==0)
+		//	{
+		//		FS->ChangeDir("$GAME$");
+		//		if(levelPath[0]==0)
+		//			ret=1;
+		//		else
+		//			ret = FS->ChangeDir(levelPath);
+		//	}
+		//	if(!ret)
+		//	{
+		//		eb->BadInput();
+		//		BadInput(event->sender);
+		//	}
+		//}
 	}
 
 	//-----------------------------------------------------------------------------------
@@ -700,55 +700,55 @@ void CEDScriptSelectorDlg::EventHandler(CGUIEvent *event)
 					fsScriptSelector = fs->GetID();
 				}
 			}
-			else if(bt == bLevelSelector)	//vyber levelu - cesty + eventualne i jmena
-			{ 
-				CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
-				if(fs)
-				{
-					fs->FocusMe(); //uz existuje FileSelector se skripty -> jen ho nafocusuju
-				}
-				else
-				{
-					float bx=0,by=0;
-					desktop->GetDesktopPos(bLevelSelector,bx,by); //zjistim souradnice tlacitka "..." v desktopu
-					
-					fs = new CEDFileSelector(bx,by,300,500);
-					fs->title->SetText("Select LevelPath (name):");
-					fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("FileBrowser")->GetTexture(0)));
-					fs->title->SetButtons(true,false,false);
-					fs->filterExt = eEXTlevel;
-					fs->AcceptEvent(GetID(),ETree);
+			//else if(bt == bLevelSelector)	//vyber levelu - cesty + eventualne i jmena
+			//{ 
+			//	CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
+			//	if(fs)
+			//	{
+			//		fs->FocusMe(); //uz existuje FileSelector se skripty -> jen ho nafocusuju
+			//	}
+			//	else
+			//	{
+			//		float bx=0,by=0;
+			//		desktop->GetDesktopPos(bLevelSelector,bx,by); //zjistim souradnice tlacitka "..." v desktopu
+			//		
+			//		fs = new CEDFileSelector(bx,by,300,500);
+			//		fs->title->SetText("Select LevelPath (name):");
+			//		fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("FileBrowser")->GetTexture(0)));
+			//		fs->title->SetButtons(true,false,false);
+			//		fs->filterExt = eEXTlevel;
+			//		fs->AcceptEvent(GetID(),ETree);
 
-					CGUIButton* ok = new CGUIButton(75,10,50,25,"GUI.But.Std","OK");
-					ok->AcceptEvent(GetID(),EClicked);
-					fsLevelSelectorButton=ok->GetID();
-					fs->treeItemStartY = 50;
-					fs->AddBackElem(ok);
-					ok->Center(true,false);
+			//		CGUIButton* ok = new CGUIButton(75,10,50,25,"GUI.But.Std","OK");
+			//		ok->AcceptEvent(GetID(),EClicked);
+			//		fsLevelSelectorButton=ok->GetID();
+			//		fs->treeItemStartY = 50;
+			//		fs->AddBackElem(ok);
+			//		ok->Center(true,false);
 
-					desktop->AddBackElem(fs);
-					fs->SetModal(1);
-					//fs->FocusMe();
+			//		desktop->AddBackElem(fs);
+			//		fs->SetModal(1);
+			//		//fs->FocusMe();
 
-					fsLevelSelector = fs->GetID();
-				}
-			}
-			else if(event->sender == fsLevelSelectorButton)
-			{	// zmacknul se OK button v LevelSelectoru
-				CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
-				if(fs)
-				{
-					fs->CloseWindow();
-					fsLevelSelectorButton=0;
-					FocusMe();
-					SetFocusEl(FindNextTABElement(edLevelPath->GetTabOrder(),false),0);			
-				}
-			}
+			//		fsLevelSelector = fs->GetID();
+			//	}
+			//}
+			//else if(event->sender == fsLevelSelectorButton)
+			//{	// zmacknul se OK button v LevelSelectoru
+			//	CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
+			//	if(fs)
+			//	{
+			//		fs->CloseWindow();
+			//		fsLevelSelectorButton=0;
+			//		FocusMe();
+			//		SetFocusEl(FindNextTABElement(edLevelPath->GetTabOrder(),false),0);			
+			//	}
+			//}
 		}
 		else if(event->eventID == EStateChanged)
 		{
 			CGUIEditWindow *ew = GetObjFromID<CGUIEditWindow>(IDbadElem);
-			if((ew==edScript && bt==bScriptSelector) || (ew==edLevel && bt==bLevelSelector))
+			if((ew==edScript && bt==bScriptSelector))
 			{
 				int cs = bt->GetState();
 				
@@ -801,49 +801,49 @@ void CEDScriptSelectorDlg::EventHandler(CGUIEvent *event)
 				SAFE_DELETE_ARRAY(file);
 			}		
 		}
-		else if(event->sender == fsLevelSelector && event->pInt2 == 0) //obsluha vyberu jmena Levelu / cesty k Levelu
-		{
-			CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
-			if(fs)
-			{
-				char *dir=0,*file=0,*root=0;
-				int sf;
+		//else if(event->sender == fsLevelSelector && event->pInt2 == 0) //obsluha vyberu jmena Levelu / cesty k Levelu
+		//{
+		//	CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
+		//	if(fs)
+		//	{
+		//		char *dir=0,*file=0,*root=0;
+		//		int sf;
 
-				sf = fs->GetSelectedFileRelativ(event->pID,&root,&dir,&file);
-				if(!sf)
-					assert(false);	// neni to adresar - chyba, ve vyberu maji byt pouze adresare
-			
-				_snprintf(levelPath,STRINGLEN,"%s",dir);
+		//		sf = fs->GetSelectedFileRelativ(event->pID,&root,&dir,&file);
+		//		if(!sf)
+		//			assert(false);	// neni to adresar - chyba, ve vyberu maji byt pouze adresare
+		//	
+		//		_snprintf(levelPath,STRINGLEN,"%s",dir);
 
-				int ext;
-				KerServices.ConvertFileNameToShort(file,ext,0,0);
+		//		int ext;
+		//		KerServices.ConvertFileNameToShort(file,ext,0,0);
 
-				if(ext==eEXTlevel)
-				{
-					_snprintf(levelName,STRINGLEN,"%s",file);
-					edLevel->Sync(false);
-					//IDbadElem = 0;
+		//		if(ext==eEXTlevel)
+		//		{
+		//			_snprintf(levelName,STRINGLEN,"%s",file);
+		//			edLevel->Sync(false);
+		//			//IDbadElem = 0;
 
-					fs->CloseWindow();
-					FocusMe();
-					SetFocusEl(FindNextTABElement(edLevelPath->GetTabOrder(),false),0);					
-				}
-				else
-				{
-					if(dir[0]==0)
-						_snprintf(levelPath,STRINGLEN,"%s",file);
-					else
-						_snprintf(levelPath,STRINGLEN,"%s\\%s",dir,file);
-				}
+		//			fs->CloseWindow();
+		//			FocusMe();
+		//			SetFocusEl(FindNextTABElement(edLevelPath->GetTabOrder(),false),0);					
+		//		}
+		//		else
+		//		{
+		//			if(dir[0]==0)
+		//				_snprintf(levelPath,STRINGLEN,"%s",file);
+		//			else
+		//				_snprintf(levelPath,STRINGLEN,"%s\\%s",dir,file);
+		//		}
 
-				edLevelPath->Sync(false);
-				IDbadElem = 0;
+		//		edLevelPath->Sync(false);
+		//		IDbadElem = 0;
 
-				SAFE_DELETE_ARRAY(root);
-				SAFE_DELETE_ARRAY(dir);
-				SAFE_DELETE_ARRAY(file);
-			}		
-		}
+		//		SAFE_DELETE_ARRAY(root);
+		//		SAFE_DELETE_ARRAY(dir);
+		//		SAFE_DELETE_ARRAY(file);
+		//	}		
+		//}
 	}
 	//------------------------------------------------------------------------------------
 
@@ -912,7 +912,7 @@ int CEDScriptSelectorDlg::Ok()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x,_y,400,160,"Save As ...",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)),false)
+:CGUIDlgOkCancel(_x,_y,400,106,"Save As ...",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)),false)
 {
 	autogrowing = 0;
 	title->SetButtons(true,false,false);
@@ -922,7 +922,7 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 	
 	CGUIFont *font = (CGUIFont*) RefMgr->Find("GUI.F.Arial.10");
 
-	AddBackElem(new CGUIStaticText("LevelPath:",font,10,45,STD_DLG_TEXT_COLOR));
+//	AddBackElem(new CGUIStaticText("LevelPath:",font,10,45,STD_DLG_TEXT_COLOR));
 	AddBackElem(new CGUIStaticText("LevelName:",font,10,15,STD_DLG_TEXT_COLOR));
 
 	levelName = new char[STRINGLEN+5];
@@ -930,13 +930,13 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 	levelPath = new char[STRINGLEN+5];
 	levelPath[0]=0;
 
-	edLevelPath = new CGUIEditWindow(80,43,260);
-	edLevelPath->SetTabOrder(3.1f);
-	edLevelPath->SelectOnFocus();
-	edLevelPath->BindAttribute(levelPath,dtString,STRINGLEN+1,0);
-	edLevelPath->AcceptEvent(GetID(),EOk);
-	AddBackElem(edLevelPath);
-	edLevelPath->Sync(0);
+	//edLevelPath = new CGUIEditWindow(80,43,260);
+	//edLevelPath->SetTabOrder(3.1f);
+	//edLevelPath->SelectOnFocus();
+	//edLevelPath->BindAttribute(levelPath,dtString,STRINGLEN+1,0);
+	//edLevelPath->AcceptEvent(GetID(),EOk);
+	//AddBackElem(edLevelPath);
+	//edLevelPath->Sync(0);
 
 
 	edLevel = new CGUIEditWindow(80,13,260);
@@ -957,18 +957,18 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 
 
 	//---
-	CGUILine* ln = new CGUILine(10,80,xx-10,80,STD_DLG_BORDER_COLOR);
-	ln->SetAnchor(0,0,1,1);
-	AddBackElem(ln);
+	//CGUILine* ln = new CGUILine(10,80,xx-10,80,STD_DLG_BORDER_COLOR);
+	//ln->SetAnchor(0,0,1,1);
+	//AddBackElem(ln);
 	//---
 
 
-	ok = new CGUIButton(80,100,50,25,"GUI.But.Std","OK");
+	ok = new CGUIButton(80,46,50,25,"GUI.But.Std","OK");
 	ok->SetTabOrder(1000);
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(270,100,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(270,46,50,25,"GUI.But.Std","Storno");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -1023,23 +1023,23 @@ void CEDLevelSaveSelectorDlg::EventHandler(CGUIEvent *event)
 				BadInput(event->sender);
 			}
 		}
-		else if(eb == edLevelPath)
-		{
-			int ret=0;
-			if(eb->Sync(1)==0)
-			{
-				FS->ChangeDir("$GAME$");
-				if(levelPath[0]==0)
-					ret=1;
-				else
-					ret = FS->ChangeDir(levelPath);
-			}
-			if(!ret)
-			{
-				eb->BadInput();
-				BadInput(event->sender);
-			}
-		}
+		//else if(eb == edLevelPath)
+		//{
+		//	int ret=0;
+		//	if(eb->Sync(1)==0)
+		//	{
+		//		FS->ChangeDir("$GAME$");
+		//		if(levelPath[0]==0)
+		//			ret=1;
+		//		else
+		//			ret = FS->ChangeDir(levelPath);
+		//	}
+		//	if(!ret)
+		//	{
+		//		eb->BadInput();
+		//		BadInput(event->sender);
+		//	}
+		//}
 	}
 
 	//-----------------------------------------------------------------------------------
@@ -1111,7 +1111,7 @@ void CEDLevelSaveSelectorDlg::EventHandler(CGUIEvent *event)
 				if(!sf)
 					assert(false);	// neni to adresar - chyba, ve vyberu maji byt pouze adresare
 			
-				_snprintf(levelPath,STRINGLEN,"%s",dir);
+				//_snprintf(levelPath,STRINGLEN,"%s",dir);
 
 				int ext;
 				KerServices.ConvertFileNameToShort(file,ext,0,0);
@@ -1123,17 +1123,17 @@ void CEDLevelSaveSelectorDlg::EventHandler(CGUIEvent *event)
 
 					fs->CloseWindow();
 					FocusMe();
-					SetFocusEl(FindNextTABElement(edLevelPath->GetTabOrder(),false),0);					
+					SetFocusEl(FindNextTABElement(edLevel->GetTabOrder(),false),0);					
 				}
-				else
-				{
-					if(dir[0]==0)
-						_snprintf(levelPath,STRINGLEN,"%s",file);
-					else
-						_snprintf(levelPath,STRINGLEN,"%s\\%s",dir,file);
-				}
+				//else
+				//{
+				//	if(dir[0]==0)
+				//		_snprintf(levelPath,STRINGLEN,"%s",file);
+				//	else
+				//		_snprintf(levelPath,STRINGLEN,"%s\\%s",dir,file);
+				//}
 
-				edLevelPath->Sync(false);
+				//edLevelPath->Sync(false);
 				IDbadElem = 0;
 
 				SAFE_DELETE_ARRAY(root);

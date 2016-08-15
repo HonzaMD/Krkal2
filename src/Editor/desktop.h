@@ -48,7 +48,6 @@ public:
 	CEDEditorMenuHandler* editorMenuHandler;	// ovladac pro udalosti od menu Editoru + jeho soucasti
 
 	void AddStartMenu();
-	void AddEditorMenu();
 
 	void CloseAllObjPropertyWins();	
 		// zavre vsechny ObjProperty okna v desktopu
@@ -68,7 +67,6 @@ protected:
 	virtual int TimerImpulse(typeID timerID, float time);	// zajistuje stranovy scrolling mapy
 
 	CGUIMenu* startMenu;
-	CGUIMenu* editorMenu;
 
 	bool ResolveKeyShortCuts(UINT character);	
 		// zajistuje vyvolani akce po klavesove zkratce (ikony na panelu atp.)
