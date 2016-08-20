@@ -38,7 +38,8 @@ CGameMenu::CGameMenu()
 	withProgressBars = false;
 	progressBar1 = progressBar2 = 0;
 	manik = 0;
-	manikKO = 0;
+	manikObj = 0;
+	manikObjShown = 0;
 	manikX = 0; manikY = 0;
 	compressedMenu = false;
 	manikKeyText = 0;
@@ -149,7 +150,7 @@ int CGameMenu::RefreshManikPicture(CKerObject *ko)
 	if (!gameMenu)
 		return -1;
 
-	if (ko == gameMenu->manikKO)
+	if (ko->thisO == gameMenu->manikObj)
 		return SetManikPicture(ko->thisO);
 
 	return 1;
@@ -169,7 +170,10 @@ int CGameMenu::SetManikPicture(OPointer obj, CKerName* key)
 
 	CTexture* objTex = 0;
 	CKerObject* ko = KerMain->Objs->GetObject(obj);
-	gameMenu->manikKO = ko;
+	gameMenu->manikObj = obj;
+
+	if (gameMenu->manikObjShown == obj) // kvuli perfu neaktualizuju kazdou zmenu automatizmu ;(
+		return 1;
 
 	if (ko && ko->PlacedInfo && ko->PlacedInfo->AktivAuto)
 	{
@@ -198,14 +202,17 @@ int CGameMenu::SetManikPicture(OPointer obj, CKerName* key)
 		if (objTex) {
 			gameMenu->manik->SetTexture(objTex);
 			gameMenu->manik->SetVisible(1);
+			gameMenu->manikObjShown = obj;
 		}
 		else {
 			gameMenu->manik->SetVisible(0);
+			gameMenu->manikObjShown = 0;
 		}
 	}
 	else if (objTex) {
 		gameMenu->manik = new CGUIRectHost(gameMenu->manikX, gameMenu->manikY, objTex);
 		gameMenu->AddElem(gameMenu->manik);
+		gameMenu->manikObjShown = obj;
 	}
 
 	if (objTex)

@@ -95,8 +95,15 @@ void CProfileDesktop::ShowProfile()
 	CGUIStaticPicture* back = new CGUIStaticPicture(0,0,"$TEX$/MainMenu2/logo.jpg",(float)screenx,(float)screeny);
 	AddBackElem(back);
 
-	fontTB = (CGUIFont*) RefMgr->Find("GUI.F.Tahoma.12.B");
-	fontT = (CGUIFont*) RefMgr->Find("GUI.F.Tahoma.12");
+	if (screenx < 700)
+	{
+		fontTB = (CGUIFont*)RefMgr->Find("GUI.F.Tahoma.10.B");
+		fontT = (CGUIFont*)RefMgr->Find("GUI.F.Tahoma.10");
+	}
+	else {
+		fontTB = (CGUIFont*)RefMgr->Find("GUI.F.Tahoma.12.B");
+		fontT = (CGUIFont*)RefMgr->Find("GUI.F.Tahoma.12");
+	}
 
 	int x,y;
 
@@ -128,7 +135,7 @@ void CProfileDesktop::ShowProfile()
 	x=CmpUserPosX(0);
 	y=CmpUserPosY(0);
 
-	CGUIStaticText* selectuser = new CGUIStaticText("Select User:",fontTB,(float)x,(float)y,0xFFFFFFFF);
+	CGUIStaticText* selectuser = new CGUIStaticText("en{{Select User:}}cs{{Vyber uživatele:}}",fontTB,(float)x,(float)y,0xFFFFFFFF);
 	AddBackElem(selectuser);
 
 	float fx;
@@ -158,7 +165,7 @@ void CProfileDesktop::CreateNewUserButton()
 {
 	if(cnt!=MAX_PROFILES)
 	{
-		newuser = new CGUITextButton("new user...",fontT,(float)CmpUserPosX(cnt+1),(float)CmpUserPosY(cnt+1),0xFFFFFFFF);
+		newuser = new CGUITextButton("en{{new user...}}cs{{nový uživatel...}}",fontT,(float)CmpUserPosX(cnt+1),(float)CmpUserPosY(cnt+1),0xFFFFFFFF);
 		newuser->markColor=0xFFFFFF00;
 		newuser->AcceptEvent(DefaultHandler->GetID(),EClicked);
 		AddBackElem(newuser);

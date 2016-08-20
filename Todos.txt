@@ -1,0 +1,11 @@
+* editor: level properties
+* in game navod na editor
+* revize readme
+* revize dokumentace
+* preklad do en
+* ilustrace
+* revize prirazeni hudby k levlum
+* setup
+* stranky
+* propagace
+* propagacni videa

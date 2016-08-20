@@ -7528,7 +7528,7 @@ void _KSM_1984_InitMenu_0001_FFFF_0001_0001() {
 	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[1] = CGameMenu::AddItem(_KSID_oZnZakazVjezdu_0001_FFFF_0001_0001, _KSID_key2_0001_FFFF_0001_0001);
 	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[2] = CGameMenu::AddItem(_KSID_oZnSedesat_0001_FFFF_0001_0001, _KSID_key3_0001_FFFF_0001_0001);
 	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[3] = CGameMenu::AddItem(_KSID_oZnNeSedesat_0001_FFFF_0001_0001, _KSID_key4_0001_FFFF_0001_0001);
-	CGameMenu::SetManikPicture(0, _KSID_keyTab_0001_FFFF_0001_0001);
+	CGameMenu::SetManikPicture((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001), _KSID_keyTab_0001_FFFF_0001_0001);
 	CGameMenu::Refresh();
 	KerMain->DeleteObject(2001, _KSL_o);
 }

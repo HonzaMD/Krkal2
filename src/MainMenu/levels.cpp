@@ -327,6 +327,8 @@ void CMMLevelDir::SetAccessTags() {
 			}
 			if (F->Tags & (eMMLTalwAccess|eMMLTedited)) F->Tags |= eMMLTaccessible;
 		}
+		if (F->Name[0] == '(' && F->next && F->next->Name[0] != '(') // hack aby se daly hrat uzivatelske levly
+			count = AccessCfg;
 		F = F->next;
 	}
 }

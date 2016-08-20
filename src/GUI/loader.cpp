@@ -109,6 +109,15 @@ void CGUI::LoadGUIData()
 	RefMgr->Add("GUI.F.Arial.14PX", guiFont);
 	guiFont->Release();
 
+	guiFont = new CGUIFont();
+	guiFont->CreateFont("Tahoma", 10);
+	RefMgr->Add("GUI.F.Tahoma.10", guiFont);
+	guiFont->Release();
+	guiFont = new CGUIFont();
+	guiFont->CreateFont("Tahoma", 10, FW_BOLD);
+	RefMgr->Add("GUI.F.Tahoma.10.B", guiFont);
+	guiFont->Release();
+
 
 
 

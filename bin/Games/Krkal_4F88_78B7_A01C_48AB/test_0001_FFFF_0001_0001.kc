@@ -1996,7 +1996,7 @@ object oManikControler {
 		Znacky[1] = @MnuAddItemN(oZnZakazVjezdu, key2);
 		Znacky[2] = @MnuAddItemN(oZnSedesat, key3);
 		Znacky[3] = @MnuAddItemN(oZnNeSedesat, key4);
-		@MnuSetManikPicture(onull, keyTab);
+		@MnuSetManikPicture(ManikFocus, keyTab);
 		@MnuRefresh();
 		delete o;
 	}

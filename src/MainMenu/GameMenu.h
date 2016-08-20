@@ -112,7 +112,8 @@ protected:
 	CGameMenuProgressBar* progressBar1;
 	CGameMenuProgressBar* progressBar2;
 	CGUIRectHost *manik;
-	CKerObject* manikKO;
+	OPointer manikObj;
+	OPointer manikObjShown;
 	float manikX, manikY;
 	bool withManik;
 	CGUIStaticText *manikKeyText;

@@ -139,7 +139,7 @@ int CMMDesktop::ShowMainMenu()
 	AddBackElem(stver);
 
 
-	CGUIButton *play = new CGUIButton(20,170-30,-1,-1,"GUI.But.MMPlay","",0);
+	CGUIButton *play = new CGUIButton(20,scY(150),-1,-1,"GUI.But.MMPlay","",0);
 	AddBackElem(play);
 	DefaultHandler->play=play->GetID();
 	play->AcceptEvent(DefaultHandler->GetID(),EClicked);
@@ -147,7 +147,7 @@ int CMMDesktop::ShowMainMenu()
 
 	if(KerServices.QuickSave)
 	{
-		CGUIButton *but_restart = new CGUIButton(35,230-30,-1,-1,"GUI.But.MMRestartLevel","",0);
+		CGUIButton *but_restart = new CGUIButton(35, scY(150)+65, -1, -1, "GUI.But.MMRestartLevel", "", 0);
 		AddBackElem(but_restart);
 		DefaultHandler->restartlevel=but_restart->GetID();
 		but_restart->AcceptEvent(DefaultHandler->GetID(),EClicked);
