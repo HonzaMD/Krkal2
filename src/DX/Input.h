@@ -14,14 +14,16 @@
 #include "types.h"
 
 struct CKeyStruct{
-	CKeyStruct(char *_name, UC scankod, int sr,int sl, int cr,int cl, int ar,int al )
+	CKeyStruct(char *_name, char *_keyName, UC scankod, int sr, int sl, int cr, int cl, int ar, int al)
 	{
 		name = _name;
+		keyName = _keyName;
 		flags = sr + (sl<<1) + (cr<<2) + (cl<<3) + (ar<<4) + (al<<5);
 		key=scankod;
 	}
 	~CKeyStruct(){
 		SAFE_DELETE_ARRAY(name);
+		SAFE_DELETE_ARRAY(keyName);
 	}
 
 	int shift() { return flags&3; }
@@ -29,6 +31,7 @@ struct CKeyStruct{
 	int alt() { return (flags>>4)&3; }
 
 	char *name;
+	char *keyName;
 	UC key;
 	UC flags;
 };
@@ -42,6 +45,7 @@ public:
 	int ReadCfg( char *filename = "$DATA$/keyboard.cfg" );
 
 	int RegisterKernelKeys();
+	const char* FindKeyDisplayName(const char *name);
 
 protected:
 	CListK<CKeyStruct*> keylist;
@@ -75,6 +79,8 @@ public:
 	HANDLE GetMouseEvent(){return MouseEvent;}
 
 	int RegisterKernelKeys(){if(keycfg) return keycfg->RegisterKernelKeys(); else return 0;}
+
+	const char* FindKeyDisplayName(const char *name) { if (keycfg) return keycfg->FindKeyDisplayName(name); else return 0; }
 
 protected:
 

@@ -474,8 +474,8 @@ CKerName* _KSID_ShowText_A1CF_6963_8DA6_D822 = 0;
 
 // typy se budou dat menit jen jako celky
 
-struct _KSVS_3251_sAkce_0001_FFFF_0001_0001 {
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* next;
+struct _KSVS_3257_sAkce_0001_FFFF_0001_0001 {
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* next;
 	int x1;
 	int x2;
 	int y1;
@@ -3240,7 +3240,7 @@ struct _KSVG_85_oPrepinace_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 };
 
 void* KSAlloc_KSVG_85_oPrepinace_0001_FFFF_0001_0001() {
@@ -3268,7 +3268,7 @@ struct _KSVG_86_oPrepinac_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 };
 
 void* KSAlloc_KSVG_86_oPrepinac_0001_FFFF_0001_0001() {
@@ -3300,7 +3300,7 @@ struct _KSVG_87_oTriggerPrepinac_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 };
 
 void* KSAlloc_KSVG_87_oTriggerPrepinac_0001_FFFF_0001_0001() {
@@ -3329,7 +3329,7 @@ struct _KSVG_88_oFotobunka_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001;
 	int _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001;
@@ -3366,7 +3366,7 @@ struct _KSVG_89_oNaslapnaPodlaha_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001;
 	int _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001;
@@ -3452,7 +3452,7 @@ struct _KSVG_92_oGlobalniPrepinac_0001_FFFF_0001_0001 {
 	CKerName* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001;
 	int _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001;
 	int _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001;
 	CKerName* _KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001;
@@ -4116,7 +4116,7 @@ void (*_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001)(
 int (*_KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, OPointer _KSL_m) = 0;
 int (*_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, int _KSL_dir, int _KSL_x, int _KSL_y, OPointer _KSL_obj) = 0;
 void (*_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, int _KSL_pfdir, OPointer _KSL_obj) = 0;
-void (*_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, _KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a, int _KSL_index) = 0;
+void (*_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, _KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a, int _KSL_index) = 0;
 int (*_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs) = 0;
 void (*_KSDM_oPrepinace_0001_FFFF_0001_0001__M_PlaceOrFindPlace_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs, CKerName* _KSL_typ) = 0;
 void (*_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001)(int __CodeLine, OPointer __thisO, OPointer _KSL_o) = 0;
@@ -6215,7 +6215,7 @@ void _KSM_1414__KN_MapRemoved_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPas_0001_FFFF_0001_0001::_KSID_ModifyTrajektory_0001_FFFF_0001_0001
-void _KSM_4215_ModifyTrajektory_0001_FFFF_0001_0001() {
+void _KSM_4221_ModifyTrajektory_0001_FFFF_0001_0001() {
 
 	if((*(CKerName**)_KSOV_oPas_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_On_0001_FFFF_0001_0001&&KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_VeciStrkatelnePasem_0001_FFFF_0001_0001))
 	{
@@ -6348,15 +6348,15 @@ void _KSM_1458__KN_MapRemoved_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oLed_0001_FFFF_0001_0001::_KSID_ZnicSeVeVybuchu_0001_FFFF_0001_0001
-void _KSM_2467_ZnicSeVeVybuchu_0001_FFFF_0001_0001() {
+void _KSM_2473_ZnicSeVeVybuchu_0001_FFFF_0001_0001() {
 
 	if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis))
 	{
 		OPointer _KSL_o;
-		_KSL_o = KerMain->NewObject(2469 , _KSID_oVoda_0001_FFFF_0001_0001);
-		KerMain->MapInfo->ChangeObjCoords(2470, _KSL_o, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-		KerMain->MapInfo->PlaceObjToMap(2471, _KSL_o);
-		KerMain->DeleteObject(2472, KerContext->KCthis);
+		_KSL_o = KerMain->NewObject(2475 , _KSID_oVoda_0001_FFFF_0001_0001);
+		KerMain->MapInfo->ChangeObjCoords(2476, _KSL_o, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+		KerMain->MapInfo->PlaceObjToMap(2477, _KSL_o);
+		KerMain->DeleteObject(2478, KerContext->KCthis);
 	}
 }
 
@@ -6574,14 +6574,15 @@ void _KSM_1803__KN_MapRemoved_0001_FFFF_0001_0001() {
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Destructor
 void _KSM_1806_Destructor_0001_FFFF_0001_0001() {
+	KerMain->call(1807, KerContext->KCthis, _KSID_SetFocus_0001_FFFF_0001_0001, 1, eKTint, _KSID_SetFocus_0001_FFFF_0001_0001__M_focus_0001_FFFF_0001_0001, 0);
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_ziju_0001_FFFF_0001_0001))
-		KerMain->call(1807, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_DecManik_0001_FFFF_0001_0001, 0);
+		KerMain->call(1808, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_DecManik_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001
-void _KSM_1810_ReSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_keep) {
-	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1810_ReSort_0001_FFFF_0001_0001",;)
+void _KSM_1811_ReSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_keep) {
+	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1811_ReSort_0001_FFFF_0001_0001",;)
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[_KSL_keep] = 1;
 
 	if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[0]&&_KSL_keep != 0)
@@ -6599,8 +6600,8 @@ void _KSM_1810_ReSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int 
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001
-void _KSM_1817_DecSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_muf) {
-	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1817_DecSort_0001_FFFF_0001_0001",;)
+void _KSM_1818_DecSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_muf) {
+	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1818_DecSort_0001_FFFF_0001_0001",;)
 
 	if(!((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[_KSL_muf])
 		{
@@ -6624,8 +6625,8 @@ void _KSM_1817_DecSort_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001
-CKerName* _KSM_1825_GetMuflonPri_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_muf) {
-	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1825_GetMuflonPri_0001_FFFF_0001_0001",0)
+CKerName* _KSM_1826_GetMuflonPri_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_muf) {
+	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_1826_GetMuflonPri_0001_FFFF_0001_0001",0)
 
 	switch(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[_KSL_muf])
 	{
@@ -6663,7 +6664,7 @@ CKerName* _KSM_1825_GetMuflonPri_0001_FFFF_0001_0001(int __CodeLine, OPointer __
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001
-void _KSM_1835_EveryTurn_0001_FFFF_0001_0001() {
+void _KSM_1836_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis))
 	{
@@ -6675,88 +6676,88 @@ void _KSM_1835_EveryTurn_0001_FFFF_0001_0001() {
 			{
 
 				if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[0] == 0)
-					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1838, KerContext->KCthis, 0);
+					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1839, KerContext->KCthis, 0);
 			}
 			else
-				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1838, KerContext->KCthis, 0);
+				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1839, KerContext->KCthis, 0);
 
 			if(Input->IsKeyDown(_KSID_keyRight_0001_FFFF_0001_0001))
 			{
 
 				if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[1] == 0)
-					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1839, KerContext->KCthis, 1);
+					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1840, KerContext->KCthis, 1);
 			}
 			else
-				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1839, KerContext->KCthis, 1);
+				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1840, KerContext->KCthis, 1);
 
 			if(Input->IsKeyDown(_KSID_keyUp_0001_FFFF_0001_0001))
 			{
 
 				if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[2] == 0)
-					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1840, KerContext->KCthis, 2);
+					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1841, KerContext->KCthis, 2);
 			}
 			else
-				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1840, KerContext->KCthis, 2);
+				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1841, KerContext->KCthis, 2);
 
 			if(Input->IsKeyDown(_KSID_keyDown_0001_FFFF_0001_0001))
 			{
 
 				if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[3] == 0)
-					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1841, KerContext->KCthis, 3);
+					_KSDM_oManik_0001_FFFF_0001_0001__M_ReSort_0001_FFFF_0001_0001(1842, KerContext->KCthis, 3);
 			}
 			else
-				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1841, KerContext->KCthis, 3);
-			KerMain->call(1842, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
+				_KSDM_oManik_0001_FFFF_0001_0001__M_DecSort_0001_FFFF_0001_0001(1842, KerContext->KCthis, 3);
+			KerMain->call(1843, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
 
 			if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[0])
-				KerMain->call(1843, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 12, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1843, KerContext->KCthis, 0), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+				KerMain->call(1844, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 12, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1844, KerContext->KCthis, 0), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 
 			if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[1])
-				KerMain->call(1844, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1844, KerContext->KCthis, 1), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+				KerMain->call(1845, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1845, KerContext->KCthis, 1), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 
 			if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[2])
-				KerMain->call(1845, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 16, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1845, KerContext->KCthis, 2), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+				KerMain->call(1846, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 16, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1846, KerContext->KCthis, 2), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 
 			if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_muflon_0001_FFFF_0001_0001)[3])
-				KerMain->call(1846, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 8, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1846, KerContext->KCthis, 3), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+				KerMain->call(1847, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, 8, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSDM_oManik_0001_FFFF_0001_0001__M_GetMuflonPri_0001_FFFF_0001_0001(1847, KerContext->KCthis, 3), eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 		}
-		KerMain->message(1848, KerContext->KCthis, _KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+		KerMain->message(1849, KerContext->KCthis, _KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2186_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2188_Constructor_0001_FFFF_0001_0001() {
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0] = 0;
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1] = 0;
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2] = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2186_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2188_LoadConstructor_0001_FFFF_0001_0001() {
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0] = 0;
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1] = 0;
 	((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2] = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2190__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2192__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
-	(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2192 , _KSID_otrigger_0001_FFFF_0001_0001);
-	KerMain->call(2193, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->call(2194, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_Veci_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-	KerMain->MapInfo->PlaceObjToMap(2195, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+	(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2194 , _KSID_otrigger_0001_FFFF_0001_0001);
+	KerMain->call(2195, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+	KerMain->call(2196, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_Veci_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+	KerMain->MapInfo->PlaceObjToMap(2197, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_2199__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_2201__KN_TriggerOn_0001_FFFF_0001_0001() {
 	CKerName* _KSL_b;
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oklic_0001_FFFF_0001_0001))
 	{
-		_KSL_b = (CKerName*)KerMain->callint(2202, KER_ARGUMENT(OPointer, 0), _KSID_GetBarva_0001_FFFF_0001_0001, 5, 0);
+		_KSL_b = (CKerName*)KerMain->callint(2204, KER_ARGUMENT(OPointer, 0), _KSID_GetBarva_0001_FFFF_0001_0001, 5, 0);
 
 		if(_KSL_b == _KSID_Cervena_0001_FFFF_0001_0001&&((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0] < 12)
 		{
@@ -6764,8 +6765,8 @@ void _KSM_2199__KN_TriggerOn_0001_FFFF_0001_0001() {
 			((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]++;
 
 			if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-				KerMain->call(2206, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
-			KerMain->DeleteObject(2207, KER_ARGUMENT(OPointer, 0));
+				KerMain->call(2208, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
+			KerMain->DeleteObject(2209, KER_ARGUMENT(OPointer, 0));
 		}
 		else
 
@@ -6775,8 +6776,8 @@ void _KSM_2199__KN_TriggerOn_0001_FFFF_0001_0001() {
 				((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]++;
 
 				if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-					KerMain->call(2211, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
-				KerMain->DeleteObject(2212, KER_ARGUMENT(OPointer, 0));
+					KerMain->call(2213, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
+				KerMain->DeleteObject(2214, KER_ARGUMENT(OPointer, 0));
 			}
 			else
 
@@ -6786,21 +6787,21 @@ void _KSM_2199__KN_TriggerOn_0001_FFFF_0001_0001() {
 					((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]++;
 
 					if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-						KerMain->call(2216, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
-					KerMain->DeleteObject(2217, KER_ARGUMENT(OPointer, 0));
+						KerMain->call(2218, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
+					KerMain->DeleteObject(2219, KER_ARGUMENT(OPointer, 0));
 				}
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_DecKlic_0001_FFFF_0001_0001
-void _KSM_2222_DecKlic_0001_FFFF_0001_0001() {
+void _KSM_2224_DecKlic_0001_FFFF_0001_0001() {
 
 	if(KER_ARGUMENT(CKerName*, 0) == _KSID_Cervena_0001_FFFF_0001_0001&&((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0])
 	{
 		((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]--;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(2225, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
+			KerMain->call(2227, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
 		{ KER_RETARG(int) = 1; return; }
 	}
 
@@ -6809,7 +6810,7 @@ void _KSM_2222_DecKlic_0001_FFFF_0001_0001() {
 		((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]--;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(2230, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
+			KerMain->call(2232, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
 		{ KER_RETARG(int) = 1; return; }
 	}
 
@@ -6818,49 +6819,49 @@ void _KSM_2222_DecKlic_0001_FFFF_0001_0001() {
 		((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]--;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(2235, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
+			KerMain->call(2237, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
 		{ KER_RETARG(int) = 1; return; }
 	}
 	{ KER_RETARG(int) = 0; return; }
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_2241__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(2242, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_2243__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(2244, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2303_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2305_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsGameMode())
-		(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001) = KerMain->NewObject(2305 , _KSID_oSebratelnaBomba_0001_FFFF_0001_0001);
+		(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001) = KerMain->NewObject(2307 , _KSID_oSebratelnaBomba_0001_FFFF_0001_0001);
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyBombaDown_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyMinaDown_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2303_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2305_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsGameMode())
-		(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001) = KerMain->NewObject(2305 , _KSID_oSebratelnaBomba_0001_FFFF_0001_0001);
+		(*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001) = KerMain->NewObject(2307 , _KSID_oSebratelnaBomba_0001_FFFF_0001_0001);
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyBombaDown_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyMinaDown_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Destructor
-void _KSM_2309_Destructor_0001_FFFF_0001_0001() {
+void _KSM_2311_Destructor_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsGameMode())
-		KerMain->DeleteObject(2310, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001));
+		KerMain->DeleteObject(2312, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001));
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_2314__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_2316__KN_TriggerOn_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oSebratelnaBomba_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001) < 12)
 	{
@@ -6868,8 +6869,8 @@ void _KSM_2314__KN_TriggerOn_0001_FFFF_0001_0001() {
 		(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)++;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(2318, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
-		KerMain->DeleteObject(2319, KER_ARGUMENT(OPointer, 0));
+			KerMain->call(2320, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
+		KerMain->DeleteObject(2321, KER_ARGUMENT(OPointer, 0));
 	}
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oSebratelnaMina_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001) < 12)
@@ -6878,19 +6879,19 @@ void _KSM_2314__KN_TriggerOn_0001_FFFF_0001_0001() {
 		(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)++;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(2324, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
-		KerMain->DeleteObject(2325, KER_ARGUMENT(OPointer, 0));
+			KerMain->call(2326, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
+		KerMain->DeleteObject(2327, KER_ARGUMENT(OPointer, 0));
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001
-int _KSM_2331_TestKolize_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
-	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_2331_TestKolize_0001_FFFF_0001_0001",0)
+int _KSM_2333_TestKolize_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
+	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_2333_TestKolize_0001_FFFF_0001_0001",0)
 	int _KSL_z;
 	KerServices.FindObjCell(KerContext->KCthis, &(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001), &(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001), &_KSL_z);
-	KerMain->MapInfo->ChangeObjCoords(2334, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001), (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
+	KerMain->MapInfo->ChangeObjCoords(2336, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001), (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
 
-	if(KerMain->MapInfo->IsObjInCollision(2335, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001)))
+	if(KerMain->MapInfo->IsObjInCollision(2337, (*(OPointer*)_KSOV_oManik_0001_FFFF_0001_0001__M_koliznik_0001_FFFF_0001_0001)))
 		{
 			int _KSTMP_RET = 0;
 			DIRECT_CALL_END
@@ -6906,7 +6907,7 @@ int _KSM_2331_TestKolize_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001
-void _KSM_2339_EveryTurn_0001_FFFF_0001_0001() {
+void _KSM_2341_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis)&&((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001)||(*(int*)_KSG_SdileneOvladani_0001_FFFF_0001_0001)))
 	{
@@ -6915,15 +6916,15 @@ void _KSM_2339_EveryTurn_0001_FFFF_0001_0001() {
 		if(Input->IsKeyDown(_KSID_keyZ_0001_FFFF_0001_0001))
 		{
 
-			if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyBombaDown_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(2343, KerContext->KCthis))
+			if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyBombaDown_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(2345, KerContext->KCthis))
 			{
 				(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)--;
 
 				if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-					KerMain->call(2345, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
-				_KSL_o = KerMain->NewObject(2346 , _KSID_oBomba_0001_FFFF_0001_0001);
-				KerMain->MapInfo->ChangeObjCoords(2347, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
-				KerMain->MapInfo->PlaceObjToMap(2348, _KSL_o);
+					KerMain->call(2347, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
+				_KSL_o = KerMain->NewObject(2348 , _KSID_oBomba_0001_FFFF_0001_0001);
+				KerMain->MapInfo->ChangeObjCoords(2349, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
+				KerMain->MapInfo->PlaceObjToMap(2350, _KSL_o);
 				(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyBombaDown_0001_FFFF_0001_0001) = 1;
 			}
 		}
@@ -6933,15 +6934,15 @@ void _KSM_2339_EveryTurn_0001_FFFF_0001_0001() {
 		if(Input->IsKeyDown(_KSID_keyX_0001_FFFF_0001_0001))
 		{
 
-			if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyMinaDown_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(2353, KerContext->KCthis))
+			if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyMinaDown_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(2355, KerContext->KCthis))
 			{
 				(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)--;
 
 				if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-					KerMain->call(2355, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
-				_KSL_o = KerMain->NewObject(2356 , _KSID_mina_0001_FFFF_0001_0001);
-				KerMain->MapInfo->ChangeObjCoords(2357, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
-				KerMain->MapInfo->PlaceObjToMap(2358, _KSL_o);
+					KerMain->call(2357, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
+				_KSL_o = KerMain->NewObject(2358 , _KSID_mina_0001_FFFF_0001_0001);
+				KerMain->MapInfo->ChangeObjCoords(2359, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
+				KerMain->MapInfo->PlaceObjToMap(2360, _KSL_o);
 				(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyMinaDown_0001_FFFF_0001_0001) = 1;
 			}
 		}
@@ -6951,22 +6952,22 @@ void _KSM_2339_EveryTurn_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2368_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2370_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2368_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2370_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_CopyConstructor
-void _KSM_2369_CopyConstructor_0001_FFFF_0001_0001() {
+void _KSM_2371_CopyConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_SetFocus_0001_FFFF_0001_0001
-void _KSM_2370_SetFocus_0001_FFFF_0001_0001() {
+void _KSM_2372_SetFocus_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
@@ -6977,18 +6978,19 @@ void _KSM_2370_SetFocus_0001_FFFF_0001_0001() {
 
 		if((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001) != KerContext->KCthis)
 		{
-			KerMain->call(2375, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_OznacHo_0001_FFFF_0001_0001, 0);
-			KerMain->call(2376, KerContext->KCthis, _KSID_ResetMenu_0001_FFFF_0001_0001, 0);
+			KerMain->call(2377, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_OznacHo_0001_FFFF_0001_0001, 0);
+			KerMain->call(2378, KerContext->KCthis, _KSID_ResetMenu_0001_FFFF_0001_0001, 0);
 
 			if(KerServices.ExistsObj((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001)))
-				KerMain->call(2377, (*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001), _KSID_SetFocus_0001_FFFF_0001_0001, 1, eKTint, _KSID_SetFocus_0001_FFFF_0001_0001__M_focus_0001_FFFF_0001_0001, 0);
+				KerMain->call(2379, (*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001), _KSID_SetFocus_0001_FFFF_0001_0001, 1, eKTint, _KSID_SetFocus_0001_FFFF_0001_0001__M_focus_0001_FFFF_0001_0001, 0);
 			(*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001) = KerContext->KCthis;
+			CGameMenu::SetManikPicture((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001));
 
 			if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis))
 			{
-				KerMain->MapInfo->RemoveObjFromMap(2380, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
-				KerMain->MapInfo->ChangeObjCoords(2381, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-				KerMain->MapInfo->PlaceObjToMap(2382, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
+				KerMain->MapInfo->RemoveObjFromMap(2383, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
+				KerMain->MapInfo->ChangeObjCoords(2384, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+				KerMain->MapInfo->PlaceObjToMap(2385, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
 				KerServices.MConnectObjs((*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), KerContext->KCthis);
 			}
 		}
@@ -6997,44 +6999,47 @@ void _KSM_2370_SetFocus_0001_FFFF_0001_0001() {
 	{
 
 		if(!(*(int*)_KSG_SdileneOvladani_0001_FFFF_0001_0001))
-			KerMain->message(2387, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+			KerMain->message(2390, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 
 		if((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001) == KerContext->KCthis)
+		{
 			(*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001) = 0;
+			CGameMenu::SetManikPicture(0);
+		}
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_GetFocus_0001_FFFF_0001_0001
-void _KSM_2391_GetFocus_0001_FFFF_0001_0001() {
+void _KSM_2397_GetFocus_0001_FFFF_0001_0001() {
 	{ KER_RETARG(int) = (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001); return; }
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2393__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2399__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001)&&KerMain->IsGameMode())
 	{
-		KerMain->MapInfo->RemoveObjFromMap(2395, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
-		KerMain->MapInfo->ChangeObjCoords(2396, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-		KerMain->MapInfo->PlaceObjToMap(2397, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
+		KerMain->MapInfo->RemoveObjFromMap(2401, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
+		KerMain->MapInfo->ChangeObjCoords(2402, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+		KerMain->MapInfo->PlaceObjToMap(2403, (*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001));
 		KerServices.MConnectObjs((*(OPointer*)_KSG_Skrolnik_0001_FFFF_0001_0001), KerContext->KCthis);
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_CopyManik_0001_FFFF_0001_0001
-void _KSM_2754_CopyManik_0001_FFFF_0001_0001() {
+void _KSM_2760_CopyManik_0001_FFFF_0001_0001() {
 	int _KSL__focus;
 	int _KSL__ziju;
-	KerMain->call(2756, KER_ARGUMENT(OPointer, 0), _KSID_ReadManik_0001_FFFF_0001_0001, 7, eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSBomby_0001_FFFF_0001_0001, &((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSMiny_0001_FFFF_0001_0001, &((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic0_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic1_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic2_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pFocus_0001_FFFF_0001_0001, &(_KSL__focus), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pziju_0001_FFFF_0001_0001, &(_KSL__ziju));
+	KerMain->call(2762, KER_ARGUMENT(OPointer, 0), _KSID_ReadManik_0001_FFFF_0001_0001, 7, eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSBomby_0001_FFFF_0001_0001, &((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001)), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSMiny_0001_FFFF_0001_0001, &((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001)), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic0_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic1_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pSKlic2_0001_FFFF_0001_0001, &(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pFocus_0001_FFFF_0001_0001, &(_KSL__focus), eKTint | eKTret, _KSID_ReadManik_0001_FFFF_0001_0001__M_pziju_0001_FFFF_0001_0001, &(_KSL__ziju));
 
 	if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_ziju_0001_FFFF_0001_0001)&&_KSL__ziju)
-		KerMain->call(2757, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_IncManik_0001_FFFF_0001_0001, 0);
+		KerMain->call(2763, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_IncManik_0001_FFFF_0001_0001, 0);
 	(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_ziju_0001_FFFF_0001_0001) = _KSL__ziju;
-	KerMain->call(2759, KerContext->KCthis, _KSID_SetFocus_0001_FFFF_0001_0001, 1, eKTint, _KSID_SetFocus_0001_FFFF_0001_0001__M_focus_0001_FFFF_0001_0001, _KSL__focus);
+	KerMain->call(2765, KerContext->KCthis, _KSID_SetFocus_0001_FFFF_0001_0001, 1, eKTint, _KSID_SetFocus_0001_FFFF_0001_0001__M_focus_0001_FFFF_0001_0001, _KSL__focus);
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_ReadManik_0001_FFFF_0001_0001
-void _KSM_2761_ReadManik_0001_FFFF_0001_0001() {
+void _KSM_2767_ReadManik_0001_FFFF_0001_0001() {
 	KER_ARGUMENT(int, 0) = (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001);
 	KER_ARGUMENT(int, 1) = (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001);
 	KER_ARGUMENT(int, 4) = ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0];
@@ -7044,7 +7049,7 @@ void _KSM_2761_ReadManik_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2943_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2949_Constructor_0001_FFFF_0001_0001() {
 	int _KSL_f;
 
 	for(_KSL_f = 0 ;_KSL_f < 4 ;_KSL_f++)
@@ -7055,7 +7060,7 @@ void _KSM_2943_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2943_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2949_LoadConstructor_0001_FFFF_0001_0001() {
 	int _KSL_f;
 
 	for(_KSL_f = 0 ;_KSL_f < 4 ;_KSL_f++)
@@ -7066,7 +7071,7 @@ void _KSM_2943_LoadConstructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_2950__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_2956__KN_TriggerOn_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oZnacky_0001_FFFF_0001_0001)&&Input->IsKeyDown(_KSID_keyA_0001_FFFF_0001_0001)&&((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001)||(*(int*)_KSG_SdileneOvladani_0001_FFFF_0001_0001)))
 	{
@@ -7094,14 +7099,14 @@ void _KSM_2950__KN_TriggerOn_0001_FFFF_0001_0001() {
 			((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]++;
 
 			if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-				KerMain->call(2960, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_typ, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]);
-			KerMain->DeleteObject(2961, KER_ARGUMENT(OPointer, 0));
+				KerMain->call(2966, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_typ, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]);
+			KerMain->DeleteObject(2967, KER_ARGUMENT(OPointer, 0));
 		}
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001
-void _KSM_2966_EveryTurn_0001_FFFF_0001_0001() {
+void _KSM_2972_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis)&&((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001)||(*(int*)_KSG_SdileneOvladani_0001_FFFF_0001_0001)))
 	{
@@ -7112,11 +7117,11 @@ void _KSM_2966_EveryTurn_0001_FFFF_0001_0001() {
 			if(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_ZmacknutoA_0001_FFFF_0001_0001))
 			{
 				(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_ZmacknutoA_0001_FFFF_0001_0001) = 1;
-				KerServices.FindObjsInArea(2971, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnacky_0001_FFFF_0001_0001);
+				KerServices.FindObjsInArea(2977, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnacky_0001_FFFF_0001_0001);
 				int _KSL_f;
 
 				for(_KSL_f = 0 ;_KSL_f < (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount() ;_KSL_f++)
-					KerMain->message(2973, KerContext->KCthis, _KSID__KN_TriggerOn, eKerCTmsg, 0, 1, eKTobject, _KSID__KN_Object, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f));
+					KerMain->message(2979, KerContext->KCthis, _KSID__KN_TriggerOn, eKerCTmsg, 0, 1, eKTobject, _KSID__KN_Object, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f));
 			}
 		}
 		else
@@ -7125,7 +7130,7 @@ void _KSM_2966_EveryTurn_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_oManik_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001
-void _KSM_2979_EveryTurn_0001_FFFF_0001_0001() {
+void _KSM_2985_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(!KerMain->MapInfo->IsObjInMap(KerContext->KCthis)||(!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001)&&!(*(int*)_KSG_SdileneOvladani_0001_FFFF_0001_0001)))
 		return;
@@ -7151,7 +7156,7 @@ void _KSM_2979_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(Input->IsKeyDown(_KSID_key1_0001_FFFF_0001_0001))
 	{
-		KerMain->message(2990, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(2996, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 
 		if(Input->IsKeyDown(_KSID_keyUp_0001_FFFF_0001_0001))
 			_KSL_smer = _KSID_Sever_0001_FFFF_0001_0001;
@@ -7179,43 +7184,43 @@ void _KSM_2979_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(_KSL_typ == 0)
 	{
-		KerServices.FindObjsInArea(3001, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnSmerova_0001_FFFF_0001_0001);
+		KerServices.FindObjsInArea(3007, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnSmerova_0001_FFFF_0001_0001);
 
 		if((*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount()&&!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown1_0001_FFFF_0001_0001))
 		{
 			ME->PlaySample(_KSID_sSbirani_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-			KerMain->call(3005, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(0), _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, _KSL_smer);
+			KerMain->call(3011, (*(CKerArrObject**)_KSG_oManik_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(0), _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, _KSL_smer);
 			(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown1_0001_FFFF_0001_0001) = 1;
 			return;
 		}
 	}
 
-	if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]&&!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown_0001_FFFF_0001_0001)&&!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown1_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(3012, KerContext->KCthis))
+	if(((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]&&!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown_0001_FFFF_0001_0001)&&!(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown1_0001_FFFF_0001_0001)&&_KSDM_oManik_0001_FFFF_0001_0001__M_TestKolize_0001_FFFF_0001_0001(3018, KerContext->KCthis))
 	{
 		((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]--;
 
 		if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-			KerMain->call(3014, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_typ, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]);
+			KerMain->call(3020, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_typ, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_typ]);
 
 		switch(_KSL_typ)
 		{
 		case 0:
-			_KSL_o = KerMain->NewObject(3017 , _KSID_oZnSmerova_0001_FFFF_0001_0001);
-			KerMain->call(3018, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, _KSL_smer);
+			_KSL_o = KerMain->NewObject(3023 , _KSID_oZnSmerova_0001_FFFF_0001_0001);
+			KerMain->call(3024, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, _KSL_smer);
 			(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown1_0001_FFFF_0001_0001) = 1;
 			break;
 		case 1:
-			_KSL_o = KerMain->NewObject(3021 , _KSID_oZnZakazVjezdu_0001_FFFF_0001_0001);
+			_KSL_o = KerMain->NewObject(3027 , _KSID_oZnZakazVjezdu_0001_FFFF_0001_0001);
 			break;
 		case 2:
-			_KSL_o = KerMain->NewObject(3022 , _KSID_oZnSedesat_0001_FFFF_0001_0001);
+			_KSL_o = KerMain->NewObject(3028 , _KSID_oZnSedesat_0001_FFFF_0001_0001);
 			break;
 		case 3:
-			_KSL_o = KerMain->NewObject(3023 , _KSID_oZnNeSedesat_0001_FFFF_0001_0001);
+			_KSL_o = KerMain->NewObject(3029 , _KSID_oZnNeSedesat_0001_FFFF_0001_0001);
 			break;
 		}
-		KerMain->MapInfo->ChangeObjCoords(3025, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
-		KerMain->MapInfo->PlaceObjToMap(3026, _KSL_o);
+		KerMain->MapInfo->ChangeObjCoords(3031, _KSL_o, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellX_0001_FFFF_0001_0001) * 40, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_cellY_0001_FFFF_0001_0001) * 40);
+		KerMain->MapInfo->PlaceObjToMap(3032, _KSL_o);
 
 		if(_KSL_typ)
 			(*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_KeyZnackyDown_0001_FFFF_0001_0001) = 1;
@@ -7223,18 +7228,18 @@ void _KSM_2979_EveryTurn_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_CopyManik_0001_FFFF_0001_0001
-void _KSM_3032_CopyManik_0001_FFFF_0001_0001() {
+void _KSM_3038_CopyManik_0001_FFFF_0001_0001() {
 	int _KSL_f;
 	int* _KSL_p;
-	_KSL_p = _KSDM_oManik_0001_FFFF_0001_0001__M_GetPointerToZnacky_0001_FFFF_0001_0001(3034, KER_ARGUMENT(OPointer, 0));
+	_KSL_p = _KSDM_oManik_0001_FFFF_0001_0001__M_GetPointerToZnacky_0001_FFFF_0001_0001(3040, KER_ARGUMENT(OPointer, 0));
 
 	for(_KSL_f = 0 ;_KSL_f < 4 ;_KSL_f++)
 		((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_f] = _KSL_p[_KSL_f];
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSDM_oManik_0001_FFFF_0001_0001__M_GetPointerToZnacky_0001_FFFF_0001_0001
-int* _KSM_3037_GetPointerToZnacky_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
-	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_3037_GetPointerToZnacky_0001_FFFF_0001_0001",0)
+int* _KSM_3043_GetPointerToZnacky_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
+	DIRECT_CALL_BEGIN(_KSID_oManik_0001_FFFF_0001_0001,"_KSM_3043_GetPointerToZnacky_0001_FFFF_0001_0001",0)
 	{
 		int* _KSTMP_RET = ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001);
 		DIRECT_CALL_END
@@ -7244,39 +7249,39 @@ int* _KSM_3037_GetPointerToZnacky_0001_FFFF_0001_0001(int __CodeLine, OPointer _
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_ResetMenu_0001_FFFF_0001_0001
-void _KSM_3042_ResetMenu_0001_FFFF_0001_0001() {
+void _KSM_3048_ResetMenu_0001_FFFF_0001_0001() {
 	int _KSL_f;
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
 	{
-		KerMain->call(3045, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
-		KerMain->call(3046, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
-		KerMain->call(3047, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
-		KerMain->call(3048, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
-		KerMain->call(3049, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
+		KerMain->call(3051, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[0]);
+		KerMain->call(3052, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[1]);
+		KerMain->call(3053, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetKlic_0001_FFFF_0001_0001, 2, eKTname, _KSID_MnuSetKlic_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SKlice_0001_FFFF_0001_0001)[2]);
+		KerMain->call(3054, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetBomba_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SBomby_0001_FFFF_0001_0001));
+		KerMain->call(3055, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetMina_0001_FFFF_0001_0001, 1, eKTint, _KSID_pCount_0001_FFFF_0001_0001, (*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SMiny_0001_FFFF_0001_0001));
 
 		for(_KSL_f = 0 ;_KSL_f < 4 ;_KSL_f++)
-			KerMain->call(3050, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_f, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_f]);
+			KerMain->call(3056, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_MnuSetZnacka_0001_FFFF_0001_0001, 2, eKTint, _KSID_MnuSetZnacka_0001_FFFF_0001_0001__M_Typ_0001_FFFF_0001_0001, _KSL_f, eKTint, _KSID_pCount_0001_FFFF_0001_0001, ((int*)_KSOV_oManik_0001_FFFF_0001_0001__M_SZnacky_0001_FFFF_0001_0001)[_KSL_f]);
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID__KN_LoadGame
-void _KSM_3053__KN_LoadGame_0001_FFFF_0001_0001() {
+void _KSM_3059__KN_LoadGame_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
 	{
-		KerMain->message(3055, KerContext->KCthis, _KSID_ResetMenu_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
-		KerMain->message(3056, KerContext->KCthis, _KSID_oManik_0001_FFFF_0001_0001__M_OznacHo2_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(3061, KerContext->KCthis, _KSID_ResetMenu_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(3062, KerContext->KCthis, _KSID_oManik_0001_FFFF_0001_0001__M_OznacHo2_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 	}
 }
 
 //_KSID_oManik_0001_FFFF_0001_0001::_KSID_oManik_0001_FFFF_0001_0001__M_OznacHo2_0001_FFFF_0001_0001
-void _KSM_3059_OznacHo2_0001_FFFF_0001_0001() {
-	KerMain->message(3060, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+void _KSM_3065_OznacHo2_0001_FFFF_0001_0001() {
+	KerMain->message(3066, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oDracek_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_3860__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_3866__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
@@ -7287,18 +7292,18 @@ void _KSM_3860__KN_MapPlaced_0001_FFFF_0001_0001() {
 		KerServices.ResetAuto(KerContext->KCthis, 0, 1);
 	}
 	(*(int*)_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001) = 0;
-	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001) = KerMain->NewObject(3868 , _KSID_oDracekTriggerHelper_0001_FFFF_0001_0001);
-	_KSDM_oDracekTriggerHelper_0001_FFFF_0001_0001__M_Init_0001_FFFF_0001_0001(3869, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001), KerContext->KCthis);
-	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001) = KerMain->NewObject(3870 , _KSID_oAreaTrigger_0001_FFFF_0001_0001);
-	KerMain->call(3871, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X1_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) - 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) - 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) + 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) + 5);
-	KerMain->call(3872, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oVoda_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001));
-	KerMain->MapInfo->PlaceObjToMap(3873, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001));
+	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001) = KerMain->NewObject(3874 , _KSID_oDracekTriggerHelper_0001_FFFF_0001_0001);
+	_KSDM_oDracekTriggerHelper_0001_FFFF_0001_0001__M_Init_0001_FFFF_0001_0001(3875, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001), KerContext->KCthis);
+	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001) = KerMain->NewObject(3876 , _KSID_oAreaTrigger_0001_FFFF_0001_0001);
+	KerMain->call(3877, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X1_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) - 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) - 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) + 5, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) + 5);
+	KerMain->call(3878, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oVoda_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001));
+	KerMain->MapInfo->PlaceObjToMap(3879, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oDracek_0001_FFFF_0001_0001::_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOn_0001_FFFF_0001_0001
-void _KSM_3877_VodaTriggerOn_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
-	DIRECT_CALL_BEGIN(_KSID_oDracek_0001_FFFF_0001_0001,"_KSM_3877_VodaTriggerOn_0001_FFFF_0001_0001",;)
+void _KSM_3883_VodaTriggerOn_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
+	DIRECT_CALL_BEGIN(_KSID_oDracek_0001_FFFF_0001_0001,"_KSM_3883_VodaTriggerOn_0001_FFFF_0001_0001",;)
 	(*(int*)_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001)++;
 
 	if((*(int*)_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001) == 1)
@@ -7310,8 +7315,8 @@ void _KSM_3877_VodaTriggerOn_0001_FFFF_0001_0001(int __CodeLine, OPointer __this
 }
 
 //_KSID_oDracek_0001_FFFF_0001_0001::_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001
-void _KSM_3884_VodaTriggerOff_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
-	DIRECT_CALL_BEGIN(_KSID_oDracek_0001_FFFF_0001_0001,"_KSM_3884_VodaTriggerOff_0001_FFFF_0001_0001",;)
+void _KSM_3890_VodaTriggerOff_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO) {
+	DIRECT_CALL_BEGIN(_KSID_oDracek_0001_FFFF_0001_0001,"_KSM_3890_VodaTriggerOff_0001_FFFF_0001_0001",;)
 	(*(int*)_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001)--;
 
 	if((*(int*)_KSOV_oDracek_0001_FFFF_0001_0001__M_veVodeCounter_0001_FFFF_0001_0001) == 0)
@@ -7323,111 +7328,111 @@ void _KSM_3884_VodaTriggerOff_0001_FFFF_0001_0001(int __CodeLine, OPointer __thi
 }
 
 //_KSID_oDracek_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_3893__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(3894, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001));
-	KerMain->DeleteObject(3896, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001));
+void _KSM_3899__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(3900, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001));
+	KerMain->DeleteObject(3902, (*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerVoda_0001_FFFF_0001_0001) = 0;
 	(*(OPointer*)_KSOV_oDracek_0001_FFFF_0001_0001__M_trigerHelper_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oDracek_0001_FFFF_0001_0001::_KSID_ZemriVeSlizu_0001_FFFF_0001_0001
-void _KSM_4168_ZemriVeSlizu_0001_FFFF_0001_0001() {
+void _KSM_4174_ZemriVeSlizu_0001_FFFF_0001_0001() {
 	OPointer _KSL_o;
 	int _KSL_cx;
 	int _KSL_cy;
 	int _KSL_cz;
 	KerServices.FindObjCell(KerContext->KCthis, &_KSL_cx, &_KSL_cy, &_KSL_cz);
-	KerMain->MapInfo->RemoveObjFromMap(4172, KerContext->KCthis);
-	_KSL_o = KerMain->NewObject(4173 , _KSID_oPriseraDopravni_0001_FFFF_0001_0001);
-	KerMain->call(4174, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
-	KerMain->MapInfo->ChangeObjCoords(4175, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
-	KerMain->MapInfo->PlaceObjToMap(4176, _KSL_o);
+	KerMain->MapInfo->RemoveObjFromMap(4178, KerContext->KCthis);
+	_KSL_o = KerMain->NewObject(4179 , _KSID_oPriseraDopravni_0001_FFFF_0001_0001);
+	KerMain->call(4180, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
+	KerMain->MapInfo->ChangeObjCoords(4181, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
+	KerMain->MapInfo->PlaceObjToMap(4182, _KSL_o);
 	ME->PlaySample(_KSID_sZmenaVPriseru_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->DeleteObject(4178, KerContext->KCthis);
+	KerMain->DeleteObject(4184, KerContext->KCthis);
 }
 
 //_KSID_oExit_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_1874__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_1875__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
-	(*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(1876 , _KSID_oPointTr_0001_FFFF_0001_0001);
-	KerMain->call(1877, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPos_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->call(1878, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 3, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oManik_0001_FFFF_0001_0001, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_SubGr_0001_FFFF_0001_0001, 0, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-	KerMain->MapInfo->PlaceObjToMap(1879, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+	(*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(1877 , _KSID_oPointTr_0001_FFFF_0001_0001);
+	KerMain->call(1878, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPos_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+	KerMain->call(1879, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 3, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oManik_0001_FFFF_0001_0001, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_SubGr_0001_FFFF_0001_0001, 0, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+	KerMain->MapInfo->PlaceObjToMap(1880, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oExit_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_1883__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_1884__KN_TriggerOn_0001_FFFF_0001_0001() {
 	KRKAL->GameVictory();
-	KerMain->call(1885, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, 0);
-	KerMain->DeleteObject(1886, KER_ARGUMENT(OPointer, 0));
+	KerMain->call(1886, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, 0);
+	KerMain->DeleteObject(1887, KER_ARGUMENT(OPointer, 0));
 }
 
 //_KSID_oExit_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_1889__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(1890, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_1890__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(1891, (*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oExit_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_1914_Constructor_0001_FFFF_0001_0001() {
+void _KSM_1915_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ZmacknutTab_0001_FFFF_0001_0001) = 0;
 	(*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001) = new CKerArrObject();
 
 	if(KerMain->IsGameMode())
-		KerMain->call(1918, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, 0);
+		KerMain->call(1919, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_1914_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_1915_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ZmacknutTab_0001_FFFF_0001_0001) = 0;
 	(*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001) = new CKerArrObject();
 
 	if(KerMain->IsGameMode())
-		KerMain->call(1918, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, 0);
+		KerMain->call(1919, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_IncManik_0001_FFFF_0001_0001
-void _KSM_1920_IncManik_0001_FFFF_0001_0001() {
+void _KSM_1921_IncManik_0001_FFFF_0001_0001() {
 	(*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Get((*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->GetCount()) = KerContext->Sender;
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001)++;
 
 	if((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001) == 1)
-		KerMain->call(1923, KerContext->Sender, _KSID_SetFocus_0001_FFFF_0001_0001, 0);
+		KerMain->call(1924, KerContext->Sender, _KSID_SetFocus_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_DecManik_0001_FFFF_0001_0001
-void _KSM_1925_DecManik_0001_FFFF_0001_0001() {
+void _KSM_1926_DecManik_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001)--;
 
 	if((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ManikCount_0001_FFFF_0001_0001) <= 0)
-		KerMain->message(1928, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, eKerCTtimed, 1000, 0);
+		KerMain->message(1929, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, eKerCTtimed, 1000, 0);
 	int _KSL_f;
-	_KSL_f = _KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001(1929, KerContext->KCthis, KerContext->Sender);
+	_KSL_f = _KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001(1930, KerContext->KCthis, KerContext->Sender);
 
 	if(_KSL_f >= 0)
 		(*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Get(_KSL_f) = 0;
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001
-void _KSM_1932_Terminate_0001_FFFF_0001_0001() {
+void _KSM_1933_Terminate_0001_FFFF_0001_0001() {
 
 	if(Input->KeyPressed())
-		KerMain->message(1933, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+		KerMain->message(1934, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_Terminate_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 	else
 		KerMain->TerminateKernel();
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001
-int _KSM_1937_NajdiManika_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_m) {
-	DIRECT_CALL_BEGIN(_KSID_oManikControler_0001_FFFF_0001_0001,"_KSM_1937_NajdiManika_0001_FFFF_0001_0001",0)
+int _KSM_1938_NajdiManika_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_m) {
+	DIRECT_CALL_BEGIN(_KSID_oManikControler_0001_FFFF_0001_0001,"_KSM_1938_NajdiManika_0001_FFFF_0001_0001",0)
 	int _KSL_f;
 
 	for(_KSL_f = 0 ;_KSL_f < (*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->GetCount() ;_KSL_f++)
@@ -7447,10 +7452,10 @@ int _KSM_1937_NajdiManika_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, 
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_oManikControler_0001_FFFF_0001_0001__M_PrepniManika_0001_FFFF_0001_0001
-void _KSM_1944_PrepniManika_0001_FFFF_0001_0001() {
+void _KSM_1945_PrepniManika_0001_FFFF_0001_0001() {
 	int _KSL_f;
 	int _KSL_oldf;
-	_KSL_oldf = _KSL_f = _KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001(1946, KerContext->KCthis, (*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001));
+	_KSL_oldf = _KSL_f = _KSDM_oManikControler_0001_FFFF_0001_0001__M_NajdiManika_0001_FFFF_0001_0001(1947, KerContext->KCthis, (*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001));
 	_KSL_f++;
 
 	if(_KSL_f >= (*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->GetCount())
@@ -7466,7 +7471,7 @@ void _KSM_1944_PrepniManika_0001_FFFF_0001_0001() {
 
 		if(KerServices.ExistsObj((*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Read(_KSL_f))&&KerMain->MapInfo->IsObjInMap((*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Read(_KSL_f)))
 		{
-			KerMain->call(1954, (*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Read(_KSL_f), _KSID_SetFocus_0001_FFFF_0001_0001, 0);
+			KerMain->call(1955, (*(CKerArrObject**)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Manici_0001_FFFF_0001_0001)->Read(_KSL_f), _KSID_SetFocus_0001_FFFF_0001_0001, 0);
 			return;
 		}
 		_KSL_f++;
@@ -7482,53 +7487,54 @@ void _KSM_1944_PrepniManika_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001
-void _KSM_1966_EveryTurn_0001_FFFF_0001_0001() {
+void _KSM_1967_EveryTurn_0001_FFFF_0001_0001() {
 
 	if(Input->IsKeyDown(_KSID_keyTab_0001_FFFF_0001_0001))
 	{
 
 		if((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ZmacknutTab_0001_FFFF_0001_0001) == 0)
-			KerMain->call(1968, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_PrepniManika_0001_FFFF_0001_0001, 0);
+			KerMain->call(1969, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_PrepniManika_0001_FFFF_0001_0001, 0);
 		(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ZmacknutTab_0001_FFFF_0001_0001) = 1;
 	}
 	else
 		(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_ZmacknutTab_0001_FFFF_0001_0001) = 0;
-	KerMain->message(1971, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+	KerMain->message(1972, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_EveryTurn_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_1979_Constructor_0001_FFFF_0001_0001() {
-	KerMain->call(1980, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
+void _KSM_1980_Constructor_0001_FFFF_0001_0001() {
+	KerMain->call(1981, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_1979_LoadConstructor_0001_FFFF_0001_0001() {
-	KerMain->call(1980, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
+void _KSM_1980_LoadConstructor_0001_FFFF_0001_0001() {
+	KerMain->call(1981, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001
-void _KSM_1983_InitMenu_0001_FFFF_0001_0001() {
+void _KSM_1984_InitMenu_0001_FFFF_0001_0001() {
 	CGameMenu::Add2ProgressBars(0xFFFF0088, 0xFF00FFFF);
 	OPointer _KSL_o;
-	_KSL_o = KerMain->NewObject(1985 , _KSID_oklic_0001_FFFF_0001_0001);
-	KerMain->call(1986, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001);
+	_KSL_o = KerMain->NewObject(1986 , _KSID_oklic_0001_FFFF_0001_0001);
+	KerMain->call(1987, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Cervena_0001_FFFF_0001_0001);
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Klic1_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSL_o);
-	KerMain->call(1988, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001);
+	KerMain->call(1989, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Modra_0001_FFFF_0001_0001);
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Klic2_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSL_o);
-	KerMain->call(1990, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001);
+	KerMain->call(1991, _KSL_o, _KSID_SetBarva_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetBarva_0001_FFFF_0001_0001__M_Barva_0001_FFFF_0001_0001, _KSID_Zluta_0001_FFFF_0001_0001);
 	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Klic3_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSL_o);
-	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Bomba_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSID_oSebratelnaBomba_0001_FFFF_0001_0001);
-	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Mina_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSID_oSebratelnaMina_0001_FFFF_0001_0001);
-	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[0] = CGameMenu::AddItem(_KSID_oZnSmerova_0001_FFFF_0001_0001);
-	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[1] = CGameMenu::AddItem(_KSID_oZnZakazVjezdu_0001_FFFF_0001_0001);
-	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[2] = CGameMenu::AddItem(_KSID_oZnSedesat_0001_FFFF_0001_0001);
-	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[3] = CGameMenu::AddItem(_KSID_oZnNeSedesat_0001_FFFF_0001_0001);
+	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Bomba_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSID_oSebratelnaBomba_0001_FFFF_0001_0001, _KSID_keyZ_0001_FFFF_0001_0001);
+	(*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Mina_0001_FFFF_0001_0001) = CGameMenu::AddItem(_KSID_oSebratelnaMina_0001_FFFF_0001_0001, _KSID_keyX_0001_FFFF_0001_0001);
+	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[0] = CGameMenu::AddItem(_KSID_oZnSmerova_0001_FFFF_0001_0001, _KSID_key1_0001_FFFF_0001_0001);
+	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[1] = CGameMenu::AddItem(_KSID_oZnZakazVjezdu_0001_FFFF_0001_0001, _KSID_key2_0001_FFFF_0001_0001);
+	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[2] = CGameMenu::AddItem(_KSID_oZnSedesat_0001_FFFF_0001_0001, _KSID_key3_0001_FFFF_0001_0001);
+	((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[3] = CGameMenu::AddItem(_KSID_oZnNeSedesat_0001_FFFF_0001_0001, _KSID_key4_0001_FFFF_0001_0001);
+	CGameMenu::SetManikPicture(0, _KSID_keyTab_0001_FFFF_0001_0001);
 	CGameMenu::Refresh();
-	KerMain->DeleteObject(1999, _KSL_o);
+	KerMain->DeleteObject(2001, _KSL_o);
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_MnuSetKlic_0001_FFFF_0001_0001
-void _KSM_2002_MnuSetKlic_0001_FFFF_0001_0001() {
+void _KSM_2004_MnuSetKlic_0001_FFFF_0001_0001() {
 
 	if(KER_ARGUMENT(CKerName*, 0) == _KSID_Cervena_0001_FFFF_0001_0001)
 		CGameMenu::ObjectSetCount((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Klic1_0001_FFFF_0001_0001), KER_ARGUMENT(int, 1));
@@ -7543,40 +7549,40 @@ void _KSM_2002_MnuSetKlic_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_MnuSetBomba_0001_FFFF_0001_0001
-void _KSM_2007_MnuSetBomba_0001_FFFF_0001_0001() {
+void _KSM_2009_MnuSetBomba_0001_FFFF_0001_0001() {
 	CGameMenu::ObjectSetCount((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Bomba_0001_FFFF_0001_0001), KER_ARGUMENT(int, 0));
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_MnuSetMina_0001_FFFF_0001_0001
-void _KSM_2010_MnuSetMina_0001_FFFF_0001_0001() {
+void _KSM_2012_MnuSetMina_0001_FFFF_0001_0001() {
 	CGameMenu::ObjectSetCount((*(int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Mina_0001_FFFF_0001_0001), KER_ARGUMENT(int, 0));
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_MnuSetZnacka_0001_FFFF_0001_0001
-void _KSM_2014_MnuSetZnacka_0001_FFFF_0001_0001() {
+void _KSM_2016_MnuSetZnacka_0001_FFFF_0001_0001() {
 	CGameMenu::ObjectSetCount(((int*)_KSOV_oManikControler_0001_FFFF_0001_0001__M_Znacky_0001_FFFF_0001_0001)[KER_ARGUMENT(int, 0)], KER_ARGUMENT(int, 1));
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_ZobrazHo_0001_FFFF_0001_0001
-void _KSM_2020_ZobrazHo_0001_FFFF_0001_0001() {
+void _KSM_2022_ZobrazHo_0001_FFFF_0001_0001() {
 
 	if(!KerServices.ExistsObj(KER_ARGUMENT(OPointer, 0)))
 		return;
-	KerMain->MapInfo->ChangeObjCoords(2022, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+	KerMain->MapInfo->ChangeObjCoords(2024, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 
-	if(KerMain->MapInfo->IsObjInCollision(2023, KER_ARGUMENT(OPointer, 0)))
-		KerMain->DeleteObject(2023, KER_ARGUMENT(OPointer, 0));
+	if(KerMain->MapInfo->IsObjInCollision(2025, KER_ARGUMENT(OPointer, 0)))
+		KerMain->DeleteObject(2025, KER_ARGUMENT(OPointer, 0));
 	else
 	{
-		KerMain->MapInfo->PlaceObjToMap(2025, KER_ARGUMENT(OPointer, 0));
+		KerMain->MapInfo->PlaceObjToMap(2027, KER_ARGUMENT(OPointer, 0));
 
 		if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001))
-			KerMain->call(2026, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, 1, eKTobject, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0));
+			KerMain->call(2028, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, 1, eKTobject, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0));
 	}
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID_OznacHo_0001_FFFF_0001_0001
-void _KSM_2032_OznacHo_0001_FFFF_0001_0001() {
+void _KSM_2034_OznacHo_0001_FFFF_0001_0001() {
 
 	if(!KER_ARGUMENT(OPointer, 0))
 		KER_ARGUMENT(OPointer, 0) = KerContext->Sender;
@@ -7598,30 +7604,30 @@ void _KSM_2032_OznacHo_0001_FFFF_0001_0001() {
 	{
 	case 0:
 		KER_ARGUMENT(int, 1) = GEnMain->AddLight(_KSL_x, _KSL_y, _KSL_z + 50, 255, 255, 255, 80);
-		KerMain->message(2046, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 1, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
+		KerMain->message(2048, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 1, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
 		break;
 	case 1:
-		KerMain->message(2049, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 1, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
+		KerMain->message(2051, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 1, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
 		break;
 	case 2:
 		KER_ARGUMENT(int, 1) = GEnMain->AddLight(_KSL_x, _KSL_y, _KSL_z + 50, 255, 255, 255, 80);
-		KerMain->message(2053, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 3, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
+		KerMain->message(2055, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 3, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
 		break;
 	case 3:
 		KER_ARGUMENT(int, 1) = GEnMain->AddLight(_KSL_x, _KSL_y, _KSL_z + 50, 160, 160, 160, 50);
-		KerMain->message(2057, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 3, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
+		KerMain->message(2059, KerContext->KCthis, _KSID_OznacHo_0001_FFFF_0001_0001, eKerCTtimed, 33 * 3, 3, eKTobject, eKTint, eKTint, _KSID_OznacHo_0001_FFFF_0001_0001__M_manik_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001, _KSID_OznacHo_0001_FFFF_0001_0001__M_faze_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2) + 1);
 		break;
 	}
 }
 
 //_KSID_oManikControler_0001_FFFF_0001_0001::_KSID__KN_LoadGame
-void _KSM_2063__KN_LoadGame_0001_FFFF_0001_0001() {
+void _KSM_2065__KN_LoadGame_0001_FFFF_0001_0001() {
 	KerMain->FDeleteMessages(0, _KSID_OznacHo_0001_FFFF_0001_0001);
-	KerMain->call(2065, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
+	KerMain->call(2067, KerContext->KCthis, _KSID_oManikControler_0001_FFFF_0001_0001__M_InitMenu_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oObet1_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2081_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2083_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oZabijak1_0001_FFFF_0001_0001))
 	{
@@ -7630,182 +7636,182 @@ void _KSM_2081_TraingToMoveOver_0001_FFFF_0001_0001() {
 		{
 			int _KSL_x;
 			int _KSL_y;
-			KerMain->call(2085, KerContext->KCthis, _KSID_NajdiPrusecik_0001_FFFF_0001_0001, 4, eKTint | eKTret, _KSID_pCellX_0001_FFFF_0001_0001, &(_KSL_x), eKTint | eKTret, _KSID_pCellY_0001_FFFF_0001_0001, &(_KSL_y), eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTobject, _KSID_NajdiPrusecik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, KerContext->Sender);
-			KerMain->message(2086, KerContext->KCthis, _KSID_Umri_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 2, eKTint, eKTint, _KSID_pCellX_0001_FFFF_0001_0001, _KSID_pCellY_0001_FFFF_0001_0001, _KSL_x, _KSL_y);
+			KerMain->call(2087, KerContext->KCthis, _KSID_NajdiPrusecik_0001_FFFF_0001_0001, 4, eKTint | eKTret, _KSID_pCellX_0001_FFFF_0001_0001, &(_KSL_x), eKTint | eKTret, _KSID_pCellY_0001_FFFF_0001_0001, &(_KSL_y), eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTobject, _KSID_NajdiPrusecik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, KerContext->Sender);
+			KerMain->message(2088, KerContext->KCthis, _KSID_Umri_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 2, eKTint, eKTint, _KSID_pCellX_0001_FFFF_0001_0001, _KSID_pCellY_0001_FFFF_0001_0001, _KSL_x, _KSL_y);
 		}
 		else
-			KerMain->message(2087, KerContext->KCthis, _KSID_Umri_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
-		KerMain->message(2088, KerContext->Sender, _KSID_Zabij_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+			KerMain->message(2089, KerContext->KCthis, _KSID_Umri_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+		KerMain->message(2090, KerContext->Sender, _KSID_Zabij_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 	}
 }
 
 //_KSID_oHlina_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2100_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2102_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oManik_0001_FFFF_0001_0001))
 	{
-		KerMain->DeleteObject(2102, KerContext->KCthis);
+		KerMain->DeleteObject(2104, KerContext->KCthis);
 	}
 }
 
 //_KSID_oHlina_0001_FFFF_0001_0001::_KSID_TeleportLook_0001_FFFF_0001_0001
-void _KSM_2105_TeleportLook_0001_FFFF_0001_0001() {
+void _KSM_2107_TeleportLook_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001))
 	{
-		KerMain->DeleteObject(2107, KerContext->KCthis);
+		KerMain->DeleteObject(2109, KerContext->KCthis);
 	}
 }
 
 //_KSID_oObetPohybu1_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2123_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2125_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oZabijiPohybem1_0001_FFFF_0001_0001)&&!(KerServices.IsFMemberOfS(KER_ARGUMENT(CKerName*, 1), _KSID_NezabijackaForce_0001_FFFF_0001_0001)))
 	{
 
-		if((KER_ARGUMENT(int, 0)&3) == 0&&_KSDM_oMoves_0001_FFFF_0001_0001__M_ConvertLastDir_0001_FFFF_0001_0001(2125, (*(OPointer*)_KSG_Moves_0001_FFFF_0001_0001), KER_ARGUMENT(int, 0)) == (CKerName*)KerMain->callint(2125, KerContext->Sender, _KSID_GetLastDir_0001_FFFF_0001_0001, 5, 0))
+		if((KER_ARGUMENT(int, 0)&3) == 0&&_KSDM_oMoves_0001_FFFF_0001_0001__M_ConvertLastDir_0001_FFFF_0001_0001(2127, (*(OPointer*)_KSG_Moves_0001_FFFF_0001_0001), KER_ARGUMENT(int, 0)) == (CKerName*)KerMain->callint(2127, KerContext->Sender, _KSID_GetLastDir_0001_FFFF_0001_0001, 5, 0))
 		{
 
 			if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->KCthis), _KSID_oMoveable_0001_FFFF_0001_0001))
 			{
 				int _KSL_x;
 				int _KSL_y;
-				KerMain->call(2128, KerContext->KCthis, _KSID_NajdiPrusecik_0001_FFFF_0001_0001, 4, eKTint | eKTret, _KSID_pCellX_0001_FFFF_0001_0001, &(_KSL_x), eKTint | eKTret, _KSID_pCellY_0001_FFFF_0001_0001, &(_KSL_y), eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTobject, _KSID_NajdiPrusecik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, KerContext->Sender);
-				KerMain->message(2129, KerContext->KCthis, _KSID_ZnicSePadem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 2, eKTint, eKTint, _KSID_pCellX_0001_FFFF_0001_0001, _KSID_pCellY_0001_FFFF_0001_0001, _KSL_x, _KSL_y);
+				KerMain->call(2130, KerContext->KCthis, _KSID_NajdiPrusecik_0001_FFFF_0001_0001, 4, eKTint | eKTret, _KSID_pCellX_0001_FFFF_0001_0001, &(_KSL_x), eKTint | eKTret, _KSID_pCellY_0001_FFFF_0001_0001, &(_KSL_y), eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTobject, _KSID_NajdiPrusecik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, KerContext->Sender);
+				KerMain->message(2131, KerContext->KCthis, _KSID_ZnicSePadem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 2, eKTint, eKTint, _KSID_pCellX_0001_FFFF_0001_0001, _KSID_pCellY_0001_FFFF_0001_0001, _KSL_x, _KSL_y);
 			}
 			else
-				KerMain->message(2130, KerContext->KCthis, _KSID_ZnicSePadem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+				KerMain->message(2132, KerContext->KCthis, _KSID_ZnicSePadem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 		}
 	}
 }
 
 //_KSID_oBomba_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2174__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2176__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsGameMode())
-		KerMain->message(2175, KerContext->KCthis, _KSID_ZnicSeVybuchem_0001_FFFF_0001_0001, eKerCTtimed, 660, 0);
+		KerMain->message(2177, KerContext->KCthis, _KSID_ZnicSeVybuchem_0001_FFFF_0001_0001, eKerCTtimed, 660, 0);
 }
 
 //_KSID_oZamek_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2258_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2260_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001) = _KSID_Cervena_0001_FFFF_0001_0001;
 }
 
 //_KSID_oZamek_0001_FFFF_0001_0001::_KSID_GetBarva_0001_FFFF_0001_0001
-void _KSM_2259_GetBarva_0001_FFFF_0001_0001() {
+void _KSM_2261_GetBarva_0001_FFFF_0001_0001() {
 	{ KER_RETARG(CKerName*) = (*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001); return; }
 }
 
 //_KSID_oZamek_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2261_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2263_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oManik_0001_FFFF_0001_0001))
 	{
 
-		if(KerMain->callint(2263, KerContext->Sender, _KSID_DecKlic_0001_FFFF_0001_0001, 2, 1, eKTname, _KSID_DecKlic_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001)))
-			KerMain->message(2263, KerContext->KCthis, _KSID_OdemkniSe_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+		if(KerMain->callint(2265, KerContext->Sender, _KSID_DecKlic_0001_FFFF_0001_0001, 2, 1, eKTname, _KSID_DecKlic_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001)))
+			KerMain->message(2265, KerContext->KCthis, _KSID_OdemkniSe_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 	}
 }
 
 //_KSID_oZamek_0001_FFFF_0001_0001::_KSID_TeleportLook_0001_FFFF_0001_0001
-void _KSM_2266_TeleportLook_0001_FFFF_0001_0001() {
+void _KSM_2268_TeleportLook_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001))
 	{
 
-		if(KerMain->callint(2268, KER_ARGUMENT(OPointer, 0), _KSID_DecKlic_0001_FFFF_0001_0001, 2, 1, eKTname, _KSID_DecKlic_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001)))
-			KerMain->message(2268, KerContext->KCthis, _KSID_OdemkniSe_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+		if(KerMain->callint(2270, KER_ARGUMENT(OPointer, 0), _KSID_DecKlic_0001_FFFF_0001_0001, 2, 1, eKTname, _KSID_DecKlic_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oZamek_0001_FFFF_0001_0001__M_barva_0001_FFFF_0001_0001)))
+			KerMain->message(2270, KerContext->KCthis, _KSID_OdemkniSe_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 	}
 }
 
 //_KSID_oZamek_0001_FFFF_0001_0001::_KSID_OdemkniSe_0001_FFFF_0001_0001
-void _KSM_2272_OdemkniSe_0001_FFFF_0001_0001() {
+void _KSM_2274_OdemkniSe_0001_FFFF_0001_0001() {
 	ME->PlaySample(_KSID_sPrepinac_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->DeleteObject(2274, KerContext->KCthis);
+	KerMain->DeleteObject(2276, KerContext->KCthis);
 }
 
 //_KSID__KN_ScrollObj::_KSID_Constructor
-void _KSM_2285_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2287_Constructor_0001_FFFF_0001_0001() {
 	(*(unsigned char*)_KSOV__KN_ScrollObj__M__KN_CollisionCfg_0001_FFFF_0001_0001) = eKCCpoint|eKCCnothing;
 }
 
 //_KSID__KN_ScrollObj::_KSID_LoadConstructor
-void _KSM_2285_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2287_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(unsigned char*)_KSOV__KN_ScrollObj__M__KN_CollisionCfg_0001_FFFF_0001_0001) = eKCCpoint|eKCCnothing;
 }
 
 //_KSID_oVoda_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2420__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2426__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
-	(*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2422 , _KSID_oPointTr_0001_FFFF_0001_0001);
-	KerMain->call(2423, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPos_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->call(2424, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_PadaDoVody_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-	KerMain->MapInfo->PlaceObjToMap(2425, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+	(*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2428 , _KSID_oPointTr_0001_FFFF_0001_0001);
+	KerMain->call(2429, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPos_0001_FFFF_0001_0001, 2, eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPos_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
+	KerMain->call(2430, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_PadaDoVody_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+	KerMain->MapInfo->PlaceObjToMap(2431, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oVoda_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_2429__KN_TriggerOn_0001_FFFF_0001_0001() {
-	KerMain->message(2430, KER_ARGUMENT(OPointer, 0), _KSID_SpadniDoVody_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+void _KSM_2435__KN_TriggerOn_0001_FFFF_0001_0001() {
+	KerMain->message(2436, KER_ARGUMENT(OPointer, 0), _KSID_SpadniDoVody_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oVoda_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_2433__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(2434, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_2439__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(2440, (*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oVoda_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oHemr_0001_FFFF_0001_0001::_KSID_SetCoStrka_0001_FFFF_0001_0001
-void _KSM_4146_SetCoStrka_0001_FFFF_0001_0001() {
+void _KSM_4152_SetCoStrka_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M_CoStrka_0001_FFFF_0001_0001) = _KSID_StrkatelneHemrem_0001_FFFF_0001_0001;
 }
 
 //_KSID_oHemr_0001_FFFF_0001_0001::_KSID_ZemriVeSlizu_0001_FFFF_0001_0001
-void _KSM_4182_ZemriVeSlizu_0001_FFFF_0001_0001() {
+void _KSM_4188_ZemriVeSlizu_0001_FFFF_0001_0001() {
 	OPointer _KSL_o;
 	int _KSL_cx;
 	int _KSL_cy;
 	int _KSL_cz;
 	KerServices.FindObjCell(KerContext->KCthis, &_KSL_cx, &_KSL_cy, &_KSL_cz);
-	KerMain->MapInfo->RemoveObjFromMap(4186, KerContext->KCthis);
-	_KSL_o = KerMain->NewObject(4187 , _KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001);
-	KerMain->call(4188, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
-	KerMain->MapInfo->ChangeObjCoords(4189, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
-	KerMain->MapInfo->PlaceObjToMap(4190, _KSL_o);
+	KerMain->MapInfo->RemoveObjFromMap(4192, KerContext->KCthis);
+	_KSL_o = KerMain->NewObject(4193 , _KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001);
+	KerMain->call(4194, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
+	KerMain->MapInfo->ChangeObjCoords(4195, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
+	KerMain->MapInfo->PlaceObjToMap(4196, _KSL_o);
 	ME->PlaySample(_KSID_sZmenaVPriseru_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->DeleteObject(4192, KerContext->KCthis);
+	KerMain->DeleteObject(4198, KerContext->KCthis);
 }
 
 //_KSID_oPasovec_0001_FFFF_0001_0001::_KSID_ZemriVeSlizu_0001_FFFF_0001_0001
-void _KSM_4196_ZemriVeSlizu_0001_FFFF_0001_0001() {
+void _KSM_4202_ZemriVeSlizu_0001_FFFF_0001_0001() {
 	OPointer _KSL_o;
 	int _KSL_cx;
 	int _KSL_cy;
 	int _KSL_cz;
 	KerServices.FindObjCell(KerContext->KCthis, &_KSL_cx, &_KSL_cy, &_KSL_cz);
-	KerMain->MapInfo->RemoveObjFromMap(4200, KerContext->KCthis);
+	KerMain->MapInfo->RemoveObjFromMap(4206, KerContext->KCthis);
 
 	if(mtr.randInt(1))
-		_KSL_o = KerMain->NewObject(4201 , _KSID_oPriseraOt_0001_FFFF_0001_0001);
+		_KSL_o = KerMain->NewObject(4207 , _KSID_oPriseraOt_0001_FFFF_0001_0001);
 	else
-		_KSL_o = KerMain->NewObject(4201 , _KSID_oPriseraSNavadeci_0001_FFFF_0001_0001);
-	KerMain->call(4202, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
-	KerMain->MapInfo->ChangeObjCoords(4203, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
-	KerMain->MapInfo->PlaceObjToMap(4204, _KSL_o);
+		_KSL_o = KerMain->NewObject(4207 , _KSID_oPriseraSNavadeci_0001_FFFF_0001_0001);
+	KerMain->call(4208, _KSL_o, _KSID_SetSmer_0001_FFFF_0001_0001, 1, eKTname, _KSID_SetSmer_0001_FFFF_0001_0001__M_Smer_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001));
+	KerMain->MapInfo->ChangeObjCoords(4209, _KSL_o, _KSL_cx * 40, _KSL_cy * 40);
+	KerMain->MapInfo->PlaceObjToMap(4210, _KSL_o);
 	ME->PlaySample(_KSID_sZmenaVPriseru_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->DeleteObject(4206, KerContext->KCthis);
+	KerMain->DeleteObject(4212, KerContext->KCthis);
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2511_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2517_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001) = 2456128;
 	(*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001) = -2456128;
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2512__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2518__KN_MapPlaced_0001_FFFF_0001_0001() {
 	int _KSL_z;
 
 	if((*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001) == 2456128&&(*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001) == -2456128)
@@ -7815,8 +7821,8 @@ void _KSM_2512__KN_MapPlaced_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001
-int _KSM_2519_TestujCil_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_dir, int _KSL_x, int _KSL_y, OPointer _KSL_obj) {
-	DIRECT_CALL_BEGIN(_KSID_oTeleport_0001_FFFF_0001_0001,"_KSM_2519_TestujCil_0001_FFFF_0001_0001",0)
+int _KSM_2525_TestujCil_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_dir, int _KSL_x, int _KSL_y, OPointer _KSL_obj) {
+	DIRECT_CALL_BEGIN(_KSID_oTeleport_0001_FFFF_0001_0001,"_KSM_2525_TestujCil_0001_FFFF_0001_0001",0)
 	int _KSL_f;
 
 	switch(_KSL_dir)
@@ -7837,21 +7843,21 @@ int _KSM_2519_TestujCil_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, in
 	int _KSL_OldX;
 	int _KSL_OldY;
 	int _KSL_OldZ;
-	KerServices.FindObjsInArea(2528, (*(CKerArrObject**)_KSG_oTeleport_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), 0, _KSID_TeleportLookConsumer_0001_FFFF_0001_0001, _KSL_x, _KSL_y, _KSL_x, _KSL_y);
+	KerServices.FindObjsInArea(2534, (*(CKerArrObject**)_KSG_oTeleport_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), 0, _KSID_TeleportLookConsumer_0001_FFFF_0001_0001, _KSL_x, _KSL_y, _KSL_x, _KSL_y);
 
 	for(_KSL_f = 0 ;_KSL_f < (*(CKerArrObject**)_KSG_oTeleport_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount() ;_KSL_f++)
-		KerMain->call(2529, (*(CKerArrObject**)_KSG_oTeleport_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f), _KSID_TeleportLook_0001_FFFF_0001_0001, 1, eKTobject, _KSID_TeleportLook_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSL_obj);
+		KerMain->call(2535, (*(CKerArrObject**)_KSG_oTeleport_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f), _KSID_TeleportLook_0001_FFFF_0001_0001, 1, eKTobject, _KSID_TeleportLook_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSL_obj);
 	KerServices.ReadObjCoords(_KSL_obj, &_KSL_OldX, &_KSL_OldY, &_KSL_OldZ);
 
-	if(KerMain->MapInfo->IsObjInCollision(2531, _KSL_obj, _KSL_x * 40 - _KSL_OldX, _KSL_y * 40 - _KSL_OldY))
+	if(KerMain->MapInfo->IsObjInCollision(2537, _KSL_obj, _KSL_x * 40 - _KSL_OldX, _KSL_y * 40 - _KSL_OldY))
 		{
 			int _KSTMP_RET = 0;
 			DIRECT_CALL_END
 			return _KSTMP_RET;
 		}
-	KerMain->call(2532, _KSL_obj, _KSID_CalcMove_0001_FFFF_0001_0001, 0);
+	KerMain->call(2538, _KSL_obj, _KSID_CalcMove_0001_FFFF_0001_0001, 0);
 	ME->PlaySample(_KSID_SoundTest_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-	KerMain->message(2534, KerContext->KCthis, _KSID_TeleportniHo_0001_FFFF_0001_0001, eKerCTcallend, _KSL_obj, 3, eKTobject, eKTint, eKTint, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, _KSL_obj, _KSL_x * 40, _KSL_y * 40);
+	KerMain->message(2540, KerContext->KCthis, _KSID_TeleportniHo_0001_FFFF_0001_0001, eKerCTcallend, _KSL_obj, 3, eKTobject, eKTint, eKTint, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_TeleportniHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, _KSL_obj, _KSL_x * 40, _KSL_y * 40);
 	{
 		int _KSTMP_RET = 1;
 		DIRECT_CALL_END
@@ -7861,11 +7867,11 @@ int _KSM_2519_TestujCil_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, in
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001
-void _KSM_2538_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_pfdir, OPointer _KSL_obj) {
-	DIRECT_CALL_BEGIN(_KSID_oTeleport_0001_FFFF_0001_0001,"_KSM_2538_TestujCile_0001_FFFF_0001_0001",;)
+void _KSM_2544_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_pfdir, OPointer _KSL_obj) {
+	DIRECT_CALL_BEGIN(_KSID_oTeleport_0001_FFFF_0001_0001,"_KSM_2544_TestujCile_0001_FFFF_0001_0001",;)
 	int _KSL_dir;
 
-	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2540, KerContext->KCthis, _KSL_pfdir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
+	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2546, KerContext->KCthis, _KSL_pfdir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
 		{
 			DIRECT_CALL_END
 			return; 
@@ -7875,7 +7881,7 @@ void _KSM_2538_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, 
 	if(_KSL_dir < 1)
 		_KSL_dir = _KSL_dir + 16;
 
-	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2543, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
+	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2549, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
 		{
 			DIRECT_CALL_END
 			return; 
@@ -7885,7 +7891,7 @@ void _KSM_2538_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, 
 	if(_KSL_dir > 16)
 		_KSL_dir = _KSL_dir - 16;
 
-	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2546, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
+	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2552, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
 		{
 			DIRECT_CALL_END
 			return; 
@@ -7895,7 +7901,7 @@ void _KSM_2538_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, 
 	if(_KSL_dir > 16)
 		_KSL_dir = _KSL_dir - 16;
 
-	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2549, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
+	if(_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCil_0001_FFFF_0001_0001(2555, KerContext->KCthis, _KSL_dir, (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestX_0001_FFFF_0001_0001), (*(int*)_KSOV_oTeleport_0001_FFFF_0001_0001__M_DestY_0001_FFFF_0001_0001), _KSL_obj))
 		{
 			DIRECT_CALL_END
 			return; 
@@ -7904,14 +7910,14 @@ void _KSM_2538_TestujCile_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, 
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2552_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2558_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_TeleportujeSe_0001_FFFF_0001_0001)&&KerMain->IsGameMode())
-		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2553, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
+		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2559, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
 }
 
 //_KSID_oTeleport_0001_FFFF_0001_0001::_KSID_TeleportniHo_0001_FFFF_0001_0001
-void _KSM_2556_TeleportniHo_0001_FFFF_0001_0001() {
+void _KSM_2562_TeleportniHo_0001_FFFF_0001_0001() {
 	int _KSL_OldX;
 	int _KSL_OldY;
 	int _KSL_OldZ;
@@ -7920,9 +7926,9 @@ void _KSM_2556_TeleportniHo_0001_FFFF_0001_0001() {
 
 	if(!KerServices.ExistsObj(KER_ARGUMENT(OPointer, 0)))
 		return;
-	KerMain->MapInfo->RemoveObjFromMap(2560, KER_ARGUMENT(OPointer, 0));
+	KerMain->MapInfo->RemoveObjFromMap(2566, KER_ARGUMENT(OPointer, 0));
 
-	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2561, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
+	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2567, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
 	{
 		KerServices.ReadObjCoords(KER_ARGUMENT(OPointer, 0), &_KSL_OldX, &_KSL_OldY, &_KSL_OldZ);
 		_KSL_dx = KER_ARGUMENT(int, 1) - _KSL_OldX;
@@ -7931,32 +7937,32 @@ void _KSM_2556_TeleportniHo_0001_FFFF_0001_0001() {
 		int _KSL_a;
 		_KSL_a = KerServices.round(sqrt((double)(_KSL_dx * _KSL_dx + _KSL_dy * _KSL_dy))) + 165;
 		KerMain->MapInfo->WindowScroll(KER_ARGUMENT(int, 1) - _KSL_OldX, KER_ARGUMENT(int, 2) - _KSL_OldY, _KSL_a);
-		KerMain->message(2567, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2573, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 	}
 	else
-		KerMain->message(2568, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2574, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2597_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2603_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) = 0;
 	(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTime_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001) = 4;
-	KerMain->message(2602, KerContext->KCthis, _KSID_SetStrkTimeOut_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+	KerMain->message(2608, KerContext->KCthis, _KSID_SetStrkTimeOut_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2597_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2603_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) = 0;
 	(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTime_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001) = 4;
-	KerMain->message(2602, KerContext->KCthis, _KSID_SetStrkTimeOut_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+	KerMain->message(2608, KerContext->KCthis, _KSID_SetStrkTimeOut_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2605_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2611_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode()||!(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oStrka_0001_FFFF_0001_0001)))
 		return;
@@ -7964,7 +7970,7 @@ void _KSM_2605_TraingToMoveOver_0001_FFFF_0001_0001() {
 	if((*(int*)_KSOV_oMoveable_0001_FFFF_0001_0001__M_Moving_0001_FFFF_0001_0001))
 		return;
 
-	if(!(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->KCthis), (CKerName*)KerMain->callint(2608, KerContext->Sender, _KSID_ZjistiCoStrka_0001_FFFF_0001_0001, 5, 0))))
+	if(!(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->KCthis), (CKerName*)KerMain->callint(2614, KerContext->Sender, _KSID_ZjistiCoStrka_0001_FFFF_0001_0001, 5, 0))))
 		return;
 
 	if((*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) == KerMain->GetTime())
@@ -7974,24 +7980,24 @@ void _KSM_2605_TraingToMoveOver_0001_FFFF_0001_0001() {
 	{
 
 		if(!(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001))
-			KerMain->message(2613, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_DisableStrkac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+			KerMain->message(2619, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_DisableStrkac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 		(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001) = KerContext->Sender;
 		(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTime_0001_FFFF_0001_0001)++;
 		(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) = KerMain->GetTime();
 
 		if((*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTime_0001_FFFF_0001_0001) > (*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_StrkTimeOut_0001_FFFF_0001_0001))
 		{
-			KerMain->call(2619, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriStrkani_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceStrkani_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, KER_ARGUMENT(int, 1));
-			KerMain->message(2620, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
-			KerMain->message(2621, KerContext->Sender, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTend, 0, 0);
-			KerMain->message(2622, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_StrkaniStarted_0001_FFFF_0001_0001, eKerCTend, 0, 0);
+			KerMain->call(2625, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriStrkani_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceStrkani_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, KER_ARGUMENT(int, 1));
+			KerMain->message(2626, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+			KerMain->message(2627, KerContext->Sender, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTend, 0, 0);
+			KerMain->message(2628, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_StrkaniStarted_0001_FFFF_0001_0001, eKerCTend, 0, 0);
 		}
-		KerMain->message(2624, KerContext->Sender, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+		KerMain->message(2630, KerContext->Sender, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 	}
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_oStrkatelne_0001_FFFF_0001_0001__M_StrkaniStarted_0001_FFFF_0001_0001
-void _KSM_2628_StrkaniStarted_0001_FFFF_0001_0001() {
+void _KSM_2634_StrkaniStarted_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oMoveable_0001_FFFF_0001_0001__M_Moving_0001_FFFF_0001_0001)&&KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->KCthis), _KSID_StrkatelneSKamennymZvukem_0001_FFFF_0001_0001))
 	{
@@ -8000,7 +8006,7 @@ void _KSM_2628_StrkaniStarted_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_oStrkatelne_0001_FFFF_0001_0001__M_DisableStrkac_0001_FFFF_0001_0001
-void _KSM_2634_DisableStrkac_0001_FFFF_0001_0001() {
+void _KSM_2640_DisableStrkac_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oMoveable_0001_FFFF_0001_0001__M_Moving_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) < KerMain->GetTime())
 		(*(int*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_Time_0001_FFFF_0001_0001) = KerMain->GetTime() - 1;
@@ -8011,11 +8017,11 @@ void _KSM_2634_DisableStrkac_0001_FFFF_0001_0001() {
 		(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001) = 0;
 	}
 	else
-		KerMain->message(2640, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_DisableStrkac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+		KerMain->message(2646, KerContext->KCthis, _KSID_oStrkatelne_0001_FFFF_0001_0001__M_DisableStrkac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 }
 
 //_KSID_oStrkatelne_0001_FFFF_0001_0001::_KSID_StrkamTo_0001_FFFF_0001_0001
-void _KSM_2643_StrkamTo_0001_FFFF_0001_0001() {
+void _KSM_2649_StrkamTo_0001_FFFF_0001_0001() {
 
 	if(KerContext->Sender == (*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001)&&(*(OPointer*)_KSOV_oStrkatelne_0001_FFFF_0001_0001__M_LastStrkac_0001_FFFF_0001_0001)&&(*(int*)_KSOV_oMoveable_0001_FFFF_0001_0001__M_Moving_0001_FFFF_0001_0001))
 		{ KER_RETARG(int) = 1; return; }
@@ -8023,36 +8029,36 @@ void _KSM_2643_StrkamTo_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oStrka_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2660_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2666_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M_CoStrka_0001_FFFF_0001_0001) = _KSID_oStrkatelne_0001_FFFF_0001_0001;
 	(*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M__KN_clzFceGr_0001_FFFF_0001_0001) = _KSID_StrkatelnePBlocked_0001_FFFF_0001_0001;
-	KerMain->message(2663, KerContext->KCthis, _KSID_SetCoStrka_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+	KerMain->message(2669, KerContext->KCthis, _KSID_SetCoStrka_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oStrka_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2660_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2666_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M_CoStrka_0001_FFFF_0001_0001) = _KSID_oStrkatelne_0001_FFFF_0001_0001;
 	(*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M__KN_clzFceGr_0001_FFFF_0001_0001) = _KSID_StrkatelnePBlocked_0001_FFFF_0001_0001;
-	KerMain->message(2663, KerContext->KCthis, _KSID_SetCoStrka_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+	KerMain->message(2669, KerContext->KCthis, _KSID_SetCoStrka_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oStrka_0001_FFFF_0001_0001::_KSID_ZjistiCoStrka_0001_FFFF_0001_0001
-void _KSM_2665_ZjistiCoStrka_0001_FFFF_0001_0001() {
+void _KSM_2671_ZjistiCoStrka_0001_FFFF_0001_0001() {
 	{ KER_RETARG(CKerName*) = (*(CKerName**)_KSOV_oStrka_0001_FFFF_0001_0001__M_CoStrka_0001_FFFF_0001_0001); return; }
 }
 
 //_KSID_oStrka_0001_FFFF_0001_0001::_KSID__KN_TestCollision
-void _KSM_2669__KN_TestCollision_0001_FFFF_0001_0001() {
+void _KSM_2675__KN_TestCollision_0001_FFFF_0001_0001() {
 	OPointer _KSL_o;
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oBlockedPath_0001_FFFF_0001_0001))
-		_KSL_o = (OPointer)KerMain->callint(2671, KER_ARGUMENT(OPointer, 0), _KSID_GetFather_0001_FFFF_0001_0001, 4, 0);
+		_KSL_o = (OPointer)KerMain->callint(2677, KER_ARGUMENT(OPointer, 0), _KSID_GetFather_0001_FFFF_0001_0001, 4, 0);
 	else
 		_KSL_o = KER_ARGUMENT(OPointer, 0);
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(_KSL_o), _KSID_oStrkatelne_0001_FFFF_0001_0001))
 
-		if(KerMain->callint(2672, _KSL_o, _KSID_StrkamTo_0001_FFFF_0001_0001, 2, 0))
+		if(KerMain->callint(2678, _KSL_o, _KSID_StrkamTo_0001_FFFF_0001_0001, 2, 0))
 			{ KER_RETARG(int) = 0; return; }
 	{ KER_RETARG(int) = 1; return; }
 }
@@ -8063,14 +8069,14 @@ void _KSM_2197_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oHajzl_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2692_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2698_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->IsGameMode())
-		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2693, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
+		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2699, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
 }
 
 //_KSID_oHajzl_0001_FFFF_0001_0001::_KSID_TeleportniHo_0001_FFFF_0001_0001
-void _KSM_2696_TeleportniHo_0001_FFFF_0001_0001() {
+void _KSM_2702_TeleportniHo_0001_FFFF_0001_0001() {
 	int _KSL_OldX;
 	int _KSL_OldY;
 	int _KSL_OldZ;
@@ -8079,19 +8085,19 @@ void _KSM_2696_TeleportniHo_0001_FFFF_0001_0001() {
 
 	if(!KerServices.ExistsObj(KER_ARGUMENT(OPointer, 0)))
 		return;
-	KerMain->MapInfo->RemoveObjFromMap(2700, KER_ARGUMENT(OPointer, 0));
+	KerMain->MapInfo->RemoveObjFromMap(2706, KER_ARGUMENT(OPointer, 0));
 	KerServices.ReadObjCoords(KER_ARGUMENT(OPointer, 0), &_KSL_OldX, &_KSL_OldY, &_KSL_OldZ);
 
 	if(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)) != (*(CKerName**)_KSOV_oHajzl_0001_FFFF_0001_0001__M_MeniNa_0001_FFFF_0001_0001))
 	{
 		OPointer _KSL_obj2;
 		_KSL_obj2 = KER_ARGUMENT(OPointer, 0);
-		KER_ARGUMENT(OPointer, 0) = KerMain->NewObject(2705 , (*(CKerName**)_KSOV_oHajzl_0001_FFFF_0001_0001__M_MeniNa_0001_FFFF_0001_0001));
-		KerMain->call(2706, KER_ARGUMENT(OPointer, 0), _KSID_CopyManik_0001_FFFF_0001_0001, 1, eKTobject, _KSID_CopyManik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSL_obj2);
-		KerMain->DeleteObject(2707, _KSL_obj2);
+		KER_ARGUMENT(OPointer, 0) = KerMain->NewObject(2711 , (*(CKerName**)_KSOV_oHajzl_0001_FFFF_0001_0001__M_MeniNa_0001_FFFF_0001_0001));
+		KerMain->call(2712, KER_ARGUMENT(OPointer, 0), _KSID_CopyManik_0001_FFFF_0001_0001, 1, eKTobject, _KSID_CopyManik_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSL_obj2);
+		KerMain->DeleteObject(2713, _KSL_obj2);
 	}
 
-	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2710, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
+	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2716, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
 	{
 		_KSL_dx = KER_ARGUMENT(int, 1) - _KSL_OldX;
 		_KSL_dy = KER_ARGUMENT(int, 2) - _KSL_OldY;
@@ -8099,26 +8105,26 @@ void _KSM_2696_TeleportniHo_0001_FFFF_0001_0001() {
 		int _KSL_a;
 		_KSL_a = KerServices.round(sqrt((double)(_KSL_dx * _KSL_dx + _KSL_dy * _KSL_dy))) + 165;
 		KerMain->MapInfo->WindowScroll(KER_ARGUMENT(int, 1) - _KSL_OldX, KER_ARGUMENT(int, 2) - _KSL_OldY, _KSL_a);
-		KerMain->message(2715, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2721, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 	}
 	else
-		KerMain->message(2716, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2722, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 }
 
 //_KSID_oTeleport2_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2729_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2735_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTeleport2_0001_FFFF_0001_0001__M_CoTeleportuje_0001_FFFF_0001_0001) = _KSID_oMoveable_0001_FFFF_0001_0001;
 }
 
 //_KSID_oTeleport2_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_2730_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_2736_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KerContext->Sender), (*(CKerName**)_KSOV_oTeleport2_0001_FFFF_0001_0001__M_CoTeleportuje_0001_FFFF_0001_0001))&&KerMain->IsGameMode())
-		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2731, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
+		_KSDM_oTeleport_0001_FFFF_0001_0001__M_TestujCile_0001_FFFF_0001_0001(2737, KerContext->KCthis, KER_ARGUMENT(int, 0), KerContext->Sender);
 }
 
 //_KSID_oTeleport2_0001_FFFF_0001_0001::_KSID_TeleportniHo_0001_FFFF_0001_0001
-void _KSM_2734_TeleportniHo_0001_FFFF_0001_0001() {
+void _KSM_2740_TeleportniHo_0001_FFFF_0001_0001() {
 	int _KSL_OldX;
 	int _KSL_OldY;
 	int _KSL_OldZ;
@@ -8127,9 +8133,9 @@ void _KSM_2734_TeleportniHo_0001_FFFF_0001_0001() {
 
 	if(!KerServices.ExistsObj(KER_ARGUMENT(OPointer, 0)))
 		return;
-	KerMain->MapInfo->RemoveObjFromMap(2738, KER_ARGUMENT(OPointer, 0));
+	KerMain->MapInfo->RemoveObjFromMap(2744, KER_ARGUMENT(OPointer, 0));
 
-	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2739, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
+	if(KerServices.IsFMemberOfS(KerMain->GetObjType(KER_ARGUMENT(OPointer, 0)), _KSID_oManik_0001_FFFF_0001_0001)&&KerMain->callint(2745, KER_ARGUMENT(OPointer, 0), _KSID_GetFocus_0001_FFFF_0001_0001, 2, 0))
 	{
 		KerServices.ReadObjCoords(KER_ARGUMENT(OPointer, 0), &_KSL_OldX, &_KSL_OldY, &_KSL_OldZ);
 		_KSL_dx = KER_ARGUMENT(int, 1) - _KSL_OldX;
@@ -8138,50 +8144,50 @@ void _KSM_2734_TeleportniHo_0001_FFFF_0001_0001() {
 		int _KSL_a;
 		_KSL_a = KerServices.round(sqrt((double)(_KSL_dx * _KSL_dx + _KSL_dy * _KSL_dy))) + 165;
 		KerMain->MapInfo->WindowScroll(KER_ARGUMENT(int, 1) - _KSL_OldX, KER_ARGUMENT(int, 2) - _KSL_OldY, _KSL_a);
-		KerMain->message(2745, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2751, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, _KSL_a, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 	}
 	else
-		KerMain->message(2746, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
+		KerMain->message(2752, (*(OPointer*)_KSG_ManikControler_0001_FFFF_0001_0001), _KSID_ZobrazHo_0001_FFFF_0001_0001, eKerCTtimed, 165, 3, eKTobject, eKTint, eKTint, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_obj_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_x_0001_FFFF_0001_0001, _KSID_ZobrazHo_0001_FFFF_0001_0001__M_y_0001_FFFF_0001_0001, KER_ARGUMENT(OPointer, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 2));
 }
 
 //_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_2780_Constructor_0001_FFFF_0001_0001() {
+void _KSM_2786_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizMez_0001_FFFF_0001_0001) = 17;
 }
 
 //_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_2780_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_2786_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizMez_0001_FFFF_0001_0001) = 17;
 }
 
 //_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001::_KSID_SlizOn_0001_FFFF_0001_0001
-void _KSM_2783_SlizOn_0001_FFFF_0001_0001() {
+void _KSM_2789_SlizOn_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001)++;
 
 	if((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001) == 1&&(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) == 0)
-		KerMain->call(2785, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001, 0);
+		KerMain->call(2791, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001::_KSID_SlizOff_0001_FFFF_0001_0001
-void _KSM_2787_SlizOff_0001_FFFF_0001_0001() {
+void _KSM_2793_SlizOff_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001) > 0)
 		(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001)--;
 }
 
 //_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001::_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001
-void _KSM_2791_SlizTikac_0001_FFFF_0001_0001() {
+void _KSM_2797_SlizTikac_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizCount_0001_FFFF_0001_0001))
 	{
 		(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001)++;
 
 		if((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) > (*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizMez_0001_FFFF_0001_0001))
-			KerMain->message(2794, KerContext->KCthis, _KSID_ZemriVeSlizu_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+			KerMain->message(2800, KerContext->KCthis, _KSID_ZemriVeSlizu_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 	}
 	else
 
@@ -8189,45 +8195,45 @@ void _KSM_2791_SlizTikac_0001_FFFF_0001_0001() {
 			(*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001)--;
 		else
 			return;
-	KerMain->message(2797, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+	KerMain->message(2803, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 }
 
 //_KSID_oSliz_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_2809__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_2815__KN_MapPlaced_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsEditorMode())
 		return;
-	(*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2811 , _KSID_otrigger_0001_FFFF_0001_0001);
-	KerMain->call(2812, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 0, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 0);
-	KerMain->call(2813, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-	KerMain->MapInfo->PlaceObjToMap(2814, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+	(*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(2817 , _KSID_otrigger_0001_FFFF_0001_0001);
+	KerMain->call(2818, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 0, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 0);
+	KerMain->call(2819, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+	KerMain->MapInfo->PlaceObjToMap(2820, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oSliz_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_2818__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_2824__KN_TriggerOn_0001_FFFF_0001_0001() {
 
 	if((*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001))
-		KerMain->message(2819, KER_ARGUMENT(OPointer, 0), _KSID_SlizOn_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(2825, KER_ARGUMENT(OPointer, 0), _KSID_SlizOn_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oSliz_0001_FFFF_0001_0001::_KSID__KN_TriggerOff
-void _KSM_2821__KN_TriggerOff_0001_FFFF_0001_0001() {
+void _KSM_2827__KN_TriggerOff_0001_FFFF_0001_0001() {
 
 	if((*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001))
-		KerMain->message(2822, KER_ARGUMENT(OPointer, 0), _KSID_SlizOff_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(2828, KER_ARGUMENT(OPointer, 0), _KSID_SlizOff_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oSliz_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_2825__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(2826, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_2831__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(2832, (*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oSliz_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
-	KerServices.AreaMessage(2828, _KSID_SlizOff_0001_FFFF_0001_0001, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001);
+	KerServices.AreaMessage(2834, _KSID_SlizOff_0001_FFFF_0001_0001, KerContext->KCthis, _KSID_oUmiraNaSlizu_0001_FFFF_0001_0001);
 }
 
 //_KSID_oPriseraSNavadeci_0001_FFFF_0001_0001::_KSID_MoveCalculating_0001_FFFF_0001_0001
-void _KSM_2846_MoveCalculating_0001_FFFF_0001_0001() {
-	KerMain->call(2847, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
+void _KSM_2852_MoveCalculating_0001_FFFF_0001_0001() {
+	KerMain->call(2853, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
 	int _KSL_x;
 	int _KSL_y;
 	int _KSL_z;
@@ -8236,7 +8242,7 @@ void _KSM_2846_MoveCalculating_0001_FFFF_0001_0001() {
 
 	if(!KerMain->MapInfo->IsObjInMap((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001)))
 	{
-		KerMain->message(2851, KerContext->KCthis, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+		KerMain->message(2857, KerContext->KCthis, _KSID_CalcMove_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 		return;
 	}
 	KerServices.ReadObjCoords((*(OPointer*)_KSG_ManikFocus_0001_FFFF_0001_0001), &_KSL_x, &_KSL_y, &_KSL_z);
@@ -8281,55 +8287,55 @@ void _KSM_2846_MoveCalculating_0001_FFFF_0001_0001() {
 
 	if(_KSL_randret < _KSL_dx)
 	{
-		KerMain->call(2866, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm1, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
-		KerMain->call(2867, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm2, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2872, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm1, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2873, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm2, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 	}
 	else
 	{
-		KerMain->call(2869, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm2, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
-		KerMain->call(2870, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm1, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2875, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm2, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2876, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm1, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 	}
 
 	if(mtr.randInt(1))
 	{
-		KerMain->call(2873, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm3, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci3_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
-		KerMain->call(2874, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci4_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2879, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm3, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci3_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2880, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci4_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 	}
 	else
 	{
-		KerMain->call(2876, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci3_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
-		KerMain->call(2877, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm3, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci4_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2882, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm4, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci3_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
+		KerMain->call(2883, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_sm3, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci4_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, 33);
 	}
 }
 
 //_KSID_oManikSliz_0001_FFFF_0001_0001::_KSID_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001
-void _KSM_2891_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001() {
+void _KSM_2897_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizTikac_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
-		KerMain->message(2892, KerContext->KCthis, _KSID_oManikSliz_0001_FFFF_0001_0001__M_AktualizujSlizPruh_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+		KerMain->message(2898, KerContext->KCthis, _KSID_oManikSliz_0001_FFFF_0001_0001__M_AktualizujSlizPruh_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oManikSliz_0001_FFFF_0001_0001::_KSID_oManikSliz_0001_FFFF_0001_0001__M_AktualizujSlizPruh_0001_FFFF_0001_0001
-void _KSM_2894_AktualizujSlizPruh_0001_FFFF_0001_0001() {
+void _KSM_2900_AktualizujSlizPruh_0001_FFFF_0001_0001() {
 	CGameMenu::SetProgressBar(1, ((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) * 100) / (*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizMez_0001_FFFF_0001_0001));
 }
 
 //_KSID_oManikSliz_0001_FFFF_0001_0001::_KSID_ResetMenu_0001_FFFF_0001_0001
-void _KSM_2897_ResetMenu_0001_FFFF_0001_0001() {
+void _KSM_2903_ResetMenu_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oManik_0001_FFFF_0001_0001__M_Focus_0001_FFFF_0001_0001))
 		CGameMenu::SetProgressBar(1, ((*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizSmrtCount_0001_FFFF_0001_0001) * 100) / (*(int*)_KSOV_oUmiraNaSlizu_0001_FFFF_0001_0001__M_SlizMez_0001_FFFF_0001_0001));
 }
 
 //_KSID_oPriseraZnackova_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3075_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3081_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oPriseraZnackova_0001_FFFF_0001_0001__M_Rychlost_0001_FFFF_0001_0001) = 33;
 }
 
 //_KSID_oPriseraZnackova_0001_FFFF_0001_0001::_KSID_MoveCalculating_0001_FFFF_0001_0001
-void _KSM_3077_MoveCalculating_0001_FFFF_0001_0001() {
-	KerMain->call(3078, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
-	KerServices.FindObjsInArea(3079, (*(CKerArrObject**)_KSG_oPriseraZnackova_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnacky_0001_FFFF_0001_0001);
+void _KSM_3083_MoveCalculating_0001_FFFF_0001_0001() {
+	KerMain->call(3084, KerContext->KCthis, _KSID_RemoveForce_0001_FFFF_0001_0001, 0);
+	KerServices.FindObjsInArea(3085, (*(CKerArrObject**)_KSG_oPriseraZnackova_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oZnacky_0001_FFFF_0001_0001);
 	CKerName* _KSL__smer;
 	_KSL__smer = (*(CKerName**)_KSOV_oSeSmerem_0001_FFFF_0001_0001__M_smer_0001_FFFF_0001_0001);
 	int _KSL__prikaz;
@@ -8344,7 +8350,7 @@ void _KSM_3077_MoveCalculating_0001_FFFF_0001_0001() {
 
 		if(KerServices.IsFMemberOfS(KerMain->GetObjType((*(CKerArrObject**)_KSG_oPriseraZnackova_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(0)), _KSID_oZnSmerova_0001_FFFF_0001_0001))
 		{
-			_KSL__smer = (CKerName*)KerMain->callint(3085, (*(CKerArrObject**)_KSG_oPriseraZnackova_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(0), _KSID_GetSmer_0001_FFFF_0001_0001, 5, 0);
+			_KSL__smer = (CKerName*)KerMain->callint(3091, (*(CKerArrObject**)_KSG_oPriseraZnackova_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(0), _KSID_GetSmer_0001_FFFF_0001_0001, 5, 0);
 			_KSL__prikaz = 1;
 		}
 		else
@@ -8386,41 +8392,41 @@ void _KSM_3077_MoveCalculating_0001_FFFF_0001_0001() {
 		if(_KSL_dir > 16)
 			_KSL_dir = _KSL_dir - 16;
 	}
-	KerMain->call(3098, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_dir, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, (*(int*)_KSOV_oPriseraZnackova_0001_FFFF_0001_0001__M_Rychlost_0001_FFFF_0001_0001));
+	KerMain->call(3104, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_dir, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci1_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, (*(int*)_KSOV_oPriseraZnackova_0001_FFFF_0001_0001__M_Rychlost_0001_FFFF_0001_0001));
 	_KSL_dir = _KSL_dir + 8;
 
 	if(_KSL_dir > 16)
 		_KSL_dir = _KSL_dir - 16;
 
 	if(!_KSL__prikaz)
-		KerMain->call(3100, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_dir, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, (*(int*)_KSOV_oPriseraZnackova_0001_FFFF_0001_0001__M_Rychlost_0001_FFFF_0001_0001));
+		KerMain->call(3106, KerContext->KCthis, _KSID_AddForce_0001_FFFF_0001_0001, 4, eKTint, _KSID_pfdir_0001_FFFF_0001_0001, _KSL_dir, eKTname, _KSID_pfpriority_0001_FFFF_0001_0001, _KSID_PriChci2_0001_FFFF_0001_0001, eKTname, _KSID_pftype_0001_FFFF_0001_0001, _KSID_ForceChci_0001_FFFF_0001_0001, eKTint, _KSID_pfspeed_0001_FFFF_0001_0001, (*(int*)_KSOV_oPriseraZnackova_0001_FFFF_0001_0001__M_Rychlost_0001_FFFF_0001_0001));
 }
 
 //_KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001::_KSID_MoveCalculating_0001_FFFF_0001_0001
-void _KSM_3118_MoveCalculating_0001_FFFF_0001_0001() {
-	KerMain->message(3119, KerContext->KCthis, _KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001__M_KlaustrofobniKill_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+void _KSM_3124_MoveCalculating_0001_FFFF_0001_0001() {
+	KerMain->message(3125, KerContext->KCthis, _KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001__M_KlaustrofobniKill_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 }
 
 //_KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001::_KSID_oPriseraKlaustrofobni_0001_FFFF_0001_0001__M_KlaustrofobniKill_0001_FFFF_0001_0001
-void _KSM_3121_KlaustrofobniKill_0001_FFFF_0001_0001() {
+void _KSM_3127_KlaustrofobniKill_0001_FFFF_0001_0001() {
 
 	if(!(*(int*)_KSOV_oMoveable_0001_FFFF_0001_0001__M_Moving_0001_FFFF_0001_0001)&&KerMain->MapInfo->IsObjInMap(KerContext->KCthis))
-		KerMain->message(3122, KerContext->KCthis, _KSID_ZnicSeVybuchem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+		KerMain->message(3128, KerContext->KCthis, _KSID_ZnicSeVybuchem_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3175_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3181_Constructor_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3177, CKerName*, 5);
+	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3183, CKerName*, 5);
 
 	for(_KSL_f = 0 ;_KSL_f < 5 ;_KSL_f++)
 		(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001)[_KSL_f] = _KSID_oKrabice_0001_FFFF_0001_0001;
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3180_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3186_LoadConstructor_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3182, CKerName*, 5);
+	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3188, CKerName*, 5);
 	(*(unsigned char*)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_chr_0001_FFFF_0001_0001) = KerSaveLoad.LoadChar();
 	(*(int*)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_blb_0001_FFFF_0001_0001) = KerSaveLoad.LoadInt();
 
@@ -8429,7 +8435,7 @@ void _KSM_3180_LoadConstructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID__KN_ESaveMe
-void _KSM_3188__KN_ESaveMe_0001_FFFF_0001_0001() {
+void _KSM_3194__KN_ESaveMe_0001_FFFF_0001_0001() {
 	int _KSL_f;
 	KerSaveLoad.SaveChar((*(unsigned char*)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_chr_0001_FFFF_0001_0001));
 	KerSaveLoad.SaveInt((*(int*)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_blb_0001_FFFF_0001_0001));
@@ -8439,7 +8445,7 @@ void _KSM_3188__KN_ESaveMe_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID__KN_SaveGame
-void _KSM_3195__KN_SaveGame_0001_FFFF_0001_0001() {
+void _KSM_3201__KN_SaveGame_0001_FFFF_0001_0001() {
 	int _KSL_f;
 
 	for(_KSL_f = 0 ;_KSL_f < 5 ;_KSL_f++)
@@ -8447,21 +8453,21 @@ void _KSM_3195__KN_SaveGame_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID__KN_LoadGame
-void _KSM_3199__KN_LoadGame_0001_FFFF_0001_0001() {
+void _KSM_3205__KN_LoadGame_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3201, CKerName*, 5);
+	(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001) = KER_NEW(3207, CKerName*, 5);
 
 	for(_KSL_f = 0 ;_KSL_f < 5 ;_KSL_f++)
 		(*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001)[_KSL_f] = KerSaveLoad.LoadName();
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID_Destructor
-void _KSM_3205_Destructor_0001_FFFF_0001_0001() {
-	KerInterpret->ISFree(3206, (*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001));
+void _KSM_3211_Destructor_0001_FFFF_0001_0001() {
+	KerInterpret->ISFree(3212, (*(CKerName***)_KSOV_oScriptedTest_0001_FFFF_0001_0001__M_pole_0001_FFFF_0001_0001));
 }
 
 //_KSID_oScriptedTest_0001_FFFF_0001_0001::_KSID_oScriptedTest_0001_FFFF_0001_0001__M_Init1_0001_FFFF_0001_0001
-void _KSM_3209_Init1_0001_FFFF_0001_0001() {
+void _KSM_3215_Init1_0001_FFFF_0001_0001() {
 
 	if(KER_ARGUMENT(int, 0) == 20)
 	{
@@ -8485,28 +8491,28 @@ void _KSM_3209_Init1_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3265_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3271_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_DruhAkce_0001_FFFF_0001_0001) = _KSID_PrepUmisti_0001_FFFF_0001_0001;
 	(*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001) = _KSID_NaOblast_0001_FFFF_0001_0001;
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3265_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3271_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_DruhAkce_0001_FFFF_0001_0001) = _KSID_PrepUmisti_0001_FFFF_0001_0001;
 	(*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001) = _KSID_NaOblast_0001_FFFF_0001_0001;
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001
-void _KSM_3272_SaveAkce_0001_FFFF_0001_0001() {
+void _KSM_3278_SaveAkce_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSL_a = (*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSL_a = (*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
 
 	for(_KSL_f = 0 ;_KSL_f < (*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001) ;_KSL_f++)
 	{
 
 		if(!_KSL_a)
-			KerServices.LogUserError(3276, eKEGPanicError);
+			KerServices.LogUserError(3282, eKEGPanicError);
 		KerSaveLoad.SaveName(_KSL_a->akce);
 		KerSaveLoad.SaveName(_KSL_a->Pusobnost);
 
@@ -8540,29 +8546,29 @@ void _KSM_3272_SaveAkce_0001_FFFF_0001_0001() {
 	}
 
 	if(_KSL_a)
-		KerServices.LogUserError(3294, eKEGPanicError);
+		KerServices.LogUserError(3300, eKEGPanicError);
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID__KN_ESaveMe
-void _KSM_3297__KN_ESaveMe_0001_FFFF_0001_0001() {
-	KerMain->call(3298, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 0);
+void _KSM_3303__KN_ESaveMe_0001_FFFF_0001_0001() {
+	KerMain->call(3304, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID__KN_SaveGame
-void _KSM_3300__KN_SaveGame_0001_FFFF_0001_0001() {
-	KerMain->call(3301, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 1);
+void _KSM_3306__KN_SaveGame_0001_FFFF_0001_0001() {
+	KerMain->call(3307, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_SaveAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 1);
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001
-void _KSM_3304_LoadAkce_0001_FFFF_0001_0001() {
+void _KSM_3310_LoadAkce_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001** _KSL_a2;
-	_KSL_a2 = &(*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001** _KSL_a2;
+	_KSL_a2 = &(*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
 
 	for(_KSL_f = 0 ;_KSL_f < (*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001) ;_KSL_f++)
 	{
-		_KSL_a = KER_NEW(3308, _KSVS_3251_sAkce_0001_FFFF_0001_0001, 1);
+		_KSL_a = KER_NEW(3314, _KSVS_3257_sAkce_0001_FFFF_0001_0001, 1);
 		_KSL_a->next = 0;
 		_KSL_a->akce = KerSaveLoad.LoadName();
 		_KSL_a->Pusobnost = KerSaveLoad.LoadName();
@@ -8605,26 +8611,26 @@ void _KSM_3304_LoadAkce_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3333_LoadConstructor_0001_FFFF_0001_0001() {
-	KerMain->call(3334, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 0);
+void _KSM_3339_LoadConstructor_0001_FFFF_0001_0001() {
+	KerMain->call(3340, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 0);
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID__KN_LoadGame
-void _KSM_3336__KN_LoadGame_0001_FFFF_0001_0001() {
-	KerMain->call(3337, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 1);
+void _KSM_3342__KN_LoadGame_0001_FFFF_0001_0001() {
+	KerMain->call(3343, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001, 1, eKTint, _KSID_oPrepinace_0001_FFFF_0001_0001__M_LoadAkce_0001_FFFF_0001_0001__M_sg_0001_FFFF_0001_0001, 1);
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_CopyConstructor
-void _KSM_3340_CopyConstructor_0001_FFFF_0001_0001() {
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001** _KSL_a2;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_b;
-	_KSL_b = (*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
-	_KSL_a2 = &(*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+void _KSM_3346_CopyConstructor_0001_FFFF_0001_0001() {
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001** _KSL_a2;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_b;
+	_KSL_b = (*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSL_a2 = &(*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
 
 	while(_KSL_b)
 	{
-		_KSL_a = KER_NEW(3344, _KSVS_3251_sAkce_0001_FFFF_0001_0001, 1);
+		_KSL_a = KER_NEW(3350, _KSVS_3257_sAkce_0001_FFFF_0001_0001, 1);
 		_KSL_a->next = 0;
 		_KSL_a->akce = _KSL_b->akce;
 		_KSL_a->Pusobnost = _KSL_b->Pusobnost;
@@ -8644,18 +8650,18 @@ void _KSM_3340_CopyConstructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3362_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3368_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001) = 1;
 	(*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001) = 0;
-	(*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001) = 0;
+	(*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_Destructor
-void _KSM_3368_Destructor_0001_FFFF_0001_0001() {
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSL_a = (*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a2;
+void _KSM_3374_Destructor_0001_FFFF_0001_0001() {
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSL_a = (*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a2;
 
 	while(_KSL_a)
 	{
@@ -8663,16 +8669,16 @@ void _KSM_3368_Destructor_0001_FFFF_0001_0001() {
 		_KSL_a = _KSL_a->next;
 		delete _KSL_a2->objs1;
 		delete _KSL_a2->objs2;
-		KerInterpret->ISFree(3375, _KSL_a2);
+		KerInterpret->ISFree(3381, _KSL_a2);
 	}
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_oPrepinace_0001_FFFF_0001_0001__M_PridejPolozku_0001_FFFF_0001_0001
-void _KSM_3380_PridejPolozku_0001_FFFF_0001_0001() {
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSL_a = KER_NEW(3381, _KSVS_3251_sAkce_0001_FFFF_0001_0001, 1);
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001** _KSL_a2;
-	_KSL_a2 = &(*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+void _KSM_3386_PridejPolozku_0001_FFFF_0001_0001() {
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSL_a = KER_NEW(3387, _KSVS_3257_sAkce_0001_FFFF_0001_0001, 1);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001** _KSL_a2;
+	_KSL_a2 = &(*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
 
 	while(*_KSL_a2)
 		_KSL_a2 = &(**_KSL_a2).next;
@@ -8698,17 +8704,17 @@ void _KSM_3380_PridejPolozku_0001_FFFF_0001_0001() {
 	_KSL_a->typ = 0;
 	_KSL_a->akce = (*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_DruhAkce_0001_FFFF_0001_0001);
 	_KSL_a->Pusobnost = (*(CKerName**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Pusobnost_0001_FFFF_0001_0001);
-	_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001(3397, KerContext->KCthis, _KSL_a, (*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001));
+	_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001(3403, KerContext->KCthis, _KSL_a, (*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001));
 	(*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001)++;
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_oPrepinace_0001_FFFF_0001_0001__M_OdeberPolozku_0001_FFFF_0001_0001
-void _KSM_3402_OdeberPolozku_0001_FFFF_0001_0001() {
+void _KSM_3408_OdeberPolozku_0001_FFFF_0001_0001() {
 	int _KSL_a;
 	_KSL_a = 0;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001** _KSL_ptr;
-	_KSL_ptr = &(*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_ptr2;
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001** _KSL_ptr;
+	_KSL_ptr = &(*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_ptr2;
 
 	while(*_KSL_ptr)
 	{
@@ -8719,10 +8725,10 @@ void _KSM_3402_OdeberPolozku_0001_FFFF_0001_0001() {
 			*_KSL_ptr = _KSL_ptr2->next;
 			delete _KSL_ptr2->objs1;
 			delete _KSL_ptr2->objs2;
-			KerInterpret->ISFree(3411, _KSL_ptr2);
+			KerInterpret->ISFree(3417, _KSL_ptr2);
 			(*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001)--;
 			CGUIScriptVariableInterface::DeleteAllGroupItems(0);
-			KerMain->call(3414, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_InitAkce_0001_FFFF_0001_0001, 0);
+			KerMain->call(3420, KerContext->KCthis, _KSID_oPrepinace_0001_FFFF_0001_0001__M_InitAkce_0001_FFFF_0001_0001, 0);
 			break;
 		}
 		_KSL_a++;
@@ -8731,8 +8737,8 @@ void _KSM_3402_OdeberPolozku_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001
-void _KSM_3423_ZobrazPolozku_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, _KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a, int _KSL_index) {
-	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3423_ZobrazPolozku_0001_FFFF_0001_0001",;)
+void _KSM_3429_ZobrazPolozku_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, _KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a, int _KSL_index) {
+	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3429_ZobrazPolozku_0001_FFFF_0001_0001",;)
 	CGUIScriptVariableInterface::AddGap();
 
 	if(_KSL_a->akce == _KSID_PrepUmisti_0001_FFFF_0001_0001)
@@ -8853,27 +8859,27 @@ void _KSM_3423_ZobrazPolozku_0001_FFFF_0001_0001(int __CodeLine, OPointer __this
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_oPrepinace_0001_FFFF_0001_0001__M_InitAkce_0001_FFFF_0001_0001
-void _KSM_3495_InitAkce_0001_FFFF_0001_0001() {
+void _KSM_3501_InitAkce_0001_FFFF_0001_0001() {
 	int _KSL_f;
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSL_a = (*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSL_a = (*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
 	CGUIScriptVariableInterface::AddButton(0, 1, "en{{Add Action}}cs{{Vytvoø Akci}}", "en{{It adds a new action for the switch. Before you press this button, set the attributes Action Type and Action Target.}}cs{{Prida novou cinnost prepinace. Napred zvol Druh Akce a Pusobnost}}", 0, _KSID_oPrepinace_0001_FFFF_0001_0001__M_PridejPolozku_0001_FFFF_0001_0001);
 
 	for(_KSL_f = 0 ;_KSL_f < (*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_PocetAkci_0001_FFFF_0001_0001) ;_KSL_f++)
 	{
 
 		if(!_KSL_a)
-			KerServices.LogUserError(3500, eKEGPanicError);
-		_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001(3501, KerContext->KCthis, _KSL_a, _KSL_f);
+			KerServices.LogUserError(3506, eKEGPanicError);
+		_KSDM_oPrepinace_0001_FFFF_0001_0001__M_ZobrazPolozku_0001_FFFF_0001_0001(3507, KerContext->KCthis, _KSL_a, _KSL_f);
 		_KSL_a = _KSL_a->next;
 	}
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001
-int _KSM_3512_KillPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs) {
-	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3512_KillPlace_0001_FFFF_0001_0001",0)
+int _KSM_3518_KillPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs) {
+	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3518_KillPlace_0001_FFFF_0001_0001",0)
 
-	if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001)&&KerMain->MapInfo->IsObjInCollision(3513, _KSL_o))
+	if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Nekoliduj_0001_FFFF_0001_0001)&&KerMain->MapInfo->IsObjInCollision(3519, _KSL_o))
 		{
 			int _KSTMP_RET = 0;
 			DIRECT_CALL_END
@@ -8884,18 +8890,18 @@ int _KSM_3512_KillPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OP
 	{
 		int _KSL_f;
 		int _KSL_p;
-		KerMain->MapInfo->FindCollidingObjs(3516, _KSL_o, (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001));
+		KerMain->MapInfo->FindCollidingObjs(3522, _KSL_o, (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001));
 		_KSL_p = _KSL_objs->GetCount();
 
 		for(_KSL_f = 0 ;_KSL_f < (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount() ;_KSL_f++,_KSL_p++)
 		{
-			KerMain->MapInfo->RemoveObjFromMap(3519, (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f));
+			KerMain->MapInfo->RemoveObjFromMap(3525, (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f));
 			_KSL_objs->Get(_KSL_p) = (*(CKerArrObject**)_KSG_oPrepinace_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f);
 		}
-		KerMain->MapInfo->PlaceObjToMap(3522, _KSL_o);
+		KerMain->MapInfo->PlaceObjToMap(3528, _KSL_o);
 	}
 	else
-		KerMain->MapInfo->PlaceObjToMapWithKill(3523, _KSL_o);
+		KerMain->MapInfo->PlaceObjToMapWithKill(3529, _KSL_o);
 	{
 		int _KSTMP_RET = 1;
 		DIRECT_CALL_END
@@ -8905,8 +8911,8 @@ int _KSM_3512_KillPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OP
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSDM_oPrepinace_0001_FFFF_0001_0001__M_PlaceOrFindPlace_0001_FFFF_0001_0001
-void _KSM_3529_PlaceOrFindPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs, CKerName* _KSL_typ) {
-	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3529_PlaceOrFindPlace_0001_FFFF_0001_0001",;)
+void _KSM_3535_PlaceOrFindPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o, CKerArrObject* _KSL_objs, CKerName* _KSL_typ) {
+	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3535_PlaceOrFindPlace_0001_FFFF_0001_0001",;)
 	int _KSL_f;
 	OPointer _KSL_o2;
 	int _KSL_x;
@@ -8932,7 +8938,7 @@ void _KSM_3529_PlaceOrFindPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __t
 
 			if(_KSL_x == _KSL_x2&&_KSL_y == _KSL_y2&&_KSL_z == _KSL_z2)
 			{
-				KerMain->MapInfo->PlaceObjToMapWithKill(3540, _KSL_objs->Read(_KSL_f));
+				KerMain->MapInfo->PlaceObjToMapWithKill(3546, _KSL_objs->Read(_KSL_f));
 				{
 					DIRECT_CALL_END
 					return; 
@@ -8940,35 +8946,35 @@ void _KSM_3529_PlaceOrFindPlace_0001_FFFF_0001_0001(int __CodeLine, OPointer __t
 			}
 		}
 	}
-	_KSL_o2 = KerMain->NewObject(3545 , _KSL_typ);
-	KerMain->MapInfo->ChangeObjCoords(3546, _KSL_o2, _KSL_x, _KSL_y, _KSL_z);
-	KerMain->MapInfo->PlaceObjToMapWithKill(3547, _KSL_o2);
+	_KSL_o2 = KerMain->NewObject(3551 , _KSL_typ);
+	KerMain->MapInfo->ChangeObjCoords(3552, _KSL_o2, _KSL_x, _KSL_y, _KSL_z);
+	KerMain->MapInfo->PlaceObjToMapWithKill(3553, _KSL_o2);
 	DIRECT_CALL_END
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001
-void _KSM_3551_OdeberAZarovnej_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o) {
-	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3551_OdeberAZarovnej_0001_FFFF_0001_0001",;)
+void _KSM_3557_OdeberAZarovnej_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_o) {
+	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3557_OdeberAZarovnej_0001_FFFF_0001_0001",;)
 	int _KSL_x;
 	int _KSL_y;
 	int _KSL_z;
 
 	if(KerMain->MapInfo->IsObjInMap(_KSL_o))
 	{
-		KerMain->MapInfo->RemoveObjFromMap(3554, _KSL_o);
+		KerMain->MapInfo->RemoveObjFromMap(3560, _KSL_o);
 
 		if(!(KerServices.IsFMemberOfS(KerMain->GetObjType(_KSL_o), _KSID_PrepinacNezarovnavaSouradnice_0001_FFFF_0001_0001)))
 		{
 			KerServices.FindObjCell(_KSL_o, &_KSL_x, &_KSL_y, &_KSL_z);
-			KerMain->MapInfo->ChangeObjCoords(3557, _KSL_o, _KSL_x * 40, _KSL_y * 40, _KSL_z * 40);
+			KerMain->MapInfo->ChangeObjCoords(3563, _KSL_o, _KSL_x * 40, _KSL_y * 40, _KSL_z * 40);
 		}
 	}
 	DIRECT_CALL_END
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSDM_oPrepinace_0001_FFFF_0001_0001__M_JsouSouradniceObsazene_0001_FFFF_0001_0001
-int _KSM_3563_JsouSouradniceObsazene_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, CKerArrObject* _KSL_objs, int _KSL_x, int _KSL_y) {
-	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3563_JsouSouradniceObsazene_0001_FFFF_0001_0001",0)
+int _KSM_3569_JsouSouradniceObsazene_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, CKerArrObject* _KSL_objs, int _KSL_x, int _KSL_y) {
+	DIRECT_CALL_BEGIN(_KSID_oPrepinace_0001_FFFF_0001_0001,"_KSM_3569_JsouSouradniceObsazene_0001_FFFF_0001_0001",0)
 	int _KSL_f;
 	int _KSL_x2;
 	int _KSL_y2;
@@ -8998,9 +9004,9 @@ int _KSM_3563_JsouSouradniceObsazene_0001_FFFF_0001_0001(int __CodeLine, OPointe
 }
 
 //_KSID_oPrepinace_0001_FFFF_0001_0001::_KSID_Prepni_0001_FFFF_0001_0001
-void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
-	_KSVS_3251_sAkce_0001_FFFF_0001_0001* _KSL_a;
-	_KSL_a = (*(_KSVS_3251_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
+void _KSM_3583_Prepni_0001_FFFF_0001_0001() {
+	_KSVS_3257_sAkce_0001_FFFF_0001_0001* _KSL_a;
+	_KSL_a = (*(_KSVS_3257_sAkce_0001_FFFF_0001_0001**)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Akce_0001_FFFF_0001_0001);
 	OPointer _KSL_o;
 	int _KSL_f;
 	int _KSL_g;
@@ -9035,16 +9041,16 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 				if(!_KSL_a->typ1)
 					_KSL_a->objs1->SetCount(0);
 				else
-					KerServices.FindObjsInArea(3598, _KSL_a->objs1, 0, _KSL_a->typ1, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
+					KerServices.FindObjsInArea(3604, _KSL_a->objs1, 0, _KSL_a->typ1, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
 			}
 
 			for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
 			{
 
 				if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001)||_KSL_a->Pusobnost == _KSID_NaObjekty_0001_FFFF_0001_0001)
-					_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3601, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
+					_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3607, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
 				else
-					KerMain->DeleteObject(3602, _KSL_a->objs1->Read(_KSL_f));
+					KerMain->DeleteObject(3608, _KSL_a->objs1->Read(_KSL_f));
 			}
 
 			if(_KSL_a->Pusobnost == _KSID_NaOblast_0001_FFFF_0001_0001)
@@ -9057,20 +9063,20 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 						for(_KSL_g = _KSL_a->y1 ;_KSL_g <= _KSL_a->y2 ;_KSL_g++)
 						{
 
-							if(!_KSDM_oPrepinace_0001_FFFF_0001_0001__M_JsouSouradniceObsazene_0001_FFFF_0001_0001(3608, KerContext->KCthis, _KSL_a->objs2, _KSL_f * 40, _KSL_g * 40))
+							if(!_KSDM_oPrepinace_0001_FFFF_0001_0001__M_JsouSouradniceObsazene_0001_FFFF_0001_0001(3614, KerContext->KCthis, _KSL_a->objs2, _KSL_f * 40, _KSL_g * 40))
 							{
-								_KSL_o = KerMain->NewObject(3609 , _KSL_a->typ2);
-								KerMain->MapInfo->ChangeObjCoords(3610, _KSL_o, _KSL_f * 40, _KSL_g * 40);
+								_KSL_o = KerMain->NewObject(3615 , _KSL_a->typ2);
+								KerMain->MapInfo->ChangeObjCoords(3616, _KSL_o, _KSL_f * 40, _KSL_g * 40);
 
-								if(!_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001(3611, KerContext->KCthis, _KSL_o, _KSL_a->objs1))
-									KerMain->DeleteObject(3611, _KSL_o);
+								if(!_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001(3617, KerContext->KCthis, _KSL_o, _KSL_a->objs1))
+									KerMain->DeleteObject(3617, _KSL_o);
 							}
 						}
 			}
 
 			for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs2->GetCount() ;_KSL_f++)
 			{
-				_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001(3616, KerContext->KCthis, _KSL_a->objs2->Read(_KSL_f), _KSL_a->objs1);
+				_KSDM_oPrepinace_0001_FFFF_0001_0001__M_KillPlace_0001_FFFF_0001_0001(3622, KerContext->KCthis, _KSL_a->objs2->Read(_KSL_f), _KSL_a->objs1);
 			}
 
 			if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001))
@@ -9095,20 +9101,20 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 
 				if(_KSL_a->Pusobnost == _KSID_NaOblast_0001_FFFF_0001_0001)
 				{
-					KerServices.FindObjsInArea(3629, _KSL_a->objs1, 0, _KSL_a->typ1, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
+					KerServices.FindObjsInArea(3635, _KSL_a->objs1, 0, _KSL_a->typ1, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
 
 					for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
 					{
 
 						if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001))
-							_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3631, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
+							_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3637, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
 						else
-							KerMain->DeleteObject(3632, _KSL_a->objs1->Read(_KSL_f));
+							KerMain->DeleteObject(3638, _KSL_a->objs1->Read(_KSL_f));
 					}
 
 					for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
 					{
-						_KSDM_oPrepinace_0001_FFFF_0001_0001__M_PlaceOrFindPlace_0001_FFFF_0001_0001(3636, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f), _KSL_a->objs2, _KSL_a->typ2);
+						_KSDM_oPrepinace_0001_FFFF_0001_0001__M_PlaceOrFindPlace_0001_FFFF_0001_0001(3642, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f), _KSL_a->objs2, _KSL_a->typ2);
 					}
 				}
 				else
@@ -9116,7 +9122,7 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 
 					for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
 					{
-						_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3641, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
+						_KSDM_oPrepinace_0001_FFFF_0001_0001__M_OdeberAZarovnej_0001_FFFF_0001_0001(3647, KerContext->KCthis, _KSL_a->objs1->Read(_KSL_f));
 					}
 
 					for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
@@ -9125,8 +9131,8 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 						if(_KSL_f < _KSL_a->objs2->GetCount()&&KerServices.ExistsObj(_KSL_a->objs2->Read(_KSL_f))&&!KerMain->MapInfo->IsObjInMap(_KSL_a->objs2->Read(_KSL_f))&&KerServices.ExistsObj(_KSL_a->objs1->Read(_KSL_f)))
 						{
 							KerServices.ReadObjCoords(_KSL_a->objs1->Read(_KSL_f), &_KSL_x, &_KSL_y, &_KSL_z);
-							KerMain->MapInfo->ChangeObjCoords(3647, _KSL_a->objs2->Read(_KSL_f), _KSL_x, _KSL_y, _KSL_z);
-							KerMain->MapInfo->PlaceObjToMapWithKill(3648, _KSL_a->objs2->Read(_KSL_f));
+							KerMain->MapInfo->ChangeObjCoords(3653, _KSL_a->objs2->Read(_KSL_f), _KSL_x, _KSL_y, _KSL_z);
+							KerMain->MapInfo->PlaceObjToMapWithKill(3654, _KSL_a->objs2->Read(_KSL_f));
 						}
 					}
 				}
@@ -9148,7 +9154,7 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 
 					if(_KSL_a->Pusobnost == _KSID_NaOblast_0001_FFFF_0001_0001)
 					{
-						KerServices.AreaMessage(3661, _KSL_a->typ1, 0, _KSL_a->typ, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
+						KerServices.AreaMessage(3667, _KSL_a->typ1, 0, _KSL_a->typ, _KSL_a->x1, _KSL_a->y1, _KSL_a->x2, _KSL_a->y2);
 					}
 					else
 					{
@@ -9156,7 +9162,7 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 						for(_KSL_f = 0 ;_KSL_f < _KSL_a->objs1->GetCount() ;_KSL_f++)
 						{
 							_KSL__t = _KSL_a->typ1;
-							KerMain->message(3665, _KSL_a->objs1->Read(_KSL_f), _KSL__t, eKerCTmsg, 0, 0);
+							KerMain->message(3671, _KSL_a->objs1->Read(_KSL_f), _KSL__t, eKerCTmsg, 0, 0);
 						}
 					}
 
@@ -9172,24 +9178,24 @@ void _KSM_3577_Prepni_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3691_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3697_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_prepnuto_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_time_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oPrepinac_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3691_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3697_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_prepnuto_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_time_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3692_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3698_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 }
 
 //_KSID_oPrepinac_0001_FFFF_0001_0001::_KSID_TraingToMoveOver_0001_FFFF_0001_0001
-void _KSM_3694_TraingToMoveOver_0001_FFFF_0001_0001() {
+void _KSM_3700_TraingToMoveOver_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_prepnuto_0001_FFFF_0001_0001))
 		return;
@@ -9204,7 +9210,7 @@ void _KSM_3694_TraingToMoveOver_0001_FFFF_0001_0001() {
 		}
 		(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_time_0001_FFFF_0001_0001) = KerMain->GetTime();
 		ME->PlaySample(_KSID_sPrepinac_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
-		KerMain->call(3703, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, 0);
+		KerMain->call(3709, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, 0);
 
 		if((*(int*)_KSOV_oPrepinace_0001_FFFF_0001_0001__M_Prepina_0001_FFFF_0001_0001) == 0)
 			(*(int*)_KSOV_oPrepinac_0001_FFFF_0001_0001__M_prepnuto_0001_FFFF_0001_0001) = 1;
@@ -9218,33 +9224,33 @@ void _KSM_3694_TraingToMoveOver_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3725_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3731_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3725_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3731_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3729_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3735_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001) = _KSID_ReagujeVzdy_0001_FFFF_0001_0001;
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001
-void _KSM_3731__Prepni_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_hned) {
-	DIRECT_CALL_BEGIN(_KSID_oTriggerPrepinac_0001_FFFF_0001_0001,"_KSM_3731__Prepni_0001_FFFF_0001_0001",;)
+void _KSM_3737__Prepni_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int _KSL_hned) {
+	DIRECT_CALL_BEGIN(_KSID_oTriggerPrepinac_0001_FFFF_0001_0001,"_KSM_3737__Prepni_0001_FFFF_0001_0001",;)
 
 	if((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001) == _KSID_ReagujeVzdy_0001_FFFF_0001_0001||((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_On_0001_FFFF_0001_0001&&(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001) == _KSID_PriVypnuti_0001_FFFF_0001_0001)||((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_Off_0001_FFFF_0001_0001&&(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_Reaguje_0001_FFFF_0001_0001) == _KSID_PriZapnuti_0001_FFFF_0001_0001))
 	{
 
 		if(_KSL_hned)
-			KerMain->call(3733, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, 0);
+			KerMain->call(3739, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, 0);
 		else
-			KerMain->message(3733, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
+			KerMain->message(3739, KerContext->KCthis, _KSID_Prepni_0001_FFFF_0001_0001, eKerCTnext, 0, 0);
 	}
 
 	if((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_On_0001_FFFF_0001_0001)
@@ -9256,78 +9262,78 @@ void _KSM_3731__Prepni_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, int
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_3739__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_3745__KN_TriggerOn_0001_FFFF_0001_0001() {
 
 	if(!(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001))
 		return;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001)++;
 
 	if((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_Off_0001_FFFF_0001_0001)
-		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3742, KerContext->KCthis, 0);
+		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3748, KerContext->KCthis, 0);
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID__KN_TriggerOff
-void _KSM_3744__KN_TriggerOff_0001_FFFF_0001_0001() {
+void _KSM_3750__KN_TriggerOff_0001_FFFF_0001_0001() {
 
 	if(!(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001))
 		return;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001)--;
 
 	if((*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001) == 0)
-		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3747, KerContext->KCthis, 0);
+		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3753, KerContext->KCthis, 0);
 }
 
 //_KSID_oTriggerPrepinac_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_3749__KN_MapRemoved_0001_FFFF_0001_0001() {
-	KerMain->DeleteObject(3750, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_3755__KN_MapRemoved_0001_FFFF_0001_0001() {
+	KerMain->DeleteObject(3756, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = 0;
 
 	if((*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) == _KSID_On_0001_FFFF_0001_0001)
-		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3752, KerContext->KCthis, 1);
+		_KSDM_oTriggerPrepinac_0001_FFFF_0001_0001__M__Prepni_0001_FFFF_0001_0001(3758, KerContext->KCthis, 1);
 }
 
 //_KSID_oFotobunka_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_3766__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_3772__KN_MapPlaced_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsGameMode())
 	{
-		(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3770 , _KSID_otrigger_0001_FFFF_0001_0001);
-		KerMain->call(3771, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) - 40, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) - 40, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 3, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 3);
-		KerMain->call(3772, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_AktivujeFotobunku_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-		KerMain->MapInfo->PlaceObjToMap(3773, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+		(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3776 , _KSID_otrigger_0001_FFFF_0001_0001);
+		KerMain->call(3777, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) - 40, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) - 40, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 3, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 3);
+		KerMain->call(3778, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_AktivujeFotobunku_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+		KerMain->MapInfo->PlaceObjToMap(3779, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 		KerServices.MConnectObjs((*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 	}
 }
 
 //_KSID_oFotobunka_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_3777__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_3783__KN_TriggerOn_0001_FFFF_0001_0001() {
 	ME->PlaySample(_KSID_sFotobunka_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
 }
 
 //_KSID_oNaslapnaPodlaha_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_3788__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_3794__KN_MapPlaced_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsGameMode())
 	{
-		(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3792 , _KSID_otrigger_0001_FFFF_0001_0001);
-		KerMain->call(3793, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 0, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 0);
-		KerMain->call(3794, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_VeciPadajiciDoDiry_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-		KerMain->MapInfo->PlaceObjToMap(3795, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+		(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3798 , _KSID_otrigger_0001_FFFF_0001_0001);
+		KerMain->call(3799, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncX_0001_FFFF_0001_0001, 0, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_ncY_0001_FFFF_0001_0001, 0);
+		KerMain->call(3800, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 2, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, _KSID_VeciPadajiciDoDiry_0001_FFFF_0001_0001, eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+		KerMain->MapInfo->PlaceObjToMap(3801, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 		KerServices.MConnectObjs((*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 	}
 }
 
 //_KSID_oNaslapnaPodlaha_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_3799__KN_TriggerOn_0001_FFFF_0001_0001() {
+void _KSM_3805__KN_TriggerOn_0001_FFFF_0001_0001() {
 	ME->PlaySample(_KSID_sNaslPodlaha_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
 }
 
 //_KSID_oAreaTrigger_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3818_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3824_Constructor_0001_FFFF_0001_0001() {
 	(*(unsigned char*)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_CollisionCfg_0001_FFFF_0001_0001) = eKCCcolCube|eKCCcell|eKCCtriggerBit;
 	(*(CKerName**)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_clzAddGr_0001_FFFF_0001_0001) = _KSID__KN_Everything;
 	(*(CKerName**)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001) = _KSID__KN_Nothing;
@@ -9341,7 +9347,7 @@ void _KSM_3818_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oAreaTrigger_0001_FFFF_0001_0001::_KSID_SetPosSz_0001_FFFF_0001_0001
-void _KSM_3825_SetPosSz_0001_FFFF_0001_0001() {
+void _KSM_3831_SetPosSz_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001) = KER_ARGUMENT(int, 0);
 	(*(int*)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001) = KER_ARGUMENT(int, 1);
 	(*(int*)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_BCubeX2_0001_FFFF_0001_0001) = KER_ARGUMENT(int, 2) - KER_ARGUMENT(int, 0);
@@ -9349,50 +9355,50 @@ void _KSM_3825_SetPosSz_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oAreaTrigger_0001_FFFF_0001_0001::_KSID_SetClzGr_0001_FFFF_0001_0001
-void _KSM_3829_SetClzGr_0001_FFFF_0001_0001() {
+void _KSM_3835_SetClzGr_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_clzAddGr_0001_FFFF_0001_0001) = KER_ARGUMENT(CKerName*, 0);
 	(*(CKerName**)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001) = KER_ARGUMENT(CKerName*, 1);
 	(*(OPointer*)_KSOV_oAreaTrigger_0001_FFFF_0001_0001__M__KN_MsgRedirect_0001_FFFF_0001_0001) = KER_ARGUMENT(OPointer, 2);
 }
 
 //_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001::_KSDM_oDracekTriggerHelper_0001_FFFF_0001_0001__M_Init_0001_FFFF_0001_0001
-void _KSM_3841_Init_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_d) {
-	DIRECT_CALL_BEGIN(_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001,"_KSM_3841_Init_0001_FFFF_0001_0001",;)
+void _KSM_3847_Init_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, OPointer _KSL_d) {
+	DIRECT_CALL_BEGIN(_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001,"_KSM_3847_Init_0001_FFFF_0001_0001",;)
 	(*(OPointer*)_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001) = _KSL_d;
 	DIRECT_CALL_END
 }
 
 //_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001::_KSID__KN_TriggerOn
-void _KSM_3845__KN_TriggerOn_0001_FFFF_0001_0001() {
-	_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOn_0001_FFFF_0001_0001(3846, (*(OPointer*)_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001));
+void _KSM_3851__KN_TriggerOn_0001_FFFF_0001_0001() {
+	_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOn_0001_FFFF_0001_0001(3852, (*(OPointer*)_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001));
 }
 
 //_KSID_oDracekTriggerHelper_0001_FFFF_0001_0001::_KSID__KN_TriggerOff
-void _KSM_3848__KN_TriggerOff_0001_FFFF_0001_0001() {
-	_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001(3849, (*(OPointer*)_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001));
+void _KSM_3854__KN_TriggerOff_0001_FFFF_0001_0001() {
+	_KSDM_oDracek_0001_FFFF_0001_0001__M_VodaTriggerOff_0001_FFFF_0001_0001(3855, (*(OPointer*)_KSOV_oDracekTriggerHelper_0001_FFFF_0001_0001__M_dracek_0001_FFFF_0001_0001));
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3910_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3916_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3910_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3916_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_OnOff_0001_FFFF_0001_0001) = _KSID_Off_0001_FFFF_0001_0001;
 	(*(int*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_citac_0001_FFFF_0001_0001) = 0;
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3914_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3920_LoadConstructor_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsGameMode())
-		KerMain->message(3915, KerContext->KCthis, _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(3921, KerContext->KCthis, _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3925_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3931_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x1_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y1_0001_FFFF_0001_0001) = 0;
 	(*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x2_0001_FFFF_0001_0001) = 0;
@@ -9402,27 +9408,27 @@ void _KSM_3925_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_CopyConstructor
-void _KSM_3931_CopyConstructor_0001_FFFF_0001_0001() {
+void _KSM_3937_CopyConstructor_0001_FFFF_0001_0001() {
 
 	if(KerMain->IsGameMode())
-		KerMain->message(3932, KerContext->KCthis, _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+		KerMain->message(3938, KerContext->KCthis, _KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001::_KSID_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Activate_0001_FFFF_0001_0001
-void _KSM_3935_Activate_0001_FFFF_0001_0001() {
-	(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3936 , _KSID_oAreaTrigger_0001_FFFF_0001_0001);
-	KerMain->call(3937, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X1_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x1_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y1_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x2_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y2_0001_FFFF_0001_0001));
-	KerMain->call(3938, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 3, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Reaguj_0001_FFFF_0001_0001), eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_SubGr_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Ignoruj_0001_FFFF_0001_0001), eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
-	KerMain->MapInfo->PlaceObjToMap(3939, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
+void _KSM_3941_Activate_0001_FFFF_0001_0001() {
+	(*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001) = KerMain->NewObject(3942 , _KSID_oAreaTrigger_0001_FFFF_0001_0001);
+	KerMain->call(3943, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetPosSz_0001_FFFF_0001_0001, 4, eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X1_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x1_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y1_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y1_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_X2_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_x2_0001_FFFF_0001_0001), eKTint, _KSID_SetPosSz_0001_FFFF_0001_0001__M_Y2_0001_FFFF_0001_0001, (*(int*)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_y2_0001_FFFF_0001_0001));
+	KerMain->call(3944, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), _KSID_SetClzGr_0001_FFFF_0001_0001, 3, eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_AddGr_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Reaguj_0001_FFFF_0001_0001), eKTname, _KSID_SetClzGr_0001_FFFF_0001_0001__M_SubGr_0001_FFFF_0001_0001, (*(CKerName**)_KSOV_oGlobalniPrepinac_0001_FFFF_0001_0001__M_Ignoruj_0001_FFFF_0001_0001), eKTobject, _KSID_SetClzGr_0001_FFFF_0001_0001__M_Redirect_0001_FFFF_0001_0001, KerContext->KCthis);
+	KerMain->MapInfo->PlaceObjToMap(3945, (*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001));
 	KerServices.MConnectObjs((*(OPointer*)_KSOV_oTriggerPrepinac_0001_FFFF_0001_0001__M_triger_0001_FFFF_0001_0001), KerContext->KCthis);
 }
 
 //_KSID_oOpatrnaPrisera_0001_FFFF_0001_0001::_KSID_IsInMoveCollision_0001_FFFF_0001_0001
-void _KSM_3955_IsInMoveCollision_0001_FFFF_0001_0001() {
+void _KSM_3961_IsInMoveCollision_0001_FFFF_0001_0001() {
 
 	if(KER_ARGUMENT(CKerName*, 2) != _KSID_ForceChci_0001_FFFF_0001_0001)
 		{ KER_RETARG(int) = 0; return; }
-	KerServices.FindObjsInArea(3957, (*(CKerArrObject**)_KSG_oOpatrnaPrisera_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_NebezpeciProPriseru_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1));
+	KerServices.FindObjsInArea(3963, (*(CKerArrObject**)_KSG_oOpatrnaPrisera_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_NebezpeciProPriseru_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1));
 
 	if((*(CKerArrObject**)_KSG_oOpatrnaPrisera_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount())
 		{ KER_RETARG(int) = 1; return; }
@@ -9430,7 +9436,7 @@ void _KSM_3955_IsInMoveCollision_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3983_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3989_Constructor_0001_FFFF_0001_0001() {
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001) = 255;
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001) = 255;
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001) = 255;
@@ -9439,7 +9445,7 @@ void _KSM_3983_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_3989_Constructor_0001_FFFF_0001_0001() {
+void _KSM_3995_Constructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsEditorMode())
@@ -9449,7 +9455,7 @@ void _KSM_3989_Constructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_3989_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_3995_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001) = 0;
 
 	if(KerMain->IsEditorMode())
@@ -9459,24 +9465,24 @@ void _KSM_3989_LoadConstructor_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID__KN_LoadGame
-void _KSM_3995__KN_LoadGame_0001_FFFF_0001_0001() {
+void _KSM_4001__KN_LoadGame_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001) = 0;
-	KerMain->message(3997, KerContext->KCthis, _KSID_oSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
+	KerMain->message(4003, KerContext->KCthis, _KSID_oSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001, eKerCTmsg, 0, 0);
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID__KN_MapPlaced
-void _KSM_4000__KN_MapPlaced_0001_FFFF_0001_0001() {
+void _KSM_4006__KN_MapPlaced_0001_FFFF_0001_0001() {
 	(*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001) = GEnMain->AddLight((*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001), (*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_vyska_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001), (*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_radius_0001_FFFF_0001_0001));
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID__KN_MapRemoved
-void _KSM_4004__KN_MapRemoved_0001_FFFF_0001_0001() {
+void _KSM_4010__KN_MapRemoved_0001_FFFF_0001_0001() {
 	GEnMain->DeleteLight((*(int*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_svetlo_0001_FFFF_0001_0001));
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSDM_oSvetlo_0001_FFFF_0001_0001__M_SetSvetlo_0001_FFFF_0001_0001
-void _KSM_4008_SetSvetlo_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, unsigned char _KSL_R, unsigned char _KSL_G, unsigned char _KSL_B, int _KSL_Radius, int _KSL_Vyska) {
-	DIRECT_CALL_BEGIN(_KSID_oSvetlo_0001_FFFF_0001_0001,"_KSM_4008_SetSvetlo_0001_FFFF_0001_0001",;)
+void _KSM_4014_SetSvetlo_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, unsigned char _KSL_R, unsigned char _KSL_G, unsigned char _KSL_B, int _KSL_Radius, int _KSL_Vyska) {
+	DIRECT_CALL_BEGIN(_KSID_oSvetlo_0001_FFFF_0001_0001,"_KSM_4014_SetSvetlo_0001_FFFF_0001_0001",;)
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001) = _KSL_R;
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001) = _KSL_G;
 	(*(unsigned char*)_KSOV_oSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001) = _KSL_B;
@@ -9486,12 +9492,12 @@ void _KSM_4008_SetSvetlo_0001_FFFF_0001_0001(int __CodeLine, OPointer __thisO, u
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID_oSvetlo_0001_FFFF_0001_0001__M_AddButton_0001_FFFF_0001_0001
-void _KSM_4015_AddButton_0001_FFFF_0001_0001() {
+void _KSM_4021_AddButton_0001_FFFF_0001_0001() {
 	CGUIScriptVariableInterface::AddButton(0, 1, "en{{Changes lighting}}cs{{Zmen Nasviceni}}", 0, 0, _KSID_oSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001);
 }
 
 //_KSID_oSvetlo_0001_FFFF_0001_0001::_KSID_oSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001
-void _KSM_4019_ZmenNasviceni_0001_FFFF_0001_0001() {
+void _KSM_4025_ZmenNasviceni_0001_FFFF_0001_0001() {
 
 	if(KerMain->MapInfo->IsObjInMap(KerContext->KCthis))
 	{
@@ -9501,41 +9507,41 @@ void _KSM_4019_ZmenNasviceni_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_4041_Constructor_0001_FFFF_0001_0001() {
+void _KSM_4047_Constructor_0001_FFFF_0001_0001() {
 	GEnMain->GetTopLightIntenzity(&(*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001), &(*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001), &(*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001));
 }
 
 //_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_4045_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_4051_LoadConstructor_0001_FFFF_0001_0001() {
 	GEnMain->SetTopLightIntenzity((*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001));
 }
 
 //_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001::_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001__M_AddButton_0001_FFFF_0001_0001
-void _KSM_4051_AddButton_0001_FFFF_0001_0001() {
+void _KSM_4057_AddButton_0001_FFFF_0001_0001() {
 	CGUIScriptVariableInterface::AddButton(0, 1, "en{{Changes lighting}}cs{{Zmen Nasviceni}}", 0, 0, _KSID_oGlobalniSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001);
 }
 
 //_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001::_KSID_oGlobalniSvetlo_0001_FFFF_0001_0001__M_ZmenNasviceni_0001_FFFF_0001_0001
-void _KSM_4055_ZmenNasviceni_0001_FFFF_0001_0001() {
+void _KSM_4061_ZmenNasviceni_0001_FFFF_0001_0001() {
 	GEnMain->SetTopLightIntenzity((*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_r_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_g_0001_FFFF_0001_0001), (*(unsigned char*)_KSOV_oGlobalniSvetlo_0001_FFFF_0001_0001__M_b_0001_FFFF_0001_0001));
 }
 
 //_KSID_oPriseraSeZvukem1_0001_FFFF_0001_0001::_KSID_MoveStarted_0001_FFFF_0001_0001
-void _KSM_4070_MoveStarted_0001_FFFF_0001_0001() {
+void _KSM_4076_MoveStarted_0001_FFFF_0001_0001() {
 
 	if(mtr.randInt(25) == 0)
 		ME->PlaySample(_KSID_sPfiii_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
 }
 
 //_KSID_oPriseraSeZvukem2_0001_FFFF_0001_0001::_KSID_MoveStarted_0001_FFFF_0001_0001
-void _KSM_4078_MoveStarted_0001_FFFF_0001_0001() {
+void _KSM_4084_MoveStarted_0001_FFFF_0001_0001() {
 
 	if(mtr.randInt(5) == 0)
 		ME->PlaySample(_KSID_sPrisera1_0001_FFFF_0001_0001, (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001), (*(int*)_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001));
 }
 
 //_KSID_oBouraDoSten_0001_FFFF_0001_0001::_KSID_NarazilJsem_0001_FFFF_0001_0001
-void _KSM_4094_NarazilJsem_0001_FFFF_0001_0001() {
+void _KSM_4100_NarazilJsem_0001_FFFF_0001_0001() {
 
 	if((*(int*)_KSOV_oBouraDoSten_0001_FFFF_0001_0001__M_cas_0001_FFFF_0001_0001) == KerMain->GetTime())
 		return;
@@ -9544,18 +9550,18 @@ void _KSM_4094_NarazilJsem_0001_FFFF_0001_0001() {
 }
 
 //_KSID_oPrulezny_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_4112_Constructor_0001_FFFF_0001_0001() {
+void _KSM_4118_Constructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oPrulezny_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001) = _KSID_oProlejza_0001_FFFF_0001_0001;
 }
 
 //_KSID_oPrulezny_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_4112_LoadConstructor_0001_FFFF_0001_0001() {
+void _KSM_4118_LoadConstructor_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_oPrulezny_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001) = _KSID_oProlejza_0001_FFFF_0001_0001;
 }
 
 //_KSID_oPrulezny_0001_FFFF_0001_0001::_KSID_IsInMoveCollision_0001_FFFF_0001_0001
-void _KSM_4117_IsInMoveCollision_0001_FFFF_0001_0001() {
-	KerServices.FindObjsInArea(4118, (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1));
+void _KSM_4123_IsInMoveCollision_0001_FFFF_0001_0001() {
+	KerServices.FindObjsInArea(4124, (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001), KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001, KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1), KER_ARGUMENT(int, 0), KER_ARGUMENT(int, 1));
 	int _KSL_re;
 	_KSL_re = (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount();
 
@@ -9569,23 +9575,23 @@ void _KSM_4117_IsInMoveCollision_0001_FFFF_0001_0001() {
 
 	for(_KSL_f = 0 ;_KSL_f < (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->GetCount() ;_KSL_f++)
 
-		if(KerMain->callint(4124, (*(OPointer*)_KSG_Map_0001_000F_0001_1001), _KSID_IsObjInCell_0001_000F_0001_1001, 2, 3, eKTint, _KSID_IsObjInCell_0001_000F_0001_1001__M_x_0001_000F_0001_1001, _KSL_X, eKTint, _KSID_IsObjInCell_0001_000F_0001_1001__M_y_0001_000F_0001_1001, _KSL_Y, eKTobject, _KSID_IsObjInCell_0001_000F_0001_1001__M_obj_0001_000F_0001_1001, (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f)))
+		if(KerMain->callint(4130, (*(OPointer*)_KSG_Map_0001_000F_0001_1001), _KSID_IsObjInCell_0001_000F_0001_1001, 2, 3, eKTint, _KSID_IsObjInCell_0001_000F_0001_1001__M_x_0001_000F_0001_1001, _KSL_X, eKTint, _KSID_IsObjInCell_0001_000F_0001_1001__M_y_0001_000F_0001_1001, _KSL_Y, eKTobject, _KSID_IsObjInCell_0001_000F_0001_1001__M_obj_0001_000F_0001_1001, (*(CKerArrObject**)_KSG_oPrulezny_0001_FFFF_0001_0001__M_objs_0001_FFFF_0001_0001)->Read(_KSL_f)))
 			_KSL_re--;
 	{ KER_RETARG(int) = _KSL_re; return; }
 }
 
 //_KSID_oProlejza_0001_FFFF_0001_0001::_KSID_Constructor
-void _KSM_4132_Constructor_0001_FFFF_0001_0001() {
-	KerMain->message(4133, KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001__M_SetClzGr1_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+void _KSM_4138_Constructor_0001_FFFF_0001_0001() {
+	KerMain->message(4139, KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001__M_SetClzGr1_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oProlejza_0001_FFFF_0001_0001::_KSID_LoadConstructor
-void _KSM_4132_LoadConstructor_0001_FFFF_0001_0001() {
-	KerMain->message(4133, KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001__M_SetClzGr1_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
+void _KSM_4138_LoadConstructor_0001_FFFF_0001_0001() {
+	KerMain->message(4139, KerContext->KCthis, _KSID_oProlejza_0001_FFFF_0001_0001__M_SetClzGr1_0001_FFFF_0001_0001, eKerCTcallend, KerContext->KCthis, 0);
 }
 
 //_KSID_oProlejza_0001_FFFF_0001_0001::_KSID_oProlejza_0001_FFFF_0001_0001__M_SetClzGr1_0001_FFFF_0001_0001
-void _KSM_4136_SetClzGr1_0001_FFFF_0001_0001() {
+void _KSM_4142_SetClzGr1_0001_FFFF_0001_0001() {
 	(*(CKerName**)_KSOV_LezeNadVecma_0001_FFFF_0001_0001__M__KN_clzSubGr_0001_FFFF_0001_0001) = _KSID_ProlejzaNekoliduje_0001_FFFF_0001_0001;
 }
 

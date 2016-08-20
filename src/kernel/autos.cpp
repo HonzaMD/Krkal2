@@ -21,6 +21,7 @@
 #include "KerServices.h"
 #include "names.h"
 #include "dx.h"
+#include "GameMenu.h"
 
 
 
@@ -431,7 +432,7 @@ void CKerAutosMain::ProcessAuto2(CKerObject *ko, int Remove,int ConnectionReset,
 
 	DebugMessage(2,0xFF00FFFF,"A%i R%i D%i",DAdd,DReset,DDraw);
 
-
+	CGameMenu::RefreshManikPicture(ko);
 }
 
 

@@ -22,7 +22,7 @@ public:
 	CKrkalCfg();
 	~CKrkalCfg();
 
-	int ReadCfg( char *filename = "$DATA$/krkal.cfg" );
+	int ReadCfg( char *filename = "$KRKAL$/krkal.cfg" );
 
 	int SetAttribute(char *name, char *value);
 

@@ -629,9 +629,9 @@ int CDXapp::ChangeScreenRes(int sx,int sy)
 				if( device->modes[m].Width==sx && device->modes[m].Height==sy )
 				{
 					device->dwCurrentMode = m;
-					if( device->modes[m].Format == D3DFMT_R5G6B5 ||
-						device->modes[m].Format == D3DFMT_X1R5G5B5 ||
-						device->modes[m].Format == D3DFMT_A1R5G5B5 )
+					if( device->modes[m].Format == D3DFMT_A8R8G8B8 ||
+						device->modes[m].Format == D3DFMT_R8G8B8 ||
+						device->modes[m].Format == D3DFMT_X8R8G8B8 )
 					{
 						break;
 					}

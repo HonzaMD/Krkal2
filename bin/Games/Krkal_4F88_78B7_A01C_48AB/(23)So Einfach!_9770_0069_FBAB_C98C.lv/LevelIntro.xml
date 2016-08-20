@@ -11,7 +11,7 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\mina.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Mina støeží oblast 3x3 polí kolem sebe. Reaguje na živé tvory a na výbuch. Po detekci a po krátké prodlevì exploduje.<br/>
-      Neaktivovanou minu lze sebrat a poté použít (a aktivovat) stiskem klávesy X.
+      Neaktivovanou minu lze sebrat a poté použít (a aktivovat) stiskem klávesy <key name="_KSID_keyX_0001_FFFF_0001_0001" default="X"/>.
     </Text>
   </Language>
 </LevelIntro>

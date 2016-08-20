@@ -12,8 +12,8 @@
     <Image x1="10" y1="68">$GAME$\LevelImages.pkg\PrDopravni.png</Image>
     <Text x1="20" x2="90" y1="68" y2="95">
       Pøíšera dopravní øídí svùj pohyb dopravními znaèkami. Pro postavy je nebezpeèná.<br/>
-      Dopravní znaèky mùžeš sbírat: Klávesa A.<br/>
-      A pokládat èi otáèet: Klávesy 1 až 4.
+      Dopravní znaèky mùžeš sbírat: Klávesa <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/>.<br/>
+      A pokládat èi otáèet: Klávesy <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> až <key name="_KSID_key4_0001_FFFF_0001_0001" default="4"/>.
     </Text>
   </Language>
 </LevelIntro>

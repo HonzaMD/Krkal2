@@ -92,7 +92,7 @@ INSTALACE, KONFIGURACE A ZÁKLADNÍ INFORMACE
  # Pøekopírujte adresáø s Krkalem na váš pevnı disk 
  # Spuste hru (systém) poklepáním na soubor krkal.exe 
  # Dokumentaci najdete v adresáøi doc nebo Dokumentace
- # Konfigurace se provádí ruèní editací souboru "data/krkal.cfg",
+ # Konfigurace se provádí ruèní editací souboru "krkal.cfg",
    je moné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost,..
  # Odinstalace: Pouijte odinstalaèní program. Pokud ho nemáte, staèí 
    smazat adresáø s Krkalem, Krkal si nic do Windousù neukládá.

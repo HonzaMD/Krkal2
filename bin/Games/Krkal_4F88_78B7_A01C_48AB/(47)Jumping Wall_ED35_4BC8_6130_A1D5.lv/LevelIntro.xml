@@ -13,8 +13,8 @@
     <Image x1="7" y1="65">$GAME$\LevelImages.pkg\PrKlSliz.png</Image>
     <Text x1="17" x2="93" y1="65" y2="100">
       Pøíšera klaustrofóbní øídí svùj pohyb dopravními znaèkami. Za normálních okolností není nebezpeèná, jen pokud se nemùže pohnout, strachem vybuchuje.<br/>
-      Dopravní znaèky mùžeš sbírat: Klávesa A.<br/>
-      A pokládat èi otáèet: 1 + šipka smìru.<br/>
+      Dopravní znaèky mùžeš sbírat: Klávesa <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/>.<br/>
+      A pokládat èi otáèet: <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> + šipka smìru.<br/>
       Toxický sliz je nebezpeèný, pokud na tebe pùsobí delší dobu. Hlídej si indikátor toxicity vlevo dole. Pøebìhnout dokážeš maximálnì 3 políèka slizu.
     </Text>
   </Language>

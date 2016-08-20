@@ -1713,16 +1713,20 @@ myInline void CKerInterpret::KernelServiceCall(int kerServiceID, int paramCount)
 		break;
 
 	case 82: 		 //MnuAddItemN
-		if(paramCount == 1)
+		if (paramCount == 1)
 			op[0].intData = CGameMenu::AddItem((CKerName*)op[0].voidPtrData);
-		else 
+		else if (paramCount == 2)
+			op[0].intData = CGameMenu::AddItem((CKerName*)op[0].voidPtrData, (CKerName*)op[1].voidPtrData);
+		else
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;
 
 	case 83: 		 //MnuAddItemO
-		if(paramCount == 1)
+		if (paramCount == 1)
 			op[0].intData = CGameMenu::AddItem((OPointer)op[0].intData);
-		else 
+		else if (paramCount == 2)
+			op[0].intData = CGameMenu::AddItem((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
+		else
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;
 
@@ -2188,6 +2192,15 @@ myInline void CKerInterpret::KernelServiceCall(int kerServiceID, int paramCount)
 			KerServices.ShowLevelIntro((char*)op[0].strData);
 		else if (paramCount == 2)
 			KerServices.ShowLevelIntro((char*)op[0].strData, (char*)op[1].strData);
+		else
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 134: 		 //MnuSetManikPicture
+		if (paramCount == 1)
+			op[0].intData = CGameMenu::SetManikPicture((OPointer)op[0].intData);
+		else if (paramCount == 2)
+			op[0].intData = CGameMenu::SetManikPicture((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
 		else
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;

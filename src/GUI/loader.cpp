@@ -104,6 +104,14 @@ void CGUI::LoadGUIData()
 	RefMgr->Add("GUI.F.Tahoma.12.B",guiFont);
 	guiFont->Release();
 
+	guiFont = new CGUIFont();
+	guiFont->CreateFontPS("Arial", 14);
+	RefMgr->Add("GUI.F.Arial.14PX", guiFont);
+	guiFont->Release();
+
+
+
+
 
 	// ------------------------------------------------------------------------------------------
 
@@ -1217,9 +1225,15 @@ void CGUI::LoadGUIData()
 	styleSet->Add(style);
 	style = new CGUIStyle("GameMenuCounter",1,0,"$TEX$\\MainMenu\\gameMenuCounter.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuProgressBar",1,0,"$TEX$\\MainMenu\\gameMenuProgressBar.png");
+	style = new CGUIStyle("GameMenuProgressBar",1,0,"$DATA$\\gameMenuProgressBar.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuProgressBarCompressed",1,0,"$TEX$\\MainMenu\\gameMenuProgressBarCompressed.png");
+	style = new CGUIStyle("GameMenuProgressBarCompressed",1,0,"$DATA$\\gameMenuProgressBarCompressed.png");
+	styleSet->Add(style);
+	style = new CGUIStyle("GameMenuSvetlo", 1, 0, "$DATA$\\MenuSvetlo.png");
+	styleSet->Add(style);
+	style = new CGUIStyle("GameMenuPozadi", 1, 0, "$DATA$\\MenuPozadi2.png");
+	styleSet->Add(style);
+	style = new CGUIStyle("GameMenuRamp", 1, 0, "$DATA$\\MenuRamp.png");
 	styleSet->Add(style);
 
 

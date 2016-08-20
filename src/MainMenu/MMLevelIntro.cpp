@@ -8,6 +8,7 @@
 #include "krkal.h"
 #include "fs.h"
 #include "tinyxml.h"
+#include "Input.h"
 
 
 
@@ -189,6 +190,17 @@ void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName) 
 }
 
 
+void AppendToBuff(char *buff, char *&buffptr, const char *str) {
+	if (!str)
+		return;
+	if (buffptr > buff && buffptr + 1 < buff + 128 * 1024) {
+		*buffptr++ = ' ';
+		*buffptr = 0;
+	}
+	int len = strlen(str);
+	strcpy_s(buffptr, 128 * 1024 - (buffptr - buff), str);
+	buffptr += len;
+}
 
 
 void MMLevelIntro::DisplayText(TiXmlElement * text){
@@ -213,12 +225,43 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 
 	float sxx, syy;
 
+	char *buff = new char[128 * 1024];
+	*buff = 0;
+	char *buffptr = buff;
+
 	for (TiXmlNode *node = text->FirstChild(); node; node = node->NextSibling()) {
 		if (node->Type() == TiXmlNode::TEXT) {
-			st=new CGUIStaticText(node->ToText()->Value(),font,xx,yy,tc,mx-xx,my-yy);
-			st->GetSize(sxx,syy); yy+=syy+2; cw->AddBackElem(st);
+			AppendToBuff(buff, buffptr, node->ToText()->Value());
+		} 
+		else if (node->Type() == TiXmlNode::ELEMENT)
+		{
+			TiXmlElement *elem = node->ToElement();
+			if (elem->ValueStr() == "br") {
+				st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
+				st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+				*buff = 0;
+				buffptr = buff;
+			}
+			else if (elem->ValueStr() == "key")
+			{
+				const char *key;
+				if (Input && (key = Input->FindKeyDisplayName(elem->Attribute("name")))) {
+					AppendToBuff(buff, buffptr, key);
+				}
+				else {
+					AppendToBuff(buff, buffptr, elem->Attribute("default"));
+				}
+			}
 		}
 	}
+
+	st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
+	st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+	*buff = 0;
+	buffptr = buff;
+
+
+	SAFE_DELETE_ARRAY(buff);
 }
 
 

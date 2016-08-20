@@ -10,7 +10,7 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\led.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Led je natolik kluzký, že, jakmile se po nìm dáš do pohybu, nelze zastavit ani zmìnit smìr.<br/>
-      Z položí bombu.
+      <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/> položí bombu.
     </Text>
   </Language>
 </LevelIntro>

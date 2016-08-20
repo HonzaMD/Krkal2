@@ -33,23 +33,27 @@ CGameMenu::CGameMenu()
 {
 	RemoveFromTrash();
 
+	numObjects = 0;
+	withManik = false;
+	withProgressBars = false;
+	progressBar1 = progressBar2 = 0;
+	manik = 0;
+	manikKO = 0;
+	manikX = 0; manikY = 0;
+	compressedMenu = false;
+	manikKeyText = 0;
+
 	float dsx,dsy;
 	desktop->GetVPSize(dsx,dsy);
 
 	Resize(dsx,STD_GAMEMENU_HEIGHT);
 	Move(0,dsy-STD_GAMEMENU_HEIGHT);
+	MsgSetProduce(MsgNone);
 
 	SetAnchor(0,1,1,1);
 
-	CGUIStaticPicture* sp = new CGUIStaticPicture(0,0,sx,sy,STD_GAMEMENU_BGCOLOR);
+	CGUIRectHost* sp = new CGUIRectHost(0, 0, styleSet->Get("GameMenuRamp")->GetTexture(0), sx, sy);
 	AddElem(sp);
-	sp->SetAnchor(1,1,1,1);
-
-	numObjects=0;
-
-	withProgressBars=false;
-	progressBar1=progressBar2=0;
-	compressedMenu=false;
 
 	desktop->AddFrontElem(this);
 
@@ -138,7 +142,79 @@ void CGameMenu::InitKrkalGameMenu()
 }
 */
 
-int CGameMenu::AddItem(CKerName* item)
+
+
+int CGameMenu::RefreshManikPicture(CKerObject *ko)
+{
+	if (!gameMenu)
+		return -1;
+
+	if (ko == gameMenu->manikKO)
+		return SetManikPicture(ko->thisO);
+
+	return 1;
+}
+
+int CGameMenu::SetManikPicture(OPointer obj, CKerName* key)
+{
+	if (!gameMenu)
+		return -1;
+
+	gameMenu->withManik = true;
+
+	if (!gameMenu->manikKeyText && key && key->Type == eKerNTkey && key->KeyStruct->keyName && *key->KeyStruct->keyName) {
+		gameMenu->manikKeyText = new CGUIStaticText(key->KeyStruct->keyName, (CGUIFont*)RefMgr->Find("GUI.F.Arial.14PX"), gameMenu->manikX + 42, gameMenu->manikY + 41, STD_GAMEMENU_COUNTCOLOR);
+		gameMenu->AddElem(gameMenu->manikKeyText);
+	}
+
+	CTexture* objTex = 0;
+	CKerObject* ko = KerMain->Objs->GetObject(obj);
+	gameMenu->manikKO = ko;
+
+	if (ko && ko->PlacedInfo && ko->PlacedInfo->AktivAuto)
+	{
+		CKerName *aName = ko->PlacedInfo->AktivAuto;
+		if (aName->Auto->SonsNum>0)
+		{
+			CLightTex* lt = dynamic_cast<CLightTex*>(aName->Auto->textures[0].texture);
+
+			if (lt)
+			{
+				lt->CmpTex(&objTex);
+			}
+			else
+			{
+				CGEnAnim* anim = dynamic_cast<CGEnAnim*>(aName->Auto->textures[0].texture);
+				lt = 0;
+				if (anim)
+					lt = anim->GetFrameTex(0);
+				if (lt)
+					lt->CmpTex(&objTex);
+			}
+		}
+	}
+
+	if (gameMenu->manik) {
+		if (objTex) {
+			gameMenu->manik->SetTexture(objTex);
+			gameMenu->manik->SetVisible(1);
+		}
+		else {
+			gameMenu->manik->SetVisible(0);
+		}
+	}
+	else if (objTex) {
+		gameMenu->manik = new CGUIRectHost(gameMenu->manikX, gameMenu->manikY, objTex);
+		gameMenu->AddElem(gameMenu->manik);
+	}
+
+	if (objTex)
+		objTex->Release();
+
+	return 1;
+}
+
+int CGameMenu::AddItem(CKerName* item, CKerName* key)
 {
 	if(!gameMenu)
 		return -1;
@@ -146,13 +222,13 @@ int CGameMenu::AddItem(CKerName* item)
 	assert(item && item->Type == eKerNTobject);
 	gameMenu->numObjects++;
 
-	CGameMenuObject* mo = new CGameMenuObject(item);
+	CGameMenuObject* mo = new CGameMenuObject(item, key);
 	gameMenu->AddElem(mo);
 	return gameMenu->objArray.Add(mo);
 }
 
 
-int CGameMenu::AddItem(OPointer obj)
+int CGameMenu::AddItem(OPointer obj, CKerName* key)
 {
 	if(!gameMenu)
 		return -1;
@@ -160,7 +236,7 @@ int CGameMenu::AddItem(OPointer obj)
 	assert(obj);
 	gameMenu->numObjects++;
 
-	CGameMenuObject* mo = new CGameMenuObject(obj);
+	CGameMenuObject* mo = new CGameMenuObject(obj, key);
 	gameMenu->AddElem(mo);
 	return gameMenu->objArray.Add(mo);
 }
@@ -216,7 +292,7 @@ int CGameMenu::SetItem(CKerName* item, int index)
 
 	gameMenu->numObjects++;
 
-	CGameMenuObject* mo = new CGameMenuObject(item);
+	CGameMenuObject* mo = new CGameMenuObject(item, 0);
 	gameMenu->AddElem(mo);
 
 	return gameMenu->objArray.Set(mo,index);
@@ -231,10 +307,13 @@ void CGameMenu::Refresh()
 	float msx=gameMenu->sx;
 
 	if(gameMenu->withProgressBars)
-		msx-=120;
+		msx-=130;
+	int numObjects = gameMenu->numObjects;
+	if (gameMenu->withManik)
+		numObjects++;
 
-	float dx = floorf(msx/gameMenu->numObjects);
-	float xx = floorf(dx/2)-30;
+	float dx = floorf(msx / numObjects);
+	float xx = floorf(dx/2)-22;
 	if(xx<0)
 		xx=0;
 	if(dx<65)
@@ -244,13 +323,13 @@ void CGameMenu::Refresh()
 		gameMenu->compressedMenu=true;
 		
 		if(gameMenu->withProgressBars)
-			dx = floorf((gameMenu->sx-80)/gameMenu->numObjects);
+			dx = floorf((gameMenu->sx - 80) / numObjects);
 		else
-			dx = floorf(gameMenu->sx/gameMenu->numObjects);
+			dx = floorf(gameMenu->sx / numObjects);
 
-		if(dx<40)
-			dx=40;
-		xx = floorf(dx/2)-20;
+		if(dx<44)
+			dx=44;
+		xx = floorf(dx/2)-22;
 		if(xx<0)
 			xx=0;
 	}
@@ -294,16 +373,22 @@ void CGameMenu::Refresh()
 
 	}
 
+	if (gameMenu->withManik) {
+		gameMenu->manikX = xx-8;
+		gameMenu->manikY = -5;
+		if (gameMenu->manik)
+			gameMenu->manik->Move(gameMenu->manikX, gameMenu->manikY);
+		if (gameMenu->manikKeyText)
+			gameMenu->manikKeyText->Move(gameMenu->manikX + 42, gameMenu->manikY + 41);
+		xx += dx;
+	}
+
 	for(int i = 0; i < gameMenu->objArray.GetSize(); i++)
 	{
 		CGameMenuObject* gmo = gameMenu->objArray.Get(i);
 		if(gmo)
 		{
-			if(changeCompress)
-			{
-				gmo->SetCompress(gameMenu->compressedMenu);
-			}
-			gmo->Move(xx,0);
+			gmo->Move(xx,3);
 			xx+=dx;
 		}
 	}
@@ -468,46 +553,58 @@ int CGameMenu::GetProgressBar(int index)
 // CGameMenuObject
 //////////////////////////////////////////////////////////////////////
 
-CGameMenuObject::CGameMenuObject(CKerName* item)
-: CGUIWidget(0,0)
+CGameMenuObject::CGameMenuObject(CKerName* item, CKerName* key)
+: CGUIMultiWidget(-1, -1, 56, 46)
 {
 	assert(item && item->Type == eKerNTobject);
 
 	RemoveFromTrash();
 
-	objName = item;
-	compressed=false;
+	for (int f = 0; f < 12; f++)
+		svetla[f] = 0;
 
-	border = new CGUIRectHost(0,0,styleSet->Get("GameMenuItem")->GetTexture(0));
+	objName = item;
+
+	CGUIRectHost *border = new CGUIRectHost(0, 0, styleSet->Get("GameMenuPozadi")->GetTexture(0));
+	AddElem(border);
 
 	CreateObjPicture();
 
-	countBorder = new CGUIRectHost(0,0,styleSet->Get("GameMenuCounter")->GetTexture(0));
+	if (key && key->Type == eKerNTkey && key->KeyStruct->keyName && *key->KeyStruct->keyName) {
+		CGUIStaticText *str = new CGUIStaticText(key->KeyStruct->keyName, (CGUIFont*)RefMgr->Find("GUI.F.Arial.14PX"), 47, 33, STD_GAMEMENU_COUNTCOLOR);
+		AddElem(str);
+	}
+
 	count=0;
-	countPicture = new CGUIStaticText(" 0",(CGUIFont*)RefMgr->Find("GUI.F.Courier.14.B"),30,30,STD_GAMEMENU_COUNTCOLOR);
 
 	AddToTrash();
 }
 
-CGameMenuObject::CGameMenuObject(OPointer obj)
-: CGUIWidget(0,0)
+CGameMenuObject::CGameMenuObject(OPointer obj, CKerName* key)
+: CGUIMultiWidget(-1, -1, 46, 46)
 {
 	assert(obj && KerMain);
 
 	RemoveFromTrash();
 
+	for (int f = 0; f < 12; f++)
+		svetla[f] = 0;
+
 	CKerObject* ko = KerMain->Objs->GetObject(obj);
 
 	objName = ko->Type->Name;
-	compressed=false;
 
-	border = new CGUIRectHost(0,0,styleSet->Get("GameMenuItem")->GetTexture(0));
+	CGUIRectHost *border = new CGUIRectHost(0, 0, styleSet->Get("GameMenuPozadi")->GetTexture(0));
+	AddElem(border);
 
 	CreateObjPicture(ko);
 
-	countBorder = new CGUIRectHost(0,0,styleSet->Get("GameMenuCounter")->GetTexture(0));
-	count=0;
-	countPicture = new CGUIStaticText(" 0",(CGUIFont*)RefMgr->Find("GUI.F.Courier.14.B"),30,30,STD_GAMEMENU_COUNTCOLOR);
+	if (key && key->Type == eKerNTkey && key->KeyStruct->keyName && *key->KeyStruct->keyName) {
+		CGUIStaticText *str = new CGUIStaticText(key->KeyStruct->keyName, (CGUIFont*)RefMgr->Find("GUI.F.Arial.14PX"), 47, 33, STD_GAMEMENU_COUNTCOLOR);
+		AddElem(str);
+	}
+
+	count = 0;
 
 	AddToTrash();
 }
@@ -515,29 +612,19 @@ CGameMenuObject::CGameMenuObject(OPointer obj)
 
 CGameMenuObject::~CGameMenuObject()
 {
-	delete border;
-	delete picture;
-	delete countBorder;
-	delete countPicture;
 }
 
 int CGameMenuObject::Increment()
 {
 	count++;
-
-	_snprintf(countString,10,"%2d",count);
-	countPicture->ChangeText(countString);
-
+	UpdateSvetlo(count - 1);
 	return count;
 }
 
 int CGameMenuObject::Decrement()
 {
 	count--;
-
-	_snprintf(countString,10,"%2d",count);
-	countPicture->ChangeText(countString);
-
+	UpdateSvetlo(count);
 	return count;
 }
 
@@ -545,8 +632,8 @@ int CGameMenuObject::SetCount(int _count)
 {
 	count = _count;
 
-	_snprintf(countString,10,"%2d",count);
-	countPicture->ChangeText(countString);
+	for (int f = 0; f < 12; f++)
+		UpdateSvetlo(f);
 
 	return count;
 }
@@ -556,72 +643,54 @@ int CGameMenuObject::GetCount()
 	return count;
 }
 
-void CGameMenuObject::SetCompress(bool compress)
-{
-	compressed=compress;
-}
 
-void CGameMenuObject::AddToEngine(CBltWindow *rootwnd)
-{
-	if(rootwnd)
-	{
-		border->AddToEngine(rootwnd);
-		picture->AddToEngine(rootwnd);
-		countBorder->AddToEngine(rootwnd);
-		countPicture->AddToEngine(rootwnd);
+void CGameMenuObject::UpdateSvetlo(int pos) {
+	if (pos >= 12 || pos < 0)
+		return;
+
+	if (pos < count) {
+		if (!svetla[pos]) {
+			float x, y;
+
+			switch (pos) {
+			case 0:
+				x = -1; y = -1; break;
+			case 1:
+				x = 11; y = -1; break;
+			case 2:
+				x = 23; y = -1; break;
+			case 3:
+				x = 35; y = -1; break;
+			case 4:
+				x = 35; y = 11; break;
+			case 5:
+				x = 35; y = 23; break;
+			case 6:
+				x = 35; y = 35; break;
+			case 7:
+				x = 23; y = 35; break;
+			case 8:
+				x = 11; y = 35; break;
+			case 9:
+				x = -1; y = 35; break;
+			case 10:
+				x = -1; y = 23; break;
+			case 11:
+				x = -1; y = 11; break;
+			}
+
+			svetla[pos] = new CGUIRectHost(x, y, styleSet->Get("GameMenuSvetlo")->GetTexture(0));
+			AddElem(svetla[pos]);
+		}
+		else if (!svetla[pos]->IsVisible()) {
+			svetla[pos]->SetVisible(1);
+		}
+	}
+	else if (svetla[pos] && svetla[pos]->IsVisible()){
+		svetla[pos]->SetVisible(0);
 	}
 }
 
-void CGameMenuObject::RemoveFromEngine()
-{
-	border->RemoveFromEngine();
-	picture->RemoveFromEngine();
-	countBorder->RemoveFromEngine();
-	countPicture->RemoveFromEngine();
-}
-
-void CGameMenuObject::BringToTop()
-{
-	border->BringToTop();
-	picture->BringToTop();
-	countBorder->BringToTop();
-	countPicture->BringToTop();
-}
-
-
-void CGameMenuObject::Resize(float _sx, float _sy)
-{
-}
-
-void CGameMenuObject::Move(float _x, float _y)
-{
-	border->Move(_x,_y);
-	picture->Move(_x+4,_y+4);
-
-	if(compressed)
-	{
-		countBorder->Move(_x+5,_y+30);
-		countPicture->Move(_x+10,_y+30);
-	}
-	else
-	{
-		countBorder->Move(_x+30,_y+30);
-		countPicture->Move(_x+35,_y+30);
-	}
-
-	SetPos(_x,_y);
-}
-
-
-void CGameMenuObject::SetVisible(int vis)
-{
-	border->SetVisible(vis);
-	picture->SetVisible(vis);
-	countBorder->SetVisible(vis);
-	countPicture->SetVisible(vis);
-
-	SetVisibility(vis);
-}
 
 
 void CGameMenuObject::CreateObjPicture(CKerObject *ko)
@@ -690,7 +759,8 @@ void CGameMenuObject::CreateObjPicture(CKerObject *ko)
 	if(obj)
 		KerMain->DeleteObject(0,obj);	// vytvarel jsem si vlastni objekt, zrusim ho
 
-	picture = new CGUIRectHost(4,4,objTex,30,30);
+	CGUIRectHost *picture = new CGUIRectHost(8, 8, objTex, 28, 28);
+	AddElem(picture);
 
 	if(releaseTex && objTex)
 		objTex->Release();

@@ -21,7 +21,7 @@ const int cOK = 0;
 
 // Sluzby kernelu:
 
-const int cKerServicesNr = 134;
+const int cKerServicesNr = 135;
 const int cKerServicesMaxParams = 11;
 const int cKerConstantsNr = 59;
 

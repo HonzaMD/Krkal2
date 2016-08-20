@@ -649,6 +649,8 @@
 	case 82: 		 //MnuAddItemN
 		if(paramCount == 1)
 			op[0].intData = CGameMenu::AddItem((CKerName*)op[0].voidPtrData);
+		else if(paramCount == 2)
+			op[0].intData = CGameMenu::AddItem((CKerName*)op[0].voidPtrData, (CKerName*)op[1].voidPtrData);
 		else 
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;
@@ -656,6 +658,8 @@
 	case 83: 		 //MnuAddItemO
 		if(paramCount == 1)
 			op[0].intData = CGameMenu::AddItem((OPointer)op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGameMenu::AddItem((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
 		else 
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;
@@ -1122,6 +1126,15 @@
 			KerServices.ShowLevelIntro((char*)op[0].intData);
 		else if(paramCount == 2)
 			KerServices.ShowLevelIntro((char*)op[0].intData, (char*)op[1].intData);
+		else 
+			KerMain->Errors->LogError(eKRTECorruptedInstr);
+		break;
+
+	case 134: 		 //MnuSetManikPicture
+		if(paramCount == 1)
+			op[0].intData = CGameMenu::SetManikPicture((OPointer)op[0].intData);
+		else if(paramCount == 2)
+			op[0].intData = CGameMenu::SetManikPicture((OPointer)op[0].intData, (CKerName*)op[1].voidPtrData);
 		else 
 			KerMain->Errors->LogError(eKRTECorruptedInstr);
 		break;

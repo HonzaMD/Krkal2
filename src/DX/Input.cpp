@@ -266,6 +266,7 @@ int CKeyCfg::ReadCfg(char *filename)
 	int mode = 0;
 	char *token;
 	char *name=0;
+	char *keyName = 0;
 	int scankod;
 	int sr,sl,cr,cl,ar,al;
 
@@ -302,7 +303,14 @@ int CKeyCfg::ReadCfg(char *filename)
 						break;
 				case 2:
 					if(isspace(*ch)) break;
-					mode=3;
+					if (*ch == '=')
+						mode=3;
+					else
+					{
+						mode = 11;
+						token = (char*)ch;
+						break;
+					}
 				case 3:
 					if(*ch!='=') err=1;
 					mode = 4;
@@ -355,17 +363,39 @@ int CKeyCfg::ReadCfg(char *filename)
 								 ar=al=1; 
 					mode=6;
 					break;
+				case 11:
+					if (isspace(*ch) || *ch == '=')
+					{
+						tmch = *ch;
+						*ch = 0;
+						keyName = newstrdup(token);
+						*ch = tmch;
+						mode = 12;
+					}
+					else
+						break;
+				case 12:
+					if (isspace(*ch))
+						break;
+					if (*ch == '=')
+					{
+						mode = 4;
+						break;
+					}
+					err = 1;
+					break;
 				}
 
 				if(*ch==13||*ch==10){
 					if(mode>0)
 					{
-						if(mode<6) {err=1; break;}
-						ks = new CKeyStruct(name,scankod,sr,sl,cr,cl,ar,al);
+						if(mode<6 || mode == 11 || mode == 12) {err=1; break;}
+						ks = new CKeyStruct(name,keyName,scankod,sr,sl,cr,cl,ar,al);
 						keylist.Add(ks);
 					}
 
 					name = 0;
+					keyName = 0;
 					mode = 0;
 				}
 
@@ -376,7 +406,9 @@ int CKeyCfg::ReadCfg(char *filename)
 	if(err)
 	{
 		SAFE_DELETE(name);
-	}else
+		SAFE_DELETE(keyName);
+	}
+	else
 		assert(!name);
 
 	delete[] buf;
@@ -410,4 +442,18 @@ int CKeyCfg::RegisterKernelKeys()
 	}
 	
 	return 1;
+}
+
+
+const char* CKeyCfg::FindKeyDisplayName(const char *name)
+{
+	CListIterator<CKeyStruct*> it(keylist);
+	while (!it.End())
+	{
+		if (_strcmpi(it->name, name) == 0) {
+			return it->keyName;
+		}
+		it++;
+	}
+	return 0;
 }

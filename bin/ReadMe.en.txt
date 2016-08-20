@@ -101,7 +101,7 @@ INSTALLATION, CONFIGURATION, QUICK HELP
 #  Copy the KRKAL directory on your harddisk
 #  Launch the system by running krkal.exe
 #  The documentation can be found in the directory KRKAL\Documentation.
-#  You can configure KRKAL by editing the file "KRKAL\DATA\krkal.cfg",
+#  You can configure KRKAL by editing the file "KRKAL\krkal.cfg",
    you can change the screen resolution or set the volume for example...
 #  To uninstall KRKAL, just remove the entire directory, KRKAL does not
    store any information in windows.

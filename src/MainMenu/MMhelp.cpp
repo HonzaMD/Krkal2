@@ -109,7 +109,7 @@ char* helptextcs[]={
 
    "KONFIGURACE",
 
-   "Konfigurace se provádí ruèní editací souboru \"data/krkal.cfg\", je možné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost,..",
+   "Konfigurace se provádí ruèní editací souboru \"krkal.cfg\", je možné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost,..",
 
    "TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA",
 
@@ -142,7 +142,7 @@ char* helptexten[]={
 
    "CONFIGURATION",
 
-   "You can configure KRKAL by editing the file \"data\\krkal.cfg\", you can change the screen resolution or set the volume for example...",
+   "You can configure KRKAL by editing the file \"krkal.cfg\", you can change the screen resolution or set the volume for example...",
 
    "TECHNICAL SUPPORT, MORE INFORMATION, HELP",
 

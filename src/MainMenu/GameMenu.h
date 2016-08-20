@@ -48,10 +48,15 @@ public:
 	//static void InitKrkalGameMenu();
 		// inicializuje menu na std. krkalovske
 
-	static int AddItem(CKerName* item);
+	static int SetManikPicture(OPointer obj, CKerName* key = 0);
+	// zobrazi nebo smaze manika
+
+	static int RefreshManikPicture(CKerObject *ko);
+
+	static int AddItem(CKerName* item, CKerName* key=0);
 		// prida objekt do menu
 
-	static int AddItem(OPointer obj);
+	static int AddItem(OPointer obj, CKerName* key = 0);
 		// prida objekt do menu
 
 	static int DeleteItem(int index);
@@ -106,6 +111,11 @@ protected:
 	bool withProgressBars;
 	CGameMenuProgressBar* progressBar1;
 	CGameMenuProgressBar* progressBar2;
+	CGUIRectHost *manik;
+	CKerObject* manikKO;
+	float manikX, manikY;
+	bool withManik;
+	CGUIStaticText *manikKeyText;
 
 	bool compressedMenu;
 };
@@ -116,11 +126,11 @@ protected:
 // CGameMenuObject
 //////////////////////////////////////////////////////////////////////
 
-class CGameMenuObject : public CGUIWidget
+class CGameMenuObject : public CGUIMultiWidget
 {
 public:
-	CGameMenuObject(CKerName* item);
-	CGameMenuObject(OPointer obj);
+	CGameMenuObject(CKerName* item, CKerName* key);
+	CGameMenuObject(OPointer obj, CKerName* key);
 	virtual ~CGameMenuObject();
 
 	int Increment();	// inkrementuje pocet objektu a vrati aktualni stav
@@ -128,31 +138,16 @@ public:
 	int SetCount(int _count);		// nastavi pocet objektu a vrati aktualni stav
 	int GetCount();		// vrati aktualni pocet objektu
 
-	void SetCompress(bool compress);
-
 	CKerName* GetName() { return objName; };
-
-	virtual void Move(float _x, float _y);
-
-protected:
-	virtual void AddToEngine(CBltWindow *rootwnd);
-	virtual void RemoveFromEngine();
-	virtual void BringToTop();
-	virtual void Resize(float _sx, float _sy);
-	virtual void SetVisible(int vis);
 
 	void CreateObjPicture(CKerObject *ko=0);
 
 	CKerName* objName;
 	int count;
-	char countString[11];
 
-	CGUIRectHost* border;
-	CGUIRectHost* picture;
-	CGUIRectHost* countBorder;
-	CGUIStaticText* countPicture;
+	CGUIRectHost* svetla[12];
 
-	bool compressed;
+	void UpdateSvetlo(int pos);
 };
 
 

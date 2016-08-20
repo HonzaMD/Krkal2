@@ -1804,6 +1804,7 @@ object oManik inherit {
 		@DeleteMessages(this, ::EveryTurn);
 	}
 	destructor() {
+		SetFocus(::focus:0);
 		if (ziju) ManikControler->DecManik();
 	}
 	
@@ -1989,12 +1990,13 @@ object oManikControler {
 		Klic2 = @MnuAddItemO(o);
 		o->SetBarva(::Barva:Zluta);
 		Klic3 = @MnuAddItemO(o);
-		Bomba = @MnuAddItemN(oSebratelnaBomba);
-		Mina = @MnuAddItemN(oSebratelnaMina);
-		Znacky[0] = @MnuAddItemN(oZnSmerova);
-		Znacky[1] = @MnuAddItemN(oZnZakazVjezdu);
-		Znacky[2] = @MnuAddItemN(oZnSedesat);
-		Znacky[3] = @MnuAddItemN(oZnNeSedesat);
+		Bomba = @MnuAddItemN(oSebratelnaBomba, keyZ);
+		Mina = @MnuAddItemN(oSebratelnaMina, keyX);
+		Znacky[0] = @MnuAddItemN(oZnSmerova, key1);
+		Znacky[1] = @MnuAddItemN(oZnZakazVjezdu, key2);
+		Znacky[2] = @MnuAddItemN(oZnSedesat, key3);
+		Znacky[3] = @MnuAddItemN(oZnNeSedesat, key4);
+		@MnuSetManikPicture(onull, keyTab);
 		@MnuRefresh();
 		delete o;
 	}
@@ -2376,6 +2378,7 @@ object oManik inherit {
 				ResetMenu();
 			  	if (@ExistsObj(ManikFocus)) ManikFocus->SetFocus(::focus:0);
 				ManikFocus = this;
+				@MnuSetManikPicture(ManikFocus);
 				if (@IsObjInMap(this)) {
 					@RemoveObjFromMap(Skrolnik);
 					@WriteObjCoords(Skrolnik,@ObjPosX,@ObjPosY);
@@ -2385,7 +2388,10 @@ object oManik inherit {
 			}
 		} else {
 			if (!SdileneOvladani) RemoveForce() message;
-			if (ManikFocus == this) ManikFocus=onull;
+			if (ManikFocus == this) {
+				ManikFocus=onull;
+				@MnuSetManikPicture(onull);
+			}
 		}
 	}
 	int decl GetFocus() { return Focus; }

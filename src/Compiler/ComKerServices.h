@@ -164,8 +164,8 @@ const static SComKerServiceRec cKerServices[cKerServicesNr] =
 	{ {kwInt, 0},	"MnuSetItem", "CGameMenu::ObjectSetCount", 2},		//static int ObjectSetCount(int index, int count);
 	{ {kwVoid, 0},	"MnuRefresh", "CGameMenu::Refresh", 0},				//static void Refresh();
 	{ {kwInt, 0},	"MnuDeleteItem", "CGameMenu::DeleteItem", 1},		//static int DeleteItem(int index);
-	{ {kwInt, 0},	"MnuAddItemN", "CGameMenu::AddItem", 1},			//static int AddItem(CKerName* item);
-	{ {kwInt, 0},	"MnuAddItemO", "CGameMenu::AddItem", 1},			//static int AddItem(OPointer obj);
+	{ {kwInt, 0},	"MnuAddItemN", "CGameMenu::AddItem", 2},			//static int AddItem(CKerName* item, CKerName* key);
+	{ {kwInt, 0},	"MnuAddItemO", "CGameMenu::AddItem", 2},			//static int AddItem(OPointer obj, CKerName* key);
 	{ {kwInt, 0},	"MnuAddBars", "CGameMenu::Add2ProgressBars", 2},	//static int Add2ProgressBars(int color1, int color2);
 
 	{ {kwDouble,0}, "sqrt", "sqrt",1},
@@ -232,6 +232,8 @@ const static SComKerServiceRec cKerServices[cKerServicesNr] =
 
 	{ {kwVoid, 0},	"SaveTheGame", "KerMain->SaveGame",	1},		
 	{ {kwVoid, 0 }, "ShowLevelIntro", "KerServices.ShowLevelIntro", 2 },
+
+	{ { kwInt, 0 }, "MnuSetManikPicture", "CGameMenu::SetManikPicture", 2 },			//static int SetManikPicture(OPointer obj);
 };
  
 // popis parametru sluzeb kernelu - vsechny jejich zaznamy; jejich pocet maximalni pocet (cKerSevicesMaxParams) je definovan v ComConstants.h
@@ -736,10 +738,12 @@ const static SComKerParam cKerServiceParams[cKerServicesNr][cKerServicesMaxParam
 	//{ {kwInt, 0},	"MnuAddItemN", "CGameMenu::AddItem", 1},			//static int AddItem(CKerName* item);
 	{
 		{kwName,1,false,0},
+		{ kwName, 1, true, 0 },
 	},
 	//{ {kwInt, 0},	"MnuAddItemO", "CGameMenu::AddItem", 1},			//static int AddItem(OPointer obj);
 	{
 		{kwObjptr,1,false,0},
+		{ kwName, 1, true, 0 },
 	},
 	//{ {kwInt, 0},	"MnuAddBars", "CGameMenu::Add2ProgressBars", 2},	//static int Add2ProgressBars(int color1, int color2);
 	{
@@ -1069,6 +1073,12 @@ const static SComKerParam cKerServiceParams[cKerServicesNr][cKerServicesMaxParam
 	{
 		{ kwChar, 1, false, 0 },
 		{ kwChar, 1, true, 0 },
+	},
+
+	//	{ { kwInt, 0 }, "MnuSetManikPicture", "CGameMenu::SetManikPicture", 1 },			//static int SetManikPicture(OPointer obj);
+	{
+		{ kwObjptr, 1, false, 0 },
+		{ kwName, 1, true, 0 },
 	},
 
 };
