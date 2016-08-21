@@ -2738,6 +2738,7 @@ void CKerLevelInfo::SaveLevel(CFSRegister *reg) {
 		reg->AddKey("LVersion",FSRTstring)->stringwrite(ver);
 
 		reg2 = new CFSRegister(str,"KRKAL LEVEL I",1);
+		SAFE_DELETE_ARRAY(str);
 		if (Author) reg2->AddKey("Author",FSRTstring)->stringwrite(Author);
 		if (Game) reg2->AddKey("Game",FSRTstring)->stringwrite(Game);
 		if (Comment) reg2->AddKey("Comment",FSRTstring)->stringwrite(Comment);

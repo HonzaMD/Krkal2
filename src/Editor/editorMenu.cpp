@@ -135,6 +135,25 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 		msgBoxIndex = 5;
 	}
 
+	if (event->sender == icons[6])		// polozka editor menu - Level Properties
+	{
+		CEDLevelPropertiesDlg* dlg;
+		dlg = GetObjFromID<CEDLevelPropertiesDlg>(levelPropertiesDlgID);
+		if (dlg)
+			dlg->FocusMe();
+		else
+		{
+			dlg = new CEDLevelPropertiesDlg(100, 100);
+			desktop->AddBackElem(dlg);
+			//desktop->SetFocusEl(dlg,0);
+			levelPropertiesDlgID = dlg->GetID();
+			dlg->Center(true, false);
+			mainGUI->SendCursorPos();
+			dlg->SetModal(1);
+		}
+	}
+
+
 	if(event->eventID == ETree)
 	{
 		if(event->pInt2 == 0)	// potvrzeni polozky => soubor vybran
@@ -566,7 +585,7 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(270,165,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(270,165,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -968,7 +987,7 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(270,46,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(270,46,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -1265,7 +1284,7 @@ CEDAutoSelectFileDlg::CEDAutoSelectFileDlg(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(270,100,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(270,100,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -1492,3 +1511,127 @@ int CEDAutoSelectFileDlg::Ok()
 
 	return 1;
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// CEDLevelPropertiesDlg
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const char *GetFileName(const char *path) {
+	if (!path)
+		return 0;
+	const char *ret = path;
+	for (const char *ptr = path; *ptr; ptr++) {
+		if ((*ptr == '\\' || *ptr == '/') && ptr[1])
+			ret = ptr + 1;
+	}
+	return ret;
+}
+
+CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
+:CGUIDlgOkCancel(_x, _y, 400, 265, "Level Properties", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)), false)
+{
+	autogrowing = 0;
+	title->SetButtons(true, false, false);
+
+	float xx, yy;
+	GetBackWindowSize(xx, yy);
+
+	CGUIFont *font = (CGUIFont*)RefMgr->Find("GUI.F.Arial.10");
+
+	AddBackElem(new CGUIStaticText("Author:", font, 10, 15, STD_DLG_TEXT_COLOR));
+
+	autor = new char[STRINGLEN + 5];
+	*autor = 0;
+	if (KerMain->LevelInfo.Author)
+		strcpy_s(autor, STRINGLEN, KerMain->LevelInfo.Author);
+
+
+	edAutor = new CGUIEditWindow(80, 13, 260);
+	edAutor->SetTabOrder(2.1f);
+	edAutor->SelectOnFocus();
+	edAutor->BindAttribute(autor, dtString, STRINGLEN + 1, 0);
+	edAutor->AcceptEvent(GetID(), EOk);
+	AddBackElem(edAutor);
+	edAutor->Sync(0);
+
+	AddBackElem(new CGUIStaticText("Music:", font, 10, 45, STD_DLG_TEXT_COLOR));
+	if (KerMain->LevelInfo.Music) {
+		AddBackElem(new CGUIStaticText(GetFileName(KerMain->LevelInfo.Music), font, 80, 45, STD_DLG_TEXT_COLOR));
+	}
+	AddBackElem(new CGUIStaticText("Use package browser to set music.", font, 80, 70, STD_DLG_TEXT_COLOR));
+
+
+	cbSkip = new CGUICheckBox(10, 100, new CGUIStaticText("Allow To Skip Level", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbSkip->ChangeState(KerMain->LevelInfo.Tags & eMMLTskipable);
+	cbSkip->SetMark(true);
+	cbSkip->SetTabOrder(3);
+	AddBackElem(cbSkip);
+
+	cbEditable = new CGUICheckBox(10, 130, new CGUIStaticText("Allways Editable", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbEditable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwEditable);
+	cbEditable->SetMark(true);
+	cbEditable->SetTabOrder(4);
+	AddBackElem(cbEditable);
+
+	cbPLayable = new CGUICheckBox(10, 160, new CGUIStaticText("Allways Playable", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbPLayable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwAccess);
+	cbPLayable->SetMark(true);
+	cbPLayable->SetTabOrder(4);
+	AddBackElem(cbPLayable);
+
+
+	ok = new CGUIButton(80, 200, 50, 25, "GUI.But.Std", "OK");
+	ok->SetTabOrder(1000);
+	ok->SetMark(1);
+	AddBackElem(ok);
+
+	cancel = new CGUIButton(270, 200, 50, 25, "GUI.But.Std", "Cancel");
+	cancel->SetTabOrder(1001);
+	cancel->SetMark(1);
+	AddBackElem(cancel);
+
+	InitOkCancel();
+
+	SetFocusEl(edAutor, 0);
+
+	SetBWLimitSizes(0, 0, xx, yy, 0, 1);
+}
+
+CEDLevelPropertiesDlg::~CEDLevelPropertiesDlg()
+{
+	SAFE_DELETE_ARRAY(autor);
+}
+
+
+
+int CEDLevelPropertiesDlg::Ok()
+{
+	edAutor->Sync(1);
+	SAFE_DELETE_ARRAY(KerMain->LevelInfo.Author);
+	if (autor && *autor)
+		KerMain->LevelInfo.Author = newstrdup(autor);
+
+	if (cbSkip->GetState())
+		KerMain->LevelInfo.Tags |= eMMLTskipable;
+	else
+		KerMain->LevelInfo.Tags &= ~eMMLTskipable;
+
+	if (cbEditable->GetState())
+		KerMain->LevelInfo.Tags |= eMMLTalwEditable;
+	else
+		KerMain->LevelInfo.Tags &= ~eMMLTalwEditable;
+
+	if (cbPLayable->GetState())
+		KerMain->LevelInfo.Tags |= eMMLTalwAccess;
+	else
+		KerMain->LevelInfo.Tags &= ~eMMLTalwAccess;
+
+
+	CloseWindow();
+
+	return 1;
+}
+

@@ -6265,7 +6265,7 @@ CEDNoConnectDialog::CEDNoConnectDialog(OPointer _obj)
 	buttOK=ok->GetID();
     AddBackElem(ok);
 
-	cancel = new CGUIButton(100,465,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(100,465,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(2);
 	cancel->SetMark(1);
 	cancel->AcceptEvent(GetID(),EClicked);

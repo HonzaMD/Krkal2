@@ -29,7 +29,7 @@ class CEDEditorMenuHandler : public CGUIEventProgram
 {
 	virtual void EventHandler(CGUIEvent *event);
 public:
-	CEDEditorMenuHandler(int numIcons) { icons = new typeID[numIcons]; newLevelDlgID = saveLevelDlgID = msgBoxID = chBoxID = 0; msgBoxIndex = -1; };
+	CEDEditorMenuHandler(int numIcons) { icons = new typeID[numIcons]; levelPropertiesDlgID = newLevelDlgID = saveLevelDlgID = msgBoxID = chBoxID = 0; msgBoxIndex = -1; };
 	virtual ~CEDEditorMenuHandler() { SAFE_DELETE_ARRAY(icons); };
 
 	void CreateNewDialog();
@@ -38,7 +38,7 @@ public:
 	typeID *icons;	// pole ID icon, kvuli rozeznavani pri prichozi udalosti
 					// icony reprezentuji polozky menu (urcuji se v CEDEditorDesktop::AddEditorMenu())
 
-	typeID newLevelDlgID, saveLevelDlgID;	// objID vytvorenych dialogu
+	typeID newLevelDlgID, saveLevelDlgID, levelPropertiesDlgID;	// objID vytvorenych dialogu
 	
 	typeID msgBoxID;	// ID messageBoxu (s ujistenim, zda opravdu chce uzivatel provest zvolenou akci)
 	typeID chBoxID;		// ID CheckBoxu pro urceni, zda chce uzivatel pouzit GameMOD nebo nikoliv
@@ -172,5 +172,30 @@ protected:
 
 	typeID fsASelector;
 };
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// CEDLevelPropertiesDlg
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// dialog pro editaci level properties (Autor, Flags)
+
+class CEDLevelPropertiesDlg : public CGUIDlgOkCancel
+{
+
+public:
+	CEDLevelPropertiesDlg(float _x, float _y);
+	virtual ~CEDLevelPropertiesDlg();
+
+protected:
+
+	virtual int Ok();	// po vybrani platneho jmena a adresare ulozi level
+	// ridi ovladaci prvky dialogu
+
+	CGUIEditWindow *edAutor;
+	char *autor;
+	CGUICheckBox *cbSkip, *cbEditable, *cbPLayable;
+};
+
 
 #endif

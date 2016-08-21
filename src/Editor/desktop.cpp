@@ -47,7 +47,7 @@ CEDEditorDesktop::CEDEditorDesktop()
 		iconDefaultHandler = new CEDDesktopIconHandler();
 		iconDefaultHandler->icons = new typeID[9];		// zadat velikost pole dle poctu icon (polozek typeID)
 
-		editorMenuHandler = new CEDEditorMenuHandler(6);
+		editorMenuHandler = new CEDEditorMenuHandler(7);
 
 		levelWindowDX=levelWindowDY=0;
 
@@ -141,6 +141,13 @@ void CEDEditorDesktop::AddStartMenu()
 
 	font = new CGUIFont();
 	font->CreateFont(ARIAL, 13);
+
+
+	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Level Properties", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)));
+	mi->SetLabelFormated("Level Properties", font);
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[6] = mi->GetID();
 
 	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "New Level", new CGUIRectHost(0, 0, styleSet->Get("LM_NewLevel")->GetTexture(0)));
 	mi->SetLabelFormated("New Level", font);

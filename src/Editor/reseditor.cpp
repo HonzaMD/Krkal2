@@ -955,7 +955,7 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(120,210,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(120,210,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(101);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -1516,7 +1516,7 @@ CEDLightTexEditor::CEDLightTexEditor(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(170,shy2+45,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(170,shy2+45,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -2091,7 +2091,7 @@ int CEDLightTexEditor::GenerateAllTexFilenames(char *dir, char *file)
 		importtexOKID = dlgfiles->ok->GetID();
 		dlgfiles->AddBackElem(dlgfiles->ok);
 
-		dlgfiles->cancel = new CGUIButton(170,posy,50,25,"GUI.But.Std","Storno");
+		dlgfiles->cancel = new CGUIButton(170,posy,50,25,"GUI.But.Std","Cancel");
 		dlgfiles->cancel->SetTabOrder(2);
 		dlgfiles->cancel->SetMark(1);
 		dlgfiles->AddBackElem(dlgfiles->cancel);
@@ -2292,7 +2292,7 @@ CEDManyLightTexEditor::CEDManyLightTexEditor(float _x, float _y, char *pkgdir)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(xx2+10,100,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(xx2+10,100,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);
@@ -2992,7 +2992,7 @@ CEDAnimEditor::CEDAnimEditor(float _x, float _y)
 	ok->SetMark(1);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(x2+10,y2+10,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(x2+10,y2+10,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
     AddBackElem(cancel);

@@ -199,7 +199,7 @@ CGUIDlgEditbox::CGUIDlgEditbox(float _x, float _y, float _sx, char *title_text, 
 	ok->AcceptEvent(GetID(),EClicked);
     AddBackElem(ok);
 
-	cancel = new CGUIButton(floorf(bwnsx/2) + 10,60,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(floorf(bwnsx/2) + 10,60,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(3);
 	cancel->SetMark(1);
 	cancel->AcceptEvent(GetID(),EClicked);
@@ -347,7 +347,7 @@ CGUIMessageBox* GUIMessageBoxOkCancel(char *title_text, char *message_text, int 
 		my=10;
 	}
 
-	msg->cancel = new CGUIButton(floorf(msx/2) + 10,my,50,25,"GUI.But.Std","Storno");
+	msg->cancel = new CGUIButton(floorf(msx/2) + 10,my,50,25,"GUI.But.Std","Cancel");
 	msg->cancel->SetTabOrder(2);
 	msg->cancel->SetMark(1);
     msg->AddBackElem(msg->cancel);
@@ -392,7 +392,7 @@ CGUIMessageBoxYesNoCancel::CGUIMessageBoxYesNoCancel(float _x, float _y, char *t
 	no->AcceptEvent(GetID(),EClicked);
     AddBackElem(no);
 
-	cancel = new CGUIButton(floorf(xx/2)+25+10,10+my+10,50,25,"GUI.But.Std","Storno");
+	cancel = new CGUIButton(floorf(xx/2)+25+10,10+my+10,50,25,"GUI.But.Std","Cancel");
 	cancel->SetTabOrder(3);
 	cancel->SetMark(1);
     AddBackElem(cancel);
