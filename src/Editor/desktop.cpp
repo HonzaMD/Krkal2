@@ -88,14 +88,14 @@ void CEDEditorDesktop::AddStartMenu()
 	CGUIMenu* menu;
 	CGUIMenuItem* mi;
 
-	menu = new CGUIMenu(220);
+	menu = new CGUIMenu(260);
 	menu->SetPictureStripSize(44);
 	menu->SetMenuPictureSize(40);
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Quit", new CGUIRectHost(0, 0, styleSet->Get("LebkyTB3")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 40, "en{{Quit}}cs{{Konec}}", new CGUIRectHost(0, 0, styleSet->Get("LebkyTB3")->GetTexture(0)));
 	CGUIFont *font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
-	mi->SetLabelFormated("Quit",font);
+	mi->SetLabelFormated("en{{Quit}}cs{{Konec}}",font);
 	mi->SetShortCut("F4",false,false,false,VK_F4,true);
 	font->Release();
 	menu->AddMenuItem(0,mi);
@@ -103,10 +103,10 @@ void CEDEditorDesktop::AddStartMenu()
 	mi->AcceptEvent(mainGUI->handler->GetID(),EClicked);
 	mainGUI->handler->icons[2]=mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Script Editor", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Script")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 40, "en{{Script Editor}}cs{{Editor skriptù}}", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Script")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
-	mi->SetLabelFormated("Script Editor",font);
+	mi->SetLabelFormated("en{{Script Editor}}cs{{Editor skriptù}}",font);
 	mi->SetShortCut("F1",false,false,false,VK_F1,true);
 	font->Release();
 	menu->AddMenuItem(0,mi);
@@ -115,10 +115,10 @@ void CEDEditorDesktop::AddStartMenu()
 	mainGUI->handler->icons[3]=mi->GetID();
 
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 40, "Restart Editor", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Level")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 40, "en{{Restart Editor}}cs{{Restartni editor}}", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Level")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,13);
-	mi->SetLabelFormated("Restart Editor",font);
+	mi->SetLabelFormated("en{{Restart Editor}}cs{{Restartni editor}}",font);
 	mi->SetShortCut("F2",false,false,false,VK_F2,true);
 	font->Release();
 	menu->AddMenuItem(0,mi);
@@ -127,10 +127,10 @@ void CEDEditorDesktop::AddStartMenu()
 	mainGUI->handler->icons[0]=mi->GetID();
 
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 60, "Game", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Game")->GetTexture(0)));
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 60, "en{{Game}}cs{{Hra}}", new CGUIRectHost(0, 0, styleSet->Get("StartMenu_Game")->GetTexture(0)));
 	font = new CGUIFont();
 	font->CreateFont(ARIAL,20);
-	mi->SetLabelFormated("GAME",font);
+	mi->SetLabelFormated("en{{Game}}cs{{Hra}}",font);
 	mi->SetShortCut("F3",false,false,false,VK_F3,true);
 	font->Release();
 	menu->AddMenuItem(0,mi);
@@ -143,49 +143,49 @@ void CEDEditorDesktop::AddStartMenu()
 	font->CreateFont(ARIAL, 13);
 
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Level Properties", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)));
-	mi->SetLabelFormated("Level Properties", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Level Properties}}cs{{Vlastnosti levelu}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Level Properties}}cs{{Vlastnosti levelu}}", font);
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[6] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "New Level", new CGUIRectHost(0, 0, styleSet->Get("LM_NewLevel")->GetTexture(0)));
-	mi->SetLabelFormated("New Level", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{New Level}}cs{{Nový level}}", new CGUIRectHost(0, 0, styleSet->Get("LM_NewLevel")->GetTexture(0)));
+	mi->SetLabelFormated("en{{New Level}}cs{{Nový level}}", font);
 	mi->SetShortCut("Ctrl+N", true, false, false, 'N');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[0] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Load Level", new CGUIRectHost(0, 0, styleSet->Get("LM_LoadLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Load Level", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Load Level}}cs{{Nahraj level}}", new CGUIRectHost(0, 0, styleSet->Get("LM_LoadLevel")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Load Level}}cs{{Nahraj level}}", font);
 	mi->SetShortCut("Ctrl+L", true, false, false, 'L');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[1] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Save Level", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
-	mi->SetLabelFormated("Save Level", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Save Level}}cs{{Ulož level}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Save Level}}cs{{Ulož level}}", font);
 	mi->SetShortCut("Ctrl+S", true, false, false, 'S');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[2] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Save As ...", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
-	mi->SetLabelFormated("Save As ...", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Save As ...}}cs{{Ulož jako ...}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_Save_Up")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Save As ...}}cs{{Ulož jako ...}}", font);
 	mi->SetShortCut("Ctrl+Shift+S", true, false, true, 'S');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[3] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Clear Level", new CGUIRectHost(0, 0, styleSet->Get("LM_ClearLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Clear Level", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Clear Level}}cs{{Vyprázdni level}}", new CGUIRectHost(0, 0, styleSet->Get("LM_ClearLevel")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Clear Level}}cs{{Vyprázdni level}}", font);
 	mi->SetShortCut("Ctrl+Shift+N", true, false, true, 'N');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[4] = mi->GetID();
 
-	mi = new CGUIMenuItem(menu, 0, 0, 220, 30, "Close Level", new CGUIRectHost(0, 0, styleSet->Get("LM_CloseLevel")->GetTexture(0)));
-	mi->SetLabelFormated("Close Level", font);
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Close Level}}cs{{Zavøi level}}", new CGUIRectHost(0, 0, styleSet->Get("LM_CloseLevel")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Close Level}}cs{{Zavøi level}}", font);
 	mi->SetShortCut("Ctrl+X", true, false, false, 'X');
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
@@ -550,7 +550,7 @@ void CEDEditorDesktop::InitDefaultIcons()
 	{
 		desktop->panel->AddGap(10);
 		//CGUIButton* icon = new CGUIButton(100,100,STD_PANEL_ICON_SIZE,STD_PANEL_ICON_SIZE,styleSet->Get("SlaviaTB1"),styleSet->Get("SlaviaTB2"),styleSet->Get("SlaviaTB3"),false,0,0,"Show Debug && Error Log");
-		CGUIButton* icon = new CGUIButton(100,100,20,27,styleSet->Get("EyeTB1"),styleSet->Get("EyeTB2"),styleSet->Get("EyeTB3"),false,0,0,"Show Debug && Error Log");
+		CGUIButton* icon = new CGUIButton(100,100,20,27,styleSet->Get("EyeTB1"),styleSet->Get("EyeTB2"),styleSet->Get("EyeTB3"),false,0,0,"en{{Show Debug && Error Log}}cs{{Zobraz Debug && Error Log}}");
 		icon->SetInactiveStyle(styleSet->Get("EyeTB4"));
 		if(!desktop->panel->AddIcon(icon,-2))
 		{
@@ -562,7 +562,7 @@ void CEDEditorDesktop::InitDefaultIcons()
 
 	if(desktop->panel)
 	{
-		icon = desktop->panel->AddIcon(styleSet->Get("KrkalTB1"),styleSet->Get("KrkalTB2"),styleSet->Get("KrkalTB3"),"ShowRunLogWindow");
+		icon = desktop->panel->AddIcon(styleSet->Get("KrkalTB1"),styleSet->Get("KrkalTB2"),styleSet->Get("KrkalTB3"),"en{{Show RunLogWindow}}cs{{Zobraz RunLogWindow}}");
 		if(icon)
 		{
 			iconDefaultHandler->icons[3] = icon->GetID();
@@ -574,7 +574,7 @@ void CEDEditorDesktop::InitDefaultIcons()
 	if(desktop->panel)
 	{
 		desktop->panel->AddGap(10);
-		CGUIButton* icon = new CGUIButton(0,0,-1,-1,"GUI.But.Package","",0,"PackageBrowser");
+		CGUIButton* icon = new CGUIButton(0,0,-1,-1,"GUI.But.Package","",0,"Package Browser");
 		if(!desktop->panel->AddIcon(icon,6))
 		{
 			iconDefaultHandler->icons[2] = icon->GetID();

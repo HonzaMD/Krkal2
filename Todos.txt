@@ -1,4 +1,5 @@
-* editor: level properties
+* lokalizovat package browser
+* autori k levlum
 * in game navod na editor
 * revize readme
 * revize dokumentace

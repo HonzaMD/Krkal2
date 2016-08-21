@@ -65,7 +65,7 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 	if(event->sender == icons[1])		// polozka editor menu - Load Level
 	{	
 		CEDFileSelector* fs = new CEDFileSelector(100,100,300,500);
-		fs->title->SetText("Select Level:");
+		fs->title->SetText("en{{Select Level:}}cs{{Zvol level:}}");
 		fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("LM_LoadLevel")->GetTexture(0)));
 		fs->filterExt = eEXTlevel;
 		fs->AcceptEvent(GetID(),ETree);
@@ -117,7 +117,7 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 	if(event->sender == icons[4])		// polozka editor menu - Clear Level
 	{
-		CGUIMessageBox* mb = GUIMessageBoxOkCancel("Clear Level","Are You sure?",1);
+		CGUIMessageBox* mb = GUIMessageBoxOkCancel("en{{Clear Level}}cs{{Vyprázdni level}}","en{{Are You sure?}}cs{{Jsi si jistý?}}",1);
 		mb->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("LM_ClearLevel")->GetTexture(0)));
 		mb->AcceptEvent(GetID(),EOk);
 		mb->AcceptEvent(GetID(),ECancel);
@@ -127,7 +127,7 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 	if(event->sender == icons[5])		// polozka editor menu - Close Level
 	{	
-		CGUIMessageBox* mb = GUIMessageBoxOkCancel("Close Level","Are You sure?",1);
+		CGUIMessageBox* mb = GUIMessageBoxOkCancel("en{{Close Level}}cs{{Zavøi level}}","en{{Are You sure?}}cs{{Jsi si jistý?}}",1);
 		mb->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("LM_CloseLevel")->GetTexture(0)));
 		mb->AcceptEvent(GetID(),EOk);
 		mb->AcceptEvent(GetID(),ECancel);
@@ -481,7 +481,7 @@ int CEDFileSelector::CompareLevelDIR(CGUITreeItem *aa, CGUITreeItem *bb)
 #define STRINGLEN 1000
 
 CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x,_y,400,227,"NewLevel",new CGUIRectHost(0,0,styleSet->Get("LM_NewLevel")->GetTexture(0)),false)
+:CGUIDlgOkCancel(_x,_y,400,227,"en{{New Level}}cs{{Nový level}}",new CGUIRectHost(0,0,styleSet->Get("LM_NewLevel")->GetTexture(0)),false)
 {
 	autogrowing = 0;
 	title->SetButtons(true,false,false);
@@ -499,9 +499,9 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	levelPath[0]=0;
 
 
-	AddBackElem(new CGUIStaticText("LevelName:",font,10,15,STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Level Name:}}cs{{Jméno levelu:}}",font,10,15,STD_DLG_TEXT_COLOR));
 
-	edLevel = new CGUIEditWindow(80,13,260);//,0xFF000000,0xFFFFFFFF,"DX.F.Arial.8");
+	edLevel = new CGUIEditWindow(90,13,250);//,0xFF000000,0xFFFFFFFF,"DX.F.Arial.8");
 	edLevel->SetTabOrder(1.1f);
 	edLevel->SelectOnFocus();
 	edLevel->BindAttribute(levelName,dtString,STRINGLEN+1,0);
@@ -516,8 +516,8 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	AddBackElem(ln);
 	//---
 	
-	AddBackElem(new CGUIStaticText("Advanced Options:",(CGUIFont*) RefMgr->Find("GUI.F.Arial.10.B"),10,43,STD_DLG_BORDER_COLOR));
-	AddBackElem(new CGUIStaticText("(Don't change anything, if you don't know, what it means!)",font,10,57,STD_DLG_BORDER_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Advanced Options:}}cs{{Pokroèilé možnosti:}}",(CGUIFont*) RefMgr->Find("GUI.F.Arial.10.B"),10,43,STD_DLG_BORDER_COLOR));
+	AddBackElem(new CGUIStaticText("en{{(Don't change anything, if you don't know, what it means!)}}cs{{Nemìò nic, pokud si nejsi jistý, co to znamená!}}",font,10,57,STD_DLG_BORDER_COLOR));
 
 
 //	AddBackElem(new CGUIStaticText("LevelPath:",font,10,85,STD_DLG_TEXT_COLOR));
@@ -533,7 +533,7 @@ CEDScriptSelectorDlg::CEDScriptSelectorDlg(float _x, float _y)
 	//edLevelPath->Sync(0);
 
 
-	edScript = new CGUIEditWindow(80,93,260);
+	edScript = new CGUIEditWindow(90,93,250);
 	edScript->SetTabOrder(3.1f);
 	edScript->SelectOnFocus();
 	edScript->BindAttribute(scriptName,dtString,STRINGLEN+1,0);
@@ -705,7 +705,7 @@ void CEDScriptSelectorDlg::EventHandler(CGUIEvent *event)
 					desktop->GetDesktopPos(bScriptSelector,bx,by); //zjistim souradnice tlacitka "..." v desktopu
 					
 					fs = new CEDFileSelector(bx,by,300,500);
-					fs->title->SetText("Select Script:");
+					fs->title->SetText("en{{Select Script:}}cs{{Vyber script}}");
 					fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("FileBrowser")->GetTexture(0)));
 					fs->compareFunction=&CEDFileSelector::CompareLevelDIR;
 					fs->SetCompareFunctionSubTree(&CEDFileSelector::CompareLevelDIR);
@@ -931,7 +931,7 @@ int CEDScriptSelectorDlg::Ok()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x,_y,400,106,"Save As ...",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)),false)
+:CGUIDlgOkCancel(_x,_y,400,106,"en{{Save As ...}}cs{{Ulož jako ...}}",new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)),false)
 {
 	autogrowing = 0;
 	title->SetButtons(true,false,false);
@@ -942,7 +942,7 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 	CGUIFont *font = (CGUIFont*) RefMgr->Find("GUI.F.Arial.10");
 
 //	AddBackElem(new CGUIStaticText("LevelPath:",font,10,45,STD_DLG_TEXT_COLOR));
-	AddBackElem(new CGUIStaticText("LevelName:",font,10,15,STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Level Name:}}cs{{Jméno levelu:}}",font,10,15,STD_DLG_TEXT_COLOR));
 
 	levelName = new char[STRINGLEN+5];
 	levelName[0]=0;
@@ -958,7 +958,7 @@ CEDLevelSaveSelectorDlg::CEDLevelSaveSelectorDlg(float _x, float _y)
 	//edLevelPath->Sync(0);
 
 
-	edLevel = new CGUIEditWindow(80,13,260);
+	edLevel = new CGUIEditWindow(90,13,250);
 	edLevel->SetTabOrder(2.1f);
 	edLevel->SelectOnFocus();
 	edLevel->BindAttribute(levelName,dtString,STRINGLEN+1,0);
@@ -1080,7 +1080,7 @@ void CEDLevelSaveSelectorDlg::EventHandler(CGUIEvent *event)
 					desktop->GetDesktopPos(bLevelSelector,bx,by); //zjistim souradnice tlacitka "..." v desktopu
 					
 					fs = new CEDFileSelector(bx,by,300,500);
-					fs->title->SetText("Select LevelPath (name):");
+					fs->title->SetText("en{{Select LevelPath (name):}}cs{{Zvol level:}}");
 					fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("BUT_Save_Up")->GetTexture(0)));
 					fs->title->SetButtons(true,false,false);
 					fs->filterExt = eEXTlevel;
@@ -1170,7 +1170,7 @@ int CEDLevelSaveSelectorDlg::Ok()
 {
 	if(mainGUI->editorGameMod)	// level nelze ulozit v game modu - herni objekty nejsou v konzistentnim stavu
 	{
-		CEDUserAnnouncer::Announce("Can't save level in Game MOD",5);
+		CEDUserAnnouncer::Announce("en{{Can't save level in Game MOD}}cs{{Nemohu uložit level v Game Modu}}",5);
 		
 		CEDFileSelector *fs = dynamic_cast<CEDFileSelector*>(nameServer->ResolveID(fsLevelSelector));
 		if(fs)
@@ -1531,7 +1531,7 @@ const char *GetFileName(const char *path) {
 }
 
 CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x, _y, 400, 265, "Level Properties", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)), false)
+:CGUIDlgOkCancel(_x, _y, 400, 265, "en{{Level Properties}}cs{{Vlastnosti levelu}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)), false)
 {
 	autogrowing = 0;
 	title->SetButtons(true, false, false);
@@ -1541,7 +1541,7 @@ CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
 
 	CGUIFont *font = (CGUIFont*)RefMgr->Find("GUI.F.Arial.10");
 
-	AddBackElem(new CGUIStaticText("Author:", font, 10, 15, STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Author:}}cs{{Autor:}}", font, 10, 15, STD_DLG_TEXT_COLOR));
 
 	autor = new char[STRINGLEN + 5];
 	*autor = 0;
@@ -1557,26 +1557,26 @@ CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
 	AddBackElem(edAutor);
 	edAutor->Sync(0);
 
-	AddBackElem(new CGUIStaticText("Music:", font, 10, 45, STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Music:}}cs{{Hudba:}}", font, 10, 45, STD_DLG_TEXT_COLOR));
 	if (KerMain->LevelInfo.Music) {
 		AddBackElem(new CGUIStaticText(GetFileName(KerMain->LevelInfo.Music), font, 80, 45, STD_DLG_TEXT_COLOR));
 	}
-	AddBackElem(new CGUIStaticText("Use package browser to set music.", font, 80, 70, STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Use package browser to set music.}}cs{{K nastavení hudby použij package browser.}}", font, 80, 70, STD_DLG_TEXT_COLOR));
 
 
-	cbSkip = new CGUICheckBox(10, 100, new CGUIStaticText("Allow To Skip Level", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbSkip = new CGUICheckBox(10, 100, new CGUIStaticText("en{{Allow To Skip Level}}cs{{Dovol pøeskoèit level}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbSkip->ChangeState(KerMain->LevelInfo.Tags & eMMLTskipable);
 	cbSkip->SetMark(true);
 	cbSkip->SetTabOrder(3);
 	AddBackElem(cbSkip);
 
-	cbEditable = new CGUICheckBox(10, 130, new CGUIStaticText("Allways Editable", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbEditable = new CGUICheckBox(10, 130, new CGUIStaticText("en{{Allways Editable}}cs{{Vždy editovatelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbEditable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwEditable);
 	cbEditable->SetMark(true);
 	cbEditable->SetTabOrder(4);
 	AddBackElem(cbEditable);
 
-	cbPLayable = new CGUICheckBox(10, 160, new CGUIStaticText("Allways Playable", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbPLayable = new CGUICheckBox(10, 160, new CGUIStaticText("en{{Allways Playable}}cs{{Vždy hratelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbPLayable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwAccess);
 	cbPLayable->SetMark(true);
 	cbPLayable->SetTabOrder(4);

@@ -314,7 +314,7 @@ void CEDEditor::SaveLevel()
 {
 	if(mainGUI->editorGameMod)	// level nelze ulozit v game modu - herni objekty nejsou v konzistentnim stavu
 	{
-		CEDUserAnnouncer::Announce("Can't save level in Game MOD",5);
+		CEDUserAnnouncer::Announce("en{{Can't save level in Game MOD}}cs{{Nemohu uložit level v Game Modu}}",5);
 		return;
 	}
 
@@ -322,8 +322,10 @@ void CEDEditor::SaveLevel()
 	{
 		try{
 			FS->ChangeDir("$GAME$");
-			if(KerMain->SaveLevel())
-				CEDUserAnnouncer::Announce("Save Successful",5);
+			if (KerMain->SaveLevel()) {
+				CEDUserAnnouncer::Announce("en{{Save Successful}}cs{{Úspìšnì uloženo}}", 5);
+				mainGUI->SetEditorLevelInit(KerMain->LevelInfo.LevelFile);
+			}
 		} catch (CKernelPanic){
 			KernelShutDown();
 			//KerErrorFiles->ShowAllLogs(100,90,640,600);

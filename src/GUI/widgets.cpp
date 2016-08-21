@@ -37,9 +37,8 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, char *_text, char *fontName, 
 		throw CExc(eGUI, E_BAD_ARGUMENTS,"CGUIStaticText::CGUIStaticText> Text or Font not assigned");
 	}
 
-	int len = strlen(_text);
-	originalText = new char[len+1];
-	strcpy(originalText,_text);
+	originalText = KRKAL->CopyOutStrByLanguage(_text);
+	int len = strlen(originalText);
 	numChars = len;
 	SIZE vel;
 
@@ -67,7 +66,7 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, char *_text, char *fontName, 
 	font = guiFont->font;
 
 	SelectObject(mainGUI->dc,font);
-	GetTextExtentPoint32(mainGUI->dc,_text,len,&vel);
+	GetTextExtentPoint32(mainGUI->dc,originalText,len,&vel);
 
 	SetSize((float)vel.cx,(float)vel.cy);
 	text = new CBltText(x,y,(float)vel.cx,(float)vel.cy,originalText,len,font, color,0,0);
@@ -92,9 +91,8 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, float maxx, char *_text, char
 		throw CExc(eGUI, E_BAD_ARGUMENTS,"CGUIStaticText::CGUIStaticText> Text or Font not assigned");
 	}
 
-	int len = strlen(_text);
-	originalText = new char[len+1];
-	strcpy(originalText,_text);
+	originalText = KRKAL->CopyOutStrByLanguage(_text);
+	int len = strlen(originalText);
 
 	SIZE vel;
 
@@ -125,7 +123,7 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, float maxx, char *_text, char
 	// oriznuti textu na maximalni delku podle max. velikosti obdelniku
 	while(len)
 	{
-		GetTextExtentPoint32(mainGUI->dc,_text,len,&vel);
+		GetTextExtentPoint32(mainGUI->dc,originalText,len,&vel);
 		if((float)vel.cx > maxx)
 			len--;
 		else
@@ -176,9 +174,8 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, float maxx, float maxy, char 
 	}
 
 
-	int lengthText = strlen(_text);
-	originalText = new char[lengthText+1];
-	strcpy(originalText,_text);
+	originalText = KRKAL->CopyOutStrByLanguage(_text);
+	int lengthText = strlen(originalText);
 	SIZE vel;
 
 
@@ -648,9 +645,8 @@ void CGUIStaticText::CreateText(char *_text, CGUIFont* _font, float _x, float _y
 	guiFont = _font;
 	font = guiFont->font;
 
-	int lengthText = strlen(_text);
-	char *newText = new char[lengthText+1];
-	strcpy(newText,_text);
+	char *newText = KRKAL->CopyOutStrByLanguage(_text);
+	int lengthText = strlen(newText);
 	SIZE vel;
 
 	SelectObject(mainGUI->dc,font);

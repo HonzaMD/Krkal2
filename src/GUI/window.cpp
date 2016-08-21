@@ -17,6 +17,7 @@
 #include "widgets.h"
 #include "scrollbar.h"
 #include "panel.h"
+#include "krkal.h"
 
 #include "dxbliter.h"
 
@@ -1013,8 +1014,7 @@ CGUITitle::CGUITitle(char *title, CGUIRectHost *_icon, CGUIWindow *wnd, float he
 
 	if(title)
 	{
-		titleText=new char[strlen(title)+1];
-		strcpy(titleText,title);
+		titleText = KRKAL->CopyOutStrByLanguage(title);
 	}else{
 		titleText=new char[1];
 		titleText[0] = 0;
