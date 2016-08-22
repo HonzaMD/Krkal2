@@ -393,10 +393,25 @@ int CMMDirFile::LoadLevelInfo(CMMLevelDir *dir) {
 // vrati jedna, pokud f2 je null nebo pokud je this pred f2
 int CMMDirFile::Compare(CMMDirFile *f2) {
 	if (!f2) return 1;
-	if (Type == eEXTdirectory && Difficulty == 0 && f2->Type != eEXTdirectory) return 1;
-	if (Type != eEXTlevel && Difficulty == 0 && ( f2->Type == eEXTlevel || f2->Difficulty > 0)) return 1;
+	
 	if (Difficulty < f2->Difficulty) return 1;
 	if (Difficulty > f2->Difficulty) return 0;
+	
+	int thisCat = 0;
+	if (Type == eEXTlevel)
+		thisCat = 2;
+	else if (Type != eEXTdirectory)
+		thisCat = 1;
+
+	int f2Cat = 0;
+	if (f2->Type == eEXTlevel)
+		f2Cat = 2;
+	else if (f2->Type != eEXTdirectory)
+		f2Cat = 1;
+
+	if (thisCat < f2Cat) return 1;
+	if (thisCat > f2Cat) return 0;
+
 	if (_stricoll(UserNameExt,f2->UserNameExt)<0) return 1;
 
 	return 0;

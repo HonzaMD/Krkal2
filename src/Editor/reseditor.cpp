@@ -87,7 +87,7 @@ CPackageBrowser::CPackageBrowser(float _x, float _y, float _sx, float _sy, char*
 	CGUIRectHost *icon = new CGUIRectHost(0,0,styleSet->Get("BUT_Package_Up")->GetTexture(0));
 	title->SetIcon(icon);
 
-	title->SetText("Brousiè pakáží");
+	title->SetText("en{{Package Browser}}cs{{Brousiè pakáží}}");
 
 	compareFunction=&Compare;
 	SetCompareFunctionSubTree(&Compare);
@@ -99,38 +99,38 @@ CPackageBrowser::CPackageBrowser(float _x, float _y, float _sx, float _sy, char*
 	eventhandler = new CPackageBrowserEventHandler(this);
 
 	dirmenu = new CGUIMenu();
-	dirmenu->AddMenuItem(0,"Vytvoø package");
+	dirmenu->AddMenuItem(0,"en{{Create Package}}cs{{Vytvoø package}}");
 	dirmenu->AcceptEvent(eventhandler->GetID(),EMenu);
 
 	packagemenu = new CGUIMenu(170);
-	packagemenu->AddMenuItem(0,"Vytvoø ElSource");
-	packagemenu->AddMenuItem(0,"Vytvoø LightTex");
-	packagemenu->AddMenuItem(0,"Vytvoø animaci");
+	packagemenu->AddMenuItem(0,"en{{Create ElSource}}cs{{Vytvoø ElSource}}");
+	packagemenu->AddMenuItem(0,"en{{Create LightTex}}cs{{Vytvoø LightTex}}");
+	packagemenu->AddMenuItem(0,"en{{Create Animation}}cs{{Vytvoø animaci}}");
 	packagemenu->AddGap(0);
-	packagemenu->AddMenuItem(0,"Vytvoø mraky LightTexù");
+	packagemenu->AddMenuItem(0,"en{{Create tons of LightTex}}cs{{Vytvoø mraky LightTexù}}");
 	packagemenu->AddGap(0);
-	packagemenu->AddMenuItem(0,"Pøidej hudbu");
-	packagemenu->AddMenuItem(0,"Pøidej zvuk");
+	packagemenu->AddMenuItem(0,"en{{Add Music}}cs{{Pøidej hudbu}}");
+	packagemenu->AddMenuItem(0,"en{{Add Sound}}cs{{Pøidej zvuk}}");
 	packagemenu->AddGap(0);
-	packagemenu->AddMenuItem(0,"Smaž package");
+	packagemenu->AddMenuItem(0,"en{{Delete Package}}cs{{Smaž package}}");
 	packagemenu->AddGap(0);
-	packagemenu->AddMenuItem(0,"Defragmentuj package");
+	packagemenu->AddMenuItem(0,"en{{Defragment Package}}cs{{Defragmentuj package}}");
 	packagemenu->AcceptEvent(eventhandler->GetID(),EMenu);
 
 	resourcemenu = new CGUIMenu();
-	resourcemenu->AddMenuItem(0,"Smaž resource");
+	resourcemenu->AddMenuItem(0,"en{{Delete Resource}}cs{{Smaž resource}}");
 	resourcemenu->AcceptEvent(eventhandler->GetID(),EMenu);
 
 	picturemenu = new CGUIMenu(170);
-	picturemenu->AddMenuItem(0,"Smaž resource");
+	picturemenu->AddMenuItem(0,"en{{Delete Resource}}cs{{Smaž resource}}");
 	picturemenu->AddGap(0);
-	picturemenu->AddMenuItem(0,"Vytvoø automatizmus");
+	picturemenu->AddMenuItem(0,"en{{Create Automatics}}cs{{Vytvoø automatizmus}}");
 	picturemenu->AcceptEvent(eventhandler->GetID(),EMenu);
 
-	musicmenu = new CGUIMenu(170);
-	musicmenu->AddMenuItem(0,"Smaž resource");
+	musicmenu = new CGUIMenu(190);
+	musicmenu->AddMenuItem(0,"en{{Delete Resource}}cs{{Smaž resource}}");
 	musicmenu->AddGap(0);
-	musicmenu->AddMenuItem(0,"Nastav jako hudbu levlu");
+	musicmenu->AddMenuItem(0,"en{{Set as Music to the Level}}cs{{Nastav jako hudbu levlu}}");
 	musicmenu->AcceptEvent(eventhandler->GetID(),EMenu);
 
 }
@@ -429,15 +429,15 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 					if(!newresname) {newresname = new char[MAX_RESNAME_LEN+5];}
 					CGUIDlgEditbox *newresnamedlg;
 					if(menuitem==0){
-						newresnamedlg = new CGUIDlgEditbox(100,100,300,"Nový ElSource","Jméno ElSourcu:");
+						newresnamedlg = new CGUIDlgEditbox(100,100,300,"en{{New ElSource}}cs{{Nový ElSource}}","en{{ElSource name:}}cs{{Jméno ElSourcu:}}");
 						newrestype=0;
 					}else 
 					if(menuitem==1){
-						newresnamedlg = new CGUIDlgEditbox(100,100,300,"Nová LightTex","Jméno textury:");
+						newresnamedlg = new CGUIDlgEditbox(100,100,300,"en{{New LightTex}}cs{{Nová LightTex}}","en{{Texture name:}}cs{{Jméno textury:}}");
 						newrestype=1;
 					}else
 					if(menuitem==2){
-						newresnamedlg = new CGUIDlgEditbox(100,100,300,"Nová animace","Jméno animace:");
+						newresnamedlg = new CGUIDlgEditbox(100,100,300,"en{{New Animation}}cs{{Nová animace}}","en{{Animation name:}}cs{{Jméno animace:}}");
 						newrestype=2;
 					}
 
@@ -508,7 +508,7 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 					deldlg = GetDeleteDlg();
 					if(deldlg) deldlg->CloseWindow();
 
-					deldlg = GUIMessageBoxOkCancel("Smazat pakáž?","Opravdu chcete smazat pakáž?",1,0xFF000000);
+					deldlg = GUIMessageBoxOkCancel("en{{Delete Package?}}cs{{Smazat pakáž?}}","en{{Do you really want to delete package?}}cs{{Opravdu chcete smazat pakáž?}}",1,0xFF000000);
 					deletedlgID = deldlg->GetID();
 					deldlg->AcceptEvent(GetID(),EOk);
 
@@ -542,7 +542,7 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 				if(!newresname) {newresname = new char[MAX_RESNAME_LEN+5];}
 				CGUIDlgEditbox *newresnamedlg;
 
-				newresnamedlg = new CGUIDlgEditbox(100,100,300,"Nová Package","Jméno Package:");
+				newresnamedlg = new CGUIDlgEditbox(100,100,300,"en{{New Package}}cs{{Nová Package}}","en{{Package name:}}cs{{Jméno Package:}}");
 				newrestype=-1;
 
 				newresnamedlgID=newresnamedlg->GetID();
@@ -569,7 +569,7 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 					deldlg = GetDeleteDlg();
 					if(deldlg) deldlg->CloseWindow();
 
-					deldlg = GUIMessageBoxOkCancel("Smazat resource?","Opravdu chcete smazat resource?",1,0xFF000000);
+					deldlg = GUIMessageBoxOkCancel("en{{Delete Resource?}}cs{{Smazat resource?}}","en{{Do you really want to delete resource?}}cs{{Opravdu chcete smazat resource?}}",1,0xFF000000);
 					deletedlgID = deldlg->GetID();
 					deldlg->AcceptEvent(GetID(),EOk);
 
@@ -617,7 +617,7 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 				{
 					if(!KerMain->AutosMain->GetSaveAutosState())
 					{
-						GUIMessageBox("Chyba!","Není otevøen soubor s automatizmem!",1,0xFFFF0000);
+						GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Není otevøen soubor s automatizmem!",1,0xFFFF0000);
 					}else
 					{
 						char *relroot,*reldir,*relfile;
@@ -631,7 +631,7 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 							delete[]relroot;delete[]reldir;delete[]relfile;
 
 							if(!KerMain->AutosMain->AddEasyAuto(pic))
-								GUIMessageBox("Chyba!","Nepodaøilo se vytvoøi automatizmus!",1,0xFFFF0000);
+								GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Nepodaøilo se vytvoøi automatizmus!",1,0xFFFF0000);
                             
 							delete[]pic;
 						}
@@ -726,13 +726,13 @@ void CPackageBrowserEventHandler::EventHandler(CGUIEvent *event)
 							pkgbrow->FileSysChanged();
 
 						}else{
-							GUIMessageBox("Chyba!","Chyba! Nejde otevøít pakáž!",1,0xFFFF0000);
+							GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Nejde otevøít pakáž!",1,0xFFFF0000);
 						}
 					}else{
 						if(module_sample)
-							GUIMessageBox("Chyba!","Chyba! Vybraný soubor nelze použít jako hudba!",1,0xFFFF0000);
+							GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Vybraný soubor nelze použít jako hudba!",1,0xFFFF0000);
 						else
-							GUIMessageBox("Chyba!","Chyba! Vybraný soubor nelze použít jako zvuk!",1,0xFFFF0000);
+							GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Vybraný soubor nelze použít jako zvuk!",1,0xFFFF0000);
 					}
 
 					SAFE_DELETE_ARRAY(fp);
@@ -878,7 +878,7 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 	CGUIFont *font = (CGUIFont*) RefMgr->Find("GUI.F.Arial.10");
 	CGUIFont *font2 = (CGUIFont*) RefMgr->Find("GUI.F.Arial.10.I");
 
-	AddBackElem(new CGUIStaticText("Posun základny",font2,10,10,TEXTGROUP_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Base shift}}cs{{Posun základny}}",font2,10,10,TEXTGROUP_COLOR));
 	AddBackElem(new CGUIStaticText("X:",font,10,30,STD_DLG_TEXT_COLOR));
 	AddBackElem(new CGUIStaticText("Y:",font,80,30,STD_DLG_TEXT_COLOR));
 	AddBackElem(new CGUIStaticText("Z:",font,150,30,STD_DLG_TEXT_COLOR));
@@ -906,7 +906,7 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 	//---
 	AddBackElem(new CGUILine(10,55,215,55,STD_DLG_BORDER_COLOR));
 	//---
-	AddBackElem(new CGUIStaticText("Výška:",font,10,65,STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Height:}}cs{{Výška:}}",font,10,65,STD_DLG_TEXT_COLOR));
 	edzdz = new CGUIEditWindow(60,63,100);
 	edzdz->SetTabOrder(2);
 	edzdz->SelectOnFocus();
@@ -916,7 +916,7 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 	//---
 	AddBackElem(new CGUILine(10,90,215,90,STD_DLG_BORDER_COLOR));
 	//---
-	AddBackElem(new CGUIStaticText("Øešení kolizí u vidit. tøídìní",font2,10,100,TEXTGROUP_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Visibility collision solving}}cs{{Øešení kolizí u vidit. tøídìní}}",font2,10,100,TEXTGROUP_COLOR));
 	
 	CGUIStaticText *rampatext = new CGUIStaticText("RampaFlag",font,30,120,STD_DLG_TEXT_COLOR);
 	edrampa = new CGUICheckBox(10,120,rampatext,0);
@@ -936,8 +936,8 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 	//---
 	AddBackElem(new CGUILine(10,145,215,145,STD_DLG_BORDER_COLOR));
 	//---
-	AddBackElem(new CGUIStaticText("Body základny",font2,10,155,TEXTGROUP_COLOR));
-	AddBackElem(new CGUIStaticText("Poèet bodù:",font,10,175,STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Points of base}}cs{{Body základny}}",font2,10,155,TEXTGROUP_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Points count:}}cs{{Poèet bodù:}}",font,10,175,STD_DLG_TEXT_COLOR));
 	
 	ednumpoints = new CGUIEditWindow(90,175,50);
 	ednumpoints->SetTabOrder(4);
@@ -963,13 +963,13 @@ CEDElSourceEditor::CEDElSourceEditor(float _x, float _y)
 
 	//copy= new CGUIButton(15,210,-1,-1,styleSet->Get("copyBUT"),styleSet->Get("copydownBUT"),styleSet->Get("copymarkBUT"),false,0,0,"Kopírovat");
 	//copy->SetInactiveStyle(styleSet->Get("copydisableBUT"));
-	copy=new CGUIButton(15,210,-1,-1,"GUI.But.Copy",0,0,"Kopírovat");
+	copy=new CGUIButton(15,210,-1,-1,"GUI.But.Copy",0,0,"en{{Copy}}cs{{Kopírovat}}");
 	copy->AcceptEvent(GetID(),EClicked);
 	AddBackElem(copy);
 
 //	paste= new CGUIButton(190,210,-1,-1,styleSet->Get("pasteBUT"),styleSet->Get("pastedownBUT"),styleSet->Get("pastemarkBUT"),false,0,0,"Vložit");
 //	paste->SetInactiveStyle(styleSet->Get("pastedisableBUT"));
-	paste=new CGUIButton(190,210,-1,-1,"GUI.But.Paste",0,0,"Vložit");
+	paste=new CGUIButton(190,210,-1,-1,"GUI.But.Paste",0,0,"en{{Paste}}cs{{Vložit}}");
 	paste->AcceptEvent(GetID(),EClicked);
 	if(!(resourceEditor && resourceEditor->elsclipboard))
 		paste->Deactivate();
@@ -1272,7 +1272,7 @@ int CEDElSourceEditor::Ok()
 {
 	int sv = SaveElSource();
 	if(!sv) {
-		GUIMessageBox("Chyba!","Chyba! Nezdaøilo se uložit ElSource!",1,0xFFFF0000);
+		GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Nezdaøilo se uložit ElSource!",1,0xFFFF0000);
 		return 0;
 	}
 	CloseWindow();
@@ -1461,7 +1461,7 @@ CEDLightTexEditor::CEDLightTexEditor(float _x, float _y)
 	AddBackElem(ln1);
 //---
 
-	chktext = new CGUIStaticText("vrhá stín",font,0,0,STD_DLG_TEXT_COLOR);
+	chktext = new CGUIStaticText("en{{casts shadow}}cs{{vrhá stín}}",font,0,0,STD_DLG_TEXT_COLOR);
 	cbshadow = new CGUICheckBox(10,shy+15,chktext,0);
 	cbshadow->SetTabOrder(20.0f);
 	cbshadow->SetMark(1);
@@ -1469,7 +1469,7 @@ CEDLightTexEditor::CEDLightTexEditor(float _x, float _y)
 	cbshadow->AcceptEvent(GetID(),EClicked);
 	AddBackElem(cbshadow);
 
-	stshdx = new CGUIStaticText("posun x:",font,10,shy+40,STD_DLG_TEXT_COLOR);
+	stshdx = new CGUIStaticText("en{{x shift:}}cs{{posun x:}}",font,10,shy+40,STD_DLG_TEXT_COLOR);
 	AddBackElem(stshdx);
 
 	edshdx = new CGUIEditWindow(65,shy+38,100);
@@ -1480,7 +1480,7 @@ CEDLightTexEditor::CEDLightTexEditor(float _x, float _y)
 	AddBackElem(edshdx);
 
 
-	stshdy = new CGUIStaticText("posun y:",font,10,shy+65,STD_DLG_TEXT_COLOR);
+	stshdy = new CGUIStaticText("en{{y shift}}cs{{posun y:}}",font,10,shy+65,STD_DLG_TEXT_COLOR);
 	AddBackElem(stshdy);
 
 	edshdy = new CGUIEditWindow(65,shy+63,100);
@@ -1499,13 +1499,13 @@ CEDLightTexEditor::CEDLightTexEditor(float _x, float _y)
 	AddBackElem(ln2);
 //---
 
-	butcrop = new CGUIButton(10,shy2+10,90,25,"GUI.But.Std","Oøež textury",0,"Oøeže textury podle elsourcu");
+	butcrop = new CGUIButton(10,shy2+10,90,25,"GUI.But.Std","en{{Clip textures}}cs{{Oøež textury}}",0,"en{{Clips textures by elsource}}cs{{Oøeže textury podle elsourcu}}");
 	butcrop->AcceptEvent(GetID(),EClicked);
 	butcrop->SetTabOrder(100);
 	butcrop->SetMark(1);
     AddBackElem(butcrop);
 
-	butloadall = new CGUIButton(200,shy2+10,80,25,"GUI.But.Std","Nahraj vše",0,"Nahraje všechny textury");
+	butloadall = new CGUIButton(200,shy2+10,80,25,"GUI.But.Std","en{{Load All}}cs{{Nahraj vše}}",0,"en{{Loads all textures}}cs{{Nahraje všechny textury}}");
 	butloadall->AcceptEvent(GetID(),EClicked);
 	butloadall->SetTabOrder(102);
 	butloadall->SetMark(1);
@@ -1761,7 +1761,7 @@ void CEDLightTexEditor::EventHandler(CGUIEvent *event)
 					float bx=0,by=0;
 					desktop->GetDesktopPos(butels,bx,by); //zjistim souradnice tlacitka "..." v desktopu
 					
-					CGUITree *tr = new CGUITree(bx,by,200,300,"vyber ElSource:"); //vytvorim okno s els. v akt. packagi
+					CGUITree *tr = new CGUITree(bx,by,200,300,"en{{Select ElSource:}}cs{{vyber ElSource:}}"); //vytvorim okno s els. v akt. packagi
 					tr->title->SetButtons(true,false,false);
 					desktop->AddBackElem(tr);
 					desktop->SetFocusEl(tr,0);
@@ -1987,7 +1987,7 @@ int CEDLightTexEditor::GenerateAllTexFilenames(char *dir, char *file)
 
 		float bx=0,by=0;
 		desktop->GetDesktopPos(butloadall,bx,by); //zjistim souradnice tlacitka v desktopu
-		CGUIDlgOkCancel *dlgfiles = new CGUIDlgOkCancel(bx,by-300,300,300,"Nahraj textury...");
+		CGUIDlgOkCancel *dlgfiles = new CGUIDlgOkCancel(bx,by-300,300,300,"en{{Load textures ...}}cs{{Nahraj textury...}}");
 				
 		CGUIFont *font = (CGUIFont*) RefMgr->Find("GUI.F.Arial.10");
 
@@ -2006,7 +2006,7 @@ int CEDLightTexEditor::GenerateAllTexFilenames(char *dir, char *file)
 
 		float posy = 10,px1=10,px2=90;
 
-		dlgfiles->AddBackElem(new CGUIStaticText("adresáø:",font,px1,posy,STD_DLG_TEXT_COLOR));
+		dlgfiles->AddBackElem(new CGUIStaticText("en{{directory:}}cs{{adresáø:}}",font,px1,posy,STD_DLG_TEXT_COLOR));
 		dlgfiles->AddBackElem(new CGUIStaticText(dir,font,px2,posy,FCOL)); 
 		posy+=40;
 
@@ -2207,7 +2207,7 @@ int CEDLightTexEditor::Ok()
 {
 	int sv = SaveLightTex();
 	if(!sv) {
-		GUIMessageBox("Chyba!","Chyba! Nezdaøilo se uložit LightTex!",1,0xFFFF0000);
+		GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Nezdaøilo se uložit LightTex!",1,0xFFFF0000);
 		return 0;
 	}
 	CloseWindow();
@@ -2274,7 +2274,7 @@ CEDManyLightTexEditor::CEDManyLightTexEditor(float _x, float _y, char *pkgdir)
 	butels->SetMark(1);
     AddBackElem(butels);
 
-	butseldir = new CGUIButton(xx2-100,50,200,25,"GUI.But.Std","Vyber adresáø s obrázky...");
+	butseldir = new CGUIButton(xx2-100,50,200,25,"GUI.But.Std","en{{Choose directory with pictures ...}}cs{{Vyber adresáø s obrázky...}}");
 	butseldir->AcceptEvent(GetID(),EClicked);
 	butseldir->SetTabOrder(2);
 	butseldir->SetMark(1);
@@ -2374,7 +2374,7 @@ void CEDManyLightTexEditor::EventHandler(CGUIEvent *event)
 					float bx=0,by=0;
 					desktop->GetDesktopPos(butels,bx,by); //zjistim souradnice tlacitka "..." v desktopu
 					
-					CGUITree *tr = new CGUITree(bx,by,200,300,"vyber ElSource:"); //vytvorim okno s els. v akt. packagi
+					CGUITree *tr = new CGUITree(bx,by,200,300,"en{{Select ElSource:}}cs{{vyber ElSource:}}"); //vytvorim okno s els. v akt. packagi
 					tr->title->SetButtons(true,false,false);
 					desktop->AddBackElem(tr);
 					desktop->SetFocusEl(tr,0);
@@ -2894,7 +2894,7 @@ char* CEDManyLightTexEditor::GenerateTexName(const char *fn)
 #define FRAMENAME_LN 200
 
 CEDAnimEditor::CEDAnimEditor(float _x, float _y)
-:CGUIDlgOkCancel(_x,_y,250,220,"Animace",0,true)
+:CGUIDlgOkCancel(_x,_y,250,220,"en{{Animation}}cs{{Animace}}",0,true)
 {
 	autogrowing = 0;
 
@@ -2964,7 +2964,7 @@ CEDAnimEditor::CEDAnimEditor(float _x, float _y)
 	ln1->SetAnchor(0,0,1,1);
 	AddBackElem(ln1);
 //---
-	cbrepeat = new CGUICheckBox(50,y2,new CGUIStaticText("opakovat",font,0,0,STD_DLG_TEXT_COLOR),0);
+	cbrepeat = new CGUICheckBox(50,y2,new CGUIStaticText("en{{repeat}}cs{{opakovat}}",font,0,0,STD_DLG_TEXT_COLOR),0);
 	cbrepeat->SetTabOrder(2.0f);
 	cbrepeat->SetMark(1);
 	cbrepeat->BindAttribute(&repeat,dtInt,1,0);
@@ -3085,7 +3085,7 @@ int CEDAnimEditor::LoadAnim(char *packagenm, char *resnm)
 			sprintf(frnum,"%i:",fn);
 			stframenum[i] = new CGUIStaticText(frnum,font,10,yy,STD_DLG_TEXT_COLOR);
 			AddBackElem(stframenum[i]);
-			stframetime[i] = new CGUIStaticText("èas:",font,60,yy+22,STD_DLG_TEXT_COLOR);
+			stframetime[i] = new CGUIStaticText("en{{time:}}cs{{èas:}}",font,60,yy+22,STD_DLG_TEXT_COLOR);
 			AddBackElem(stframetime[i]);
 
 			edframename[i] = new CGUIEditWindow(50,yy-2,90);
@@ -3103,13 +3103,13 @@ int CEDAnimEditor::LoadAnim(char *packagenm, char *resnm)
 			edframetime[i]->AcceptEvent(GetID(),EOk);
 			AddBackElem(edframetime[i]);
 
-			butadd[i] = new CGUIButton(10,yy+21,17,17,"GUI.But.Std","+",0,"Pøidá obrázek");
+			butadd[i] = new CGUIButton(10,yy+21,17,17,"GUI.But.Std","+",0,"en{{Adds frame}}cs{{Pøidá obrázek}}");
 			butadd[i]->SetMark(1);
 			butadd[i]->SetTabOrder(10 + i + 0.9f);
 			butadd[i]->AcceptEvent(GetID(),EClicked);
 			AddBackElem(butadd[i]);
 
-			butdel[i] = new CGUIButton(31,yy+21,17,17,"GUI.But.Std","x",0,"Smaže obrázek");
+			butdel[i] = new CGUIButton(31,yy+21,17,17,"GUI.But.Std","x",0,"en{{Deletes frame}}cs{{Smaže obrázek}}");
 			butdel[i]->SetMark(1);
 			butdel[i]->SetTabOrder(10 + i + 0.95f);
 			butdel[i]->AcceptEvent(GetID(),EClicked);
@@ -3499,7 +3499,7 @@ int CEDAnimEditor::Ok()
 {
 	int sv = SaveAnim();
 	if(!sv) {
-		GUIMessageBox("Chyba!","Chyba! Nezdaøilo se uložit animaci!",1,0xFFFF0000);
+		GUIMessageBox("en{{Error!}}cs{{Chyba!}}","Chyba! Nezdaøilo se uložit animaci!",1,0xFFFF0000);
 		return 0;
 	}
 	CloseWindow();
@@ -3620,7 +3620,7 @@ void CEDAnimEditor::ShowAddFrame(int frame, CGUIElement *but, int newframe)
 	}else{
 		desktop->GetDesktopPos(but,bx,by); //zjistim souradnice tlacitka "+" v desktopu
 					
-		CGUITree *tr = new CGUITree(bx,by,200,300,"vyber LightTex:"); //vytvorim okno s tex. v akt. packagi
+		CGUITree *tr = new CGUITree(bx,by,200,300,"en{{Choose LighTex:}}cs{{vyber LightTex:}}"); //vytvorim okno s tex. v akt. packagi
 		tr->title->SetButtons(true,false,false);
 		desktop->AddBackElem(tr);
 		desktop->SetFocusEl(tr,0);
@@ -3702,7 +3702,7 @@ int CEDAnimEditor::SetFrame(int lighttexindex)
 		frames[i]->AddRef();
 		frametex[i]=NULL;
 
-		stframetime[i] = new CGUIStaticText("èas:",font,60,yy+22,STD_DLG_TEXT_COLOR);
+		stframetime[i] = new CGUIStaticText("en{{time:}}cs{{èas:}}",font,60,yy+22,STD_DLG_TEXT_COLOR);
 		AddBackElem(stframetime[i]);
 
 		edframename[i] = new CGUIEditWindow(50,yy-2,90);
@@ -3720,13 +3720,13 @@ int CEDAnimEditor::SetFrame(int lighttexindex)
 		edframetime[i]->AcceptEvent(GetID(),EOk);
 		AddBackElem(edframetime[i]);
 
-		butadd[i] = new CGUIButton(10,yy+21,17,17,"GUI.But.Std","+",0,"Pøidá obrázek");
+		butadd[i] = new CGUIButton(10,yy+21,17,17,"GUI.But.Std","+",0,"en{{Adds frame}}cs{{Pøidá obrázek}}");
 		butadd[i]->SetMark(1);
 		butadd[i]->SetTabOrder(10 + i + 0.9f);
 		butadd[i]->AcceptEvent(GetID(),EClicked);
 		AddBackElem(butadd[i]);
 
-		butdel[i] = new CGUIButton(31,yy+21,17,17,"GUI.But.Std","x",0,"Smaže obrázek");
+		butdel[i] = new CGUIButton(31,yy+21,17,17,"GUI.But.Std","x",0,"en{{Deletes frame}}cs{{Smaže obrázek}}");
 		butdel[i]->SetMark(1);
 		butdel[i]->SetTabOrder(10 + i + 0.95f);
 		butdel[i]->AcceptEvent(GetID(),EClicked);

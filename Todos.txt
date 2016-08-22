@@ -1,4 +1,3 @@
-* lokalizovat package browser
 * autori k levlum
 * in game navod na editor
 * revize readme
