@@ -82,10 +82,11 @@ extern CMMProfiles *MMProfiles;
 struct CMMDirFile {
 	friend class CMMLevelDir;
 public:
-	CMMDirFile() { Type=-1; Name=0; UserName=0; UserNameExt=0; Tags=0; next=0; Difficulty=0; Password=0; LevelPath=0; LevelDir=0;}
-	~CMMDirFile() { SAFE_DELETE_ARRAY(Name); SAFE_DELETE_ARRAY(UserName); SAFE_DELETE_ARRAY(UserNameExt); SAFE_DELETE_ARRAY(Password); SAFE_DELETE_ARRAY(LevelPath); SAFE_DELETE_ARRAY(LevelDir);}
+	CMMDirFile() { Type = -1; Name = 0; Author = 0; UserName = 0; UserNameExt = 0; Tags = 0; next = 0; Difficulty = 0; Password = 0; LevelPath = 0; LevelDir = 0; }
+	~CMMDirFile() { SAFE_DELETE_ARRAY(Name); SAFE_DELETE_ARRAY(Author); SAFE_DELETE_ARRAY(UserName); SAFE_DELETE_ARRAY(UserNameExt); SAFE_DELETE_ARRAY(Password); SAFE_DELETE_ARRAY(LevelPath); SAFE_DELETE_ARRAY(LevelDir); }
 	int Type;		// viz eEXTensions z Kerservices
 	char *Name;			// jmeno fajlu
+	char *Author;
 	char *LevelPath;	// absolutni cesta od Games k levlu (k !level). Jen pro levly
 	char *LevelDir;		// Absolutni cesta do adresare s levlem. Jen pro levly
 	char *UserName;		// zkracene jmeno fajlu, prelozene, bez pripony

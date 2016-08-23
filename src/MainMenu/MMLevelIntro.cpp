@@ -13,7 +13,7 @@
 
 
 
-MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const char *levelUserName)
+MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const char *levelUserName, const char *author)
 {
 
 	cw = 0; font=0; fontB=0; fontN=0;
@@ -45,7 +45,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const
 		if (doc.Error()) {
 			ShowXmlError(doc);
 		} else {
-			DisplayIntro(SelectRootByLanguage(doc), levelUserName);
+			DisplayIntro(SelectRootByLanguage(doc), levelUserName, author);
 		}
 	}
 
@@ -160,7 +160,7 @@ TiXmlElement * MMLevelIntro::SelectRootByLanguage(TiXmlDocument &doc) {
 }
 
 
-void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName) {
+void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName, const char *author) {
 	if (!root)
 		return;
 
@@ -174,8 +174,13 @@ void MMLevelIntro::DisplayIntro(TiXmlElement * root, const char *levelUserName) 
 	}
 	else 
 	{
-		CGUIStaticText *st = new CGUIStaticText(levelUserName, fontN, 0, 50, tc, windowSX, windowSY, aCenter);
+		CGUIStaticText *st = new CGUIStaticText(levelUserName, fontN, 0, 50, tc, windowSX, windowSY, aCenter, 0, 0, DT_NOPREFIX);
 		cw->AddBackElem(st);
+	}
+
+	if (author && *author) {
+		CGUIStaticText *auth = new CGUIStaticText(author, (CGUIFont*)RefMgr->Find("GUI.F.Arial.14PX"), 30, windowSY - 30, 0xFFA0A0A0, windowSX - 60, 30, aRight, 0, 0, DT_NOPREFIX);
+		cw->AddBackElem(auth);
 	}
 
 

@@ -307,7 +307,7 @@ CGUIStaticText::CGUIStaticText(float _x, float _y, float maxx, float maxy, char 
 	AddToTrash();
 }
 
-CGUIStaticText::CGUIStaticText(const char *_text, CGUIFont* _font, float _x, float _y, int color, float maxx, float maxy, EGUIAlignment align, int maxLines, float LinesSpaces)
+CGUIStaticText::CGUIStaticText(const char *_text, CGUIFont* _font, float _x, float _y, int color, float maxx, float maxy, EGUIAlignment align, int maxLines, float LinesSpaces, UINT dwDTFormat)
 	: CGUIWidget(_x,_y)
 {
 	float gsx=0, gsy=0;
@@ -414,13 +414,13 @@ CGUIStaticText::CGUIStaticText(const char *_text, CGUIFont* _font, float _x, flo
 		switch(align)
 		{
 			case aLeft :
-				texts[i] = new CBltText(floorf(x),floorf(_y),(float)vel.cx,(float)vel.cy,startLine[i],lengthLine[i],font, color,0,0);
+				texts[i] = new CBltText(floorf(x),floorf(_y),(float)vel.cx,(float)vel.cy,startLine[i],lengthLine[i],font, color,dwDTFormat,0);
 				break;
 			case aRight :
-				texts[i] = new CBltText(x+maxx - (float)vel.cx,_y,(float)vel.cx,(float)vel.cy,startLine[i],lengthLine[i],font, color,0,0);
+				texts[i] = new CBltText(x + maxx - (float)vel.cx, _y, (float)vel.cx, (float)vel.cy, startLine[i], lengthLine[i], font, color, dwDTFormat, 0);
 				break;
 			case aCenter :
-				texts[i] = new CBltText(x+floorf((maxx - (float)vel.cx)/2 + 0.5f),_y,(float)vel.cx,(float)vel.cy,startLine[i],lengthLine[i],font, color,0,0);
+				texts[i] = new CBltText(x + floorf((maxx - (float)vel.cx) / 2 + 0.5f), _y, (float)vel.cx, (float)vel.cy, startLine[i], lengthLine[i], font, color, dwDTFormat, 0);
 				break;
 		}
 		_y += (float)vel.cy + LinesSpaces;

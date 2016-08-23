@@ -360,6 +360,8 @@ int CMMDirFile::LoadLevelInfo(CMMLevelDir *dir) {
 	if (k=r->FindKey("Directory")) {
 		if (dir->OrigPath) if (strcmp(k->GetDirectAccess(),dir->OrigPath->GetDirectAccess()) != 0) Tags |= eMMLTnewNoAccess;
 	}
+	if (k=r->FindKey("Author"))
+		Author = k->stringread();
 	if (k=r->FindKey("Password")) {
 		Password = k->stringread();
 		if (dir->Password) if (strcmp(Password,dir->Password->GetDirectAccess()) != 0) Tags |= eMMLTnewNoAccess;

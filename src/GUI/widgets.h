@@ -62,7 +62,7 @@ public:
 		// LinesSpaces je mezera mezi radky (radkovani 0==jednoduche)
 		// maxy - urcuje max. vysku textu v bodech 
 		// vytvari si Font dle zadanych parametru
-	CGUIStaticText(const char *_text, CGUIFont* _font, float _x, float _y, int color = 0xFFFF0000, float maxx=0, float maxy=0, EGUIAlignment align = aLeft, int maxLines = 0, float LinesSpaces = 0.0f);	
+	CGUIStaticText(const char *_text, CGUIFont* _font, float _x, float _y, int color = 0xFFFF0000, float maxx = 0, float maxy = 0, EGUIAlignment align = aLeft, int maxLines = 0, float LinesSpaces = 0.0f, UINT dwDTFormat = 0);
 		// text dle nastaveneho fontu, barvy, velikosti bunky a zarovnani
 		// omezeni na 256 radek
 		// funguje stejne jako predchozi funkce, jen se styl pisma zadava pres CGUIFont (uz ho nemusi sam vytvaret)
