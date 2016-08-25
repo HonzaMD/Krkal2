@@ -367,7 +367,7 @@ CMMLevelBrowser::CMMLevelBrowser()
 
 	CMMDirFile *f=dir->Files;
 
-	CGUIListItem *it,*its=0;
+	CGUIListItem *it,*its=0,*its2=0;
 
 	int dis=0;
 
@@ -378,6 +378,8 @@ CMMLevelBrowser::CMMLevelBrowser()
 		if(f->Type==eEXTdirectory||f->Type==eEXTlevel)
 		{
 			it=lb->AddItem(f->UserName,f->Tags&eMMLTaccessible?(f->Tags&eMMLTcompleted?0xFFFFFFFF:0xFFFFFF00):0xFF909090,f);
+			if (!its2)
+				its2 = it;
 			if(!its)
 			{
 				if(dis==0 && (f->Tags&eMMLTaccessible) && !(f->Tags&eMMLTcompleted)  ) 
@@ -385,6 +387,7 @@ CMMLevelBrowser::CMMLevelBrowser()
 				if(dis==1) {
 					if(MMDesktop->playingFile==f)
 					{
+						its2 = it;
 						if(KRKAL->GetGameVictory()) 
 							dis=2;
 						else
@@ -401,6 +404,10 @@ CMMLevelBrowser::CMMLevelBrowser()
 
 		f=f->next;
 	}
+	
+	if (!its && its2)
+		its = its2;
+
 	lb->UpdateList();
 
 	lb->AcceptEvent(MMDesktop->DefaultHandler->GetID(),EList);

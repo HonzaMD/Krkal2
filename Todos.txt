@@ -1,12 +1,11 @@
 * in game navod na editor
 * revize readme
-* revize dokumentace
 * preklad do en
 * ilustrace
 * revize prirazeni hudby k levlum
 * setup
 * stranky
 * donate button
-* vymena levlu (skladiste na strankach)
 * propagace
 * propagacni videa
+* ? vymena levlu (skladiste na strankach)

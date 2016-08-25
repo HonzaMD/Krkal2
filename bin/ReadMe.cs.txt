@@ -6,52 +6,51 @@ KRKAL
 O PRODUKTU
 ==========
 
-   KRKAL je rozsáhlı systém pro vıvoj her, které se odehrávají na 
-obdélníkovém plánu. V systému KRKAL lze vytváøet úplnì nové hry, 
-vylepšovat hry ji hotové, vytváøet nové herní úrovnì (levely) 
-a samozøejmì také všechny tyto hry hrát. 
-   Souèástí je i znovu vytvoøená hra Krkal, vıkonnı grafickı engine,
-editor levlù a skriptù, kompilátor. 
-   Krkal byl vytvoøen jako projekt na Matematicko Fyzikální Fakultì
-Univerzity Karlovy.
-
    Hra Krkal je logicko-akèní hra, kde si vyzkoušíte ovládání jedné 
 ze tøí postavièek a pomùete jí vyøešit všechny nástrahy a pøekonat
 rafinované pøekáky a nakonec se ve zdraví dostat do vytoueného
 cíle kadého levelu - do exitu. 
-   Levely jsou postaveny z mnoha rozmanitıch prvkù èi pøedmìtù, které 
-ovlivòují jak sami sebe navzájem, tak i vás. Budete posouvat kameny, 
-klouzat po ledu, vyhıbat se minám, správnì nastavovat rùzná tlaèítka, 
-bloudit v bludištích a tøeba pøestavovat znaèky pro dopravní pøíšery...
-   Hra Krkal je prostì velmi zajímavá a originální. Vše vidíte 
-pøehlednì z vıšky a díky Systému Krkal nechybí kvalitní grafika
-i hudba. V Systému je moné nejen editovat nové levly, ale pøímo
-vytváøet zcela nové herní objekty, vylepšovat a modifikovat samotnou
-hru!
+   Varování: Hra je v pozdìjších levelech obtíná!
+   Levely jsou postaveny z mnoha (50!) rozmanitıch prvkù èi pøedmìtù, 
+které ovlivòují jak sami sebe navzájem, tak i vás. Budete posouvat 
+kameny, klouzat po ledu, vyhıbat se minám, správnì nastavovat rùzná
+tlaèítka, bloudit v bludištích a tøeba pøestavovat znaèky pro dopravní
+pøíšery...
+   Naší inspirací byly hry jako Robbo, Boulderdash (Supaplex), èi 
+Sokoban, pøesto Krkal vypadá jinak, v kadém levelu èekejte nìco nového,
+originálního. Vše vidíte pøehlednì z vıšky a nechybí kvalitní grafika i
+hudba. Souèástí je i editor levelù.
+
+   Hra Krkal 2 byla vytvoøena ve stejnojmenném herním enginu v roce 
+2004. Engine vznikl jako projekt na Matematicko-Fyzikální Fakultì
+Univerzity Karlovy a byl dále vyvíjen jako diplomová práce tamté.
+Pùvodní Krkal 1 je z roku 1997 a tato verze 2.5 vzniká k 20tiletému 
+vıroèí hry Krkal - 2017.
+
 
 
 LICENCE
 =======
 
- # Program Krkal 2.? (demo) je volnì ke staení, mùete program dál 
+ # Program Krkal 2.5 je volnì ke staení, mùete program dál 
    bezplatnì šíøit. 
  # Je moné program pouívat, modifikovat v nìm vytváøené hry, tvoøit 
-   nové levly. 
+   nové levely. 
  # Program pouíváte na vaše vlastní nebezpeèí. Nepøebíráme zodpovìdnost
    za jakékoli škody vzniklé v souvislosti s pouíváním programu. 
  # Bez našeho svolení není moné pouít Systém Krkal jako souèást 
    nìjakého komerènì prodávaného produktu. 
- # Veškerá další autorská práva vyhrazena (c) 2004
+ # Veškerá další autorská práva vyhrazena (c) 2017
 
 
 AUTOØI
 ======
 
-#  Petr Altman (pal) pal@krkal.org
-grafickı engine, editor textu, editor skriptù, grafika pro hru, www,... 
-
 #  Jan Krèek (MD) md@krkal.org
-kernel, skriptování, vlastní hra KRKAL, levely, ... 
+verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely, ... 
+
+#  Petr Altman (pal)
+grafickı engine, editor textu, editor skriptù, grafika pro hru, www,... 
 
 #  Jan Poduška (Morgue)
 GUI, editor levelù 
@@ -65,30 +64,30 @@ levely, nápady, návrhy, pøipomínky
 #  Jan Frolík
 hudba - co dodat - VY - NI - KA - JÍ - CÍ 
 
+#  Tomy, Dvoøáèek, Pavel P.
+levely
+
 
 INTERNETOVÉ STRÁNKY
 ===================
 
-	www.krkal.org
+      www.krkal.org
+      https://github.com/HonzaMD/Krkal2
 
 
 POADAVKY NA SYSTÉM
 ===================
 
- # MS Windows XP, 2000, Me, 9x 
+ # MS Windows 10, 8, 7, XP
  # DirectX 8.1 nebo novìjší 
- # Procesor taktovanı kolem 1GHz nebo lepší 
- # nejménì 128 MB RAM 
- # 32MB DirectX kompatibilní grafická karta schopná pracovat  
-   v 32bit hloubce (testováno na GeForce2 MX, GeForce 3, nForce, 
-   Matrox Millenium G450) 
- # DirectX kompatibilní zvuková karta 
- # cca 30MB volného místa na HDD 
+ # Poèítaè a DX grafická karta z roku 2004 èi novìjší
+ 
 
 
 INSTALACE, KONFIGURACE A ZÁKLADNÍ INFORMACE
 ===========================================
 
+TODO
  # Pøekopírujte adresáø s Krkalem na váš pevnı disk 
  # Spuste hru (systém) poklepáním na soubor krkal.exe 
  # Dokumentaci najdete v adresáøi doc nebo Dokumentace
@@ -106,10 +105,11 @@ HRA KRKAL: OVLÁDÁNÍ
  # pohyb postavièky: kurzorové klávesy 
 Postavièka se vdy pohybuje pouze horizontálním nebo vertikálním smìrem
 - nikdy ne šikmo. Lze dret i více smìrovıch kláves najednou, poté se 
-bude postavièka pohybovat jedním ze smìrù, kam mùe jít. To je 
-neocenitelná vlastnost v rùznıch bludištích. 
- #  pøepínání mezi postavièkami: TAB 
-v nìkterıch levelech je více postavièek nìkdy je moné mezi postavièkami 
+bude postavièka pohybovat jedním ze smìrù, kam mùe jít, pøièem se bude
+preferovat naposledy zmáèknutı smìr. To je neocenitelná vlastnost v 
+rùznıch bludištích. 
+#  pøepínání mezi postavièkami: TAB 
+v nìkterıch levelech je více postavièek, nìkdy je moné mezi postavièkami 
 pøepínat, jindy se všechny ovládají najednou (kdy pak napø. stiskne 
 šipku vpravo - všechny postavièky pùjdou doprava) 
  # pouití bomby: Z 
@@ -138,13 +138,13 @@ TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA
 ======================================
 
 Velké mnoství informací najdete pøímo v dokumentaci, která je 
-souèástí Krkala. V dokumentaci najdete popis objektù ve høe Krkal, jak
-ovládat editor, jak psát skripty... 
+souèástí Krkala. V dokumentaci najdete popis objektù ve høe Krkal a 
+jak ovládat editor.
 Další informace naleznete na našich webovıch stránkách:
 
 	www.krkal.org
 	
-Námìty, ádosti o rady, pøipomínky, hlášení chyb, ... posílejte do 
-našeho internetového fóra: forum.krkal.org
-A nakonec mùete kontaktovat nìkterého z autorù pøímo e-mailem.
+Námìty, levely, ádosti o rady, pøipomínky, hlášení chyb, ...:
+
+	support@krkal.org
 
