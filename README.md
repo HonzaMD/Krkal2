@@ -3,8 +3,8 @@ KRKAL
 ========================================================================
 
 
-O PRODUKTU
-==========
+##O PRODUKTU
+
 
    Hra Krkal je logicko-akční hra, kde si vyzkoušíte ovládání jedné 
 ze tří postaviček a pomůžete jí vyřešit všechny nástrahy a překonat
@@ -32,8 +32,8 @@ výročí hry Krkal - 2017.
 
 
 
-LICENCE
-=======
+##LICENCE
+
 
 * Program Krkal 2.5 je volně ke stažení, můžete program dál 
    bezplatně šířit. 
@@ -46,33 +46,33 @@ LICENCE
 * Veškerá další autorská práva vyhrazena (c) 2017
 
 
-AUTOŘI
-======
+##AUTOŘI
 
-###  Jan Krček (MD) md@krkal.org
+
+####  Jan Krček (MD) md@krkal.org
 verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely, ... 
 
-###  Petr Altman (pal)
+####  Petr Altman (pal)
 grafický engine, editor textu, editor skriptů, grafika pro hru, www,... 
 
-###  Jan Poduška (Morgue)
+####  Jan Poduška (Morgue)
 GUI, editor levelů 
 
-###  Jiří Margaritov
+####  Jiří Margaritov
 kompilátor, interpret 
 
-###  Jára Altmann
+####  Jára Altmann
 levely, nápady, návrhy, připomínky 
 
-###  Jan Frolík
+####  Jan Frolík
 hudba - co dodat - VY - NI - KA - JÍ - CÍ 
 
-###  Tomy, Dvořáček, Pavel P.
+####  Tomy, Dvořáček, Pavel P.
 levely
 
 
-INTERNETOVÉ STRÁNKY
-===================
+##INTERNETOVÉ STRÁNKY
+
 
       www.krkal.org
       https://github.com/HonzaMD/Krkal2

@@ -1,4 +1,4 @@
-========================================================================
+ï»¿========================================================================
 KRKAL
 ========================================================================
 
@@ -6,145 +6,145 @@ KRKAL
 O PRODUKTU
 ==========
 
-   Hra Krkal je logicko-akèní hra, kde si vyzkoušíte ovládání jedné 
-ze tøí postavièek a pomùete jí vyøešit všechny nástrahy a pøekonat
-rafinované pøekáky a nakonec se ve zdraví dostat do vytoueného
-cíle kadého levelu - do exitu. 
-   Varování: Hra je v pozdìjších levelech obtíná!
-   Levely jsou postaveny z mnoha (50!) rozmanitıch prvkù èi pøedmìtù, 
-které ovlivòují jak sami sebe navzájem, tak i vás. Budete posouvat 
-kameny, klouzat po ledu, vyhıbat se minám, správnì nastavovat rùzná
-tlaèítka, bloudit v bludištích a tøeba pøestavovat znaèky pro dopravní
-pøíšery...
-   Naší inspirací byly hry jako Robbo, Boulderdash (Supaplex), èi 
-Sokoban, pøesto Krkal vypadá jinak, v kadém levelu èekejte nìco nového,
-originálního. Vše vidíte pøehlednì z vıšky a nechybí kvalitní grafika i
-hudba. Souèástí je i editor levelù.
+   Hra Krkal je logicko-akÄnÃ­ hra, kde si vyzkouÅ¡Ã­te ovlÃ¡dÃ¡nÃ­ jednÃ© 
+ze tÅ™Ã­ postaviÄek a pomÅ¯Å¾ete jÃ­ vyÅ™eÅ¡it vÅ¡echny nÃ¡strahy a pÅ™ekonat
+rafinovanÃ© pÅ™ekÃ¡Å¾ky a nakonec se ve zdravÃ­ dostat do vytouÅ¾enÃ©ho
+cÃ­le kaÅ¾dÃ©ho levelu - do exitu. 
+   VarovÃ¡nÃ­: Hra je v pozdÄ›jÅ¡Ã­ch levelech obtÃ­Å¾nÃ¡!
+   Levely jsou postaveny z mnoha (50!) rozmanitÃ½ch prvkÅ¯ Äi pÅ™edmÄ›tÅ¯, 
+kterÃ© ovlivÅˆujÃ­ jak sami sebe navzÃ¡jem, tak i vÃ¡s. Budete posouvat 
+kameny, klouzat po ledu, vyhÃ½bat se minÃ¡m, sprÃ¡vnÄ› nastavovat rÅ¯znÃ¡
+tlaÄÃ­tka, bloudit v bludiÅ¡tÃ­ch a tÅ™eba pÅ™estavovat znaÄky pro dopravnÃ­
+pÅ™Ã­Å¡ery...
+   NaÅ¡Ã­ inspiracÃ­ byly hry jako Robbo, Boulderdash (Supaplex), Äi 
+Sokoban, pÅ™esto Krkal vypadÃ¡ jinak, v kaÅ¾dÃ©m levelu Äekejte nÄ›co novÃ©ho,
+originÃ¡lnÃ­ho. VÅ¡e vidÃ­te pÅ™ehlednÄ› z vÃ½Å¡ky a nechybÃ­ kvalitnÃ­ grafika i
+hudba. SouÄÃ¡stÃ­ je i editor levelÅ¯.
 
-   Hra Krkal 2 byla vytvoøena ve stejnojmenném herním enginu v roce 
-2004. Engine vznikl jako projekt na Matematicko-Fyzikální Fakultì
-Univerzity Karlovy a byl dále vyvíjen jako diplomová práce tamté.
-Pùvodní Krkal 1 je z roku 1997 a tato verze 2.5 vzniká k 20tiletému 
-vıroèí hry Krkal - 2017.
+   Hra Krkal 2 byla vytvoÅ™ena ve stejnojmennÃ©m hernÃ­m enginu v roce 
+2004. Engine vznikl jako projekt na Matematicko-FyzikÃ¡lnÃ­ FakultÄ›
+Univerzity Karlovy a byl dÃ¡le vyvÃ­jen jako diplomovÃ¡ prÃ¡ce tamtÃ©Å¾.
+PÅ¯vodnÃ­ Krkal 1 je z roku 1997 a tato verze 2.5 vznikÃ¡ k 20tiletÃ©mu 
+vÃ½roÄÃ­ hry Krkal - 2017.
 
 
 
 LICENCE
 =======
 
- # Program Krkal 2.5 je volnì ke staení, mùete program dál 
-   bezplatnì šíøit. 
- # Je moné program pouívat, modifikovat v nìm vytváøené hry, tvoøit 
-   nové levely. 
- # Program pouíváte na vaše vlastní nebezpeèí. Nepøebíráme zodpovìdnost
-   za jakékoli škody vzniklé v souvislosti s pouíváním programu. 
- # Bez našeho svolení není moné pouít Systém Krkal jako souèást 
-   nìjakého komerènì prodávaného produktu. 
- # Veškerá další autorská práva vyhrazena (c) 2017
+ # Program Krkal 2.5 je volnÄ› ke staÅ¾enÃ­, mÅ¯Å¾ete program dÃ¡l 
+   bezplatnÄ› Å¡Ã­Å™it. 
+ # Je moÅ¾nÃ© program pouÅ¾Ã­vat, modifikovat v nÄ›m vytvÃ¡Å™enÃ© hry, tvoÅ™it 
+   novÃ© levely. 
+ # Program pouÅ¾Ã­vÃ¡te na vaÅ¡e vlastnÃ­ nebezpeÄÃ­. NepÅ™ebÃ­rÃ¡me zodpovÄ›dnost
+   za jakÃ©koli Å¡kody vzniklÃ© v souvislosti s pouÅ¾Ã­vÃ¡nÃ­m programu. 
+ # Bez naÅ¡eho svolenÃ­ nenÃ­ moÅ¾nÃ© pouÅ¾Ã­t SystÃ©m Krkal jako souÄÃ¡st 
+   nÄ›jakÃ©ho komerÄnÄ› prodÃ¡vanÃ©ho produktu. 
+ # VeÅ¡kerÃ¡ dalÅ¡Ã­ autorskÃ¡ prÃ¡va vyhrazena (c) 2017
 
 
-AUTOØI
+AUTOÅ˜I
 ======
 
-#  Jan Krèek (MD) md@krkal.org
-verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely, ... 
+#  Jan KrÄek (MD) md@krkal.org
+verze 2.5 a 3.0, kernel, skriptovÃ¡nÃ­, vlastnÃ­ hra KRKAL, levely, ... 
 
 #  Petr Altman (pal)
-grafickı engine, editor textu, editor skriptù, grafika pro hru, www,... 
+grafickÃ½ engine, editor textu, editor skriptÅ¯, grafika pro hru, www,... 
 
-#  Jan Poduška (Morgue)
-GUI, editor levelù 
+#  Jan PoduÅ¡ka (Morgue)
+GUI, editor levelÅ¯ 
 
-#  Jiøí Margaritov
-kompilátor, interpret 
+#  JiÅ™Ã­ Margaritov
+kompilÃ¡tor, interpret 
 
-#  Jára Altmann
-levely, nápady, návrhy, pøipomínky 
+#  JÃ¡ra Altmann
+levely, nÃ¡pady, nÃ¡vrhy, pÅ™ipomÃ­nky 
 
-#  Jan Frolík
-hudba - co dodat - VY - NI - KA - JÍ - CÍ 
+#  Jan FrolÃ­k
+hudba - co dodat - VY - NI - KA - JÃ - CÃ 
 
-#  Tomy, Dvoøáèek, Pavel P.
+#  Tomy, DvoÅ™Ã¡Äek, Pavel P.
 levely
 
 
-INTERNETOVÉ STRÁNKY
+INTERNETOVÃ‰ STRÃNKY
 ===================
 
       www.krkal.org
       https://github.com/HonzaMD/Krkal2
 
 
-POADAVKY NA SYSTÉM
+POÅ½ADAVKY NA SYSTÃ‰M
 ===================
 
  # MS Windows 10, 8, 7, XP
- # DirectX 8.1 nebo novìjší 
- # Poèítaè a DX grafická karta z roku 2004 èi novìjší
+ # DirectX 8.1 nebo novÄ›jÅ¡Ã­ 
+ # PoÄÃ­taÄ a DX grafickÃ¡ karta z roku 2004 Äi novÄ›jÅ¡Ã­
  
 
 
-INSTALACE, KONFIGURACE A ZÁKLADNÍ INFORMACE
+INSTALACE, KONFIGURACE A ZÃKLADNÃ INFORMACE
 ===========================================
 
 TODO
- # Pøekopírujte adresáø s Krkalem na váš pevnı disk 
- # Spuste hru (systém) poklepáním na soubor krkal.exe 
- # Dokumentaci najdete v adresáøi doc nebo Dokumentace
- # Konfigurace se provádí ruèní editací souboru "krkal.cfg",
-   je moné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost,..
- # Odinstalace: Pouijte odinstalaèní program. Pokud ho nemáte, staèí 
-   smazat adresáø s Krkalem, Krkal si nic do Windousù neukládá.
- # Na našich stránkách (krkal.org), sledujte zda není k dispozici 
-   aktualizovaná verze systému Krkal (patch)
+ # PÅ™ekopÃ­rujte adresÃ¡Å™ s Krkalem na vÃ¡Å¡ pevnÃ½ disk 
+ # SpusÅ¥te hru (systÃ©m) poklepÃ¡nÃ­m na soubor krkal.exe 
+ # Dokumentaci najdete v adresÃ¡Å™i doc nebo Dokumentace
+ # Konfigurace se provÃ¡dÃ­ ruÄnÃ­ editacÃ­ souboru "krkal.cfg",
+   je moÅ¾nÃ© napÅ™Ã­klad mÄ›nit rozliÅ¡enÃ­ ve hÅ™e, nastavovat hlasitost,..
+ # Odinstalace: PouÅ¾ijte odinstalaÄnÃ­ program. Pokud ho nemÃ¡te, staÄÃ­ 
+   smazat adresÃ¡Å™ s Krkalem, Krkal si nic do WindousÅ¯ neuklÃ¡dÃ¡.
+ # Na naÅ¡ich strÃ¡nkÃ¡ch (krkal.org), sledujte zda nenÃ­ k dispozici 
+   aktualizovanÃ¡ verze systÃ©mu Krkal (patch)
 
 
-HRA KRKAL: OVLÁDÁNÍ
+HRA KRKAL: OVLÃDÃNÃ
 ===================
 
- # pohyb postavièky: kurzorové klávesy 
-Postavièka se vdy pohybuje pouze horizontálním nebo vertikálním smìrem
-- nikdy ne šikmo. Lze dret i více smìrovıch kláves najednou, poté se 
-bude postavièka pohybovat jedním ze smìrù, kam mùe jít, pøièem se bude
-preferovat naposledy zmáèknutı smìr. To je neocenitelná vlastnost v 
-rùznıch bludištích. 
-#  pøepínání mezi postavièkami: TAB 
-v nìkterıch levelech je více postavièek, nìkdy je moné mezi postavièkami 
-pøepínat, jindy se všechny ovládají najednou (kdy pak napø. stiskne 
-šipku vpravo - všechny postavièky pùjdou doprava) 
- # pouití bomby: Z 
- # pouití miny: X 
- # sebrání znaèky: A 
- # poloení (otoèení) smìrové znaèky: 1+klávesa smìru 
- # poloení zákazu vjezdu: 2 
- # poloení šedesátky: 3 
- # poloení konce šedesátky: 4 
- # zpìt do úvodního menu: Esc
+ # pohyb postaviÄky: kurzorovÃ© klÃ¡vesy 
+PostaviÄka se vÅ¾dy pohybuje pouze horizontÃ¡lnÃ­m nebo vertikÃ¡lnÃ­m smÄ›rem
+- nikdy ne Å¡ikmo. Lze drÅ¾et i vÃ­ce smÄ›rovÃ½ch klÃ¡ves najednou, potÃ© se 
+bude postaviÄka pohybovat jednÃ­m ze smÄ›rÅ¯, kam mÅ¯Å¾e jÃ­t, pÅ™iÄemÅ¾ se bude
+preferovat naposledy zmÃ¡ÄknutÃ½ smÄ›r. To je neocenitelnÃ¡ vlastnost v 
+rÅ¯znÃ½ch bludiÅ¡tÃ­ch. 
+#  pÅ™epÃ­nÃ¡nÃ­ mezi postaviÄkami: TAB 
+v nÄ›kterÃ½ch levelech je vÃ­ce postaviÄek, nÄ›kdy je moÅ¾nÃ© mezi postaviÄkami 
+pÅ™epÃ­nat, jindy se vÅ¡echny ovlÃ¡dajÃ­ najednou (kdyÅ¾ pak napÅ™. stiskne 
+Å¡ipku vpravo - vÅ¡echny postaviÄky pÅ¯jdou doprava) 
+ # pouÅ¾itÃ­ bomby: Z 
+ # pouÅ¾itÃ­ miny: X 
+ # sebrÃ¡nÃ­ znaÄky: A 
+ # poloÅ¾enÃ­ (otoÄenÃ­) smÄ›rovÃ© znaÄky: 1+klÃ¡vesa smÄ›ru 
+ # poloÅ¾enÃ­ zÃ¡kazu vjezdu: 2 
+ # poloÅ¾enÃ­ Å¡edesÃ¡tky: 3 
+ # poloÅ¾enÃ­ konce Å¡edesÃ¡tky: 4 
+ # zpÄ›t do ÃºvodnÃ­ho menu: Esc
 
-   Hráè mùe sbírat nìkteré pøedmìty. Od kadého pøedmìtu mùe mít 
-maximálnì 12 kusù. Vìtšina pøedmìtù se sebere sama, jakmile hráè vstoupí
-na políèko s pøedmìtem. U tìchto pøedmìtù není moné rozhodnout se, 
-jestli je chci nebo ne. Vıjimkou jsou znaèky, ty se sbírají speciální 
-klávesou 'A'. 
-   Sebrané pøedmìty nelze jen tak zahodit. Nìkteré pøedmìty je moné 
-pouít speciální klávesou (viz vıše). Jiné pøedmìty se pouijí samy 
-- napø. klíè se pouije vdy, kdy hráè chce vstoupit na políèko,
-kde je zámek. Tady bych chtìl upozornit na jednu záludnost - pokud hráè
-má klíè a nìjaká síla ho pøinutí vjet (napø. kloue se po ledu) 
-na políèko se zámkem - tak se zámek vdy odemkne, a hráè chce nebo ne. 
+   HrÃ¡Ä mÅ¯Å¾e sbÃ­rat nÄ›kterÃ© pÅ™edmÄ›ty. Od kaÅ¾dÃ©ho pÅ™edmÄ›tu mÅ¯Å¾e mÃ­t 
+maximÃ¡lnÄ› 12 kusÅ¯. VÄ›tÅ¡ina pÅ™edmÄ›tÅ¯ se sebere sama, jakmile hrÃ¡Ä vstoupÃ­
+na polÃ­Äko s pÅ™edmÄ›tem. U tÄ›chto pÅ™edmÄ›tÅ¯ nenÃ­ moÅ¾nÃ© rozhodnout se, 
+jestli je chci nebo ne. VÃ½jimkou jsou znaÄky, ty se sbÃ­rajÃ­ speciÃ¡lnÃ­ 
+klÃ¡vesou 'A'. 
+   SebranÃ© pÅ™edmÄ›ty nelze jen tak zahodit. NÄ›kterÃ© pÅ™edmÄ›ty je moÅ¾nÃ© 
+pouÅ¾Ã­t speciÃ¡lnÃ­ klÃ¡vesou (viz vÃ½Å¡e). JinÃ© pÅ™edmÄ›ty se pouÅ¾ijÃ­ samy 
+- napÅ™. klÃ­Ä se pouÅ¾ije vÅ¾dy, kdyÅ¾ hrÃ¡Ä chce vstoupit na polÃ­Äko,
+kde je zÃ¡mek. Tady bych chtÄ›l upozornit na jednu zÃ¡ludnost - pokud hrÃ¡Ä
+mÃ¡ klÃ­Ä a nÄ›jakÃ¡ sÃ­la ho pÅ™inutÃ­ vjet (napÅ™. klouÅ¾e se po ledu) 
+na polÃ­Äko se zÃ¡mkem - tak se zÃ¡mek vÅ¾dy odemkne, aÅ¥ hrÃ¡Ä chce nebo ne. 
 
 
-TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA
+TECHNICKÃ PODPORA, INFORMACE, NÃPOVÄšDA
 ======================================
 
-Velké mnoství informací najdete pøímo v dokumentaci, která je 
-souèástí Krkala. V dokumentaci najdete popis objektù ve høe Krkal a 
-jak ovládat editor.
-Další informace naleznete na našich webovıch stránkách:
+VelkÃ© mnoÅ¾stvÃ­ informacÃ­ najdete pÅ™Ã­mo v dokumentaci, kterÃ¡ je 
+souÄÃ¡stÃ­ Krkala. V dokumentaci najdete popis objektÅ¯ ve hÅ™e Krkal a 
+jak ovlÃ¡dat editor.
+DalÅ¡Ã­ informace naleznete na naÅ¡ich webovÃ½ch strÃ¡nkÃ¡ch:
 
 	www.krkal.org
 	
-Námìty, levely, ádosti o rady, pøipomínky, hlášení chyb, ...:
+NÃ¡mÄ›ty, levely, Å¾Ã¡dosti o rady, pÅ™ipomÃ­nky, hlÃ¡Å¡enÃ­ chyb, ...:
 
 	support@krkal.org
 
