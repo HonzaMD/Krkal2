@@ -144,7 +144,8 @@ Další informace naleznete na našich webových stránkách:
 
 	www.krkal.org
 	
-Náměty, levely, žádosti o rady, připomínky, hlášení chyb, ...:
+Na náš email nám můžete posílat náměty, levely, žádosti o rady, 
+připomínky, hlášení chyb, ...:
 
 	support@krkal.org
 

@@ -1,5 +1,6 @@
 * in game navod na editor
-* revize readme
+* dostat do helpu v mainmenu prave klavesy
+* doc pro tvrdaky
 * preklad do en
 * ilustrace
 * revize prirazeni hudby k levlum

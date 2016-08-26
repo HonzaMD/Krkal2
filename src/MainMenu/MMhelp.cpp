@@ -23,10 +23,10 @@ char* credittextcs[]={
 
 	"AUTOØI",
 
+	"Jan Krèek (MD) md@krkal.org",
+	"verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely,... ",
 	"Petr Altman (pal) pal@krkal.org",
 	"grafický engine, editor textu, editor skriptù, grafika pro hru, www,...",
-	"Jan Krèek (MD) md@krkal.org",
-	"kernel, skriptování, vlastní hra KRKAL, levely,... ",
 	"Jan Poduška (Morgue)",
 	"GUI, editor levelù", 
 	"Jiøí Margaritov",
@@ -35,18 +35,22 @@ char* credittextcs[]={
 	"levely, nápady, návrhy, pøipomínky",
 	"Jan Frolík",
 	"hudba - co dodat - VY - NI - KA - JÍ - CÍ",
+	"Tomy, Dvoøáèek, Pavel P.",
+	"levely",
 
 	"INTERNETOVÉ STRÁNKY",
 
 	"www.krkal.org",
+    "https://github.com/HonzaMD/Krkal2",
+
 
 	"LICENCE",
 
-	"Program Krkal 2.? (demo) je volnì ke stažení, mùžete program dál bezplatnì šíøit.",
+	"Program Krkal 2.5 je volnì ke stažení, mùžete program dál bezplatnì šíøit.",
 	"Je možné program používat, modifikovat v nìm vytváøené hry, tvoøit nové levly.",
 	"Program používáte na vaše vlastní nebezpeèí. Nepøebíráme zodpovìdnost za jakékoli škody vzniklé v souvislosti s používáním programu.",
 	"Bez našeho svolení není možné použít Systém Krkal jako souèást nìjakého komerènì prodávaného produktu.",
-	"Veškerá další autorská práva vyhrazena (c) 2004",
+	"Veškerá další autorská práva vyhrazena (c) 2017",
 
 };
 
@@ -54,11 +58,11 @@ char* credittexten[]={
 
 	"AUTHORS",
 
-	"Petr Altman (pal) pal@krkal.org",
-	"graphics engine, textu editor, script editor, graphics, www,...",
-
 	"Jan Krcek (MD) md@krkal.org",
-	"kernel, scripting, game KRKAL, levels,...",
+	"version 2.5 and 3.0, kernel, scripting, game KRKAL, levels,...",
+
+	"Petr Altman (pal)",
+	"graphics engine, text editor, script editor, graphics, www,...",
 
 	"Jan Poduska (Morgue)",
 	"GUI, level editor",
@@ -72,18 +76,21 @@ char* credittexten[]={
 	"Jan Frolik",
 	"music - what's left to say - EX - TRA - OR - DI - NA - RY",
 
+    "Tomy, Dvoracek, Pavel P.",
+	"levels",
 
 	"KRKAL HOMEPAGE",
 
 	"www.krkal.org",
+	"https://github.com/HonzaMD/Krkal2",
 
 	"LICENSE",
 
-	"Program Krkal 2.4 (demo) can be free downloaded and you are allowed to distribute the program further, but only for free.",
+	"Program Krkal 2.5 can be free downloaded and you are allowed to distribute the program further, but only for free.",
 	"You may use the program, modify the games created within the system, create new levels.",
 	"Use this program at your own risk. We cannot be held responsible for any loss or damage this program might have caused.",
 	"You are NOT allowed to distribute KRKAL for money or even use it as a part of any commercial product without our explicit permission.",
-	"All rights reserved (c) P. Altman, J. Krcek, J. Margaritov, J. Poduska, J.Altmann, J. Frolik"
+	"All rights reserved (c) 2017 P. Altman, J. Krcek, J. Margaritov, J. Poduska, J.Altmann, J. Frolik"
 
 };
 
@@ -92,9 +99,9 @@ char* helptextcs[]={
 	"HRA KRKAL: OVLÁDÁNÍ",
 
 	"pohyb postavièky: kurzorové klávesy",
-	"Postavièka se vždy pohybuje pouze horizontálním nebo vertikálním smìrem - nikdy ne šikmo. Lze držet i více smìrových kláves najednou, poté se bude postavièka pohybovat jedním ze smìrù, kam mùže jít. To je neocenitelná vlastnost v rùzných bludištích.",
+	"Postavièka se vždy pohybuje pouze horizontálním nebo vertikálním smìrem - nikdy ne šikmo. Lze držet i více smìrových kláves najednou, poté se bude postavièka pohybovat jedním ze smìrù, kam mùže jít, pøièemž se bude	preferovat naposledy zmáèknutý smìr. To je neocenitelná vlastnost v rùzných bludištích.",
     "pøepínání mezi postavièkami: TAB",
-	"v nìkterých levelech je více postavièek nìkdy je možné mezi postavièkami pøepínat, jindy se všechny ovládají najednou (když pak napø. stiskne šipku vpravo - všechny postavièky pùjdou doprava)",
+	"v nìkterých levelech je více postavièek, nìkdy je možné mezi postavièkami pøepínat, jindy se všechny ovládají najednou (když pak napø. stiskne šipku vpravo - všechny postavièky pùjdou doprava)",
 	"použití bomby: Z",
 	"použití miny: X",
 	"sebrání znaèky: A",
@@ -113,10 +120,10 @@ char* helptextcs[]={
 
    "TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA",
 
-   "Velké množství informací najdete pøímo v dokumentaci, která je souèástí Krkala (v adresáøi Dokumentace). V dokumentaci najdete popis objektù ve høe Krkal, jak ovládat editor, jak psát skripty... Další informace naleznete na našich webových stránkách:",
+   "Velké množství informací najdete pøímo v dokumentaci, která je souèástí Krkala (v adresáøi Dokumentace). V dokumentaci najdete popis objektù ve høe Krkal a jak ovládat editor. Další informace naleznete na našich webových stránkách:",
    "      www.krkal.org",
-   "Námìty, žádosti o rady, pøipomínky, hlášení chyb,... posílejte do našeho internetového fóra: forum.krkal.org",
-   "A nakonec mùžete kontaktovat nìkterého z autorù pøímo e-mailem.",
+   "Na náš email nám mùžete posílat námìty, levely, žádosti o rady, pøipomínky, hlášení chyb, ...:",
+   "      support@krkal.org",
 
 };
 
@@ -125,17 +132,17 @@ char* helptexten[]={
 	"GAME KRKAL: CONTROLS",
 
 	"movement: key arrows",
-	"You can move in four basic directions only – you cannot move diagonally. You may hold more arrow keys at once, in which case you will move in one of the directions available at the moment. This is very useful in the labyrinths.",
+	"You can move in four basic directions only – you cannot move diagonally. You may hold more arrow keys at once, in which case you will move in one of the directions available at the moment, the last pressed key is preferred. This is very useful in the labyrinths.",
     "switching between the characters: TAB",
 	"In some levels, you can control more than one character. Sometimes you control only one character at the moment and may switch between them, while sometimes you control them all together. In this case, if you for example press the right arrow key, all the characters will start moving right.",
-	"drop the bomb: Z",
-	"put down the mine: X",
-	"pick up the traffic sign: A",
-	"put down the direction sign: 1 + direction arrow (you may also change the direction of a lying sign)",
-	"put down the no fare sign: 2",
-	"put down the 60 km/h speed limit sign: 3",
-	"put down the end of the 60 km/h speed limit sign: 4",
-	"back to main menu: ESC",
+	"drop a bomb: Z",
+	"put down a mine: X",
+	"pick up a traffic sign: A",
+	"put down a direction sign: 1 + direction arrow (you may also change the direction of a lying sign)",
+	"put down a no fare sign: 2",
+	"put down a 60 km/h speed limit sign: 3",
+	"put down an end of the 60 km/h speed limit sign: 4",
+	"go back to the main menu: ESC",
 
    "You can pick up some items and collect them in your inventory. You may collect up to 12 items of each type. Most of these items are picked up automatically as you step on the cell they are located. You cannot decide whether to pick up such item or not. The traffic signs are exception, you can choose to pick a sign by pressing ‘A’ key.",
    "Once picked up, the items cannot be discarded, but you can use some of them (as described above). Some items are used automatically – for instance, the key is used after you have tried to step on the cell blocked by the lock. Here we would like to warn of one captious feature: If you have a key and you are forced to move towards the lock (usually on the ice), you will unlock it when either you want or not.",
@@ -148,8 +155,8 @@ char* helptexten[]={
 
    "Much information can be found in the documentation included in the download pack. You can find more information at KRKAL website:",
    "      www.krkal.org",
-   "Please post your tips, notices, help requests and bug reports in our internet forum: forum.krkal.org",
-   "As the very last step, you can contact some member of the KRKAL team using the e-mail.",
+   "You can also contact us with tips, levels, notices, help requests and bug reports on our email:",
+   "      support@krkal.org",
 
 };
 
@@ -192,7 +199,7 @@ void CMainMenuHelp::ShowCredits()
 	yy+=10;
 	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,tc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
-	for(int i=0;i<6;i++)
+	for(int i=0;i<7;i++)
 	{
 		st=new CGUIStaticText(credittext[ti],fb,xx,yy,tc,mx,0,aCenter);
 		st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
@@ -209,7 +216,10 @@ void CMainMenuHelp::ShowCredits()
 	for(int i=0;i<1;i++)
 	{
 		st=new CGUIStaticText(credittext[ti],f,xx,yy,tc,mx,0,aCenter);
-		st->GetSize(sxx,syy);yy+=syy+15;cw->AddBackElem(st);
+		st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
+		ti++;
+		st = new CGUIStaticText(credittext[ti], f, xx, yy, tc, mx, 0, aCenter);
+		st->GetSize(sxx, syy); yy += syy + 15; cw->AddBackElem(st);
 		ti++;
 	}
 
