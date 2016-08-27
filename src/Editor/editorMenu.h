@@ -29,7 +29,7 @@ class CEDEditorMenuHandler : public CGUIEventProgram
 {
 	virtual void EventHandler(CGUIEvent *event);
 public:
-	CEDEditorMenuHandler(int numIcons) { icons = new typeID[numIcons]; levelPropertiesDlgID = newLevelDlgID = saveLevelDlgID = msgBoxID = chBoxID = 0; msgBoxIndex = -1; };
+	CEDEditorMenuHandler(int numIcons) { icons = new typeID[numIcons]; helpWindow = levelPropertiesDlgID = newLevelDlgID = saveLevelDlgID = msgBoxID = chBoxID = 0; msgBoxIndex = -1; };
 	virtual ~CEDEditorMenuHandler() { SAFE_DELETE_ARRAY(icons); };
 
 	void CreateNewDialog();
@@ -39,6 +39,7 @@ public:
 					// icony reprezentuji polozky menu (urcuji se v CEDEditorDesktop::AddEditorMenu())
 
 	typeID newLevelDlgID, saveLevelDlgID, levelPropertiesDlgID;	// objID vytvorenych dialogu
+	typeID helpWindow;
 	
 	typeID msgBoxID;	// ID messageBoxu (s ujistenim, zda opravdu chce uzivatel provest zvolenou akci)
 	typeID chBoxID;		// ID CheckBoxu pro urceni, zda chce uzivatel pouzit GameMOD nebo nikoliv

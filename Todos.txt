@@ -1,9 +1,8 @@
-* in game navod na editor
-* dostat do helpu v mainmenu prave klavesy
 * doc pro tvrdaky
+* revize prirazeni hudby k levlum
 * preklad do en
 * ilustrace
-* revize prirazeni hudby k levlum
+* uklid tex archivu, docx do pdf
 * setup
 * stranky
 * donate button

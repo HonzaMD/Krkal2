@@ -571,6 +571,7 @@ public:
 	bool keyMaximalize;		// zda se okno maximalizuje na klavesu F6 (pri opakovani se vrati do puvodni velikosti)
 							// CTRL+F6 (normalizace)
 	bool escapeClose;	    // zda se okno zavre pri ESC
+	bool excapeMinimize;    // zda se okno minimalizuje pri ESC
 
 protected:
 	// funkce zajistujici spolupraci s enginem (graficka cast):

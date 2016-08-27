@@ -1023,6 +1023,8 @@ void CGUI::LoadGUIData()
 	styleSet->Add(style);
 	style = new CGUIStyle("LM_CloseLevel",1,0,"$TEX$\\editor\\closeLevel.png");
 	styleSet->Add(style);
+	style = new CGUIStyle("LM_HelpIcon", 1, 0, "$DATA$\\HelpIcon.png");
+	styleSet->Add(style);
 
 	// ------------------------------------------------------------------------------------------
 	// nahrani stylu pro Editor Icons:

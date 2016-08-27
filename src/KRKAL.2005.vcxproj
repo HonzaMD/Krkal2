@@ -236,6 +236,7 @@
     <None Include="KRKALfs.cfg" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Editor\EdHelp.h" />
     <ClInclude Include="ident.h" />
     <ClInclude Include="krkal.h" />
     <ClInclude Include="StdAfx.h" />
@@ -351,6 +352,7 @@
     <ClInclude Include="TinyXml\tinyxml.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Editor\EdHelp.cpp" />
     <ClCompile Include="krkal.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StdAfx.cpp">

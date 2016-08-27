@@ -453,6 +453,9 @@
     <ClInclude Include="TinyXml\tinyxml.h">
       <Filter>Source&amp;Header Files\TinyXml</Filter>
     </ClInclude>
+    <ClInclude Include="Editor\EdHelp.h">
+      <Filter>Source&amp;Header Files\Editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="krkal.cpp">
@@ -784,6 +787,9 @@
     </ClCompile>
     <ClCompile Include="TinyXml\tinyxmlparser.cpp">
       <Filter>Source&amp;Header Files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor\EdHelp.cpp">
+      <Filter>Source&amp;Header Files\Editor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1271,6 +1271,7 @@ CGUIWindow::CGUIWindow(float _x, float _y, float _sx, float _sy, int withBackgro
 	keyClose=true;
 	keyMaximalize=true;
 	escapeClose=false;
+	excapeMinimize = false;
 
 	background = 0;
 	front = back = 0;
@@ -1335,6 +1336,7 @@ CGUIWindow::CGUIWindow(float _x, float _y, float _sx, float _sy, CBltRect *_back
 	keyClose=true;
 	keyMaximalize=true;
 	escapeClose=false;
+	excapeMinimize = false;
 
 	back = new CBltWindow(bw_x,bw_y,bw_size_x,bw_size_y);
 	background = _background;
@@ -2685,6 +2687,12 @@ int CGUIWindow::Keyboard(UINT character, UINT state)
 	{
 		ret=0;
 		CloseWindow();
+	}
+
+	if (excapeMinimize  && character == VK_ESCAPE && !mainGUI->key_ctrl && !mainGUI->key_alt && !mainGUI->key_shift)
+	{
+		ret = 0;
+		Minimize();
 	}
 
 	if(keyMaximalize && character == VK_F6 && !mainGUI->key_ctrl && !mainGUI->key_alt && !mainGUI->key_shift)

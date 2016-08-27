@@ -47,7 +47,7 @@ CEDEditorDesktop::CEDEditorDesktop()
 		iconDefaultHandler = new CEDDesktopIconHandler();
 		iconDefaultHandler->icons = new typeID[9];		// zadat velikost pole dle poctu icon (polozek typeID)
 
-		editorMenuHandler = new CEDEditorMenuHandler(7);
+		editorMenuHandler = new CEDEditorMenuHandler(8);
 
 		levelWindowDX=levelWindowDY=0;
 
@@ -190,6 +190,12 @@ void CEDEditorDesktop::AddStartMenu()
 	menu->AddMenuItem(0, mi);
 	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
 	editorMenuHandler->icons[5] = mi->GetID();
+
+	mi = new CGUIMenuItem(menu, 0, 0, 260, 30, "en{{Help}}cs{{Nápovìda}}", new CGUIRectHost(0, 0, styleSet->Get("LM_HelpIcon")->GetTexture(0)));
+	mi->SetLabelFormated("en{{Help}}cs{{Nápovìda}}", font);
+	menu->AddMenuItem(0, mi);
+	mi->AcceptEvent(editorMenuHandler->GetID(), EClicked);
+	editorMenuHandler->icons[7] = mi->GetID();
 
 	font->Release();
 

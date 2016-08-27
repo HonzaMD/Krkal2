@@ -17,6 +17,8 @@ class CMainMenuHelp
 public:
 	void ShowCredits();
 	void ShowHelp();
+private:
+	const char *ConvertKeys(const char *text, char buffer[1024]);
 };
 
 

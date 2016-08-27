@@ -18,6 +18,7 @@
 #include "widgets.h"
 #include "refmgr.h"
 #include "krkal.h"
+#include "input.h"
 
 char* credittextcs[]={
 
@@ -100,18 +101,18 @@ char* helptextcs[]={
 
 	"pohyb postavièky: kurzorové klávesy",
 	"Postavièka se vždy pohybuje pouze horizontálním nebo vertikálním smìrem - nikdy ne šikmo. Lze držet i více smìrových kláves najednou, poté se bude postavièka pohybovat jedním ze smìrù, kam mùže jít, pøièemž se bude	preferovat naposledy zmáèknutý smìr. To je neocenitelná vlastnost v rùzných bludištích.",
-    "pøepínání mezi postavièkami: TAB",
+    "pøepínání mezi postavièkami: $$_KSID_keyTab_0001_FFFF_0001_0001$$",
 	"v nìkterých levelech je více postavièek, nìkdy je možné mezi postavièkami pøepínat, jindy se všechny ovládají najednou (když pak napø. stiskne šipku vpravo - všechny postavièky pùjdou doprava)",
-	"použití bomby: Z",
-	"použití miny: X",
-	"sebrání znaèky: A",
-	"položení (otoèení) smìrové znaèky: 1+klávesa smìru",
-	"položení zákazu vjezdu: 2",
-	"položení šedesátky: 3",
-	"položení konce šedesátky: 4",
+	"použití bomby: $$_KSID_keyZ_0001_FFFF_0001_0001$$",
+	"použití miny: $$_KSID_keyX_0001_FFFF_0001_0001$$",
+	"sebrání znaèky: $$_KSID_keyA_0001_FFFF_0001_0001$$",
+	"položení (otoèení) smìrové znaèky: $$_KSID_key1_0001_FFFF_0001_0001$$+klávesa smìru",
+	"položení zákazu vjezdu: $$_KSID_key2_0001_FFFF_0001_0001$$",
+	"položení šedesátky: $$_KSID_key3_0001_FFFF_0001_0001$$",
+	"položení konce šedesátky: $$_KSID_key4_0001_FFFF_0001_0001$$",
 	"zpìt do úvodního menu: ESC",
 
-   "Hráè mùže sbírat nìkteré pøedmìty. Od každého pøedmìtu mùže mít maximálnì 12 kusù. Vìtšina pøedmìtù se sebere sama, jakmile hráè vstoupí na políèko s pøedmìtem. U tìchto pøedmìtù není možné rozhodnout se, jestli je chci nebo ne. Výjimkou jsou znaèky, ty se sbírají speciální klávesou 'A'.",
+   "Hráè mùže sbírat nìkteré pøedmìty. Od každého pøedmìtu mùže mít maximálnì 12 kusù. Vìtšina pøedmìtù se sebere sama, jakmile hráè vstoupí na políèko s pøedmìtem. U tìchto pøedmìtù není možné rozhodnout se, jestli je chci nebo ne. Výjimkou jsou znaèky, ty se sbírají speciální klávesou '$$_KSID_keyA_0001_FFFF_0001_0001$$'.",
    "Sebrané pøedmìty nelze jen tak zahodit. Nìkteré pøedmìty je možné použít speciální klávesou (viz výše). Jiné pøedmìty se použijí samy - napø. klíè se použije vždy, když hráè chce vstoupit na políèko, kde je zámek. Tady bych chtìl upozornit na jednu záludnost - pokud hráè má klíè a nìjaká síla ho pøinutí vjet (napø. klouže se po ledu) na políèko se zámkem - tak se zámek vždy odemkne, a hráè chce nebo ne.",
 
    "KONFIGURACE",
@@ -133,18 +134,18 @@ char* helptexten[]={
 
 	"movement: key arrows",
 	"You can move in four basic directions only – you cannot move diagonally. You may hold more arrow keys at once, in which case you will move in one of the directions available at the moment, the last pressed key is preferred. This is very useful in the labyrinths.",
-    "switching between the characters: TAB",
+    "switching between the characters: $$_KSID_keyTab_0001_FFFF_0001_0001$$",
 	"In some levels, you can control more than one character. Sometimes you control only one character at the moment and may switch between them, while sometimes you control them all together. In this case, if you for example press the right arrow key, all the characters will start moving right.",
-	"drop a bomb: Z",
-	"put down a mine: X",
-	"pick up a traffic sign: A",
-	"put down a direction sign: 1 + direction arrow (you may also change the direction of a lying sign)",
-	"put down a no fare sign: 2",
-	"put down a 60 km/h speed limit sign: 3",
-	"put down an end of the 60 km/h speed limit sign: 4",
+	"drop a bomb: $$_KSID_keyZ_0001_FFFF_0001_0001$$",
+	"put down a mine: $$_KSID_keyX_0001_FFFF_0001_0001$$",
+	"pick up a traffic sign: $$_KSID_keyA_0001_FFFF_0001_0001$$",
+	"put down a direction sign: $$_KSID_key1_0001_FFFF_0001_0001$$ + direction arrow (you may also change the direction of a lying sign)",
+	"put down a no fare sign: $$_KSID_key2_0001_FFFF_0001_0001$$",
+	"put down a 60 km/h speed limit sign: $$_KSID_key3_0001_FFFF_0001_0001$$",
+	"put down an end of the 60 km/h speed limit sign: $$_KSID_key4_0001_FFFF_0001_0001$$",
 	"go back to the main menu: ESC",
 
-   "You can pick up some items and collect them in your inventory. You may collect up to 12 items of each type. Most of these items are picked up automatically as you step on the cell they are located. You cannot decide whether to pick up such item or not. The traffic signs are exception, you can choose to pick a sign by pressing ‘A’ key.",
+   "You can pick up some items and collect them in your inventory. You may collect up to 12 items of each type. Most of these items are picked up automatically as you step on the cell they are located. You cannot decide whether to pick up such item or not. The traffic signs are exception, you can choose to pick a sign by pressing ‘$$_KSID_keyA_0001_FFFF_0001_0001$$’ key.",
    "Once picked up, the items cannot be discarded, but you can use some of them (as described above). Some items are used automatically – for instance, the key is used after you have tried to step on the cell blocked by the lock. Here we would like to warn of one captious feature: If you have a key and you are forced to move towards the lock (usually on the ice), you will unlock it when either you want or not.",
 
    "CONFIGURATION",
@@ -241,6 +242,7 @@ void CMainMenuHelp::ShowCredits()
 
 void CMainMenuHelp::ShowHelp()
 {
+	char buffer[1024];
 	char** helptext;
 	if(KRKAL->cfg.lang==langEN) helptext=helptexten;
 	else helptext=helptextcs;
@@ -279,18 +281,18 @@ void CMainMenuHelp::ShowHelp()
 	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 	
-	st=new CGUIStaticText(helptext[ti++],fb,xx,yy,tc,mx);
+	st = new CGUIStaticText(ConvertKeys(helptext[ti++], buffer), fb, xx, yy, tc, mx);
 	st->GetSize(sxx,syy);yy+=syy;cw->AddBackElem(st);
-	st=new CGUIStaticText(helptext[ti++],f,xx+20,yy,tc,mx-20);
+	st = new CGUIStaticText(ConvertKeys(helptext[ti++], buffer), f, xx + 20, yy, tc, mx - 20);
 	st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
-	st=new CGUIStaticText(helptext[ti++],fb,xx,yy,tc,mx);
+	st = new CGUIStaticText(ConvertKeys(helptext[ti++], buffer), fb, xx, yy, tc, mx);
 	st->GetSize(sxx,syy);yy+=syy;cw->AddBackElem(st);
-	st=new CGUIStaticText(helptext[ti++],f,xx+20,yy,tc,mx-20);
+	st = new CGUIStaticText(ConvertKeys(helptext[ti++], buffer), f, xx + 20, yy, tc, mx - 20);
 	st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
 
 	for(int i=0;i<8;i++)
 	{
-		st=new CGUIStaticText(helptext[ti],fb,xx,yy,tc,mx);
+		st = new CGUIStaticText(ConvertKeys(helptext[ti], buffer), fb, xx, yy, tc, mx);
 		st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
 		ti++;
 	}
@@ -298,7 +300,7 @@ void CMainMenuHelp::ShowHelp()
 	yy+=5;
 	for(int i=0;i<2;i++)
 	{
-		st=new CGUIStaticText(helptext[ti],f,xx,yy,tc,mx);
+		st = new CGUIStaticText(ConvertKeys(helptext[ti], buffer), f, xx, yy, tc, mx);
 		st->GetSize(sxx,syy);yy+=syy+10;cw->AddBackElem(st);
 		ti++;
 	}
@@ -324,4 +326,41 @@ void CMainMenuHelp::ShowHelp()
 	yy+=10;
 	cw->SetBackWindowNormalSize(mx+10,yy);
 
+}
+
+
+
+const char *CMainMenuHelp::ConvertKeys(const char *text, char buffer[1024]) {
+	const char *ptr = text;
+	int dptr = 0;
+	const char *key = 0;
+	const char *key2;
+
+	for (; *ptr; ptr++) {
+		if (ptr[0] == '$' && ptr[1] == '$') {
+			ptr++;
+			if (!key) {
+				key = buffer + dptr;
+			} else {
+				buffer[dptr] = 0;
+				key2 = Input->FindKeyDisplayName(key);
+				dptr = key - buffer;
+				key = 0;
+
+				while (key2 && *key2 && dptr + 1 < 1024)
+				{
+					buffer[dptr++] = *key2++;
+				}
+			}
+		}
+		else {
+			if (dptr + 1 >= 1024)
+				break;
+			buffer[dptr] = *ptr;
+			dptr++;
+		}
+	}
+
+	buffer[dptr] = 0;
+	return buffer;
 }

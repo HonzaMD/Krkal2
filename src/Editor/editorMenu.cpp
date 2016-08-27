@@ -27,6 +27,7 @@
 #include "krkal.h"
 #include "levels.h"
 #include "register.h"
+#include "EdHelp.h"
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // CEDEditorMenuHandler
@@ -150,6 +151,20 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 			dlg->Center(true, false);
 			mainGUI->SendCursorPos();
 			dlg->SetModal(1);
+		}
+	}
+
+	if (event->sender == icons[7])		// polozka editor menu - Show Help
+	{
+		CGUIStdWindow *win = GetObjFromID<CGUIStdWindow>(helpWindow);
+		if (win) {
+			win->UnMinimize();
+			win->FocusMe();
+		} 
+		else
+		{
+			CEditorHelp help;
+			helpWindow = help.ShowHelp();
 		}
 	}
 
