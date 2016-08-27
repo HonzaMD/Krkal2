@@ -11,7 +11,7 @@
     </Text>
     <Image x1="10" y1="65">$GAME$\LevelImages.pkg\EditorSmall.png</Image>
     <Text x1="30" x2="90" y1="65" y2="95">
-      Tip: Vyzkoušej si editor levelù, návod najdeš zde: ____
+      Tip: Vyzkoušej si editor levelù, návod najdeš u hry, v adresáøi Dokumentace.
     </Text>
   </Language>
 </LevelIntro>

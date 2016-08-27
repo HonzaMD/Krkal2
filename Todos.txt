@@ -1,7 +1,5 @@
-* doc pro tvrdaky
-* revize prirazeni hudby k levlum
-* preklad do en
 * ilustrace
+* preklad do en
 * uklid tex archivu, docx do pdf
 * setup
 * stranky

@@ -300,7 +300,7 @@ typeID CEditorHelp::ShowHelp()
 		xx = floor((screenx - 600) / 2);
 		screenx = 600;
 	}
-	CGUIStdWindow *cw = new CGUIStdWindow(xx, 0, screenx, screeny, "Editor Help", 0, true, STD_RESIZER_COLOR, 1, 0xDD202070);
+	CGUIStdWindow *cw = new CGUIStdWindow(xx, 0, screenx, screeny, "en{{Editor Help}}cs{{Nápovìda}}", new CGUIRectHost(0, 0, styleSet->Get("LM_HelpIcon")->GetTexture(0)), true, STD_RESIZER_COLOR, 1, 0xDD202070);
 	cw->title->SetButtons(true, true, true);
 	desktop->AddBackElem(cw);
 	cw->FocusMe();
@@ -376,7 +376,7 @@ typeID CEditorHelp::ShowHelp()
 				sprintf(buffer, "%i.", listCounter);
 				listCounter++;
 				st = new CGUIStaticText(buffer, fb, xx, yy, lc);
-				st->GetSize(sxx, syy); cw->AddBackElem(st);
+				cw->AddBackElem(st);
 				st = new CGUIStaticText(text + 2, f, xx + 20, yy, tc, mx - 20);
 				st->GetSize(sxx, syy); yy += syy; cw->AddBackElem(st);
 				break;
