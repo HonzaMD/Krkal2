@@ -5,5 +5,4 @@
 * stranky
 * donate button
 * propagace
-* propagacni videa
 * ? vymena levlu (skladiste na strankach)
