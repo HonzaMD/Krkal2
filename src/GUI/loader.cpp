@@ -1023,7 +1023,7 @@ void CGUI::LoadGUIData()
 	styleSet->Add(style);
 	style = new CGUIStyle("LM_CloseLevel",1,0,"$TEX$\\editor\\closeLevel.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("LM_HelpIcon", 1, 0, "$DATA$\\HelpIcon.png");
+	style = new CGUIStyle("LM_HelpIcon", 1, 0, "$TEX$\\editor\\HelpIcon.png");
 	styleSet->Add(style);
 
 	// ------------------------------------------------------------------------------------------
@@ -1236,15 +1236,15 @@ void CGUI::LoadGUIData()
 	styleSet->Add(style);
 	style = new CGUIStyle("GameMenuCounter",1,0,"$TEX$\\MainMenu\\gameMenuCounter.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuProgressBar",1,0,"$DATA$\\gameMenuProgressBar.png");
+	style = new CGUIStyle("GameMenuProgressBar",1,0,"$TEX$\\gameMenu\\gameMenuProgressBar.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuProgressBarCompressed",1,0,"$DATA$\\gameMenuProgressBarCompressed.png");
+	style = new CGUIStyle("GameMenuProgressBarCompressed",1,0,"$TEX$\\gameMenu\\gameMenuProgressBarCompressed.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuSvetlo", 1, 0, "$DATA$\\MenuSvetlo.png");
+	style = new CGUIStyle("GameMenuSvetlo", 1, 0, "$TEX$\\gameMenu\\MenuSvetlo.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuPozadi", 1, 0, "$DATA$\\MenuPozadi2.png");
+	style = new CGUIStyle("GameMenuPozadi", 1, 0, "$TEX$\\gameMenu\\MenuPozadi2.png");
 	styleSet->Add(style);
-	style = new CGUIStyle("GameMenuRamp", 1, 0, "$DATA$\\MenuRamp.png");
+	style = new CGUIStyle("GameMenuRamp", 1, 0, "$TEX$\\gameMenu\\MenuRamp.png");
 	styleSet->Add(style);
 
 

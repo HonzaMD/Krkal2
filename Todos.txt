@@ -1,6 +1,6 @@
 * ilustrace
 * preklad do en
-* uklid tex archivu, docx do pdf
+* docx do pdf
 * setup
 * stranky
 * donate button

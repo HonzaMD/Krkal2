@@ -273,16 +273,16 @@ char* edhelptexten[] = {
 
 char* pictureNames[] = {
 
-	"$DATA$\\BaseSelectS.jpg",
-	"$DATA$\\EditorOknaS2.png",
+	"$TEX$\\editor\\BaseSelectS.jpg",
+	"$TEX$\\editor\\EditorOknaS2.png",
 	"$TEX$\\editor\\EditorMods\\select_free.png",
 	"$TEX$\\editor\\EditorMods\\select_cell.png",
 	"$TEX$\\editor\\EditorMods\\insertMod.png",
 	"$TEX$\\cursors\\editor\\delete.png",
 	"$TEX$\\cursors\\editor\\noConnect.png",
 	"$TEX$\\editor\\EditorMods\\moveObj.png",
-	"$DATA$\\ChooseCursors.png",
-	"$DATA$\\ObjPropertiesS.png",
+	"$TEX$\\editor\\ChooseCursors.png",
+	"$TEX$\\editor\\ObjPropertiesS.png",
 };
 
 
