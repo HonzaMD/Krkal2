@@ -1,12 +1,12 @@
 ﻿========================================================================
-KRKAL
+KRKAL 2
 ========================================================================
 
 
 ##O PRODUKTU
 
 
-   Hra Krkal je logicko-akční hra, kde si vyzkoušíte ovládání jedné 
+   Krkal je logicko-akční top-down hra, kde si vyzkoušíte ovládání jedné 
 ze tří postaviček a pomůžete jí vyřešit všechny nástrahy a překonat
 rafinované překážky a nakonec se ve zdraví dostat do vytouženého
 cíle každého levelu - do exitu. 
