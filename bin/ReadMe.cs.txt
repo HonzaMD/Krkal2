@@ -5,18 +5,17 @@ KRKAL 2
 
 O PRODUKTU
 ==========
-
-   Krkal je logicko-akční top-down hra, kde si vyzkoušíte ovládání jedné 
-ze tří postaviček a pomůžete jí vyřešit všechny nástrahy a překonat
-rafinované překážky a nakonec se ve zdraví dostat do vytouženého
-cíle každého levelu - do exitu. 
-   Varování: Hra je v pozdějších levelech obtížná!
-   Levely jsou postaveny z mnoha (50!) rozmanitých prvků či předmětů, 
+   Krkal je logicko-akční top-down hra. Ovládáte jednu ze tří postaviček
+a snažíte se najít cestu v bludišti, které je plné rozmanitých nástrah a 
+překážek. 
+   Budete potřebovat jak hbité prsty tak bystrou mysl, v pozdějších 
+levelech je hra obtížná!
+   Levely jsou postaveny z mnoha (50!) různých prvků či předmětů, 
 které ovlivňují jak sami sebe navzájem, tak i vás. Budete posouvat 
 kameny, klouzat po ledu, vyhýbat se minám, správně nastavovat různá
 tlačítka, bloudit v bludištích a třeba přestavovat značky pro dopravní
 příšery...
-   Naší inspirací byly hry jako Robbo, Boulderdash (Supaplex), či 
+   Naší inspirací byly hry jako Robbo, Boulder Dash (Supaplex), či 
 Sokoban, přesto Krkal vypadá jinak, v každém levelu čekejte něco nového,
 originálního. Vše vidíte přehledně z výšky a nechybí kvalitní grafika i
 hudba. Součástí je i editor levelů.
