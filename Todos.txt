@@ -1,8 +1,13 @@
 * ilustrace
 * preklad do en
-* docx do pdf
 * setup
 * stranky
+	* google analytics
+	* levly
+	* banery, ikony
+* hlasitost zvuku
+* code page textu
+* docx do pdf
 * donate button
 * propagace
 * ? vymena levlu (skladiste na strankach)
