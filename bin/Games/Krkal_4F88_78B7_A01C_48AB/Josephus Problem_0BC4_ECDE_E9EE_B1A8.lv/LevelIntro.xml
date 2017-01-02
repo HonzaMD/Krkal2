@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Zajatci stojí v kruhu a čekají na popravu. Začne se na uřčeném místě a každý druhý je popraven. Takto se postupuje pořád dál dokola až zbyde jenom jeden. Ten získá milost. Na jaké místo se postavit, abychom přežili?<br/>
+      Tohle je mírumilovná verze, nebude se popravovat, jenom se rozpočítáme.      
+    </Text>
+  </Language>
+</LevelIntro>
