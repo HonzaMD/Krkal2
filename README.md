@@ -1,9 +1,7 @@
-﻿========================================================================
-KRKAL 2
-========================================================================
+﻿# KRKAL 2
 
 
-##O PRODUKTU
+## O PRODUKTU
 
 
 Krkal je logicko-akční top-down hra. Ovládáte jednu ze tří postaviček
@@ -32,7 +30,7 @@ výročí hry Krkal - 2017.
 
 
 
-##LICENCE
+## LICENCE
 
 
 * Program Krkal 2.5 je volně ke stažení, můžete program dál 
@@ -46,7 +44,7 @@ výročí hry Krkal - 2017.
 * Veškerá další autorská práva vyhrazena (c) 2017
 
 
-##AUTOŘI
+## AUTOŘI
 
 
 ####  Jan Krček (MD) md@krkal.org
@@ -71,7 +69,7 @@ hudba - co dodat - VY - NI - KA - JÍ - CÍ
 levely
 
 
-##INTERNETOVÉ STRÁNKY
+## INTERNETOVÉ STRÁNKY
 
 
 www.krkal.org  
