@@ -191,7 +191,7 @@ int CMusicEngine::PlaySample( CKerName *soundname, int x, int y, double volume, 
 
 	float px = x-scx;
 	x=abs(x-(int)scx);y=abs(y-(int)scy);
-    double vol=(x+y)/1000.;
+    double vol=(x+y)/((sx+sy) * 1.4);
 	if(vol<0) vol=0; else
 	if(vol>1) vol=1;
 	volume*=(1-vol);

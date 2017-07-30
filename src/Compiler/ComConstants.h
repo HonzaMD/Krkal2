@@ -625,7 +625,7 @@ const static char* cEditTags[] =
 	"key",
 	"sound",
 	"objvoid",
-	"autovoid"
+	"autovoid",
 	"anyname",
 };
 

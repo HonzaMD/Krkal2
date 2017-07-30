@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -17,24 +17,25 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C202FAC9-1A0A-452B-B8A4-6436F92C4AE6}</ProjectGuid>
     <RootNamespace>KRKAL.2005</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDebug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <UseOfAtl>false</UseOfAtl>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -518,7 +519,9 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(01)Land of Moles_76A7_96F4_40B6_544F.lv\LevelIntro.xml" />
-    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(02)Tomy%27s 2 Ways_9B46_44A9_CD78_9A98.lv\LevelIntro.xml" />
+    <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(02)Tomy%27s 2 Ways_9B46_44A9_CD78_9A98.lv\LevelIntro.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(04)Tomy%27s Keys_9B94_543D_B912_70EE.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(05)Ice Town_7D6C_B83F_55B5_FA6E.lv\LevelIntro.xml" />
     <Xml Include="..\bin\Games\Krkal_4F88_78B7_A01C_48AB\(07)Run!_27B9_F4D9_D1C6_D12C.lv\LevelIntro.xml" />

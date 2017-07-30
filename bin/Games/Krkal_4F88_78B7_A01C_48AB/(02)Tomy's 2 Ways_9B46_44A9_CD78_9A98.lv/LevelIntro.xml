@@ -4,7 +4,7 @@
     <Text x1="10" x2="90" y1="5" y2="70">
       Podej, držím, ... Sakra, to je pìknì tìžké, co v tom máš?<br/>
       Nástroje a pøístroje, fotografické nádobíèko, diagnostiku ... Jsme i vìdecká expedice, zapomnìls?<br/>
-      Ne. Jen tìch knih mohlo být ménì ...
+      Ne, to ne, ale tìch knih mohlo být ménì ...
     </Text>
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Bomba.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">

@@ -21,3 +21,4 @@ bin/Data/compiler/files/syntax.out
 bin/Profiles/*
 !bin/Profiles/dirInfo.txt
 bin/Data/gui_error.log
+src/.vs/KRKAL.2005/v15/

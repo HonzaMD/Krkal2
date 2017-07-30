@@ -1,13 +1,14 @@
 * ilustrace
 * preklad do en
 * setup
+	* podepisovani
 * stranky
 	* google analytics
 	* levly
-	* banery, ikony
-* hlasitost zvuku
-* code page textu
+	* ? banery, ikony
 * docx do pdf
 * donate button
 * propagace
+
 * ? vymena levlu (skladiste na strankach)
+* # code page textu # nastavit per aplikace se neda. Prejit do UTF16 je pracne

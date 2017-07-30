@@ -329,6 +329,13 @@ void CMMLevelDir::SetAccessTags() {
 		}
 		if (F->Name[0] == '(' && F->next && F->next->Name[0] != '(') // hack aby se daly hrat uzivatelske levly
 			count = AccessCfg;
+		if (F->Name[0] == '(' && F->next && F->next->Name[0] == '(') 
+		{
+			char a = F->Name[1] >= '0' && F->Name[1] <= '9' ? '0' : F->Name[1];
+			char b = F->next->Name[1] >= '0' && F->next->Name[1] <= '9' ? '0' : F->next->Name[1];
+			if (a != b)
+				count = AccessCfg;
+		}
 		F = F->next;
 	}
 }
