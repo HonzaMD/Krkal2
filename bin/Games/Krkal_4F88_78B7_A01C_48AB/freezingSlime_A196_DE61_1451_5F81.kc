@@ -1,0 +1,115 @@
+#head
+game	Krkal
+author	pal
+version	A196_DE61_1451_5F81
+include krkal2_A1CF_6963_8DA6_D822.kc
+#endhead
+
+objectname oUmiraNaFreezingSlizu;
+methodname FreezingSlizOn,ZemriPokudJsiBylVeFreezingSlizu;
+depend oUmiraNaSlizu << oUmiraNaFreezingSlizu;
+depend oUmiraNaFreezingSlizu << {oDracek, oPasovec, oHemr} 
+
+object oUmiraNaFreezingSlizu inherit {
+	int WasInFreezingSliz;
+	uconstructor() {
+		WasInFreezingSliz=0;
+	}
+	void FreezingSlizOn() {
+		WasInFreezingSliz=1;
+	}
+	void ZemriPokudJsiBylVeFreezingSlizu()
+	{
+		if (WasInFreezingSliz)
+			SlizOn();
+	}
+}
+
+objectname oFreezingSliz;
+methodname EnableFreezingSliz;
+depend floors << oFreezingSliz;
+depend oFreezingSliz << oSliz;
+object oFreezingSliz inherit 
+{
+	objptr trigerFreezing;
+
+	int enableFreezing edit {Editable, EditType = bool, Comment = "en{{Enable freezing slime.}}cs{{Povolí mrznoucí sliz}}"};
+
+	constructor()
+	{
+		enableFreezing = 1;
+	}
+	
+	void @MapPlaced()  {
+		if (@IsEditor()) return;
+	
+		trigerFreezing = new otrigger;
+		trigerFreezing->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY,::ncX:0,::ncY:0);
+		trigerFreezing->SetClzGr(::AddGr:oUmiraNaFreezingSlizu, ::Redirect:this);
+		@PlaceObjToMap(trigerFreezing);
+		@MvConnectObjs(trigerFreezing,this);		
+	}
+	
+	void @TriggerOn(objptr @Object)  {
+		if (trigerFreezing && enableFreezing) @Object->FreezingSlizOn() message;
+	}
+	
+	void @MapRemoved() {
+		delete trigerFreezing;
+		trigerFreezing = onull;
+	}
+	void EnableFreezingSliz()
+	{
+		//@LogDebugInfo(0,0,"enablefreezingsliz");
+		enableFreezing = 1;
+	}	
+}
+
+objectname oLedSlime;
+depend floors << oLedSlime;
+depend oLedSlime << oLed;
+
+object oLedSlime inherit {
+	objptr trigerSliz;
+
+	void @MapPlaced() {
+		if (@IsEditor()) return;
+
+		trigerSliz = new otrigger;
+		trigerSliz->SetPosSz(::X:@ObjPosX,::Y:@ObjPosY,::ncX:0,::ncY:0);
+		trigerSliz->SetClzGr(::AddGr:oUmiraNaFreezingSlizu, ::Redirect:this);
+		@PlaceObjToMap(trigerSliz);
+		@MvConnectObjs(trigerSliz,this);
+	}
+	
+	void @TriggerOn(objptr @Object) {
+		if (trigerSliz) @Object->ZemriPokudJsiBylVeFreezingSlizu() message;
+	}
+
+	void @TriggerOff(objptr @Object) {
+		if (trigerSliz) @Object->SlizOff() message;
+	}
+		
+	void @MapRemoved() {
+		delete trigerSliz;
+		trigerSliz = onull;
+	}			
+}
+
+objectname oRandomizer;
+
+object oRandomizer
+{
+	edit {OutMap, UserName="en{{Randomizer}}cs{{Randomizer}}", 
+	    Comment="en{{Randomizer}}cs{{Randomizer}}"}	
+
+	lconstructor()
+	{
+		if (@IsGame()) {
+			int i = @randInt(12);
+			int x = 4+2*i;
+			@AreaMessage(EnableFreezingSliz,onull,oSliz,x,3,x,3);
+			//@LogDebugInfo(0,i,"randomizer");
+		}
+	}
+}
