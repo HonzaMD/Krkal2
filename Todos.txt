@@ -1,5 +1,6 @@
 * ilustrace
 * preklad do en
+* otestovat a opravit chyby v xml level intru
 * setup
 	* podepisovani
 * stranky

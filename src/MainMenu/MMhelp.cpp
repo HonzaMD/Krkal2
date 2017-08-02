@@ -169,8 +169,11 @@ void CMainMenuHelp::ShowCredits()
 
 	int screenx,screeny;
 	KRKAL->GetScreenRes(screenx,screeny);
+	int winposX = screenx > 1000 ? (screenx - 1000) / 2 : 0;
+	if (screenx > 1000)
+		screenx = 1000;
 
-	CGUIStdWindow *cw=new CGUIStdWindow(0,0,(float)screenx,(float)screeny,"ABOUT",0,false,STD_RESIZER_COLOR,1,0xDD202070);
+	CGUIStdWindow *cw=new CGUIStdWindow((float)winposX,0,(float)screenx,(float)screeny,"ABOUT",0,false,STD_RESIZER_COLOR,1,0xDD202070);
 	cw->escapeClose=true;
 	cw->title->SetButtons(true,false,false);
 	desktop->AddBackElem(cw);
@@ -249,8 +252,11 @@ void CMainMenuHelp::ShowHelp()
 
 	int screenx,screeny;
 	KRKAL->GetScreenRes(screenx,screeny);
+	int winposX = screenx > 1000 ? (screenx - 1000) / 2 : 0;
+	if (screenx > 1000)
+		screenx = 1000;
 
-	CGUIStdWindow *cw=new CGUIStdWindow(0,0,(float)screenx,(float)screeny,"HELP",0,false,STD_RESIZER_COLOR,1,0xDD202070);
+	CGUIStdWindow *cw=new CGUIStdWindow((float)winposX,0,(float)screenx,(float)screeny,"HELP",0,false,STD_RESIZER_COLOR,1,0xDD202070);
 	cw->escapeClose=true;
 	cw->title->SetButtons(true,false,false);
 	desktop->AddBackElem(cw);

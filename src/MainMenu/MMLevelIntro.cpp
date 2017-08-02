@@ -19,6 +19,17 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const
 	cw = 0; font=0; fontB=0; fontN=0;
 	int screenx,screeny;
 	KRKAL->GetScreenRes(screenx,screeny);
+	int x1 = 0, y1 = 0;
+	int maxX = 1024;
+	int maxY = 768;
+	if (screenx > maxX) {
+		x1 = (screenx - maxX) / 2;
+		screenx = maxX;
+	}
+	if (screeny > maxY) {
+		y1 = (screeny - maxY) / 2;
+		screeny = maxY;
+	}
 
 	char path[MAX_PATH];
 	sprintf(path, "%s/%s", levelDirPath, fileName);
@@ -30,7 +41,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const
 	if (1 == FS->ReadFile(path, buffer, size)) {
 		buffer[size] = 0;
 
-		cw=new CGUIStdWindow(20,20,(float)screenx-40,(float)screeny-(int)STD_GAMEMENU_HEIGHT - 40,0xDD202070);
+		cw=new CGUIStdWindow(20+x1,20+y1,(float)screenx-40,(float)screeny-(int)STD_GAMEMENU_HEIGHT - 40,0xDD202070);
 		desktop->AddBackElem(cw);
 		cw->FocusMe();
 
@@ -51,77 +62,6 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const
 
 	SAFE_DELETE(buffer);
 
-
-
-	//CGUIStaticText *st;
-
-	//float mx=(float)screenx-30;
-	//float xx=10;
-	//float yy=10;
-	//float sxx,syy;
-	//int ti=0;
-	//UI tc=0xFFFFFFFF;
-
-	//CGUIStaticPicture* krkal = new CGUIStaticPicture(0,0,"$TEX$/MainMenu/krkal.png");
-	//krkal->GetSize(sxx,syy);
-	//krkal->Move((screenx-sxx-10)/2,0);
-	//yy+=syy+10;
-	//cw->AddBackElem(krkal);
-
-
-	//CGUIFont *f=(CGUIFont*) RefMgr->Find("GUI.F.Verdana.10");
-	//CGUIFont *fb=(CGUIFont*) RefMgr->Find("GUI.F.Verdana.10.B");
-	//CGUIFont *fn=(CGUIFont*) RefMgr->Find("GUI.F.Courier.14.B");
-
-	////hra krkal
-	//yy+=10;
-	//st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
-	//
-	//st=new CGUIStaticText(helptext[ti++],fb,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy);yy+=syy;cw->AddBackElem(st);
-	//st=new CGUIStaticText(helptext[ti++],f,xx+20,yy,tc,mx-20);
-	//st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
-	//st=new CGUIStaticText(helptext[ti++],fb,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy);yy+=syy;cw->AddBackElem(st);
-	//st=new CGUIStaticText(helptext[ti++],f,xx+20,yy,tc,mx-20);
-	//st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
-
-	//for(int i=0;i<8;i++)
-	//{
-	//	st=new CGUIStaticText(helptext[ti],fb,xx,yy,tc,mx);
-	//	st->GetSize(sxx,syy);yy+=syy+5;cw->AddBackElem(st);
-	//	ti++;
-	//}
-
-	//yy+=5;
-	//for(int i=0;i<2;i++)
-	//{
-	//	st=new CGUIStaticText(helptext[ti],f,xx,yy,tc,mx);
-	//	st->GetSize(sxx,syy);yy+=syy+10;cw->AddBackElem(st);
-	//	ti++;
-	//}
-
- //   //konfigurace
-	//yy+=20;
-	//st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
-	//st=new CGUIStaticText(helptext[ti++],f,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
-
-	////technicka podpora
-	//yy+=15;
-	//st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
-	//st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
-	//for(int i=0;i<4;i++)
-	//{
-	//	st=new CGUIStaticText(helptext[ti],f,xx,yy,tc,mx);
-	//	st->GetSize(sxx,syy);yy+=syy+10;cw->AddBackElem(st);
-	//	ti++;
-	//}
-
-	//yy+=10;
-	//cw->SetBackWindowNormalSize(mx+10,yy);
 }
 
 MMLevelIntro::~MMLevelIntro(void)
