@@ -5680,7 +5680,7 @@ CEDObjPropertyList::CEDObjPropertyList(float _x, float _y, float _sx, float _sy,
 					default: 
 						if(OVar->Type>=eKTstring && OVar->Type<eKTstring+250) // jedna se o string
 						{
-							_snprintf(string,260,"%d",val->Dstring);
+							_snprintf(string,260,"%s",val->Dstring);
 							AddTreeItem(0,string);
 						}
 				}

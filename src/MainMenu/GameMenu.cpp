@@ -321,6 +321,7 @@ void CGameMenu::Refresh()
 
 	float dx = floorf(msx / numObjects);
 	float xx = floorf(dx/2)-22;
+	float pbxx;
 	if(xx<0)
 		xx=0;
 	if(dx<65)
@@ -339,12 +340,20 @@ void CGameMenu::Refresh()
 		xx = floorf(dx/2)-22;
 		if(xx<0)
 			xx=0;
+		pbxx = 5;
 	}
 	else
 	{
 		if(gameMenu->compressedMenu)
 			changeCompress=true;
 		gameMenu->compressedMenu=false;
+		pbxx = 10;
+		if (dx > 100) {
+			int msx2 = 100 * numObjects;
+			dx = 100;
+			xx = floorf(dx / 2 - 22 + (msx - msx2) / 2);
+			pbxx = floorf(10 + (msx - msx2) / 2);
+		}
 	}
 
 	if(gameMenu->withProgressBars)
@@ -367,14 +376,14 @@ void CGameMenu::Refresh()
 
 		if(gameMenu->compressedMenu)
 		{
-			gameMenu->progressBar1->Move(5,3);
-			gameMenu->progressBar2->Move(5,26);
+			gameMenu->progressBar1->Move(pbxx,3);
+			gameMenu->progressBar2->Move(pbxx,26);
 			xx += 80;
 		}
 		else
 		{
-			gameMenu->progressBar1->Move(10,3);
-			gameMenu->progressBar2->Move(10,26);
+			gameMenu->progressBar1->Move(pbxx,3);
+			gameMenu->progressBar2->Move(pbxx,26);
 			xx += 120;
 		}
 

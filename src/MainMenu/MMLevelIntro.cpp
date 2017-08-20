@@ -41,7 +41,7 @@ MMLevelIntro::MMLevelIntro(const char *levelDirPath, const char *fileName, const
 	if (1 == FS->ReadFile(path, buffer, size)) {
 		buffer[size] = 0;
 
-		cw=new CGUIStdWindow(20+x1,20+y1,(float)screenx-40,(float)screeny-(int)STD_GAMEMENU_HEIGHT - 40,0xDD202070);
+		cw=new CGUIStdWindow((float)(20+x1), (float)(20+y1),(float)screenx-40,(float)screeny-(int)STD_GAMEMENU_HEIGHT - 40,0xDD202070);
 		desktop->AddBackElem(cw);
 		cw->FocusMe();
 
@@ -182,8 +182,10 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 		{
 			TiXmlElement *elem = node->ToElement();
 			if (elem->ValueStr() == "br") {
-				st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
-				st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+				if (buff[0]) {
+					st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
+					st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+				}
 				*buff = 0;
 				buffptr = buff;
 			}
@@ -200,8 +202,10 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 		}
 	}
 
-	st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
-	st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+	if (buff[0]) {
+		st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
+		st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
+	}
 	*buff = 0;
 	buffptr = buff;
 

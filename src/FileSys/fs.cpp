@@ -1802,7 +1802,7 @@ int CFSDir::Rename(const char *oldname, const char *newname, CFSDir *newdir)
 	}
 
 	SAFE_DELETE_ARRAY(it->name);
-    it->namelen=(int)strlen(newname);
+    it->namelen=(UC)strlen(newname);
 	it->name=new char[it->namelen+1];
 	strcpy(it->name,newname);
 
@@ -1934,7 +1934,7 @@ int CFSDirItem::Create(const char *_name, char _dir, int _offset)
 {
 	SAFE_DELETE_ARRAY(name);
 
-	namelen=(int)strlen(_name);
+	namelen=(UC)strlen(_name);
 	if(namelen>256) return 0;
 
 	name=new char[namelen+1];

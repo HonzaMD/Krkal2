@@ -34,8 +34,8 @@ CKerVarUsesInfo KerVarUsesInfo[KERVARUSESSIZE] = {
 	{0,0,eKETdefault,0}, {1,0,eKETnumeric,0}, {1,0,eKETnumeric,0},  {1,0,eKETnumeric,0},  {1,0,eKETnumeric,0},  {1,0,eKETnumeric,0},
 	{1,0,eKETnumeric,0}, {1,0,eKETnumeric,0}, {1,0,eKETnumeric,0}, {1,0,eKETnumeric,0}, {1,0,eKETnumeric,0}, {1,0,eKETnumeric,0}, 
 	{1,1,eKETnumeric,0}, {1,1,eKETnumeric,0}, {1,1,eKETnumeric,0}, 
-	{0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {1,0,eKETautomaticGr,0xFFFFFFFF}, {1,0,eKETconnectionMask,0},
-	{0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {0,0,eKETdefault,0xFFFFFFFF},
+	{0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {1,0,eKETautomaticGr,eEdNTeverything}, {1,0,eKETconnectionMask,0},
+	{0,0,eKETdefault,(1<<eKerNTobjectVoid)|(1<<eKerNTobject)}, {0,0,eKETdefault,eEdNTeverything},
 };
 // Limity se zadavaj rucne CKerObjs::LoadOVar
 

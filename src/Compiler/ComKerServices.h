@@ -1140,7 +1140,7 @@ const static SComKerConstant cKerConstants[cKerConstantsNr] =
 	{"_KN_eEdNTsound",128},
 	{"_KN_eEdNTobjVoid",256},
 	{"_KN_eEdNTautoVoid",512},
-	{"_KN_eEdNTeverything",0xFFFFFFFF},
+	{"_KN_eEdNTeverything",eEdNTeverything },
 
 	{"_KN_eKLCnone",0},
 	{"_KN_eKLCinterval",1},
