@@ -436,9 +436,9 @@ void CGUI::StartScriptEditor()
 	eventServer->SendPriorityEvent(ECommand,0,handler->GetID(),1);
 }
 
-void CGUI::StartMainMenu()
+void CGUI::StartMainMenuNoResChange()
 {
-	eventServer->SendPriorityEvent(ECommand,0,handler->GetID(),6);
+	eventServer->SendPriorityEvent(ECommand,0,handler->GetID(),7);
 }
 
 void CGUI::Exit()
@@ -1106,6 +1106,23 @@ int CGUIMainHandler::StartMainMenu()
 	return 1;
 }
 
+int CGUIMainHandler::StartMainMenuNoResChange()
+{
+	SAFE_DELETE(desktop);		// smaze puvodni desktop
+	msgQueue->DeleteMsgQueue();	// smaze vsechny nevyrizene zpravy
+	eventServer->DeleteEventsQueue();// smaze vsechny nevyrizene udalosti
+	SAFE_DELETE(editor);			// smaze editor (pokud bezi)
+	SAFE_DELETE(KerMain);			// smaze kernel
+
+	GEnMain->DeleteAll();		// vyprazdni okno hry (mapa)
+
+	desktop = new CMMDesktop();	// vytvori MainMenu desktop
+	desktop->AddToEngine(mainGUI->rootwnd);	// pripojeni desktopu do vykreslovaciho enginu
+	mainGUI->cursor->BringToTop();
+
+	return 1;
+}
+
 
 void CGUIMainHandler::EventHandler(CGUIEvent *event)
 {
@@ -1156,6 +1173,7 @@ void CGUIMainHandler::EventHandler(CGUIEvent *event)
 			case 4 : KRKAL->Quit();break;
 			case 5 : StartProfile();break;
 			case 6 : StartMainMenu();break;
+			case 7 : StartMainMenuNoResChange(); break;
 		}
 	}
 	// ---------------------------------------------------------------------------------

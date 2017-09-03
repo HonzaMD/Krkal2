@@ -278,7 +278,7 @@ int CProfileDesktop::Keyboard(UINT ch, UINT state)
 
 void CProfileDesktop::StartMainMenu()
 {	
-	mainGUI->StartMainMenu();
+	mainGUI->StartMainMenuNoResChange();
 }
 int CProfileDesktop::LoadProfile()
 {

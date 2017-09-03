@@ -107,7 +107,7 @@ public:
 	void StartOldMainMenu();	// zobrazi stary MainMenu
 	void StartLevelEditor();	// spusti editor levlu
 	void StartScriptEditor();// spusti editor scriptu
-	void StartMainMenu();	// zobrazi MainMenu
+	void StartMainMenuNoResChange();	// zobrazi MainMenu
 	void Exit();				// ukonci program
 
 protected:
@@ -387,6 +387,7 @@ private:
 	int StartLevelEditor();	// spusti editor levlu
 	int StartScriptEditor();// spusti editor scriptu
 	int StartMainMenu();	// zobrazi MainMenu
+	int StartMainMenuNoResChange(); // zobrazi MainMenu
 
 };
 

@@ -3766,15 +3766,15 @@ int CFSCfg::ReadCfg(const char *fname)
 						key[kl]=0;mode=2;
 					}
 				}
+				
 				if(mode==2){
 					if(c=='=') mode=3;
 				}else
 				if(mode==3){
-					if(!isspace(c)) mode=4;
-				}
-
+					if(c=='"') mode=4;
+				} else 
 				if(mode==4){
-					if(!isspace(c)){						
+					if(c!='"'){						
 						val[vl++]=c;
 						if(vl>=FS_MAX_VALLEN) mode=10;
 
