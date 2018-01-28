@@ -9,14 +9,25 @@
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
 SetCompressor lzma
+;Properly display all languages (Installer will not work on Windows 95, 98 or ME!)
+Unicode true
 
 ; MUI 1.67 compatible ------
 !include "MUI2.nsh"
 !include "LogicLib.nsh"
+!include "nsDialogs.nsh"
+!include "ReplaceInFile.nsh"
+
+Var InstDir2
+Var Dir1Title
+Var Dir1SubTitle
+Var Dir1Dest
+Var Dir2Title
+Var Dir2SubTitle
+Var Dir2Dest
 
 
-;Properly display all languages (Installer will not work on Windows 95, 98 or ME!)
-Unicode true
+
 
 ; MUI Settings
 !define MUI_ABORTWARNING
@@ -36,7 +47,18 @@ Unicode true
 
 ; License page
 !insertmacro MUI_PAGE_LICENSE "$(MUILicense)"
+Page custom nsDialogsPage nsDialogsPageLeave
 ; Directory page
+!define MUI_PAGE_CUSTOMFUNCTION_PRE SecondDirPre
+!define MUI_DIRECTORYPAGE_VARIABLE $InstDir2
+!define MUI_DIRECTORYPAGE_TEXT_DESTINATION "$Dir2Dest"
+!define MUI_PAGE_HEADER_TEXT "$Dir2Title"
+!define MUI_PAGE_HEADER_SUBTEXT "$Dir2SubTitle"
+!insertmacro MUI_PAGE_DIRECTORY
+; Directory page
+!define MUI_DIRECTORYPAGE_TEXT_DESTINATION "$Dir1Dest"
+!define MUI_PAGE_HEADER_TEXT "$Dir1Title"
+!define MUI_PAGE_HEADER_SUBTEXT "$Dir1SubTitle"
 !insertmacro MUI_PAGE_DIRECTORY
 ; Instfiles page
 !insertmacro MUI_PAGE_INSTFILES
@@ -63,13 +85,109 @@ LicenseLangString MUILicense ${LANG_CZECH} "licence.rtf"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "Krkal25.exe"
-InstallDir "$PROGRAMFILES\Krkal2"
 ShowInstDetails show
 ShowUnInstDetails show
 
+Var Dialog
+Var StyleRB1
+Var StyleRB2
+Var StyleRB3
+Var StyleRB1_State
+Var StyleRB2_State
+Var StyleRB3_State
+Var IconChb
+Var IconChb_State
+Var Label1
+Var Label2
+Var Label3
+
+
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
+  StrCpy $StyleRB1_State ${BST_CHECKED}
+  StrCpy $StyleRB2_State ${BST_UNCHECKED}
+  StrCpy $StyleRB3_State ${BST_UNCHECKED}
+  StrCpy $IconChb_State ${BST_CHECKED}
 FunctionEnd
+
+Function nsDialogsPage
+
+        !insertmacro MUI_HEADER_TEXT "Moznosti" "Prosim zvolte styl instalace."
+        
+	nsDialogs::Create 1018
+	Pop $Dialog
+
+	${If} $Dialog == error
+		Abort
+	${EndIf}
+
+	${NSD_CreateRadioButton} 0 0u 100% 12u "&Recomended 2 folder installation"
+	Pop $StyleRB1
+	${NSD_CreateLabel} 20u 12u 280u 24u "Rozdeli krkala na 2 casti. Spustitelne soubory umisti do Program Files a uzivatelska data do verejne pristupne slozky."
+	Pop $Label1
+
+	${NSD_CreateRadioButton} 0 40u 100% 12u "&Custom 1 folder installation"
+	Pop $StyleRB2
+	${NSD_CreateLabel} 20u 52u 280u 24u "Necha Krkala pohromade, ale pak je treba zvolit nejake nestandardni cilove umisteni. Program Files to byt nemohou."
+	Pop $Label2
+
+	${NSD_CreateRadioButton} 0 80u 100% 12u "&Just unpack"
+	Pop $StyleRB3
+	${NSD_CreateLabel} 20u 92u 280u 24u "Rozbali krkala do cilove slozky, nenecha zadbne stopy v registrech ani ve Start Menu. Nevytvori odinstalacni program."
+	Pop $Label3
+
+	${NSD_CreateCheckbox} 0 120u 100% 10u "Create a &Desctop Icon."
+	Pop $IconChb
+
+
+
+
+	${NSD_SetState} $StyleRB1 $StyleRB1_State
+	${NSD_SetState} $StyleRB2 $StyleRB2_State
+	${NSD_SetState} $StyleRB3 $StyleRB3_State
+	${NSD_SetState} $IconChb $IconChb_State
+
+	nsDialogs::Show
+
+FunctionEnd
+
+Function nsDialogsPageLeave
+
+	${NSD_GetState} $StyleRB1 $StyleRB1_State
+	${NSD_GetState} $StyleRB2 $StyleRB2_State
+	${NSD_GetState} $StyleRB3 $StyleRB3_State
+	${NSD_GetState} $IconChb $IconChb_State
+	
+	${If} $StyleRB1_State == ${BST_CHECKED}
+              StrCpy $InstDir2 "$PROGRAMFILES\Krkal2"
+              ReadEnvStr $0 PUBLIC
+              StrCpy $INSTDIR "$0\Krkal2"
+              StrCpy $Dir2Title "Choose Executables Install Location"
+              StrCpy $Dir2SubTitle "Choose the folder in which to install Krkal 2.5 binarieas."
+              StrCpy $Dir2Dest "Program Destination Folder"
+              StrCpy $Dir1Title "Choose Data Install Location"
+              StrCpy $Dir1SubTitle "Choose the folder in which to install Krkal 2.5 user data like levels, scripts, documentation and configuration."
+              StrCpy $Dir1Dest "Data Destination Folder"
+	${ElseIf} $StyleRB2_State == ${BST_CHECKED}
+              StrCpy $INSTDIR "C:\Krkal2"
+              StrCpy $Dir1Title "Choose Install Location"
+              StrCpy $Dir1SubTitle "Choose the folder in which to install Krkal 2.5.$\r$\nWarning: Installing whole Krkal to Program Files is not possible."
+              StrCpy $Dir1Dest "Destination Folder"
+	${Else}
+              StrCpy $INSTDIR "C:\Krkal2"
+              StrCpy $Dir1Title "Choose Unpack Location"
+              StrCpy $Dir1SubTitle "Choose the folder in which to unpack Krkal 2.5."
+              StrCpy $Dir1Dest "Destination Folder"
+        ${EndIf}
+FunctionEnd
+
+
+Function SecondDirPre
+        ${If} $StyleRB1_State == ${BST_UNCHECKED}
+		Abort
+	${EndIf}
+FunctionEnd
+
 
 Section "MainSection" SEC01
   SetOutPath "$INSTDIR\!3dsmax!"
@@ -92,35 +210,53 @@ Section "MainSection" SEC01
   File /r "..\..\bin\scripts\*.*"
   SetOutPath "$INSTDIR"
   File "..\..\bin\version"
-  File "..\..\bin\KRKAL.exe"
-  File "..\..\bin\KRKALfs.cfg"
   File "..\..\bin\krkal.cfg"
   File "..\..\bin\ReadMe.cs.txt"
   File "..\..\bin\ReadMe.en.txt"
+  
+  ${If} $StyleRB1_State == ${BST_CHECKED}
+        SetOutPath "$InstDir2"
+        File "..\..\bin\version"
+        File "..\..\bin\ReadMe.cs.txt"
+        File "..\..\bin\ReadMe.en.txt"
+  ${Else}
+        StrCpy $InstDir2 $INSTDIR
+  ${EndIf}
+  
+  File "..\..\bin\KRKAL.exe"
+  File "..\..\bin\KRKALfs.cfg"
   File "..\..\bin\zlib.dll"
   File "..\..\bin\audiere.dll"
+
+SectionEnd
+
+Section -Replacements
+  ${If} $StyleRB1_State == ${BST_CHECKED}
+     !insertmacro _ReplaceInFile "$InstDir2\KRKALfs.cfg" "$\"$$cfg$$$\"" "$\"$INSTDIR$\""
+  ${EndIf}
 SectionEnd
 
 Section -AdditionalIcons
   SetShellVarContext all
-  SetOutPath $INSTDIR
-  WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
+  SetOutPath $InstDir2
+  WriteIniStr "$InstDir2\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
   CreateDirectory "$SMPROGRAMS\Krkal 2"
-  CreateShortCut "$SMPROGRAMS\KRKAL 2\KRKAL.lnk" "$INSTDIR\KRKAL.exe"
+  CreateShortCut "$SMPROGRAMS\KRKAL 2\KRKAL.lnk" "$InstDir2\KRKAL.exe"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\$(txtDokumentace).lnk" "$INSTDIR\$(txtDocFolder)\"
-  CreateShortCut "$SMPROGRAMS\Krkal 2\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-  CreateShortCut "$SMPROGRAMS\Krkal 2\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  CreateShortCut "$SMPROGRAMS\Krkal 2\Website.lnk" "$InstDir2\${PRODUCT_NAME}.url"
+  CreateShortCut "$SMPROGRAMS\Krkal 2\Uninstall.lnk" "$InstDir2\uninst.exe"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\ReadMe.lnk" "$INSTDIR\$(txtReadmeFile)"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\$(txtKonfigurace).lnk" "notepad" "$INSTDIR\krkal.cfg"
 SectionEnd
 
 Section -Post
-  WriteUninstaller "$INSTDIR\uninst.exe"
+  WriteUninstaller "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DataPath" "$INSTDIR"
 SectionEnd
 
 
@@ -139,6 +275,14 @@ Section Uninstall
   SetShellVarContext all
   RMDir /r "$SMPROGRAMS\Krkal 2"
   RMDir /r "$INSTDIR"
+  ReadRegStr $0 ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DataPath"
+  
+  #MessageBox MB_OK "$0 $INSTDIR"
+  
+  StrLen $1 $0
+  ${If} $1 > 0
+  RMDir /r $0
+  ${EndIf}
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   SetAutoClose true
