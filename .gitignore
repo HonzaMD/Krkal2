@@ -22,3 +22,4 @@ bin/Profiles/*
 !bin/Profiles/dirInfo.txt
 bin/Data/gui_error.log
 src/.vs/KRKAL.2005/v15/
+src/updater/Krkal25.exe
