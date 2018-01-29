@@ -34,10 +34,6 @@ Var Dir2Dest
 !define MUI_ICON "..\res\krkal.ico"
 !define MUI_UNICON "uninstall.ico"
 
-; Language Selection Dialog Settings
-!define MUI_LANGDLL_REGISTRY_ROOT "${PRODUCT_UNINST_ROOT_KEY}"
-!define MUI_LANGDLL_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
-!define MUI_LANGDLL_REGISTRY_VALUENAME "NSIS:Language"
 
 ;Show all languages, despite user's codepage
 !define MUI_LANGDLL_ALLLANGUAGES
@@ -47,7 +43,7 @@ Var Dir2Dest
 
 ; License page
 !insertmacro MUI_PAGE_LICENSE "$(MUILicense)"
-Page custom nsDialogsPage nsDialogsPageLeave
+Page custom OptionsPage OptionsPageLeave
 ; Directory page
 !define MUI_PAGE_CUSTOMFUNCTION_PRE SecondDirPre
 !define MUI_DIRECTORYPAGE_VARIABLE $InstDir2
@@ -66,6 +62,7 @@ Page custom nsDialogsPage nsDialogsPageLeave
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
+!insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_INSTFILES
 
 ; Language files
@@ -110,7 +107,7 @@ Function .onInit
   StrCpy $IconChb_State ${BST_CHECKED}
 FunctionEnd
 
-Function nsDialogsPage
+Function OptionsPage
 
         !insertmacro MUI_HEADER_TEXT "Moznosti" "Prosim zvolte styl instalace."
         
@@ -151,7 +148,7 @@ Function nsDialogsPage
 
 FunctionEnd
 
-Function nsDialogsPageLeave
+Function OptionsPageLeave
 
 	${NSD_GetState} $StyleRB1 $StyleRB1_State
 	${NSD_GetState} $StyleRB2 $StyleRB2_State
@@ -180,6 +177,7 @@ Function nsDialogsPageLeave
               StrCpy $Dir1Dest "Destination Folder"
         ${EndIf}
 FunctionEnd
+
 
 
 Function SecondDirPre
@@ -237,6 +235,7 @@ Section -Replacements
 SectionEnd
 
 Section -AdditionalIcons
+${If} $StyleRB3_State == ${BST_UNCHECKED}
   SetShellVarContext all
   SetOutPath $InstDir2
   WriteIniStr "$InstDir2\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
@@ -247,16 +246,20 @@ Section -AdditionalIcons
   CreateShortCut "$SMPROGRAMS\Krkal 2\Uninstall.lnk" "$InstDir2\uninst.exe"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\ReadMe.lnk" "$INSTDIR\$(txtReadmeFile)"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\$(txtKonfigurace).lnk" "notepad" "$INSTDIR\krkal.cfg"
+${EndIf}
 SectionEnd
 
 Section -Post
+${If} $StyleRB3_State == ${BST_UNCHECKED}
   WriteUninstaller "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DataPath" "$INSTDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Krkal:DataPath" "$INSTDIR"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Krkal:Language" "$LANGUAGE"
+${EndIf}
 SectionEnd
 
 
@@ -265,25 +268,69 @@ Function un.onUninstSuccess
   MessageBox MB_ICONINFORMATION|MB_OK "$(txtRemoved)"
 FunctionEnd
 
-Function un.onInit
-!insertmacro MUI_UNGETLANGUAGE
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "$(txtUninstallQ)" IDYES +2
-  Abort
-FunctionEnd
 
-Section Uninstall
-  SetShellVarContext all
-  RMDir /r "$SMPROGRAMS\Krkal 2"
-  RMDir /r "$INSTDIR"
-  ReadRegStr $0 ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DataPath"
-  
-  #MessageBox MB_OK "$0 $INSTDIR"
-  
+Function un.onInit
+  !define MUI_LANGDLL_REGISTRY_ROOT "${PRODUCT_UNINST_ROOT_KEY}"
+  !define MUI_LANGDLL_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
+  !define MUI_LANGDLL_REGISTRY_VALUENAME "Krkal:Language"
+  !insertmacro MUI_UNGETLANGUAGE
+
+  StrCpy $InstDir2 $INSTDIR
+  ReadRegStr $0 ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Krkal:DataPath"
   StrLen $1 $0
   ${If} $1 > 0
-  RMDir /r $0
+    StrCpy $INSTDIR $0
   ${EndIf}
+FunctionEnd
 
+
+
+Section "un.Program" un.ProgramUninstall
+  RMDir /r "$INSTDIR\!3dsmax!"
+  RMDir /r "$INSTDIR\!music!"
+  RMDir /r "$INSTDIR\Data"
+  RMDir /r "$INSTDIR\Documentation.EN"
+  RMDir /r "$INSTDIR\Dokumentace.CS"
+  RMDir /r "$INSTDIR\maxPlugin"
+  RMDir /r "$INSTDIR\scripts"
+  Delete "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\music2_27EC_DA65_6E25_9B8F.pkg"
+  Delete "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\music_65B6_399E_4613_0839.pkg"
+  Delete "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\sound_8A76_670D_A9E4_1A65.pkg"
+  Delete "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\sound2_8C3C_E0CD_855A_1BCC.pkg"
+  ${If} $INSTDIR != $InstDir2
+    Delete "$InstDir2\version"
+    Delete "$InstDir2\ReadMe.cs.txt"
+    Delete "$InstDir2\ReadMe.en.txt"
+  ${EndIf}
+  Delete "$InstDir2\KRKAL.exe"
+  Delete "$InstDir2\KRKALfs.cfg"
+  Delete "$InstDir2\zlib.dll"
+  Delete "$InstDir2\audiere.dll"
+  Delete "$InstDir2\Krkal.url"
+  Delete "$InstDir2\uninst.exe"
+  RMDir "$InstDir2"
+
+  SetShellVarContext all
+  RMDir /r "$SMPROGRAMS\Krkal 2"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
+
   SetAutoClose true
 SectionEnd
+
+
+Section /o "un.Data Uzivatelu" un.DataUninstall
+  RMDir /r "$INSTDIR\Games"
+  RMDir /r "$INSTDIR\Profiles"
+  Delete "$INSTDIR\version"
+  Delete "$INSTDIR\krkal.cfg"
+  Delete "$INSTDIR\ReadMe.cs.txt"
+  Delete "$INSTDIR\ReadMe.en.txt"
+  RMDir "$INSTDIR"
+  SetAutoClose true
+SectionEnd
+
+
+!insertmacro MUI_UNFUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${un.ProgramUninstall} "Odinstaluje program z '$InstDir2', neuzivatelska data z '$INSTDIR', startmenu a registry"
+  !insertmacro MUI_DESCRIPTION_TEXT ${un.DataUninstall} "Odstrani levely, skripty a uzivatelske profily z '$INSTDIR'"
+!insertmacro MUI_UNFUNCTION_DESCRIPTION_END
