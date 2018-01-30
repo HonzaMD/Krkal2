@@ -50,11 +50,13 @@ Page custom OptionsPage OptionsPageLeave
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "$Dir2Dest"
 !define MUI_PAGE_HEADER_TEXT "$Dir2Title"
 !define MUI_PAGE_HEADER_SUBTEXT "$Dir2SubTitle"
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE dir2_leave
 !insertmacro MUI_PAGE_DIRECTORY
 ; Directory page
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "$Dir1Dest"
 !define MUI_PAGE_HEADER_TEXT "$Dir1Title"
 !define MUI_PAGE_HEADER_SUBTEXT "$Dir1SubTitle"
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE dir1_leave
 !insertmacro MUI_PAGE_DIRECTORY
 ; Instfiles page
 !insertmacro MUI_PAGE_INSTFILES
@@ -186,6 +188,34 @@ Function SecondDirPre
 	${EndIf}
 FunctionEnd
 
+Function dir2_leave
+   IfFileExists "$InstDir2\Games\Krkal_4F88_78B7_A01C_48AB\(12)So Einfach!_9770_0069_FBAB_C98C.lv" 0 +3
+   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   Abort
+   IfFileExists "$InstDir2\Data\krkal.cfg" 0 +3
+   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   Abort
+FunctionEnd
+
+Function dir1_leave
+   IfFileExists "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\(12)So Einfach!_9770_0069_FBAB_C98C.lv" 0 +3
+   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   Abort
+   IfFileExists "$INSTDIR\Data\krkal.cfg" 0 +3
+   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   Abort
+   StrLen $0 $PROGRAMFILES
+   StrCpy $0 $INSTDIR $0
+   StrCmp $0 $PROGRAMFILES 0 +3
+   MessageBox MB_OK "Program Files jsou Read Only slozka, nehodi se pro Data Krkala. Zvol jinou."
+   Abort
+   StrLen $0 $PROGRAMFILES64
+   StrCpy $0 $INSTDIR $0
+   StrCmp $0 $PROGRAMFILES64 0 +3
+   MessageBox MB_OK "Program Files jsou Read Only slozka, nehodi se pro Data Krkala. Zvol jinou."
+   Abort
+FunctionEnd
+
 
 Section "MainSection" SEC01
   SetOutPath "$INSTDIR\!3dsmax!"
@@ -217,6 +247,7 @@ Section "MainSection" SEC01
         File "..\..\bin\version"
         File "..\..\bin\ReadMe.cs.txt"
         File "..\..\bin\ReadMe.en.txt"
+        CreateShortCut "$INSTDIR\Krkal.lnk" "$InstDir2\KRKAL.exe"
   ${Else}
         StrCpy $InstDir2 $INSTDIR
   ${EndIf}
@@ -247,6 +278,10 @@ ${If} $StyleRB3_State == ${BST_UNCHECKED}
   CreateShortCut "$SMPROGRAMS\KRKAL 2\ReadMe.lnk" "$INSTDIR\$(txtReadmeFile)"
   CreateShortCut "$SMPROGRAMS\KRKAL 2\$(txtKonfigurace).lnk" "notepad" "$INSTDIR\krkal.cfg"
 ${EndIf}
+${If} $IconChb_State == ${BST_CHECKED}
+  SetShellVarContext current
+  CreateShortCut "$DESKTOP\Krkal.lnk" "$InstDir2\KRKAL.exe"
+${EndIf}
 SectionEnd
 
 Section -Post
@@ -254,6 +289,7 @@ ${If} $StyleRB3_State == ${BST_UNCHECKED}
   WriteUninstaller "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$InstDir2\uninst.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$InstDir2\KRKAL.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
@@ -301,6 +337,7 @@ Section "un.Program" un.ProgramUninstall
     Delete "$InstDir2\version"
     Delete "$InstDir2\ReadMe.cs.txt"
     Delete "$InstDir2\ReadMe.en.txt"
+    Delete "$INSTDIR\Krkal.lnk"
   ${EndIf}
   Delete "$InstDir2\KRKAL.exe"
   Delete "$InstDir2\KRKALfs.cfg"
@@ -310,6 +347,9 @@ Section "un.Program" un.ProgramUninstall
   Delete "$InstDir2\uninst.exe"
   RMDir "$InstDir2"
 
+  SetShellVarContext current
+  Delete "$DESKTOP\Krkal.lnk"
+  
   SetShellVarContext all
   RMDir /r "$SMPROGRAMS\Krkal 2"
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"

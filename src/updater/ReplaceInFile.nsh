@@ -92,7 +92,7 @@ Function RIF
   IfFileExists $2 +1 RIF_error      ; knock-knock
   FileOpen $R0 $2 "r"               ; open the door
 
-  GetTempFileName $R2               ; who's new?
+  StrCpy $R2 "$2.tmp"              ; who's new?
   FileOpen $R1 $R2 "w"              ; the escape, please!
 
   RIF_loop:                         ; round'n'round we go
