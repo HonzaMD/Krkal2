@@ -1,8 +1,9 @@
 * ilustrace
 * preklad do en
-* setup
+* setup (done)
 	* podepisovani
 * stranky
+        * zuzit u velkych rozliseni
 	* google analytics
 	* levly
 	* ? banery, ikony
