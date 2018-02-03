@@ -8,7 +8,7 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Krkal2"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
-SetCompressor lzma
+SetCompressor /SOLID lzma
 ;Properly display all languages (Installer will not work on Windows 95, 98 or ME!)
 Unicode true
 
@@ -17,6 +17,8 @@ Unicode true
 !include "LogicLib.nsh"
 !include "nsDialogs.nsh"
 !include "ReplaceInFile.nsh"
+!include "WordFunc.nsh"
+
 
 Var InstDir2
 Var Dir1Title
@@ -25,6 +27,9 @@ Var Dir1Dest
 Var Dir2Title
 Var Dir2SubTitle
 Var Dir2Dest
+Var ResX
+Var ResY
+Var FS_State
 
 
 
@@ -43,6 +48,7 @@ Var Dir2Dest
 
 ; License page
 !insertmacro MUI_PAGE_LICENSE "$(MUILicense)"
+; Options page
 Page custom OptionsPage OptionsPageLeave
 ; Directory page
 !define MUI_PAGE_CUSTOMFUNCTION_PRE SecondDirPre
@@ -58,9 +64,13 @@ Page custom OptionsPage OptionsPageLeave
 !define MUI_PAGE_HEADER_SUBTEXT "$Dir1SubTitle"
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE dir1_leave
 !insertmacro MUI_PAGE_DIRECTORY
+; Resolution page
+Page custom ResolutionPage ResolutionPageLeave
 ; Instfiles page
 !insertmacro MUI_PAGE_INSTFILES
 ; Finish page
+!define MUI_FINISHPAGE_RUN "$InstDir2\KRKAL.exe"
+!define MUI_FINISHPAGE_RUN_TEXT "$(txtSpustitHru) ${PRODUCT_NAME}"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
@@ -76,6 +86,7 @@ LicenseLangString MUILicense ${LANG_ENGLISH} "licence.en.rtf"
 LicenseLangString MUILicense ${LANG_CZECH} "licence.rtf"
 
 !include "texty.nsh"
+!include "Resolution.nsh"
 
 ; Reserve files
 !insertmacro MUI_RESERVEFILE_LANGDLL
@@ -83,6 +94,7 @@ LicenseLangString MUILicense ${LANG_CZECH} "licence.rtf"
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
+InstallDir "C:\Krkal2"
 OutFile "Krkal25.exe"
 ShowInstDetails show
 ShowUnInstDetails show
@@ -107,12 +119,14 @@ Function .onInit
   StrCpy $StyleRB2_State ${BST_UNCHECKED}
   StrCpy $StyleRB3_State ${BST_UNCHECKED}
   StrCpy $IconChb_State ${BST_CHECKED}
+  StrCpy $ResX 1024
+  StrCpy $ResY 768
+  StrCpy $FS_State ${BST_CHECKED}
 FunctionEnd
 
 Function OptionsPage
+        !insertmacro MUI_HEADER_TEXT "$(txtMoznostiH1)" "$(txtMoznostiH2)"
 
-        !insertmacro MUI_HEADER_TEXT "Moznosti" "Prosim zvolte styl instalace."
-        
 	nsDialogs::Create 1018
 	Pop $Dialog
 
@@ -120,25 +134,23 @@ Function OptionsPage
 		Abort
 	${EndIf}
 
-	${NSD_CreateRadioButton} 0 0u 100% 12u "&Recomended 2 folder installation"
+	${NSD_CreateRadioButton} 0 0u 100% 12u "$(txtStyle1H)"
 	Pop $StyleRB1
-	${NSD_CreateLabel} 20u 12u 280u 24u "Rozdeli krkala na 2 casti. Spustitelne soubory umisti do Program Files a uzivatelska data do verejne pristupne slozky."
+	${NSD_CreateLabel} 20u 12u 280u 24u "$(txtStyle1C)"
 	Pop $Label1
 
-	${NSD_CreateRadioButton} 0 40u 100% 12u "&Custom 1 folder installation"
+	${NSD_CreateRadioButton} 0 40u 100% 12u "$(txtStyle2H)"
 	Pop $StyleRB2
-	${NSD_CreateLabel} 20u 52u 280u 24u "Necha Krkala pohromade, ale pak je treba zvolit nejake nestandardni cilove umisteni. Program Files to byt nemohou."
+	${NSD_CreateLabel} 20u 52u 280u 24u "$(txtStyle2C)"
 	Pop $Label2
 
-	${NSD_CreateRadioButton} 0 80u 100% 12u "&Just unpack"
+	${NSD_CreateRadioButton} 0 80u 100% 12u "$(txtStyle3H)"
 	Pop $StyleRB3
-	${NSD_CreateLabel} 20u 92u 280u 24u "Rozbali krkala do cilove slozky, nenecha zadbne stopy v registrech ani ve Start Menu. Nevytvori odinstalacni program."
+	${NSD_CreateLabel} 20u 92u 280u 24u "$(txtStyle3C)"
 	Pop $Label3
 
-	${NSD_CreateCheckbox} 0 120u 100% 10u "Create a &Desctop Icon."
+	${NSD_CreateCheckbox} 0 120u 100% 10u "$(txtDesctop)"
 	Pop $IconChb
-
-
 
 
 	${NSD_SetState} $StyleRB1 $StyleRB1_State
@@ -147,11 +159,10 @@ Function OptionsPage
 	${NSD_SetState} $IconChb $IconChb_State
 
 	nsDialogs::Show
-
 FunctionEnd
 
-Function OptionsPageLeave
 
+Function OptionsPageLeave
 	${NSD_GetState} $StyleRB1 $StyleRB1_State
 	${NSD_GetState} $StyleRB2 $StyleRB2_State
 	${NSD_GetState} $StyleRB3 $StyleRB3_State
@@ -161,22 +172,22 @@ Function OptionsPageLeave
               StrCpy $InstDir2 "$PROGRAMFILES\Krkal2"
               ReadEnvStr $0 PUBLIC
               StrCpy $INSTDIR "$0\Krkal2"
-              StrCpy $Dir2Title "Choose Executables Install Location"
-              StrCpy $Dir2SubTitle "Choose the folder in which to install Krkal 2.5 binarieas."
-              StrCpy $Dir2Dest "Program Destination Folder"
-              StrCpy $Dir1Title "Choose Data Install Location"
-              StrCpy $Dir1SubTitle "Choose the folder in which to install Krkal 2.5 user data like levels, scripts, documentation and configuration."
-              StrCpy $Dir1Dest "Data Destination Folder"
+              StrCpy $Dir2Title "$(txtDirExecutables1)"
+              StrCpy $Dir2SubTitle "$(txtDirExecutables2)"
+              StrCpy $Dir2Dest "$(txtDirExecutables3)"
+              StrCpy $Dir1Title "$(txtDirData1)"
+              StrCpy $Dir1SubTitle "$(txtDirData2)"
+              StrCpy $Dir1Dest "$(txtDirData3)"
 	${ElseIf} $StyleRB2_State == ${BST_CHECKED}
               StrCpy $INSTDIR "C:\Krkal2"
-              StrCpy $Dir1Title "Choose Install Location"
-              StrCpy $Dir1SubTitle "Choose the folder in which to install Krkal 2.5.$\r$\nWarning: Installing whole Krkal to Program Files is not possible."
-              StrCpy $Dir1Dest "Destination Folder"
+              StrCpy $Dir1Title "$(txtDirInstall1)"
+              StrCpy $Dir1SubTitle "$(txtDirInstall2)"
+              StrCpy $Dir1Dest "$(txtDirInstall3)"
 	${Else}
               StrCpy $INSTDIR "C:\Krkal2"
-              StrCpy $Dir1Title "Choose Unpack Location"
-              StrCpy $Dir1SubTitle "Choose the folder in which to unpack Krkal 2.5."
-              StrCpy $Dir1Dest "Destination Folder"
+              StrCpy $Dir1Title "$(txtDirUnpack1)"
+              StrCpy $Dir1SubTitle "$(txtDirUnpack2)"
+              StrCpy $Dir1Dest "$(txtDirUnpack3)"
         ${EndIf}
 FunctionEnd
 
@@ -190,29 +201,29 @@ FunctionEnd
 
 Function dir2_leave
    IfFileExists "$InstDir2\Games\Krkal_4F88_78B7_A01C_48AB\(12)So Einfach!_9770_0069_FBAB_C98C.lv" 0 +3
-   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   MessageBox MB_OK "$(txtOldVerWarning)"
    Abort
    IfFileExists "$InstDir2\Data\krkal.cfg" 0 +3
-   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   MessageBox MB_OK "$(txtOldVerWarning)"
    Abort
 FunctionEnd
 
 Function dir1_leave
    IfFileExists "$INSTDIR\Games\Krkal_4F88_78B7_A01C_48AB\(12)So Einfach!_9770_0069_FBAB_C98C.lv" 0 +3
-   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   MessageBox MB_OK "$(txtOldVerWarning)"
    Abort
    IfFileExists "$INSTDIR\Data\krkal.cfg" 0 +3
-   MessageBox MB_OK "Tento instalator neumi upgradovat starsi verze Krkala. Zvol jinou slozku."
+   MessageBox MB_OK "$(txtOldVerWarning)"
    Abort
    StrLen $0 $PROGRAMFILES
    StrCpy $0 $INSTDIR $0
    StrCmp $0 $PROGRAMFILES 0 +3
-   MessageBox MB_OK "Program Files jsou Read Only slozka, nehodi se pro Data Krkala. Zvol jinou."
+   MessageBox MB_OK "$(txtProgFilesWarning)"
    Abort
    StrLen $0 $PROGRAMFILES64
    StrCpy $0 $INSTDIR $0
    StrCmp $0 $PROGRAMFILES64 0 +3
-   MessageBox MB_OK "Program Files jsou Read Only slozka, nehodi se pro Data Krkala. Zvol jinou."
+   MessageBox MB_OK "$(txtProgFilesWarning)"
    Abort
 FunctionEnd
 
@@ -263,6 +274,7 @@ Section -Replacements
   ${If} $StyleRB1_State == ${BST_CHECKED}
      !insertmacro _ReplaceInFile "$InstDir2\KRKALfs.cfg" "$\"$$cfg$$$\"" "$\"$INSTDIR$\""
   ${EndIf}
+  Call WriteConfig
 SectionEnd
 
 Section -AdditionalIcons
@@ -358,7 +370,7 @@ Section "un.Program" un.ProgramUninstall
 SectionEnd
 
 
-Section /o "un.Data Uzivatelu" un.DataUninstall
+Section /o "un.$(txtUsersData)" un.DataUninstall
   RMDir /r "$INSTDIR\Games"
   RMDir /r "$INSTDIR\Profiles"
   Delete "$INSTDIR\version"
@@ -371,6 +383,6 @@ SectionEnd
 
 
 !insertmacro MUI_UNFUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${un.ProgramUninstall} "Odinstaluje program z '$InstDir2', neuzivatelska data z '$INSTDIR', startmenu a registry"
-  !insertmacro MUI_DESCRIPTION_TEXT ${un.DataUninstall} "Odstrani levely, skripty a uzivatelske profily z '$INSTDIR'"
+  !insertmacro MUI_DESCRIPTION_TEXT ${un.ProgramUninstall} "$(txtUnProgramDesc)"
+  !insertmacro MUI_DESCRIPTION_TEXT ${un.DataUninstall} "$(txtUnDataDesc)"
 !insertmacro MUI_UNFUNCTION_DESCRIPTION_END
