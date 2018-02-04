@@ -656,7 +656,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 
 CMMDesktopHandler::CMMDesktopHandler()
 {
-	mmLeft = mmRight = play = exit = editlevel = editscript = help = donate = about = restartlevel = levelsel = regbrow = 0;
+	mmLeft = mmRight = play = exit = editlevel = editscript = help = donate = donateOpen = about = restartlevel = levelsel = regbrow = 0;
 }
 
 void CMMDesktopHandler::EventHandler(CGUIEvent *event)
@@ -697,15 +697,9 @@ void CMMDesktopHandler::EventHandler(CGUIEvent *event)
 		}				
 		else if (event->sender == donate)
 		{
-			KRKAL->SetFullscreen(0);
-			char *fullPath;
-			if (KRKAL->cfg.lang == langEN) FS->ParseString("$KRKAL$\\Documentation.EN\\Donate.pdf", &fullPath);
-			else FS->ParseString("$KRKAL$\\Dokumentace.CS\\Donate.pdf", &fullPath);		
-			char *cmd = new char[strlen(fullPath) + 30];
-			sprintf(cmd, "start cmd /c \"%s\"", fullPath);
-			system(cmd);
-			SAFE_DELETE_ARRAY(fullPath);
-			SAFE_DELETE_ARRAY(cmd);
+			CGUIMessageBox *dlgd = GUIMessageBoxOkCancel("en{{Open Danate PDF?}}cs{{Otevøít Donate PDF?}}", "en{{Do you want to open external document?}}cs{{Chceš otevøít externí dokument?}}", 1);
+			donateOpen = dlgd->GetID();
+			dlgd->AcceptEvent(GetID(), EOk);
 		}
 		else if(event->sender==mmLeft)
 		{
@@ -715,6 +709,19 @@ void CMMDesktopHandler::EventHandler(CGUIEvent *event)
 		{
 			MMDesktop->levBrowser->MoveRight();
 		}				
+	}
+
+	if (event->eventID == EOk && event->sender == donateOpen)
+	{
+		KRKAL->SetFullscreen(0);
+		char *fullPath;
+		if (KRKAL->cfg.lang == langEN) FS->ParseString("$KRKAL$\\Documentation.EN\\Donate.pdf", &fullPath);
+		else FS->ParseString("$KRKAL$\\Dokumentace.CS\\Donate.pdf", &fullPath);
+		char *cmd = new char[strlen(fullPath) + 30];
+		sprintf(cmd, "start cmd /c \"%s\"", fullPath);
+		system(cmd);
+		SAFE_DELETE_ARRAY(fullPath);
+		SAFE_DELETE_ARRAY(cmd);
 	}
 
 	if(event->eventID == EList )
