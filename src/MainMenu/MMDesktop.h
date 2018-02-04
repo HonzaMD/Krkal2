@@ -97,7 +97,7 @@ class CMMDesktopHandler : public CGUIEventProgram
 public:
 	CMMDesktopHandler(); 
 	
-	typeID play,exit,editlevel,editscript,help,about,restartlevel,levelsel,regbrow, mmLeft, mmRight;
+	typeID play,exit,editlevel,editscript,help,donate,about,restartlevel,levelsel,regbrow, mmLeft, mmRight;
 
 private:
 	virtual void EventHandler(CGUIEvent *event);

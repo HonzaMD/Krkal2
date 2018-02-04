@@ -187,6 +187,13 @@ int CMMDesktop::ShowMainMenu()
 	DefaultHandler->about=about->GetID();
 	about->AcceptEvent(DefaultHandler->GetID(),EClicked);
 
+	CGUIButton *donate = new CGUIButton(0, 0, -1, -1, "GUI.But.MMDonate", "", 0);
+	donate->GetSize(x, y);
+	donate->Move(scX(410), sy - y - 10);
+	AddBackElem(donate);
+	DefaultHandler->donate = donate->GetID();
+	donate->AcceptEvent(DefaultHandler->GetID(), EClicked);
+
 
 	CGUIButton *exit = new CGUIButton(0,0,-1,-1,"GUI.But.MMExit","",0);
 	exit->GetSize(x,y);
@@ -649,7 +656,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 
 CMMDesktopHandler::CMMDesktopHandler()
 {
-	mmLeft = mmRight = play = exit = editlevel = editscript = help = about = restartlevel = levelsel = regbrow = 0;
+	mmLeft = mmRight = play = exit = editlevel = editscript = help = donate = about = restartlevel = levelsel = regbrow = 0;
 }
 
 void CMMDesktopHandler::EventHandler(CGUIEvent *event)
@@ -688,6 +695,18 @@ void CMMDesktopHandler::EventHandler(CGUIEvent *event)
 		{
 			MMDesktop->ShowCredits();			
 		}				
+		else if (event->sender == donate)
+		{
+			KRKAL->SetFullscreen(0);
+			char *fullPath;
+			if (KRKAL->cfg.lang == langEN) FS->ParseString("$KRKAL$\\Documentation.EN\\Donate.pdf", &fullPath);
+			else FS->ParseString("$KRKAL$\\Dokumentace.CS\\Donate.pdf", &fullPath);		
+			char *cmd = new char[strlen(fullPath) + 30];
+			sprintf(cmd, "start cmd /c \"%s\"", fullPath);
+			system(cmd);
+			SAFE_DELETE_ARRAY(fullPath);
+			SAFE_DELETE_ARRAY(cmd);
+		}
 		else if(event->sender==mmLeft)
 		{
 			MMDesktop->levBrowser->MoveLeft();

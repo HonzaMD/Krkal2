@@ -107,6 +107,8 @@ public:
 
 	int ComparePath(const char *path1, const char *path2); //porovna 2 cesty jestli jsou stejny, vraci 0 kdyz jsou stejny, vlastne dela case insensitive cmp, navic '\'='/'
 
+	int ParseString(const char *instr, char **outstr);
+
 private:
 	CFS();
 	~CFS();

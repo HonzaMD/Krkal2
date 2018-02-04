@@ -3500,6 +3500,11 @@ int CFS::ComparePath(const char *path1, const char *path2)
 }
 
 
+int CFS::ParseString(const char *instr, char **outstr)
+{
+	return cfg->ParseString(instr, outstr);
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

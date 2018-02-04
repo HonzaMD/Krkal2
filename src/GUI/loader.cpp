@@ -888,6 +888,13 @@ void CGUI::LoadGUIData()
 	bs = new CGUIButtonStyle(up,down,mark,0,0,1);
 	RefMgr->Add("GUI.But.MMHelp",bs);
 	bs->Release();
+	//donate
+	up = CREATE_STYLE_BUT_SIMPLE("BUT_MMDonate_Up", "$TEX$\\MainMenu\\donateBtn.png", 78, 53, 0, 0, 0, 0, 0);
+	down = CREATE_STYLE_BUT_SIMPLE("BUT_MMDonate_Down", "$TEX$\\MainMenu\\donateBtnDown.png", 78, 53, 0, 0, 0, 0, 0);
+	mark = CREATE_STYLE_BUT_SIMPLE("BUT_MMDonate_Mark", "$TEX$\\MainMenu\\donateBtnSelected.png", 78, 53, 0, 0, 0, 0, 0);
+	bs = new CGUIButtonStyle(up, down, mark, 0, 0, 1);
+	RefMgr->Add("GUI.But.MMDonate", bs);
+	bs->Release();
 	//restart level
 	up = CREATE_STYLE_BUT_SIMPLE("BUT_MMRestartLevel_Up","$TEX$\\MainMenu\\restart.png",120,50,0,0,0,0,0);
 	down = CREATE_STYLE_BUT_SIMPLE("BUT_MMRestartLevel_Down","$TEX$\\MainMenu\\restartdown.png",120,50,0,0,0,0,0);
