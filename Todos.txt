@@ -8,7 +8,6 @@
 	* levly
 	* ? banery, ikony
 * docx do pdf
-* donate pdf
 * propagace
 
 * ? vymena levlu (skladiste na strankach)
