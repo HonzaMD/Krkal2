@@ -26,8 +26,8 @@ char* credittextcs[]={
 
 	"Jan Krèek (MD) md@krkal.org",
 	"verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely,... ",
-	"Petr Altman (pal) pal@krkal.org",
-	"grafický engine, editor textu, editor skriptù, grafika pro hru, www,...",
+	"Petr Altman (pal)",
+	"grafický engine, editor textu, editor skriptù, grafika pro hru, levely, www,...",
 	"Jan Poduška (Morgue)",
 	"GUI, editor levelù", 
 	"Jiøí Margaritov",
@@ -48,10 +48,11 @@ char* credittextcs[]={
 	"LICENCE",
 
 	"Program Krkal 2.5 je volnì ke stažení, mùžete program dál bezplatnì šíøit.",
+	"Zdarma dostáváte kompletní plnohodnotnou hru. Program neobsahuje reklamu, mikrotransakce ani žádný nechtìný èi škodlivý kód.",
 	"Je možné program používat, modifikovat v nìm vytváøené hry, tvoøit nové levly.",
 	"Program používáte na vaše vlastní nebezpeèí. Nepøebíráme zodpovìdnost za jakékoli škody vzniklé v souvislosti s používáním programu.",
-	"Bez našeho svolení není možné použít Systém Krkal jako souèást nìjakého komerènì prodávaného produktu.",
-	"Veškerá další autorská práva vyhrazena (c) 2017",
+	"Bez našeho svolení není možné použít program Krkal jako souèást nìjakého komerènì prodávaného produktu.",
+	"Veškerá další autorská práva vyhrazena (c) 2018",
 
 };
 
@@ -63,7 +64,7 @@ char* credittexten[]={
 	"version 2.5 and 3.0, kernel, scripting, game KRKAL, levels,...",
 
 	"Petr Altman (pal)",
-	"graphics engine, text editor, script editor, graphics, www,...",
+	"graphics engine, text editor, script editor, graphics, levels, www,...",
 
 	"Jan Poduska (Morgue)",
 	"GUI, level editor",
@@ -88,10 +89,11 @@ char* credittexten[]={
 	"LICENSE",
 
 	"Program Krkal 2.5 can be free downloaded and you are allowed to distribute the program further, but only for free.",
+	"You are free to receive a full featured game. The program does not contain advertising, microtransactions or any unwanted or malicious code.",
 	"You may use the program, modify the games created within the system, create new levels.",
 	"Use this program at your own risk. We cannot be held responsible for any loss or damage this program might have caused.",
 	"You are NOT allowed to distribute KRKAL for money or even use it as a part of any commercial product without our explicit permission.",
-	"All rights reserved (c) 2017 P. Altman, J. Krcek, J. Margaritov, J. Poduska, J.Altmann, J. Frolik"
+	"All rights reserved (c) 2018"
 
 };
 
@@ -121,7 +123,7 @@ char* helptextcs[]={
 
    "TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA",
 
-   "Velké množství informací najdete pøímo v dokumentaci, která je souèástí Krkala (v adresáøi Dokumentace). V dokumentaci najdete popis objektù ve høe Krkal a jak ovládat editor. Další informace naleznete na našich webových stránkách:",
+   "Velké množství informací najdete pøímo v dokumentaci, která je souèástí Krkala (v adresáøi Dokumentace.CS). V dokumentaci najdete popis objektù ve høe Krkal a jak ovládat editor. Další informace naleznete na našich webových stránkách:",
    "      www.krkal.org",
    "Na náš email nám mùžete posílat námìty, levely, žádosti o rady, pøipomínky, hlášení chyb, ...:",
    "      support@krkal.org",
@@ -231,7 +233,7 @@ void CMainMenuHelp::ShowCredits()
 	yy+=30;
 	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,tc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+10; cw->AddBackElem(st);
-	for(int i=0;i<5;i++)
+	for(int i=0;i<6;i++)
 	{
 		st=new CGUIStaticText(credittext[ti],f,xx,yy,tc,mx,0,aCenter);
 		st->GetSize(sxx,syy);yy+=syy+10;cw->AddBackElem(st);

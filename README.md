@@ -35,13 +35,15 @@ výročí hry Krkal - 2017.
 
 * Program Krkal 2.5 je volně ke stažení, můžete program dál 
    bezplatně šířit. 
+* Zdarma dostáváte kompletní plnohodnotnou hru. Program neobsahuje
+   reklamu, mikrotransakce ani žádný nechtěný či škodlivý kód.
 * Je možné program používat, modifikovat v něm vytvářené hry, tvořit 
    nové levely. 
 * Program používáte na vaše vlastní nebezpečí. Nepřebíráme zodpovědnost
    za jakékoli škody vzniklé v souvislosti s používáním programu. 
-* Bez našeho svolení není možné použít Systém Krkal jako součást 
+* Bez našeho svolení není možné použít program Krkal jako součást 
    nějakého komerčně prodávaného produktu. 
-* Veškerá další autorská práva vyhrazena (c) 2017
+* Veškerá další autorská práva vyhrazena (c) 2018
 
 
 ## AUTOŘI
@@ -51,7 +53,7 @@ výročí hry Krkal - 2017.
 verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely, ... 
 
 ####  Petr Altman (pal)
-grafický engine, editor textu, editor skriptů, grafika pro hru, www,... 
+grafický engine, editor textu, editor skriptů, grafika pro hru, levely, www,... 
 
 ####  Jan Poduška (Morgue)
 GUI, editor levelů 

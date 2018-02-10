@@ -33,13 +33,15 @@ LICENCE
 
  # Program Krkal 2.5 je volně ke stažení, můžete program dál 
    bezplatně šířit. 
+ # Zdarma dostáváte kompletní plnohodnotnou hru. Program neobsahuje
+   reklamu, mikrotransakce ani žádný nechtěný či škodlivý kód.
  # Je možné program používat, modifikovat v něm vytvářené hry, tvořit 
    nové levely. 
  # Program používáte na vaše vlastní nebezpečí. Nepřebíráme zodpovědnost
    za jakékoli škody vzniklé v souvislosti s používáním programu. 
- # Bez našeho svolení není možné použít Systém Krkal jako součást 
+ # Bez našeho svolení není možné použít program Krkal jako součást 
    nějakého komerčně prodávaného produktu. 
- # Veškerá další autorská práva vyhrazena (c) 2017
+ # Veškerá další autorská práva vyhrazena (c) 2018
 
 
 AUTOŘI
@@ -49,7 +51,7 @@ AUTOŘI
 verze 2.5 a 3.0, kernel, skriptování, vlastní hra KRKAL, levely, ... 
 
 #  Petr Altman (pal)
-grafický engine, editor textu, editor skriptů, grafika pro hru, www,... 
+grafický engine, editor textu, editor skriptů, grafika pro hru, levely, www,... 
 
 #  Jan Poduška (Morgue)
 GUI, editor levelů 
@@ -80,22 +82,13 @@ POŽADAVKY NA SYSTÉM
  # MS Windows 10, 8, 7, XP
  # DirectX 8.1 nebo novější 
  # Počítač a DX grafická karta z roku 2004 či novější
- 
 
 
-INSTALACE, KONFIGURACE A ZÁKLADNÍ INFORMACE
-===========================================
+KONFIGURACE
+===========
 
-TODO
- # Překopírujte adresář s Krkalem na váš pevný disk 
- # Spusťte hru (systém) poklepáním na soubor krkal.exe 
- # Dokumentaci najdete v adresáři doc nebo Dokumentace
  # Konfigurace se provádí ruční editací souboru "krkal.cfg",
    je možné například měnit rozlišení ve hře, nastavovat hlasitost,..
- # Odinstalace: Použijte odinstalační program. Pokud ho nemáte, stačí 
-   smazat adresář s Krkalem, Krkal si nic do Windousů neukládá.
- # Na našich stránkách (krkal.org), sledujte zda není k dispozici 
-   aktualizovaná verze systému Krkal (patch)
 
 
 HRA KRKAL: OVLÁDÁNÍ
@@ -137,8 +130,8 @@ TECHNICKÁ PODPORA, INFORMACE, NÁPOVĚDA
 ======================================
 
 Velké množství informací najdete přímo v dokumentaci, která je 
-součástí Krkala. V dokumentaci najdete popis objektů ve hře Krkal a 
-jak ovládat editor.
+součástí Krkala (v adresáři Dokumentace.CS). V dokumentaci najdete popis
+objektů ve hře Krkal a jak ovládat editor.
 Další informace naleznete na našich webových stránkách:
 
 	www.krkal.org
