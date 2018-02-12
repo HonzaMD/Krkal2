@@ -65,6 +65,8 @@ LangString txtOldVerWarning ${LANG_ENGLISH} "This installer cannot upgrade older
 LangString txtOldVerWarning ${LANG_CZECH} "Tento instalátor neumí upgradovat starší verze Krkala. Zvolte jinou složku."
 LangString txtProgFilesWarning ${LANG_ENGLISH} "Program Files are Read Only folder, not suitable for Krkal Data. Choose a different folder."
 LangString txtProgFilesWarning ${LANG_CZECH} "Program Files jsou Read Only složka, nehodí se pro Data Krkala. Zvolte jinou složku."
+LangString txtOverwriteConfig ${LANG_ENGLISH} "There's already Krkal configuration file in the target folder. Should it be overwritten?"
+LangString txtOverwriteConfig ${LANG_CZECH} "V cílové složce již existuje soubor s konfigurací Krkala. Má se přepsat?"
 
 LangString txtResHeader1 ${LANG_ENGLISH} "Screen Resolution"
 LangString txtResHeader1 ${LANG_CZECH} "Rozlišení Obrazovky"

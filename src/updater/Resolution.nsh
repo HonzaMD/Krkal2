@@ -7,6 +7,13 @@ Var ResChB
 
 Function ResolutionPage
 
+        IfFileExists "$INSTDIR\krkal.cfg" 0 begin
+        MessageBox MB_YESNO|MB_ICONQUESTION "$(txtOverwriteConfig)" IDYES begin IDNO 0
+        StrCpy $SkipConfig 1
+        Abort
+
+begin:
+
         !insertmacro MUI_HEADER_TEXT "$(txtResHeader1)" "$(txtResHeader2)"
 
 	nsDialogs::Create 1018

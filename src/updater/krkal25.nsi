@@ -30,6 +30,7 @@ Var Dir2Dest
 Var ResX
 Var ResY
 Var FS_State
+Var SkipConfig
 
 
 
@@ -122,6 +123,7 @@ Function .onInit
   StrCpy $ResX 1024
   StrCpy $ResY 768
   StrCpy $FS_State ${BST_CHECKED}
+  StrCpy $SkipConfig 0
 FunctionEnd
 
 Function OptionsPage
@@ -249,7 +251,9 @@ Section "MainSection" SEC01
   File /r "..\..\bin\scripts\*.*"
   SetOutPath "$INSTDIR"
   File "..\..\bin\version"
-  File "..\..\bin\krkal.cfg"
+  ${If} $SkipConfig == 0
+     File "..\..\bin\krkal.cfg"
+  ${EndIf}
   File "..\..\bin\ReadMe.cs.txt"
   File "..\..\bin\ReadMe.en.txt"
   
@@ -274,7 +278,9 @@ Section -Replacements
   ${If} $StyleRB1_State == ${BST_CHECKED}
      !insertmacro _ReplaceInFile "$InstDir2\KRKALfs.cfg" "$\"$$cfg$$$\"" "$\"$INSTDIR$\""
   ${EndIf}
-  Call WriteConfig
+  ${If} $SkipConfig == 0
+     Call WriteConfig
+  ${EndIf}
 SectionEnd
 
 Section -AdditionalIcons
