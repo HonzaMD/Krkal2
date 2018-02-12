@@ -8,8 +8,12 @@ Var ResChB
 Function ResolutionPage
 
         IfFileExists "$INSTDIR\krkal.cfg" 0 begin
-        MessageBox MB_YESNO|MB_ICONQUESTION "$(txtOverwriteConfig)" IDYES begin IDNO 0
+        MessageBox MB_YESNOCANCEL|MB_ICONQUESTION "$(txtOverwriteConfig)" /SD IDYES IDYES begin IDCANCEL cancel
         StrCpy $SkipConfig 1
+        Abort
+cancel:
+        StrCpy $R9 -1 ;Goto the prev page
+        Call RelGotoPage
         Abort
 
 begin:
@@ -209,4 +213,14 @@ Function WriteConfig
     SetErrors
 
   RIF_out:
+FunctionEnd
+
+
+Function RelGotoPage
+  IntCmp $R9 0 0 Move Move
+    StrCmp $R9 "X" 0 Move
+      StrCpy $R9 "120"
+
+  Move:
+  SendMessage $HWNDPARENT "0x408" "$R9" ""
 FunctionEnd
