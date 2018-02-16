@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+	Třináct červených klíčů. Potřebuju jich jen dvanáct.<br/>
+	<br/>
+	V čem je tedy problém?<br/>
+	<br/>
+	Jeden z červených klíčů je schovaný za "mrznoucím toxickým slizem". Ten vypadá úplně stejně jako normální toxický sliz. 
+	Na první pohled se tak i chová: když v něm budeš příliš dlouho, tak zemřeš, když stihneš odejít včas, tak intoxikace zase postupně zmizí.
+	Rozdíl je ale v tom, že mrznoucí sliz na tobě zanechá doživotní následky. Na první pohled ti sice nic není, ale když se podchladíš, tak se toxický sliz
+	znovu aktivuje a zemřeš. <br/>
+	<br/>
+	Jak ale poznat, který to je?<br/>
+	<br/>
+	Budeme muset někoho obětovat!
+	<br/>
+	P.S.: Aby to nebylo tak jednoduché, tak mrznocí sliz bude při každém restartu levelu někde jinde.
+    </Text>
+  </Language>
+</LevelIntro>
