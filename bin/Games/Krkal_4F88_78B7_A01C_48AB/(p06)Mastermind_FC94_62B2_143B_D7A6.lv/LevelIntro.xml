@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
   <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+    <Text x1="10" x2="90" y1="5" y2="90">
       Klasický mastermind.<br/>
       Teda skoro.<br/>
       Budeš hádat tajnou kombinaci tvořenou ze 4 typů dopravních značek (přikázaný směr, zákaz vjezdu, 60 a konec 60). Kód má délku 6 značek.<br/>
       Bystřejší již tuší, že některý typ značky se bude opakovat.<br/>
       Hádání probíhá takto: umístíš svůj tip a spustíš ohodnocení, po chvíli se dozvíš ohodnocení Tvojí kombinace. Za každou správně umístěnou značku dostaneš jeden klíč. Za každý správný typ značky umístěný na špatném místě dostaneš jeden kámen.<br/>
       Cílem je uhodnout správně celou posloupnost a získat tak potřebných 6 klíčů.<br/>
-      Na uhodnutí kódu máš 6 pokusů.<br/>
+      Na uhodnutí kódu máš 6 pokusů.<br/><br/>
       Aby to nebylo tak jednoduché, tak budeš muset uhodnout správných kódů několik.<br/>
       Na začátku si můžeš vybrat mezi jednoduchou a těžkou variantou.<br/>
       Lehká varianta: při hádání první kombinace dostaneš nápovědu (uvidíš 3 z 6 značek), při další už uvidíš jen 2, až nakonec budeš hádat opravdu všech 6. Pokud se ti to do 6 pokusů nepovede, tak si můžeš nechat vygenerovat novou kombinaci a zkusit to znovu.<br/>

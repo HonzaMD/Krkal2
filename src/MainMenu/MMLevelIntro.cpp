@@ -186,6 +186,9 @@ void MMLevelIntro::DisplayText(TiXmlElement * text){
 					st = new CGUIStaticText(buff, font, xx, yy, tc, mx - xx, my - yy);
 					st->GetSize(sxx, syy); yy += syy + 2; cw->AddBackElem(st);
 				}
+				else {
+					yy += 10;
+				}
 				*buff = 0;
 				buffptr = buff;
 			}
