@@ -506,10 +506,10 @@ objectname oLevelIntro;
 methodname ShowText;
 
 object oLevelIntro {
-	edit {OutMap, UserName="LevelIntro", Comment="en{{Shows story text window.}}cs{{Zoberazi textove okno s pribehem}}"}
+	edit {OutMap, UserName="LevelIntro", Comment="en{{Shows story text window. Activate it by sending ShowText message.}}cs{{Zobrazí textové okno s pøíbìhem. Aktivuj zasláním zprávy ShowText.}}"}
 
-	string[30] FileName edit {Editable};
-	string[60] Header edit {Editable};
+	string[30] FileName edit {Editable, UserName="en{{FileName}}cs{{JménoSouboru}}", Comment="en{{Name of a xml file with the story text.}}cs{{Jméno xml souboru, ve kterém se nachází pøíbìhový text.}}"};
+	string[60] Header edit {Editable, UserName="en{{Header}}cs{{Nadpis}}", Comment="en{{Header text}}cs{{Text nadpisu}}"};
 	
 	void ShowText() {
 		@ShowLevelIntro(FileName, Header);
