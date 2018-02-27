@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
   <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Bomba.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
       Tak jak to vypadá?<br/>
       Cesta dál je zablokovaná. Všude kameny, bariéry, stěny ...<br/>
       Dobrá zpráva je, že jsem našel i nějaké výbušniny, špatná, že jich je zoufale málo.<br/>

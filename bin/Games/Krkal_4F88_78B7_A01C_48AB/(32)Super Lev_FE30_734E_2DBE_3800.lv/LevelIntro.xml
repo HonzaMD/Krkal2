@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
   <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Protean.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="70">
       Tak takhle vypadali Proteané?<br/>
       Nádherné, že? Ta plastika je skvěle zachovaná.<br/>
       Kartáček?<br/>
