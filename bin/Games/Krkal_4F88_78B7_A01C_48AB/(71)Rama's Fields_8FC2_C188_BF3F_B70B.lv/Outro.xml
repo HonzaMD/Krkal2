@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Svetlo.jpg</Image>
     <Text x1="10" x2="52" y1="5" y2="90">
       Vejdi a poklekni. Byl jsi vybrán! Jaké je tvé Přání?<br/>
@@ -10,6 +10,18 @@
       Co řekneš lidem?<br/>
       Že Labyrint ukrývá úžasné technologie, kulturu a artefakty, vše na dosah těm, kteří překonají smrtící pasti.<br/>
       Ano, ať další dobrodruzi pokračují v nekonečném cyklu. Pak budeme svobodní.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Svetlo.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="90">
+      Enter and kneel. You've been chosen! What is your wish?<br/>
+      I want to build a maze and construct puzzles.<br/>
+      What do you serve?<br/>
+      I serve the Labyrinth.<br/>
+      What do you tell people?<br/>
+      That the Labyrinth hides amazing technologies, cultures and artefacts, all at the reach of those, who overcome deadly traps.<br/>
+      Yes, other adventurers continue in the never-ending cycle. Then we'll be free.
     </Text>
   </Language>
 </LevelIntro>

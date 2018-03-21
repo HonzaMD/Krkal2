@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="48" x2="90" y1="5" y2="66" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\KachniJezero.jpg</Image>
     <Text x1="10" x2="45" y1="5" y2="68">
       Říká se, že v Labyrintu žijí krvežíznivá monstra, která ti vysají mozek z hlavy a ...<br/>
@@ -11,6 +11,19 @@
     <Image x1="10" y1="69">$GAME$\LevelImages.pkg\vyboj.png</Image>
     <Text x1="20" x2="90" y1="69" y2="95">
       Zkus najít způsob, jak elektrický výboj dočasně přerušit.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="66" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\KachniJezero.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="68">
+      They say that bloodthirsty monsters live in the Labyrinth, which will suck the brain from your head and ...<br/>
+      No damn monsters, they are artificial beings, who are guarding advanced technologies. They will find you and destroy you in a single flash of energy  ...<br/>
+      Quiet! ... Quiet, it seems that something is moving over there ...<br/>
+      Jones, you can swim.
+    </Text>
+    <Image x1="10" y1="69">$GAME$\LevelImages.pkg\vyboj.png</Image>
+    <Text x1="20" x2="90" y1="69" y2="95">
+      Try to find a way to temporarily shut off the electrical discharge.
     </Text>
   </Language>
 </LevelIntro>

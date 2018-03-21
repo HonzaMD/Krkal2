@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Den Třicátý.<br/>
       Sen pokračoval. Dobrodruzi procházejí bludištěm, řeší hádanky a umírají. Zkouší to znova a znova, zkouší přežít, ale umírají na mnoho způsobů. 
@@ -10,6 +10,18 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\khemr.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Tip: Chceš-li zažít spoustu dalších dobrodružství a vyřešit desítky levelů, zkus si zahrát v DosBoxu Krkala 1
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Day Thirty.<br/>
+      Dream continued. Adventurers are walking through the maze, solving riddles and dying. They try and try again, wanting to survive, but they are dying in many ways. 
+      Evolution. The successful attempts are selected, there is crossing and other wave of random attempts. 
+      Evolution helps in the development of species, to establish required properties and to suppress that, which is not needed in the Labyrinth.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\khemr.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Tip: Do you want to experience other adventures and solve tens of levels, try to play Krkal 1 in DosBox
     </Text>
   </Language>
 </LevelIntro>

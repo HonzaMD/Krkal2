@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="7" x2="93" y1="3" y2="70">
       Začal jsem si dělat značky.<br/>
       Chceš nechat návod pro někoho dalšího?<br/>
@@ -16,6 +16,24 @@
       Dopravní značky můžeš sbírat: Klávesa <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/>.<br/>
       A pokládat či otáčet: <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> + šipka směru.<br/>
       Toxický sliz je nebezpečný, pokud na tebe působí delší dobu. Hlídej si indikátor toxicity vlevo dole. Přeběhnout dokážeš maximálně 3 políčka slizu.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="7" x2="93" y1="3" y2="70">
+      I started to make marks for myself.<br/>
+      Do you want to leave instructions for the next ones?<br/>
+      I again thought about the dreams and our immortality. I think that we're not flawless geniuses, so before we solve the puzzle, we must undergo numerous attempts and of course die a number of times.<br/>
+      Like that the dreams can be a reality?<br/>
+      Yes, someone will then select the successful attempt and make it a reality.<br/>
+      This would explain the immortality.<br/>
+      Although, it is more complicated since we are learning from these unsuccessful attempts and that is why we often know, what to do ... This is why I 'm making the marks, and I even had a dream about it, so maybe I will discover a mark from my dream ... 
+    </Text>
+    <Image x1="7" y1="65">$GAME$\LevelImages.pkg\PrKlSliz.png</Image>
+    <Text x1="17" x2="93" y1="65" y2="100">
+      Claustrophobic monster controls its movement by observing traffic signs. Under ordinary circumstances it is not dangerous, only once it is unable to move, then it explodes from panic.<br/>
+      You can collect traffic signs: <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/> key.<br/>
+      And place them or turn them: <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> + directional arrow.<br/>
+      Toxic slime is dangerous if it effects you for a longer time. Monitor your toxicity indicator at bottom left. You can run over maximum of 3 slime cells. 
     </Text>
   </Language>
 </LevelIntro>

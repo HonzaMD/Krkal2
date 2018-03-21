@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Protean.jpg</Image>
     <Text x1="10" x2="52" y1="5" y2="70">
       Tak takhle vypadali Proteané?<br/>
@@ -8,6 +8,16 @@
       Kartáček?<br/>
       Hele tady, to vypadá jako nějaké puzzle, trošku to srovnám ...<br/>
       "Prosíme pomozte nám!"
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Protean.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="70">
+      So this is what Proteans looked like?<br/>
+      Gorgeous, right? The statue is in excellent shape.<br/>
+      Brush?<br/>
+      Look here, this looks like some kind of puzzle, I'll straighten it a bit ...<br/>
+      "Please help us!"
     </Text>
   </Language>
 </LevelIntro>

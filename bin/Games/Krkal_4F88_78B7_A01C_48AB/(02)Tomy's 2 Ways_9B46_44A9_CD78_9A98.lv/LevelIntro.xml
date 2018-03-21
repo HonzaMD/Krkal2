@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Podej, držím, ... Sakra, to je pěkně těžké, co v tom máš?<br/>
       Nástroje a přístroje, fotografické nádobíčko, diagnostiku ... Jsme i vědecká expedice, zapomněls?<br/>
@@ -9,6 +9,17 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Bomba.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Bombu položíš stiskem<key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>Výbuch ničí vše v oblasti 3x3 polí, tak rychle uteč!
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Pass it over, I'm holding, ... Damn, it's really heavy, what you got in there?<br/>
+      Tools and gadgets, camera equipment, diagnostic ... We are a science expedition, did you forget?<br/>
+      No, I did not, but there could be less books here ...
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Bomba.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      You'll place a bomb by pressing <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>Explosion will destroy everything in 3x3 cell area, so run quickly!
     </Text>
   </Language>
 </LevelIntro>

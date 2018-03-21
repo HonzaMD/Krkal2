@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="60" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Rama.jpg</Image>
     <Text x1="10" x2="57" y1="5" y2="60">
       Hele, tohle je skladiště dílů!<br/>
@@ -15,6 +15,23 @@
       Příšera dopravní řídí svůj pohyb dopravními značkami. Pro postavy je nebezpečná.<br/>
       Dopravní značky můžeš sbírat: Klávesa <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/>.<br/>
       A pokládat či otáčet: Klávesy <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> až <key name="_KSID_key4_0001_FFFF_0001_0001" default="4"/>.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="60" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Rama.jpg</Image>
+    <Text x1="10" x2="57" y1="5" y2="60">
+      Look, this is a parts storage!<br/>
+      Amazing, it has everything you need to build a new maze.<br/>
+      And see? Something tells me that we found the last sanctuary of the Proteans ...<br/>
+      Look, machines!<br/>
+      Technological miracle ...<br/>
+      What are we waiting for? Let's go!
+    </Text>
+    <Image x1="10" y1="61">$GAME$\LevelImages.pkg\PrDopravni.png</Image>
+    <Text x1="20" x2="57" y1="61" y2="95">
+      Traffic monster controls its movement by traffic signs. It is dangerous for the characters.<br/>
+      You can collect traffic signs: <key name="_KSID_keyA_0001_FFFF_0001_0001" default="A"/> Key.<br/>
+      And place them and turn: <key name="_KSID_key1_0001_FFFF_0001_0001" default="1"/> to <key name="_KSID_key4_0001_FFFF_0001_0001" default="4"/> keys.
     </Text>
   </Language>
 </LevelIntro>

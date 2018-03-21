@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="52" x2="90" y1="5" y2="61" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\TPreprava.jpg</Image>
     <Text x1="10" x2="48" y1="5" y2="64">
       Hej tady! Tady je další nápis! A symbol slunce ... Myslím, že ukazují cestu. Podle všeho Proteané museli opustit starší části Labyrintu a vybudovali si nové sídlo tímhle směrem.<br/>
@@ -15,6 +15,23 @@
     <Image x1="10" y1="65" x2="36">$GAME$\LevelImages.pkg\magnet.png</Image>
     <Text x1="40" x2="90" y1="65" y2="95">
       Kameny a další předměty jsou přitahovaný magnety. pozor, rozjetý kámen tě může zabít. Antimagnetická stěna účinky magnetu ruší.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="52" x2="90" y1="5" y2="61" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\TPreprava.jpg</Image>
+    <Text x1="10" x2="48" y1="5" y2="64">
+      Hey, here! Here is another writing! And a symbol of the sun ... I think they're showing the way. The Proteans most likely had to abandon another section of the Labyrinth and build a new place in this direction.<br/>
+      Do you mean the tower in the distance?<br/>
+      Yes, we'll finally find something, we'll get to know their culture ...<br/>
+      The trip there is very dangerous however.<br/>
+      ... their technologies ...<br/>
+      Looks like a meat grinder.<br/>
+      ... their art ...<br/>
+      Stupid!
+    </Text>
+    <Image x1="10" y1="65" x2="36">$GAME$\LevelImages.pkg\magnet.png</Image>
+    <Text x1="40" x2="90" y1="65" y2="95">
+      Rocks and other objects are attracted by magnets. Attention, a stone in motion can kill you. Antimagnetic wall neutralizes effects of the magnet.
     </Text>
   </Language>
 </LevelIntro>

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Zajatci stojí v kruhu a čekají na popravu. Začne se na uřčeném místě a každý druhý je popraven. Takto se postupuje pořád dál dokola až zbyde jenom jeden. Ten získá milost. Na jaké místo se postavit, abychom přežili?<br/>
       Tohle je mírumilovná verze, nebude se popravovat, jenom se rozpočítáme.      
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Prisoners stand in a circle and are awaiting their execution. The start is at a pre-set spot and every second one is executed. It continues this way until a single one remains. He gets pardoned. What spot to stand in to survive?<br/>
+      This is a peaceful version, there'll be no executions, we only count out.      
     </Text>
   </Language>
 </LevelIntro>

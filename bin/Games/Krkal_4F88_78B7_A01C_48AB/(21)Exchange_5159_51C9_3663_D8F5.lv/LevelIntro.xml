@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Nakonec nejsou tak krvežízniví, jak jsme se báli.<br/>
       Hlavně inteligence moc nepobrali, vidíš?<br/>
@@ -14,6 +14,22 @@
       <key name="_KSID_keyTab_0001_FFFF_0001_0001" default="Tab"/> přepíná mezi postavami.<br/>
       Příšera otáčivá se pohybuje podle pravidla levé (nebo pravé) ruky. Zabíjí, když se připleteš na políčko, kam chce vstoupit.<br/>
       Jen Ripleyová (Hemr) může projít pod Průleznou stěnou.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      After all they are not so blood thirsty as we feared.<br/>
+      They mainly do not possess much intelligence, you see?<br/>
+      Do you think they could be the descendants of the Proteans?<br/>
+      That would be sad.<br/>
+      Or they are the ghosts of the adventurers, who came before us, those that did not make it.<br/>
+      Watch out, they're trying to split us up!
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\priseraOt.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      <key name="_KSID_keyTab_0001_FFFF_0001_0001" default="Tab"/> Switches between characters.<br/>
+      Rotative monster is moving by the rule of the left (or right) hand. They kill when you are in their way on a cell, where they want to go.<br/>
+      Jen Ripley (Slime girl) can go under the special wall.
     </Text>
   </Language>
 </LevelIntro>

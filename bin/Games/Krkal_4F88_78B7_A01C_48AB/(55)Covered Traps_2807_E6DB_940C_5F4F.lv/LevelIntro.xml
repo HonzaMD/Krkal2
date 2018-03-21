@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\MinaKlic.jpg</Image>
     <Text x1="10" x2="45" y1="5" y2="70">
       Den Dvacátý čtvrtý.<br/>
       Všechno špatně. Jsem sám, nedokázal jsem se vrátit ke zbytku výpravy, sjel jsem na pásech a ledu kamsi do neznáma. 
       Zásoby žádné. Rozhodl jsem se pokračovat v cestě a zanechávat po sobě značky. Pokud v Labyrintu existuje nějaký střed, sejdeme se tam.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\MinaKlic.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
+      Day Twenty Four.<br/>
+      All wrong. I am alone, I was unable to get back to my expedition, I rode the conveyors and ice to some unknown place.
+      No supplies. I decided to continue in my journey and to leave marks wherever I go. If the Labyrinth has a center, then that is where we'll meet.
     </Text>
   </Language>
 </LevelIntro>

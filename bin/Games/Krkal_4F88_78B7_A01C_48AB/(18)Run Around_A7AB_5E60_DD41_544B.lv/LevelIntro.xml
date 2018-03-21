@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Za tebou, za tebou!<br/>
       ..?<br/>
@@ -13,6 +13,21 @@
       Šipku nového směru tedy zmáčkni s předstihem, daleko před zatáčkou. Původní šipku nepouštěj, jinak se zastavíš. 
       V zatáčce postava zatočí, protože půjde tím směrem, který jsi zmáčkl jako poslední. 
       Až za zatáčkou uvolni starý směr, současný drž a zmáčkni nový, pro novou zatáčku.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      You can run!<br/>
+      ..?<br/>
+      But you can’t hide!<br/>
+      Heeelp!
+    </Text>
+    <Image x1="10" y1="50" x2="34" y2="90">$GAME$\LevelImages.pkg\RunAround.png</Image>
+    <Text x1="39" x2="90" y1="50" y2="95">
+      It is time to master the movements of your character. It is possible to hold multiple directional arrows. 
+      You therefore have to press the arrow of a new direction ahead of time, far before the turn. Don't release the original arrow, otherwise you'll stop. 
+      The character will turn at the corner, because it will go in the direction that you pressed last.
+      Once it makes the turn, you can release the old direction, hold current and press new, for a new corner.
     </Text>
   </Language>
 </LevelIntro>

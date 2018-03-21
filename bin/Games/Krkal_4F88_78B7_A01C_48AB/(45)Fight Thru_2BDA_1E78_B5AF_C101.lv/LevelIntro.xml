@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Prisera.jpg</Image>
     <Text x1="10" x2="52" y1="5" y2="70">
       Tak diplomacie selhala.<br/>
       Nevadí, s vetřelci si umím poradit.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Prisera.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="70">
+      So, diplomacy has failed.<br/>
+      Doesn't matter, I can handle the aliens.
     </Text>
   </Language>
 </LevelIntro>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Tak jsme špatně, ale už tomu začínám rozumět, ještě chvilku a objevíme Bránu.<br/>
       To už je dneska 4. slepá ulička, ty fakt věříš té pohádce od Navi?<br/>
@@ -13,6 +13,21 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Fotobunka.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Fotobuňka je přepínač, který reaguje na aktivitu ve své bezprostřední blízkosti. Stejně jako mina si všímá živých tvorů a výbuchu.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      So, we're at a wrong spot, but I'm starting to understand, a little bit more and we'll discover the Gate.<br/>
+      This is the 4th dead end today; do you really trust the fairytale from Navi?<br/>
+      Much is said about the Labyrinth ...<br/>
+      Maybe a Protean city lies at its center, one full of advanced technologies and culture.<br/>
+      Maybe Proteans are still alive.<br/>
+      Or, maybe there is a portal into another world, into paradise, into the underworld, or do you know the legend of lost Atlantis?<br/>
+      However, everything may be completely different, maybe there is no Gate.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Fotobunka.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Photocell is a switch, which reacts to activity in its immediate proximity. Just as the mine reacts to live creatures and an explosion.
     </Text>
   </Language>
 </LevelIntro>
