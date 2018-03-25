@@ -8,7 +8,7 @@
     </Text>
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Bomba.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
-      Bombu položíš stiskem<key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>Výbuch nièí vše v oblasti 3x3 polí, tak rychle uteè!
+      Bombu položíš stiskem<key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>. Výbuch nièí vše v oblasti 3x3 polí, tak rychle uteè!
     </Text>
   </Language>
   <Language name="en">
@@ -19,7 +19,7 @@
     </Text>
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Bomba.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
-      You'll place a bomb by pressing <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>Explosion will destroy everything in 3x3 cell area, so run quickly!
+      You'll place a bomb by pressing <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/>. Explosion will destroy everything in 3x3 cell area, so run quickly!
     </Text>
   </Language>
 </LevelIntro>
