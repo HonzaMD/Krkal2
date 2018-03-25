@@ -126,11 +126,11 @@ a player has a key and some force makes him enter (e.g. sliding on ice)
 a cell with the lock - then the lock will always unlock, whether the player
 wishes it or not. 
 
- # Switch to the script editor: F1
- # Switch to the level editor: F2
- # Switch to the game main menu: F3
- # Quit Krkal: F4
- # Switching between full screen and windowed mode: Alt+Enter
+ # switch to the script editor: F1
+ # switch to the level editor: F2
+ # switch to the game main menu: F3
+ # quit Krkal: F4
+ # switching between full screen and windowed mode: Alt+Enter
  
 
 TECHNICAL SUPPORT, INFORMATION, HELP

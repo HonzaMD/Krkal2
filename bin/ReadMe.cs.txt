@@ -124,11 +124,11 @@ kde je zámek. Tady bych chtěl upozornit na jednu záludnost - pokud hráč
 má klíč a nějaká síla ho přinutí vjet (např. klouže se po ledu) 
 na políčko se zámkem - tak se zámek vždy odemkne, ať hráč chce nebo ne. 
 
- # Přepni do editoru skriptů: F1
- # Přepni do editoru levelů: F2
- # Přepni do hlavního herního menu: F3
- # Ukonči Krkala: F4
- # Přepínání mezi celoobrazovkovým a okenním režimem: Alt+Enter
+ # přepni do editoru skriptů: F1
+ # přepni do editoru levelů: F2
+ # přepni do hlavního herního menu: F3
+ # ukonči Krkala: F4
+ # přepínání mezi celoobrazovkovým a okenním režimem: Alt+Enter
 
 
 TECHNICKÁ PODPORA, INFORMACE, NÁPOVĚDA
