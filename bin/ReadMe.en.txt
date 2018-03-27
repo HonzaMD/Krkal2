@@ -88,7 +88,7 @@ CONFIGURATION
 =============
 
  # Configuration is performed by manually editing the "krkal.cfg" file. 
-   It is e.g. possible to change the game's resolution, set volume,..
+   It is e.g. possible to change the game's resolution, set volume...
 
 
 KRKAL CONTROLS

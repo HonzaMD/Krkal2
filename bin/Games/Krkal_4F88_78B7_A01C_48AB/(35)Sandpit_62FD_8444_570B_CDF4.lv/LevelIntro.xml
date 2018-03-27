@@ -29,7 +29,7 @@
     <Image x1="10" y1="68">$GAME$\LevelImages.pkg\LedovaKoule.png</Image>
     <Text x1="20" x2="90" y1="68" y2="95">
       Ice ball is perfectly slippery and if it starts to move, only an obstacle will stop it. In addition, if possible, it rolls around circular objects. Watch out, its impact is dangerous.<br/>
-      Balloon floats, therefore floors have no impact on it.
+      Balloon floats, therefore floors have no effect on it.
     </Text>
   </Language>
 </LevelIntro>

@@ -87,7 +87,7 @@ KONFIGURACE
 ===========
 
  # Konfigurace se provádí ruční editací souboru "krkal.cfg",
-   je možné například měnit rozlišení ve hře, nastavovat hlasitost,..
+   je možné například měnit rozlišení ve hře, nastavovat hlasitost...
 
 
 HRA KRKAL: OVLÁDÁNÍ
