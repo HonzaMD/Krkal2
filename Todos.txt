@@ -1,5 +1,3 @@
-* ilustrace
-* preklad do en
 * setup (done)
 	* podepisovani
 * stranky
