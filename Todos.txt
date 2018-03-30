@@ -4,7 +4,6 @@
 	* google analytics
 	* levly
 	* ? banery, ikony
-* docx do pdf
 * propagace
 
 * ? vymena levlu (skladiste na strankach)
