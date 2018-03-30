@@ -263,7 +263,7 @@ char* edhelptexten[] = {
 	"* For a level it is necessary to create a LevelIntro.xml file.",
 	"* Specific editing rules are above the scope of this text. I recommend copying LevelIntro.xml from another level.",
 
-	"2 In more detail",
+	"2 Learn more",
 	"  More detailed information can be found in external documentation, which is part of the game.",
 
 	"Konec",
