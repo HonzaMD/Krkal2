@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Nerozumíme tomu. Ani trochu. Třeba teď máme najít 8 klíčů, k tomu potřebujeme vyřešit 8 hlavolamů... 
       ale jaký to dává smysl? Proč to tu Proteané postavili? Kdyby se snažili ubránit před nějakým hrozivým nepřítelem, 
@@ -8,6 +8,16 @@
       Možná se chtěli v Labyrintu schovat, třeba nemohli bojovat přímo.<br/>
       Vybudovat tak rozsáhlý Labyrint muselo být velmi náročné, i pro Proteany.<br/>
       Takže musí existovat nějaký zásadní důvod: K čemu Labyrint slouží?
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      We don't get it. Not even a little. For example, now we have to find 8 keys, and to achieve that we have to solve 8 puzzles... 
+      but what sense does this make? Why did the Proteans build it? If they were trying to protect from some scary enemy, 
+      wouldn't it be easier to just build real strong walls and cannons?<br/>
+      Maybe they wanted to hide in the Labyrinth, maybe they couldn't fight directly.<br/>
+      To build such an extensive Labyrinth must have been very demanding, even for the Proteans.<br/>
+      There must have been some fundamental reason: What's the purpose of the Labyrinth?
     </Text>
   </Language>
 </LevelIntro>

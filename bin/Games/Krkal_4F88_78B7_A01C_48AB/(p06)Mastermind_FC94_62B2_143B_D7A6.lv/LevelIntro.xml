@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="90">
       Klasický mastermind.<br/>
       Teda skoro.<br/>
@@ -14,6 +14,22 @@
       Lehká varianta: při hádání první kombinace dostaneš nápovědu (uvidíš 3 z 6 značek), při další už uvidíš jen 2, až nakonec budeš hádat opravdu všech 6. Pokud se ti to do 6 pokusů nepovede, tak si můžeš nechat vygenerovat novou kombinaci a zkusit to znovu.<br/>
       Těžká varianta: budeš hádat rovnou všech 6 značek, bez nápovědy, zase ti ale stačí uhodnout o jednu kombinaci míň. Pokud ale neuhodneš, budeš muset opakovat celý level znovu.<br/>
       P.S.: na orientaci příkazové značky nezáleží.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="90">
+      Traditional Mastermind.<br/>
+      That is, almost.<br/>
+      You'll be guessing a secret combination formed by 4 types of traffic signs (Mandatory direction sign, No Entry, Speed Limit 60, End of 60). Code has 6 signs.<br/>
+      The smarter already guess that some sign types will repeat.<br/>
+      The guessing takes place as follows: You'll place your tip and start an evaluation, after a short time you'll find out the evaluation of your combination. For each properly placed sign you shall get one key. For each proper sign type placed in a wrong location you’ll get a stone.<br/>
+      The objective is to guess the entire sequence and obtain the required 6 keys.<br/>
+      You have 6 attempts to guess the entire code.<br/><br/>
+      And just so that it is not so simple, you'll have to guess several correct codes.<br/>
+      At the start you may select between easy and hard option.<br/>
+      Easy option: when guessing the first combination you'll be prompted (you'll see 3 of the 6 signs), on the next one you'll see only 2, by the end you'll have to really guess all 6. If you fail to guess it right by the 6th attempt, then you can generate a new combination and try it again.<br/>
+      Hard option: you'll be guessing all 6 signs right away, no prompting, but then again you have to guess one combination less. However, if you do not guess, you'll have to repeat the entire level again.<br/>
+      P.S.: The direction of the mandatory sign is irrelevant.
     </Text>
   </Language>
 </LevelIntro>

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Brana2.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="90">
       Den Osmnáctý.<br/>
       Našli jsme Bránu do Vnitřního Labyrintu. Úžasné, ta stavba bere dech ...<br/>
       Na pověstech Navi možná něco bude. Podle nich Proteané utíkali před smrtící hrozbou. Poslední útočiště našli ve středu Labyrintu, tam také objevili řešení, jenže už bylo pozdě.<br/>
-      Navi věří, že po stopách Proteanů se vydají hrdinové. Ti, kteří překonají všechny překážky, se dostanou až do srdce Labyrintu, najdou poslední útočiště a budou si přát Přání. Přání bude splněno a Proteané i labyrint budou opět svobodní.
+      Navi věří, že po stopách Proteanů se vydají hrdinové. Ti, kteří překonají všechny překážky, se dostanou až do srdce Labyrintu, najdou poslední útočiště a budou si přát Přání. Přání bude splněno a Proteané i Labyrint budou opět svobodní.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Brana2.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="90">
+      Day Eighteen.<br/>
+      We found the Gate into the Inner Labyrinth, the structure is breathtaking ...<br/>
+      Maybe there is something to Navi's tales. They say that the Proteans were on the run from a deadly threat. They found a sanctuary at the center of the Labyrinth. While in the hiding they were finally able to discover a solution, but it was too late.<br/>
+      Navi believe that heroes will follow in the footsteps of the Proteans. Those, who overcome all the obstacles, will arrive into the heart of the Labyrinth, which is the location of the last sanctuary and once there, they will utter a Wish. This Wish will be fulfilled and the Proteans and the Labyrinth will again be free.
     </Text>
   </Language>
 </LevelIntro>

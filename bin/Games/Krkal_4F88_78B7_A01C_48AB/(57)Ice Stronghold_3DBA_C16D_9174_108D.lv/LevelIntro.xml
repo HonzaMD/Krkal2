@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Den Dvacátý pátý.<br/>
       Nalezl jsem deník výpravy, která tu byla před námi. Četl jsem, jak zkoumali Labyrint, jak řešili jedno bludiště za druhým, jak pátrali po Proteanech. 
       Snažili se objevit srdce Labyrintu, dny, týdny, docházeli jim zásoby, propadali beznaději. Ze zoufalství zkusili jíst místní rostliny. 
       Bohužel se dostavily vedlejší účinky a divoké sny, ale také naděje, že sny ukazují cestu. 
       Poslední záznam popisoval objev techniky pro stavbu Labyrintu. Zajímavé.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Day Twenty Five.<br/>
+      I found the log of the expedition that came before us. I read about how they studied the Labyrinth, how they solved one maze after the other, how they searched for the Proteans. 
+      They were trying to discover the Labyrinth's heart for days, weeks, running out of supplies, falling into despair. They were so desperate that they tried to eat local plants.
+      Unfortunately, side effects and wild nightmares took over, but also hope that the dreams are showing the way. 
+      The last entry described a discovery of maze-building machines. Interesting.
     </Text>
   </Language>
 </LevelIntro>

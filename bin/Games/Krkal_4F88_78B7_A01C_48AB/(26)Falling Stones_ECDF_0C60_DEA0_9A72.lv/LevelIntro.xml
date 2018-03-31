@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Tady už dlouho nikdo nebyl.<br/>
       Budem v nějaké opravdu staré části ...<br/>
@@ -11,6 +11,19 @@
     <Text x1="20" x2="90" y1="71" y2="95">
       Kulaté předměty nemohou na sobě stát v podobě sloupů. Místo toho se rozsypou do hromádek.<br/>
       Vyzkoušej si, jak postavy interagují s kameny. Například Picard (Pásovec) je odolný a náraz kamene mu neublíží.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      No one has been here in a while.<br/>
+      We must be in some really old part ...<br/>
+      We going?<br/>
+      But watch out, everything here is falling.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\kamen.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Round objects cannot stand on one another to form columns. Instead, they crumble into piles.<br/>
+      Try how characters interact with stones. For example, Picard (Armadillo) is resistant and an impact by stone won't harm him.
     </Text>
   </Language>
 </LevelIntro>

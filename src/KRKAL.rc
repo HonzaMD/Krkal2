@@ -94,7 +94,7 @@ BEGIN
             VALUE "FileDescription", "System for game development, editing and playing"
             VALUE "FileVersion", KRKAL_VERSION_STRING
 //            VALUE "InternalName", "KRKAL"
-            VALUE "LegalCopyright", "Copyright (C) 2004 KRKAL Team"
+            VALUE "LegalCopyright", "Copyright (C) 2018 KRKAL Team"
 //            VALUE "OriginalFilename", "KRKAL"
             VALUE "ProductName", "KRKAL"
             VALUE "ProductVersion", KRKAL_VERSION_STRING

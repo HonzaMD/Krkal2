@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Den Dvacátý první.<br/>
       Tak je to pravda. Někdo si kolem nás hraje s realitou, větví ji a zase skládá dohromady.<br/>
@@ -9,6 +9,17 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Dracek.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       V tomto levelu je ovládání propojeno. Stejnými příkazy ovládáš dvě postavy najednou.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Day Twenty One.<br/>
+      So, it is true. Someone is altering reality, branches it and then puts it back together.<br/>
+      We originally thought that we will find Jones's mark, but then we found a second Jones. Two Joneses! But, to think of them as number one and number two would be wrong, because they are identical, they have the same past and experiences, with the exceptions of about the last 18 hours since to point when reality branched out ...
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\Dracek.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Controls are linked in this level. Same commands control both characters simultaneously.
     </Text>
   </Language>
 </LevelIntro>

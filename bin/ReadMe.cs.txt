@@ -1,6 +1,6 @@
-﻿========================================================================
+﻿==========================================================================
 KRKAL 2
-========================================================================
+==========================================================================
 
 
 O PRODUKTU
@@ -25,7 +25,6 @@ hudba. Součástí je i editor levelů.
 Univerzity Karlovy a byl dále vyvíjen jako diplomová práce tamtéž.
 Původní Krkal 1 je z roku 1997 a tato verze 2.5 vzniká k 20tiletému 
 výročí hry Krkal - 2017.
-
 
 
 LICENCE
@@ -88,7 +87,7 @@ KONFIGURACE
 ===========
 
  # Konfigurace se provádí ruční editací souboru "krkal.cfg",
-   je možné například měnit rozlišení ve hře, nastavovat hlasitost,..
+   je možné například měnit rozlišení ve hře, nastavovat hlasitost...
 
 
 HRA KRKAL: OVLÁDÁNÍ
@@ -100,7 +99,7 @@ Postavička se vždy pohybuje pouze horizontálním nebo vertikálním směrem
 bude postavička pohybovat jedním ze směrů, kam může jít, přičemž se bude
 preferovat naposledy zmáčknutý směr. To je neocenitelná vlastnost v 
 různých bludištích. 
-#  přepínání mezi postavičkami: TAB 
+ # přepínání mezi postavičkami: TAB 
 v některých levelech je více postaviček, někdy je možné mezi postavičkami 
 přepínat, jindy se všechny ovládají najednou (když pak např. stiskne 
 šipku vpravo - všechny postavičky půjdou doprava) 
@@ -124,6 +123,12 @@ použít speciální klávesou (viz výše). Jiné předměty se použijí samy
 kde je zámek. Tady bych chtěl upozornit na jednu záludnost - pokud hráč
 má klíč a nějaká síla ho přinutí vjet (např. klouže se po ledu) 
 na políčko se zámkem - tak se zámek vždy odemkne, ať hráč chce nebo ne. 
+
+ # přepni do editoru skriptů: F1
+ # přepni do editoru levelů: F2
+ # přepni do hlavního herního menu: F3
+ # ukonči Krkala: F4
+ # přepínání mezi celoobrazovkovým a okenním režimem: Alt+Enter
 
 
 TECHNICKÁ PODPORA, INFORMACE, NÁPOVĚDA

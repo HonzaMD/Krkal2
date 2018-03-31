@@ -61,22 +61,22 @@ char* credittexten[]={
 	"AUTHORS",
 
 	"Jan Krcek (MD) md@krkal.org",
-	"version 2.5 and 3.0, kernel, scripting, game KRKAL, levels,...",
+	"version 2.5 and 3.0, kernel, scripting, game KRKAL itself, levels, ...",
 
 	"Petr Altman (pal)",
-	"graphics engine, text editor, script editor, graphics, levels, www,...",
+	"graphics engine, text editor, script editor, game graphics, levels, www, ...",
 
 	"Jan Poduska (Morgue)",
 	"GUI, level editor",
 
 	"Jiri Margaritov",
-	"compiler, interpret",
+	"compiler, interpreter",
 
 	"Jara Altmann",
-	"levels, ideas, suggestions, comments",
+	"levels, ideas, proposal, comments",
 
 	"Jan Frolik",
-	"music - what's left to say - EX - TRA - OR - DI - NA - RY",
+	"music - not much to add - EX - QUI - SITE",
 
     "Tomy, Dvoracek, Pavel P.",
 	"levels",
@@ -88,12 +88,12 @@ char* credittexten[]={
 
 	"LICENSE",
 
-	"Program Krkal 2.5 can be free downloaded and you are allowed to distribute the program further, but only for free.",
-	"You are free to receive a full featured game. The program does not contain advertising, microtransactions or any unwanted or malicious code.",
+	"Program Krkal 2.5 is free to download, and it can be further distributed for free.",
+	"You get the complete game free. Program does not contain advertisements, micro-transactions or any unwanted or malicious code.",
 	"You may use the program, modify the games created within the system, create new levels.",
-	"Use this program at your own risk. We cannot be held responsible for any loss or damage this program might have caused.",
-	"You are NOT allowed to distribute KRKAL for money or even use it as a part of any commercial product without our explicit permission.",
-	"All rights reserved (c) 2018"
+	"You are using the program at your own risk. We do not assume any responsibility for any damages that arise relative to the use of the program.",
+	"It is not permitted to use Krkal as part of a commercially sold product without our consent.",
+	"All other copyrights reserved (c) 2018"
 
 };
 
@@ -117,9 +117,15 @@ char* helptextcs[]={
    "Hráè mùže sbírat nìkteré pøedmìty. Od každého pøedmìtu mùže mít maximálnì 12 kusù. Vìtšina pøedmìtù se sebere sama, jakmile hráè vstoupí na políèko s pøedmìtem. U tìchto pøedmìtù není možné rozhodnout se, jestli je chci nebo ne. Výjimkou jsou znaèky, ty se sbírají speciální klávesou '$$_KSID_keyA_0001_FFFF_0001_0001$$'.",
    "Sebrané pøedmìty nelze jen tak zahodit. Nìkteré pøedmìty je možné použít speciální klávesou (viz výše). Jiné pøedmìty se použijí samy - napø. klíè se použije vždy, když hráè chce vstoupit na políèko, kde je zámek. Tady bych chtìl upozornit na jednu záludnost - pokud hráè má klíè a nìjaká síla ho pøinutí vjet (napø. klouže se po ledu) na políèko se zámkem - tak se zámek vždy odemkne, a hráè chce nebo ne.",
 
+   "pøepni do editoru skriptù: F1",
+   "pøepni do editoru levelù: F2",
+   "pøepni do hlavního herního menu: F3",
+   "ukonèi Krkala: F4",
+   "pøepínání mezi celoobrazovkovým a okenním režimem: Alt+Enter",
+
    "KONFIGURACE",
 
-   "Konfigurace se provádí ruèní editací souboru \"krkal.cfg\", je možné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost,..",
+   "Konfigurace se provádí ruèní editací souboru \"krkal.cfg\", je možné napøíklad mìnit rozlišení ve høe, nastavovat hlasitost...",
 
    "TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA",
 
@@ -134,32 +140,38 @@ char* helptexten[]={
 
 	"GAME KRKAL: CONTROLS",
 
-	"movement: key arrows",
-	"You can move in four basic directions only – you cannot move diagonally. You may hold more arrow keys at once, in which case you will move in one of the directions available at the moment, the last pressed key is preferred. This is very useful in the labyrinths.",
-    "switching between the characters: $$_KSID_keyTab_0001_FFFF_0001_0001$$",
-	"In some levels, you can control more than one character. Sometimes you control only one character at the moment and may switch between them, while sometimes you control them all together. In this case, if you for example press the right arrow key, all the characters will start moving right.",
-	"drop a bomb: $$_KSID_keyZ_0001_FFFF_0001_0001$$",
-	"put down a mine: $$_KSID_keyX_0001_FFFF_0001_0001$$",
+	"character movement: arrow keys",
+	"You can move in four basic directions only – you cannot move diagonally. You may hold more arrow keys at once, in which case you will move in one of the directions available at the moment, the last pressed key is preferred. This is a priceless quality in various mazes.",
+	"switching between characters: $$_KSID_keyTab_0001_FFFF_0001_0001$$",
+	"in some levels you have multiple characters, sometimes it is possible to switch between the characters, other times they are all controlled at once (when then for example you press right arrow - all characters will move right)",
+	"using a bomb: $$_KSID_keyZ_0001_FFFF_0001_0001$$",
+	"using a mine: $$_KSID_keyX_0001_FFFF_0001_0001$$",
 	"pick up a traffic sign: $$_KSID_keyA_0001_FFFF_0001_0001$$",
-	"put down a direction sign: $$_KSID_key1_0001_FFFF_0001_0001$$ + direction arrow (you may also change the direction of a lying sign)",
-	"put down a no fare sign: $$_KSID_key2_0001_FFFF_0001_0001$$",
-	"put down a 60 km/h speed limit sign: $$_KSID_key3_0001_FFFF_0001_0001$$",
-	"put down an end of the 60 km/h speed limit sign: $$_KSID_key4_0001_FFFF_0001_0001$$",
-	"go back to the main menu: ESC",
+	"placing (and/or turning) a directional sign: $$_KSID_key1_0001_FFFF_0001_0001$$+direction key",
+	"placing do not enter: $$_KSID_key2_0001_FFFF_0001_0001$$",
+	"placing sixty: $$_KSID_key3_0001_FFFF_0001_0001$$",
+	"placing end of sixty: $$_KSID_key4_0001_FFFF_0001_0001$$",
+	"back to the main menu: Esc",
 
-   "You can pick up some items and collect them in your inventory. You may collect up to 12 items of each type. Most of these items are picked up automatically as you step on the cell they are located. You cannot decide whether to pick up such item or not. The traffic signs are exception, you can choose to pick a sign by pressing ‘$$_KSID_keyA_0001_FFFF_0001_0001$$’ key.",
-   "Once picked up, the items cannot be discarded, but you can use some of them (as described above). Some items are used automatically – for instance, the key is used after you have tried to step on the cell blocked by the lock. Here we would like to warn of one captious feature: If you have a key and you are forced to move towards the lock (usually on the ice), you will unlock it when either you want or not.",
+	"A player character can collect certain items. A maximum of 12 pieces of each item is allowed. Most items get picked up automatically, as soon as the character enters the cell. With these items it is not possible to decide whether you want them or not. An exception are signs, they are collected using a special key '$$_KSID_keyA_0001_FFFF_0001_0001$$'.",
+	"The collected items cannot be disposed of without a reason. Some items can be used with a special key (see above). Other items are used automatically - e.g. key is used always, when a player wants to enter a cell which a lock. Here I want to point out one sneaky thing - if a player has a key and some force makes him enter (e.g. sliding on ice) a cell with the lock - then the lock will always unlock, whether the player wishes it or not.",
 
-   "CONFIGURATION",
+	"switch to the script editor: F1",
+	"switch to the level editor: F2",
+	"switch to the game main menu: F3",
+	"quit Krkal: F4",
+	"switching between full screen and windowed mode: Alt+Enter",
 
-   "You can configure KRKAL by editing the file \"krkal.cfg\", you can change the screen resolution or set the volume for example...",
+	"CONFIGURATION",
 
-   "TECHNICAL SUPPORT, MORE INFORMATION, HELP",
+	"Configuration is performed by manually editing the \"krkal.cfg\" file. It is e.g. possible to change the game's resolution, set volume...",
 
-   "Much information can be found in the documentation included in the download pack. You can find more information at KRKAL website:",
-   "      www.krkal.org",
-   "You can also contact us with tips, levels, notices, help requests and bug reports on our email:",
-   "      support@krkal.org",
+	"TECHNICAL SUPPORT, INFORMATION, HELP",
+
+	"Extensive volume of information is directly in the documentation, which is part of Krkal (in the directory Documentation.EN). The documentation includes description of objects in Krkal and how to control the editor. More documentation is on our website:",
+	"      www.krkal.org",
+	"You can email us your ideas, levels, inquiries for advice, comments, bug reports, ...:",
+	"      support@krkal.org",
 
 };
 
@@ -189,6 +201,7 @@ void CMainMenuHelp::ShowCredits()
 	float sxx,syy;
 	int ti=0;
 	UI tc=0xFFFFFFFF;
+	UI nc=0xFFAFFF6D;
 
 	CGUIStaticPicture* krkal = new CGUIStaticPicture(0,0,"$TEX$/MainMenu/krkal.png");
 	krkal->GetSize(sxx,syy);
@@ -203,7 +216,7 @@ void CMainMenuHelp::ShowCredits()
 
 	//autori
 	yy+=10;
-	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,tc,mx,0,aCenter);
+	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,nc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 	for(int i=0;i<7;i++)
 	{
@@ -217,7 +230,7 @@ void CMainMenuHelp::ShowCredits()
 
 	//web
 	yy+=30;
-	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,tc,mx,0,aCenter);
+	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,nc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+10; cw->AddBackElem(st);
 	for(int i=0;i<1;i++)
 	{
@@ -231,7 +244,7 @@ void CMainMenuHelp::ShowCredits()
 
 	//licence
 	yy+=30;
-	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,tc,mx,0,aCenter);
+	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,nc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+10; cw->AddBackElem(st);
 	for(int i=0;i<6;i++)
 	{
@@ -272,6 +285,7 @@ void CMainMenuHelp::ShowHelp()
 	float sxx,syy;
 	int ti=0;
 	UI tc=0xFFFFFFFF;
+	UI nc=0xFFAFFF6D;
 
 	CGUIStaticPicture* krkal = new CGUIStaticPicture(0,0,"$TEX$/MainMenu/krkal.png");
 	krkal->GetSize(sxx,syy);
@@ -286,7 +300,7 @@ void CMainMenuHelp::ShowHelp()
 
 	//hra krkal
 	yy+=10;
-	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
+	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,nc,mx);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 	
 	st = new CGUIStaticText(ConvertKeys(helptext[ti++], buffer), fb, xx, yy, tc, mx);
@@ -313,16 +327,23 @@ void CMainMenuHelp::ShowHelp()
 		ti++;
 	}
 
+	for (int i = 0; i<5; i++)
+	{
+		st = new CGUIStaticText(ConvertKeys(helptext[ti], buffer), fb, xx, yy, tc, mx);
+		st->GetSize(sxx, syy); yy += syy + 5; cw->AddBackElem(st);
+		ti++;
+	}
+
     //konfigurace
-	yy+=20;
-	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
+	yy+=25;
+	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,nc,mx);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 	st=new CGUIStaticText(helptext[ti++],f,xx,yy,tc,mx);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 
 	//technicka podpora
 	yy+=15;
-	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,tc,mx);
+	st=new CGUIStaticText(helptext[ti++],fn,xx,yy,nc,mx);
 	st->GetSize(sxx,syy); yy+=syy+15; cw->AddBackElem(st);
 	for(int i=0;i<4;i++)
 	{

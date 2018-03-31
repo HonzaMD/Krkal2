@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Máš?<br/>
       Tady.<br/>
@@ -15,6 +15,23 @@
     <Text x1="20" x2="90" y1="65" y2="95">
       Při každém vstoupení na Save Point se uloží stav levelu. Když se pak něco nepovede, můžeš restartovat level z uloženého stavu (tak se děje automaticky zvolíš-li level k hraní).<br/>
       Můžeš save i ignorovat a hrát od začátku. Tlačítko Restart Level.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Got it?<br/>
+      Here.<br/>
+      I threw in probably 50 stones, but they just disappeared in the dark and that's it. It's gotta be crazy deep.<br/>
+      Start your stopwatch, I'm lighting it... Three, two, one, now!<br/>
+      Still falling ...<br/>
+      You see it?<br/>
+      No.<br/>
+      Nothing.
+    </Text>
+    <Image x1="10" y1="65">$GAME$\LevelImages.pkg\save.png</Image>
+    <Text x1="20" x2="90" y1="65" y2="95">
+      Upon every passing over Savepoint the level status is saved. When something goes wrong, then you can restart the level from the savepoint (this happens automatically if you select the level to play).<br/>
+      You can ignore the save and restart from the beginning: Restart Level button.
     </Text>
   </Language>
 </LevelIntro>

@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Bomba.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="90">
       Hej počkej, musíme mít plán!<br/>
       Neblbni, prostě to zkusíme a ono to vyjde.<br/>
       Spoléháš na náš šestý smysl? No to, že někdo přemění realitu a vymaže každý náš neúspěšný pokus?<br/>
       No, někdo nás má rád.<br/>
       Určitě. A nejraději zachraňuje pitomce jako jsi ty. Co když jim dojde energie, či trpělivost?
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Bomba.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="90">
+      Hey, wait a sec, we gotta have a plan!<br/>
+      Don't be crazy, we'll just try it and it will work out.<br/>
+      Are you relying on your sixth sense? On someone altering reality and deleting each of our unsuccessful attempt?<br/>
+      Well, someone likes us.<br/>
+      For sure. And above all enjoys saving dummies like you. What if they run out of energy, or patience?
     </Text>
   </Language>
 </LevelIntro>

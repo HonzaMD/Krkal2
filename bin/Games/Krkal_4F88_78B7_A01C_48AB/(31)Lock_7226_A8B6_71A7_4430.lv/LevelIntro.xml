@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Brana1.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
       Den Čtrnáctý.<br/>
       Utábořili jsme se u obří brány, která se zvedá vysoko nad naše hlavy. 
       Je bohatě zdobená, jsou tu nápisy a symboly, které neumíme přečíst. 
       Podle Navi by měla oddělovat Vnější a Střední části Labyrintu.<br/>
       Teď jen přijít na to, jak ji odemknout.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Brana1.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
+      Day Fourteen.<br/>
+      We made camp by the giant gate, which rises high above our heads. 
+      It is very decorated by writings and symbols, which we're unable to read. 
+      According to Navi it should be a partition between the Outer and Middle section of the Labyrinth.<br/>
+      Now to only discover how to open it.
     </Text>
   </Language>
 </LevelIntro>

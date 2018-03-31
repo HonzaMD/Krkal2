@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Víš, co mi přijde divné? Že vždycky, když narazíme na nové bludiště, jsou dveře zavřené, klíče k nalezení, kameny připravené na těch správných místech ...<br/>
       No samozřejmě, bludiště je hlavolam a my musíme najít řešení.<br/>
@@ -9,6 +9,17 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\HrbPodlaha.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Hrbolatá podlaha znemožňuje tlačení předmětů.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      You know what's strange? That every time we encounter a new maze, the doors are closed, key must be found, stones prepared at the right places ...<br/>
+      Well, of course, a maze is a puzzle and we must find a solution.<br/>
+      But someone went ahead of us. Who puts the maze back into default state?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\HrbPodlaha.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Bump floor prevents objects to be pushed.
     </Text>
   </Language>
 </LevelIntro>

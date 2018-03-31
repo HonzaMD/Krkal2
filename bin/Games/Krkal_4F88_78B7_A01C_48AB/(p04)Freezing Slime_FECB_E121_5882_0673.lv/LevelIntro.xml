@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
 	Třináct červených klíčů. Potřebuju jich jen dvanáct.<br/>
 	<br/>
@@ -16,6 +16,24 @@
 	Budeme muset někoho obětovat!
 	<br/>
 	P.S.: Aby to nebylo tak jednoduché, tak mrznocí sliz bude při každém restartu levelu někde jinde.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+	Thirteen red keys. I only need twelve of them.<br/>
+	<br/>
+	Where is the problem then?<br/>
+	<br/>
+	One of the red keys is hidden behind a "freezing toxic slime". This one looks like a standard toxic slime. 
+	At first glance it also behaves this way: when you're in it too long, then you die, if you are able to leave in time, then the toxification wears off after a while.
+	The difference however, is in the fact that the freezing slime leaves you with permanent consequences. At first glance you are OK, but if you get cold, then the toxic slime
+	activates again and you die. <br/>
+	<br/>
+	But, how to tell which one it is? <br/>
+	<br/>
+	We'll have to sacrifice 	someone!
+	<br/>
+	P.S.: And to make things a bit more difficult, the freezing slime is at a different location upon each level restart.
     </Text>
   </Language>
 </LevelIntro>

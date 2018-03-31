@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Image x1="55" x2="90" y1="5">$GAME$\LevelImages.pkg\Lava.jpg</Image>
-    <Text x1="10" x2="50" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Lava.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
       Vidíš ty pásy?<br/>
       Kde to jde, tak se tě snaží odvézt do díry.<br/>
       Budem muset být hbití a včas uskočit.<br/>
       Hm, tady se nám někdo opravdu snaží zabránit v cestě dál ...
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="90" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Lava.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
+      See those conveyors?<br/>
+      Wherever possible, they try taking you into a hole.<br/>
+      We will have to be agile and jump of in time.<br/>
+      Hm, someone here is really trying to prevent us from continuing in our journey ...
     </Text>
   </Language>
 </LevelIntro>

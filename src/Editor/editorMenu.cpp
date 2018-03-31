@@ -65,7 +65,8 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 	if(event->sender == icons[1])		// polozka editor menu - Load Level
 	{	
-		CEDFileSelector* fs = new CEDFileSelector(100,100,300,500);
+		float sy = editor->mapPosition.sy > 500 ? 500 : editor->mapPosition.sy;
+		CEDFileSelector* fs = new CEDFileSelector(100,140,300,sy);
 		fs->title->SetText("en{{Select Level:}}cs{{Zvol level:}}");
 		fs->title->SetIcon(new CGUIRectHost(0,0,styleSet->Get("LM_LoadLevel")->GetTexture(0)));
 		fs->filterExt = eEXTlevel;
@@ -85,6 +86,10 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 		desktop->AddBackElem(fs);
 		fs->Center(true,true);
+		float winX, winY;
+		fs->GetPos(winX, winY);
+		if (winY < editor->mapPosition.y-8)
+			fs->Move(winX, editor->mapPosition.y-8);
 		mainGUI->SendCursorPos();
 		fs->SetModal(1);
 	}
@@ -225,6 +230,10 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 
 						fs->CloseWindow();
 						SAFE_DELETE_ARRAY(level);
+					}
+					else 
+					{
+						CEDUserAnnouncer::Announce("en{{Level is locked}}cs{{Level je zamèený}}", 5);
 					}
 				}
 

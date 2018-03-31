@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       To je smrad! Fuj, je mi z toho špatně ...<br/>
       To bude támhle ten zelený sliz, raději bych se k němu nepřibližoval.<br/>
@@ -12,6 +12,20 @@
     <Text x1="20" x2="90" y1="71" y2="95">
       Zmáčkni ESC pro návrat do menu a restart levelu. Postup bude zapomenut.<br/>
       Některé věci (např. kameny) se dají tlačit.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      What a stench! Yuck, it makes me sick ...<br/>
+      It's going to be that green slime over there, I'd rather stay away from it.<br/>
+      I don't like it at all. And the floor, which crumbles under your feet and you cannot go back ...<br/>
+      Relax, we were preparing for this, we trained. And we know that each maze has a solution.<br/>
+      Each one?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\kamen.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Press ESC to return to the main menu and to restart the level. Progress will be forgotten.<br/>
+      Some items (e.g. stones) can be pushed.
     </Text>
   </Language>
 </LevelIntro>

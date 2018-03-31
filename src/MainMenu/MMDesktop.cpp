@@ -34,6 +34,7 @@
 
 #include "mmhelp.h"
 #include "MMLevelIntro.h"
+#include "ident.h"
 
 
 CMMDesktop *MMDesktop=0;

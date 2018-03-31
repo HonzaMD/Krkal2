@@ -1,157 +1,150 @@
-﻿========================================================================
-KRKAL
-========================================================================
+﻿==========================================================================
+KRKAL 2
+==========================================================================
 
 
 ABOUT THE PRODUCT
 =================
 
-KRKAL is a sophisticated system for 2D games design and development. 
-With KRKAL you can develop the brand new games or just improve games 
-already existing. You can create or modify game levels and play all 
-games, of course.
-KRKAL includes a full logical-action game Krkal, which is a remake of 
-the excellent logical-action title. KRKAL runs on a powerful graphics 
-engine, it has its own level editor, script editor and compiler. KRKAL 
-was originally developed at the Faculty of Math and Physics of the 
-Charles University, Prague, the Czech Republic.
-
-
-Game Krkal
-
-Krkal is an excellent logical-action game. With one of three different 
-characters, you have to avoid all dangerous traps, deal with various 
-items, escape from deadly monsters and in the first place – boil your 
-brain – to finally find the way through and reach so long desired exit... 
-and then? Just select level that is even more difficult and rush to 
-the battle again.
-
-The levels are built of many miscellaneous items, which interact one with 
-the other. You will push stones, slide on the ice, avoid stepping on 
-mines, play with the switches, wander in complex labyrinths and even 
-set up the traffic signs to take advantage of the traffic monsters!
-
-Simply, Krkal is very interesting and unique. You observe everything 
-from above and will miss neither a professional graphics nor stylish 
-music. With KRKAL, you will not only be able to build new levels from 
-existing items, but also create quite new objects. You will be able to 
-improve and modify the game itself!
+   Krkal is a puzzle action top-down game. You control one of three
+characters and try to find your way through a maze, which is full of 
+various traps and obstacles. 
+   You will need quick fingers, as well as a sharp mind, since in later
+levels the game gets hard!
+Levels are built from many (50!) various elements and objects, which
+influence each other, and you as well. You will move stones, slide on ice,
+avoid mines, properly set various switches, wonder through mazes and maybe
+rearrange signs for traffic monsters...
+   Our inspirations were games such as Robbo, Boulder Dash (Supaplex),
+or Sokoban, and despite this Krkal looks different; in each level you can
+expect something new, original. You see everything clearly from
+an overhead view and the game also offers quality graphics and music.
+Important part is also a level editor.
+   Krkal 2 was created in the game engine of the same name in 2004.
+Engine was created as a project at the Faculty of Mathematics and Physics
+Charles University and was further developed as a diploma thesis at
+the same place. The original Krkal 1 is from 1997 and this version 2.5
+is created on 20th anniversary of Krkal - 2017.
 
 
 LICENSE
 =======
 
-#  Program Krkal 2.5 can be free downloaded and you are allowed
-   to distribute the program further, but only for free.
-#  You are free to receive a full featured game. The program does not 
-   contain advertising, microtransactions or any unwanted or malicious code.
-#  You may use the program, modify the games created within the system,
-   create new levels.
-#  Use this program at your own risk. We cannot be held responsible for
-   any loss or damage this program might have caused.
-#  You are NOT allowed to distribute KRKAL for money or even use it as 
-   a part of any commercial product without our explicit permission.
-#  All rights reserved (c) 2018 P. Altman, J. Krček, J. Margaritov,
-   J. Poduška, J. Frolík
+ # Program Krkal 2.5 is free to download, and it can be further distributed
+   for free. 
+ # You get the complete game free. Program does not contain advertisements,
+   micro-transactions or any unwanted or malicious code.
+ # You may use the program, modify the games created within the system,
+   create new levels. 
+ # You are using the program at your own risk. We do not assume any
+   responsibility for any damages that arise relative to the use of
+   the program.
+ # It is not permitted to use Krkal as part of a commercially sold product
+   without our consent. 
+ # All other copyrights reserved (c) 2018
 
 
 AUTHORS
 =======
 
-#  Jan Krcek (MD) md@krkal.org
-version 2.5 and 3.0, kernel, scripting, game KRKAL, levels, ...
+#  Jan Krček (MD) md@krkal.org
+version 2.5 and 3.0, kernel, scripting, game KRKAL itself, levels, ... 
 
 #  Petr Altman (pal)
-graphics engine, text editor, script editor, graphics, levels, www,...
+graphics engine, text editor, script editor, game graphics, levels, www,... 
 
 #  Jan Poduška (Morgue)
-GUI, level editor
+GUI, level editor 
 
 #  Jiří Margaritov
-compiler, interpret
+compiler, interpreter 
 
 #  Jára Altmann
-levels, ideas, suggestions, comments
+levels, ideas, proposal, comments 
 
 #  Jan Frolík
-music - what's left to say - EX - TRA - OR - DI - NA - RY
+music - not much to add - EX - QUI - SITE
 
 #  Tomy, Dvořáček, Pavel P.
 levels
 
 
+WEBSITE
+=======
 
-KRKAL HOMEPAGE
-==============
-
-www.krkal.org
-https://github.com/HonzaMD/Krkal2
-
+      www.krkal.org
+      https://github.com/HonzaMD/Krkal2
 
 
 SYSTEM REQUIREMENTS
 ===================
 
-#  Windows 10, 8, 7, XP
-#  DirectX 8.1 or later
-#  Computer and DX graphic card from year 2004 or newer
+ # MS Windows 10, 8, 7, XP
+ # DirectX 8.1 or higher 
+ # Computer and DX graphics card from 2004 or newer.
 
 
 CONFIGURATION
 =============
 
-#  You can configure KRKAL by editing the file "krkal.cfg",
-   you can change the screen resolution or set the volume for example...
+ # Configuration is performed by manually editing the "krkal.cfg" file. 
+   It is e.g. possible to change the game's resolution, set volume...
 
 
-GAME KRKAL: CONTROLS
-====================
+KRKAL CONTROLS
+==============
 
-#  movement: key arrows
--  You can move in four basic directions only – you cannot move diagonally.
--  You may hold more arrow keys at once, in which case you will move 
-     in one of the directions available at the moment, the last pressed
-     key is preferred. This is very useful in the labyrinths.
-#  switching between the characters: TAB
--  In some levels, you can control more than one character.
--  Sometimes you control only one character at the moment and may switch 
-     between them, while sometimes you control them all together. In this 
-     case, if you for example press the right arrow key, all the 
-     characters will start moving right.
-#  drop a bomb: Z
-#  put down a mine: X
-#  pick up a traffic sign: A
-#  put down a direction sign: 1 + direction arrow 
-     (you may also change the direction of a lying sign)
-#  put down a no fare sign: 2
-#  put down a 60 km/h speed limit sign: 3
-#  put down an end of the 60 km/h speed limit sign: 4
-#  go back to the game menu: ESC
+ # character movement: arrow keys 
+You can move in four basic directions only – you cannot move diagonally.
+You may hold more arrow keys at once, in which case you will move in one
+of the directions available at the moment, the last pressed key is
+preferred. This is a priceless quality in various mazes.
+ # switching between characters: TAB
+in some levels you have multiple characters, sometimes it is possible to
+switch between the characters, other times they are all controlled at once
+(when then for example you press right arrow - all characters will
+move right) 
+ # using a bomb: Z 
+ # using a mine: X 
+ # pick up a traffic sign: A 
+ # placing (and/or turning) a directional sign: 1+directional key 
+ # placing do not enter: 2 
+ # placing sixty: 3 
+ # placing end of sixty: 4 
+ # back to the main menu: Esc
 
-You can pick up some items and collect them in your inventory. You may 
-collect up to 12 items of each type. Most of these items are picked up 
-automatically as you step on the cell they are located. You cannot decide 
-whether to pick up such item or not. The traffic signs are exception, you 
-can choose to pick a sign by pressing ‘A’ key. Once picked up, the items 
-cannot be discarded, but you can use some of them (as described above). 
-Some items are used automatically – for instance, the key is used after 
-you have tried to step on the cell blocked by the lock. Here we would 
-like to warn of one captious feature: If you have a key and you are forced 
-to move towards the lock (usually on the ice), you will unlock it when 
-either you want or not.
+   A player character can collect certain items. A maximum of 12 pieces
+of each item is allowed. Most items get picked up automatically, as soon
+as the character enters the cell. With these items it is not possible to
+decide whether you want them or not. An exception are signs, they are
+collected using a special key 'A'. 
+   The collected items cannot be disposed of without a reason. Some items
+can be used with a special key (see above). Other items are used
+automatically - e.g. key is used always, when a player wants to enter
+a cell which a lock. Here I want to point out one sneaky thing - if
+a player has a key and some force makes him enter (e.g. sliding on ice)
+a cell with the lock - then the lock will always unlock, whether the player
+wishes it or not. 
 
+ # switch to the script editor: F1
+ # switch to the level editor: F2
+ # switch to the game main menu: F3
+ # quit Krkal: F4
+ # switching between full screen and windowed mode: Alt+Enter
+ 
 
-TECHNICAL SUPPORT, MORE INFORMATION, HELP
-=========================================
+TECHNICAL SUPPORT, INFORMATION, HELP
+====================================
 
-Technical support, information, help
-#  Much information can be found in the documentation included in the 
-   download pack.
-#  You can find more information at KRKAL website:
+Extensive volume of information is directly in the documentation, which is
+part of Krkal (in the directory Documentation.EN). The documentation includes
+description of objects in Krkal and how to control the editor.
+More documentation is on our website:
 
-www.krkal.org
+	www.krkal.org
+	
+You can email us your ideas, levels, inquiries for advice, comments,
+bug reports, ...:
 
-#  You can also contact us with tips, levels, notices, help requests 
-   and bug reports on our email:
+	support@krkal.org
 
-support@krkal.org

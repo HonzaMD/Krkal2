@@ -1,12 +1,9 @@
-* ilustrace
-* preklad do en
 * setup (done)
 	* podepisovani
 * stranky
 	* google analytics
 	* levly
 	* ? banery, ikony
-* docx do pdf
 * propagace
 
 * ? vymena levlu (skladiste na strankach)

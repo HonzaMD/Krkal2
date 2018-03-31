@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Picarde, proč tam šla Ripleyová, když s kameny to téměř neumí?<br/>
       Potřeboval jsem něco zapsat do deníku ... Teď už mi to vůbec nezní jako rozumný důvod. Proč jsi ji nezastavil ty?<br/>
       Mně předtím přišlo, že se na to hodí, vůbec jsem nepochyboval ...<br/>
       Sakra, to nám přeskočilo? Kdo řešil bludiště minule?<br/>
       Budeme si muset dávat větší pozor.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Picard, why did Ripley go there when she is not skilled with the stones?<br/>
+      I needed to record something into our log ... No it doesn't sound like a good idea at all. Why didn't you stop her?<br/>
+      At the time I thought she's well suited for it, I had no doubts ...<br/>
+      Damn, have we gone mad? Who took care of the maze last time?<br/>
+      We'll have to be more careful.
     </Text>
   </Language>
 </LevelIntro>

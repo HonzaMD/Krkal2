@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Tady se bude umírat!<br/>
       A to ve velkym.<br/>
       Ale jestli umíš počítat, tak nakonec vše dobře dopadne.<br/>
       P.S.: Dokážeš nás dostat do exitu všechny?
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Here is where people die!<br/>
+      In great numbers.<br/>
+      But if you can count, then in the end all will turn out well.<br/>
+      P.S.: Can you get us all to the exit?
     </Text>
   </Language>
 </LevelIntro>

@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Myslíš, že jsou dopravní potvory hloupé? Uvidíme! Teď budeš muset jednu porazit v logické hře.<br/><br/>
       Pravidla hry:<br/>
       Hráči postupně odebírají herní kameny ze tří hromádek. V každém tahu musí hráč odebrat minimálně jeden kámen. Maximální množství odebíraných kamenů není omezeno, v jednom tahu ale můžeš brát kameny pouze z jedné hromádky. Hráči se pravidelně střídají. Vyhraje hráč, který odebere poslední kámen.<br/>
       Na začátku se odebere náhodný počet kamenů z každé hromádky, aby hra nebyla vždy stejná. Potom si můžeš vybrat, jestli budeš začínat ty nebo nepřátelská potvora.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Do you think that the Traffic monsters are dumb? Let's see! Now you'll have to beat one in a logical game.<br/><br/>
+      Game rules:<br/>
+      Players gradually remove stones from three piles. With each move a player must remove at least one stone. Maximum number of removed stones is not limited, however in each turn you may only remove stones from one pile. The players take turns. The player that removes the last stone wins.<br/>
+      A random number of stones is removed from each pile at the start to avoid each game being identical. After this you can select, who will start, you or enemy monster.
     </Text>
   </Language>
 </LevelIntro>

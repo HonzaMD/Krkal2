@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Image x1="55" x2="90" y1="5" y2="70" vAlign="-1">$GAME$\LevelImages.pkg\LedoveMesto.jpg</Image>
-    <Text x1="10" x2="50" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="48" x2="90" y1="5" y2="68" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\LedoveMesto.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
       Den Třetí.<br/>
       Štěstí nám přeje. Objevili jsme opuštěné město, budovy se vynořují z temně modré vody a jsou pospojované ledovými mosty.<br/>
       Rozhodli jsme se pár dnů zůstat a prozkoumat pradávné technologie a artefakty. Jones se do toho hned pustil. Mám starost o Ripleyovou, nadýchala se toho zeleného slizu a onemocněla, mění se, je jakoby průsvitná... Snad přestávka pomůže.
@@ -11,6 +11,19 @@
     <Text x1="20" x2="90" y1="71" y2="95">
       Led je natolik kluzký, že, jakmile se po něm dáš do pohybu, nelze zastavit ani změnit směr.<br/>
       <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/> položí bombu.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="68" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\LedoveMesto.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
+      Day Three.<br/>
+      Luck is on our side. We discovered an abandoned city, where buildings rise up from dark blue water and are connected by ice bridges.<br/>
+      We decided to stay a few days and research ancient technologies and artifacts. Jones started right away. I am worried about Ripley, she inhaled the green slime and got sick, she's changing, she's as if transparent... Hopefully a break will help.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\led.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Ice is so slippery that as soon as you start moving across it, stopping or changing direction is impossible.<br/>
+      <key name="_KSID_keyZ_0001_FFFF_0001_0001" default="Z"/> places a bomb.
     </Text>
   </Language>
 </LevelIntro>

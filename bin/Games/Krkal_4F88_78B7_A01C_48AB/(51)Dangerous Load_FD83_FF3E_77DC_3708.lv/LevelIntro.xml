@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Mám hotovou analýzu stáří Labyrintu.<br/>
       Tak ukaž.<br/>
@@ -12,6 +12,20 @@
     <Image x1="10" y1="71">$GAME$\LevelImages.pkg\nitro.png</Image>
     <Text x1="20" x2="90" y1="71" y2="95">
       Nitroglycerin vybuchuje při jakémkoli nárazu.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      My analysis of the Labyrinth's age is complete.<br/>
+      Show me.<br/>
+      I did not expect such a range; there are very old areas here, much older than the Protean cities.<br/>
+      This means that the Labyrinth could have been here earlier than the Proteans were fighting for their existence.<br/>
+      Then we also have some parts only a few years old.<br/>
+      Labyrinth is still being built? Could Proteans be possibly still alive?
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\nitro.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      Nitroglycerin explodes upon any impact.
     </Text>
   </Language>
 </LevelIntro>

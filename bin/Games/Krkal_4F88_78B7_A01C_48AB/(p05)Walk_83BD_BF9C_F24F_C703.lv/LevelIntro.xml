@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Odpočinková procházka.<br/>
       Jenom, abychom nešli stejnou cestou víckrát, to by bylo trapný.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Relaxing stroll.<br/>
+      Main thing is that we don't take the same path twice, because that would be embarrassing.
     </Text>
   </Language>
 </LevelIntro>

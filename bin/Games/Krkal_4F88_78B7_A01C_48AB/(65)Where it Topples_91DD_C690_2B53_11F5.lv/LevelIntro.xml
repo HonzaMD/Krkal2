@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Protean.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="90">
       Myslíš, že Proteané vyrobili zlatou rybku, ke které přijdeš a řekneš jí tři přání?<br/>
       Co by sis přála ty?<br/>
       Nejprve, aby nám nepadaly kameny na hlavu.<br/>
       Třeba opravdu existuje přání, které by dokázalo Proteany zachránit.<br/>
       Jen ho musíme správně formulovat. Jako v pohádce ...
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Protean.jpg</Image>
+    <Text x1="10" x2="52" y1="5" y2="90">
+      Do you think the Proteans made a golden fish, which you come to and tell her your three wishes?<br/>
+      What would you wish for?<br/>
+      First, that stones do not fall on our heads.<br/>
+      Maybe there is a wish that could save the Proteans.<br/>
+      We just have to formulate it properly. Like in a fairytale ...
     </Text>
   </Language>
 </LevelIntro>

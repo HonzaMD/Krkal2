@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
-    <Image x1="55" x2="90" y1="5" y2="70" vAlign="-1">$GAME$\LevelImages.pkg\MinaKlic.jpg</Image>
-    <Text x1="10" x2="50" y1="5" y2="70">
+  <Language name="cs">
+    <Image x1="48" x2="90" y1="5" y2="68" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\MinaKlic.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
       Picarde, Ripleyová tam zůstala, musíme něco udělat!<br/>
       Počkej, víš přeci kolik jich tam bylo ...<br/>
       Picarde! Oni ji nezabili! Musíme ...<br/>
@@ -12,6 +12,20 @@
     <Text x1="20" x2="90" y1="71" y2="95">
       Mina střeží oblast 3x3 polí kolem sebe. Reaguje na živé tvory a na výbuch. Po detekci a po krátké prodlevě exploduje.<br/>
       Neaktivovanou minu lze sebrat a poté použít (a aktivovat) stiskem klávesy <key name="_KSID_keyX_0001_FFFF_0001_0001" default="X"/>.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Image x1="48" x2="90" y1="5" y2="68" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\MinaKlic.jpg</Image>
+    <Text x1="10" x2="45" y1="5" y2="70">
+      Picard, Ripley stayed there, we gotta do something!<br/>
+      Hold on, you know how many there were ...<br/>
+      Picard! They did not kill her! We've gotta ...<br/>
+      Ok, ok, let's try it this way.
+    </Text>
+    <Image x1="10" y1="71">$GAME$\LevelImages.pkg\mina.png</Image>
+    <Text x1="20" x2="90" y1="71" y2="95">
+      A mine guards a surrounding area of 3x3 cells. It reacts to live creatures and explosions. It explodes following detection and a short delay.<br/>
+      Non-activated mine can be collected and then used (and activated) by pressing the <key name="_KSID_keyX_0001_FFFF_0001_0001" default="X"/> key.
     </Text>
   </Language>
 </LevelIntro>

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Pamatuješ na MiniSokoban?<br/>
       Tohle bude něco podobnýho. Jenom trochu těžší.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Do you remember MiniSokoban?<br/>
+      This will be something similar. Only harder.
     </Text>
   </Language>
 </LevelIntro>
