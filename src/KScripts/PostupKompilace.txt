@@ -1,7 +1,13 @@
 1. Chci li zmenit verzi: Uprav src\KScripts\Empty\ks_version.h (tvorba kompilovanych skriptu pak verzi o 1 zvysi)
 2. Spust Empty.bat - to vycisti kompilovane skripty a zapne jejich tvorbu
 3. Zbuildi ve studiu
-4. zapni krkala a zkompiluj v krkalovi. Myslim ze se muze kompilit jen jeden projekt - tedy nejnovejsi Krkal. Tedy krkal2_A1CF_6963_8DA6_D822.kc, takze life zrejme zustane interpretovany. Krkal timto vygeneruje cs do slozky new
+4. zapni krkala a zkompiluj v krkalovi. Myslim ze se muze kompilit jen jeden projekt - tedy nejnovejsi Krkal. Tedy krkal2_A1CF_6963_8DA6_D822.kc, takze life zrejme zustane interpretovany. Krkal timto vygeneruje cs do slozky new. Lze pouzit i Ctrl+C v Main Menu
 5. pridej cs do projektu pomoci new.bat (tim se take vypne generovani cs a smazou .code)
 6. zbuildi ve studiu
 7. pro produkcni verzi je dobre vsechny kc projekty v krkalovi opet prebuildit (krkal to jinak dela lazy pri prvnim spusteni levlu)
+	(1)Land Of Moles
+	(2)Tomy's 2 Ways
+	(14)3 Water Surfaces
+	(p04)Freezing Slime
+	Life
+	Morgue

@@ -763,7 +763,7 @@ int  CComCompiler::SECompile(CSEdScriptEdit *script, bool createCompiledScripts,
 		}
 	} else
 		if(showMsgBoxInfo)
-			Success();
+			Success(script->GetFileName());
 
 	if(warningNr)
 		warningNr = 0;
@@ -875,7 +875,7 @@ int CComCompiler::TestComp(const char* source, bool slowMode)
 			return cError;
 		}
 	} else
-		Success();
+		Success(source);
 
 	lexical->ReleaseOutput();
 	syntax->ReleaseOutput();
@@ -895,9 +895,12 @@ int CComCompiler::TestComp(const char* source, bool slowMode)
 	return cOK;
 }
 
-void CComCompiler::Success()
+void CComCompiler::Success(const char* source)
 {
-	GUIMessageBox("OK", "Compiled successfuly!");
+	char *buff = new char[strlen(source) + 64];
+	sprintf(buff, "Compiled successfuly!\n%s", source);
+	GUIMessageBox("OK", buff);
+	SAFE_DELETE_ARRAY(buff);
 }
 
 bool CComCompiler::DirtyOpTest()

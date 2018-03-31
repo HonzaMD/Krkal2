@@ -14,7 +14,7 @@ void KSNamesAssign() {
 	CKerName *name;
 
 
-	// New lines added 08/20/16 at 14:17:04.
+	// New lines added 03/31/18 at 09:26:12.
 
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_Constructor")) _KSID_Constructor = name;
 	if (name = KerMain->KerNamesMain->GetNamePointer("_KSID_LoadConstructor")) _KSID_LoadConstructor = name;

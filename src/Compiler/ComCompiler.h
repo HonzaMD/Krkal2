@@ -90,7 +90,7 @@ private:
 
 	bool slowMode;	// slowMode pro syntaktickou analyzu (testovani zavislosti jmen kvuli cyklum)
 
-	void Success();	// Pomocna funkce - akce po uspecne kompilaci)
+	void Success(const char* source);	// Pomocna funkce - akce po uspecne kompilaci)
 	CComPart* SetupForOB(CSEdScriptEdit *script, bool createCompiledScripts, bool resetUTab);	// nastavi kompilator na kompilaci pro object browser (preklad konci semantickou analyzou)
 	CComPart* SetupForComplete(const char* source, bool resetUTab);		// nastavi kompilator pro kompletni preklad s generovanim kodu i kompilovanych skriptu
 	bool DirtyOpTest();			// vraci true, pokud se po kompilaci vyskytly nevyresene neciste operace
