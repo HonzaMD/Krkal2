@@ -1,0 +1,115 @@
+#head
+game	Krkal
+author	pal
+version	BC56_682F_83D4_BD48
+include krkal2_A1CF_6963_8DA6_D822.kc
+#endhead
+
+objectname oSudokuTrigger;
+depend oPrepinace << oSudokuTrigger;
+
+voidname SudokuCisla;
+depend SudokuCisla << { mina, oKamen, oKrabice, oPneumatika, oLedovaKoule, oNitroGlycerin };
+
+object oSudokuTrigger inherit 
+{
+	edit {OutMap, UserName="en{{Sudoku Switch}}cs{{Sudoku pøepínaè}}", Comment="en{{This switch does not have its own graphics, as it is not placed in the map, but in the global objects list instead. It behaves like a photocell, but the trigger area and the types of recognized objects are set in the level editor.}}cs{{Tento pøepínaè není v levlu reprezentován žádnou grafikou, není umísován do mapy, ale mezi globální objekty. Funguje podobnì jako fotobuòka s tím, že oblast, kde reaguje na objekty, a typy tìch objektù se zadávají až bìhem editace.}}"}
+
+	name OnOff edit {Auto = nOnOff};
+	
+	int citac;
+	inta citace;
+		
+	objptr triger;
+	
+	uconstructor() { 
+		OnOff = Off;
+		citac = 0;
+		citace = new inta;
+		int i;
+		for (i=0; i<6; i++)		
+			citace[i]=0;
+		triger = onull;
+	}
+	constructor() {
+		x1=0; y1=0; x2=0; y2=0;
+		citace = new inta;
+		int i;
+		for (i=0; i<6; i++)		
+			citace[i]=0;
+	}
+	
+	cconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+
+	lconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+	
+	destructor() 
+	{
+		delete citace;
+	}
+	
+	area2D trigger edit {Editable, UserName="en{{Trigger area}}cs{{Hlídaná oblast}}", Comment = "en{{Trigger area. Here the switch looks for objects of type React.}}cs{{Oblast kterou pøepínaè hlídá, jestli se tam nevyskytne obekt typu Reaguj}}"} {
+		int x1,y1;
+		int x2,y2;
+	}
+	
+	void ::Activate() {
+		triger = new oAreaTrigger;
+		triger->SetPosSz(::X1:x1,::Y1:y1,::X2:x2,::Y2:y2);
+		triger->SetClzGr(::AddGr: SudokuCisla, ::Redirect:this);
+		@PlaceObjToMap(triger);
+		@MvConnectObjs(triger,this);
+	}
+		
+	direct void DoPrep(int hned) 
+	{		
+		if (hned) Prepni(); else Prepni() nextturn;
+		
+		if (OnOff==On) OnOff=Off; else OnOff = On;
+		@ResetAuto(this,0,1);		
+	}	
+	
+	void @TriggerOn(objptr @Object, name @ObjType) {
+		if (!triger) return;
+		
+		int objIdx;				
+		if (@ObjType == mina) objIdx = 0;
+		else if (@ObjType == oKamen) objIdx = 1;		
+		else if (@ObjType == oKrabice) objIdx = 2;
+		else if (@ObjType == oPneumatika) objIdx = 3;
+		else if (@ObjType == oLedovaKoule) objIdx = 4;
+		else if (@ObjType == oNitroGlycerin) objIdx = 5;
+		else return;
+
+		citace[objIdx]++;
+		if (citace[objIdx] == 1) citac++;
+				
+		if (OnOff==Off && citac == 6) DoPrep(0);
+	}
+	void @TriggerOff(objptr @Object, name @ObjType) {
+		if (!triger) return;
+		
+		int objIdx;				
+		if (@ObjType == mina) objIdx = 0;
+		else if (@ObjType == oKamen) objIdx = 1;		
+		else if (@ObjType == oKrabice) objIdx = 2;
+		else if (@ObjType == oPneumatika) objIdx = 3;
+		else if (@ObjType == oLedovaKoule) objIdx = 4;
+		else if (@ObjType == oNitroGlycerin) objIdx = 5;
+		else return;
+				
+		citace[objIdx]--;
+		if (citace[objIdx] == 0) citac--;
+
+		if (OnOff==On && citac < 6) DoPrep(0);
+	}	
+	void @MapRemoved() {
+		delete triger;
+		triger = onull;
+		if (OnOff==On) DoPrep(1);
+	}	
+}
