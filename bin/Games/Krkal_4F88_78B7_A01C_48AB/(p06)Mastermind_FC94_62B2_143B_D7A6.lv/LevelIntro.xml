@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
   <Language name="cs">
-    <Text x1="10" x2="90" y1="5" y2="90">
+    <Text x1="10" x2="90" y1="5" y2="96">
       Klasický mastermind.<br/>
       Teda skoro.<br/>
       Budeš hádat tajnou kombinaci tvořenou ze 4 typů dopravních značek (přikázaný směr, zákaz vjezdu, 60 a konec 60). Kód má délku 6 značek.<br/>
@@ -17,7 +17,7 @@
     </Text>
   </Language>
   <Language name="en">
-    <Text x1="10" x2="90" y1="5" y2="90">
+    <Text x1="10" x2="90" y1="5" y2="96">
       Traditional Mastermind.<br/>
       That is, almost.<br/>
       You'll be guessing a secret combination formed by 4 types of traffic signs (Mandatory direction sign, No Entry, Speed Limit 60, End of 60). Code has 6 signs.<br/>

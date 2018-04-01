@@ -11,7 +11,7 @@
   <Language name="en">
     <Image x1="55" x2="90" y1="5" y2="87" vAlign="-1" hAlign="2">$GAME$\LevelImages.pkg\Prisera.jpg</Image>
     <Text x1="10" x2="52" y1="5" y2="70">
-      These are really dangerous, as soon as they see you, the come after you.<br/>
+      These are really dangerous, as soon as they see you, they come after you.<br/>
       Maybe it's possible to lure them one by one into some trap.<br/>
       We should probably pray to our patron.
     </Text>
