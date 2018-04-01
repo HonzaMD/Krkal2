@@ -1,0 +1,107 @@
+#head
+game	Krkal
+author	pal
+version	A954_B127_458E_45D3
+include krkal2_A1CF_6963_8DA6_D822.kc
+#endhead
+
+objectname oMineSweeper;
+
+objptra oMineSweeper::objs;
+
+methodname PlaceHints;
+
+object oMineSweeper 
+{
+	edit {OutMap, UserName="en{{MineSweeper}}cs{{MineSweeper}}", Comment="en{{MineSweeper generator.}}cs{{MineSweeper generator.}}"}
+	
+	cell2D edit {Editable, UserName = "en{{MineField}}cs{{MineField}}", Comment = "en{{}}cs{{}}"} 
+	{ 
+		int X1 edit {DefaultValue=0}, Y1 edit {DefaultValue=0};
+	}
+	cell2D edit {Editable, UserName = "en{{MineField}}cs{{MineField}}", Comment = "en{{}}cs{{}}"} 
+	{ 
+		int X2 edit {DefaultValue=0}, Y2 edit {DefaultValue=0};
+	}
+	
+	int MineCount edit {DefaultValue=40};
+		
+	cconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+
+	lconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+	
+	void @LoadGame()
+	{
+		PlaceHints() message;
+	}
+
+	void ::Activate() 
+	{			
+		int i = 0;
+		int sx = X2-X1;
+		int sy = Y2-X1;
+		while(i < MineCount)
+		{		
+			int x = X1+1+@randInt(sx-2);
+			int y = Y1+1+@randInt(sy-2);
+
+			int m;
+			@FindObjsInArea(::objs,onull,oDira,x,y,x,y);
+			m = ::objs->GetCount();
+			if (m > 0)
+				continue; //uz tam dira je
+				
+			@FindObjsInArea(::objs,onull,oDira,x-1,y-1,x+1,y-1);
+			if (::objs->GetCount() >= 2) continue;
+			@FindObjsInArea(::objs,onull,oDira,x-1,y+1,x+1,y+1);
+			if (::objs->GetCount() >= 2) continue;
+			@FindObjsInArea(::objs,onull,oDira,x-1,y-1,x-1,y+1);
+			if (::objs->GetCount() >= 2) continue;
+			@FindObjsInArea(::objs,onull,oDira,x+1,y-1,x+1,y+1);
+			if (::objs->GetCount() >= 2) continue;
+
+			objptr o = new oDira;
+			@WriteObjCoords(o, x*40, y*40);
+			@PlaceObjToMapKill(o);		
+			i++;
+		}
+		
+		PlaceHints();		
+	}
+	
+	void PlaceHints() {		
+		int xx;
+		int yy;
+		int x;
+		int y;
+		for(xx = X1; xx <= X2; xx++)
+		{
+			for(yy = Y1; yy <= Y2; yy++)
+			{
+				int m = 0;
+				@FindObjsInArea(::objs,onull,oDira,xx-1,yy-1,xx+1,yy+1);
+				m = ::objs->GetCount();
+				if(m>0)
+				{
+					char r,g,b;
+					switch(m)
+					{
+					case 1: r=0;g=0;b=255;break;
+					case 2: r=255;g=0;b=0;break;
+					case 3: r=0;g=255;b=0;break;
+					case 4: r=255;g=0;b=255;break;
+					case 5: r=255;g=255;b=0;break;
+					case 6: r=0;g=255;b=255;break;
+					case 7: r=255;g=255;b=255;break;
+					case 8: r=255;g=255;b=255;break;
+					}
+					@AddLight(xx*40, yy*40, 10, r, g, b, 20);
+				}
+			}
+		}
+	}
+}	
