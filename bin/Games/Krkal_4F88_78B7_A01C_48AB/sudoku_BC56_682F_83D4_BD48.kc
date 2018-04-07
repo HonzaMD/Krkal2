@@ -25,18 +25,11 @@ object oSudokuTrigger inherit
 	uconstructor() { 
 		OnOff = Off;
 		citac = 0;
-		citace = new inta;
-		int i;
-		for (i=0; i<6; i++)		
-			citace[i]=0;
+		citace = anullint;
 		triger = onull;
 	}
 	constructor() {
 		x1=0; y1=0; x2=0; y2=0;
-		citace = new inta;
-		int i;
-		for (i=0; i<6; i++)		
-			citace[i]=0;
 	}
 	
 	cconstructor() {
@@ -49,7 +42,10 @@ object oSudokuTrigger inherit
 	
 	destructor() 
 	{
+		delete triger;
+		triger = onull;
 		delete citace;
+		citace = anullint;
 	}
 	
 	area2D trigger edit {Editable, UserName="en{{Trigger area}}cs{{Hlídaná oblast}}", Comment = "en{{Trigger area. Here the switch looks for objects of type React.}}cs{{Oblast kterou pøepínaè hlídá, jestli se tam nevyskytne obekt typu Reaguj}}"} {
@@ -58,6 +54,12 @@ object oSudokuTrigger inherit
 	}
 	
 	void ::Activate() {
+		citac = 0;
+		citace = new inta;
+		int i;
+		for (i=0; i<6; i++)		
+			citace[i]=0;
+
 		triger = new oAreaTrigger;
 		triger->SetPosSz(::X1:x1,::Y1:y1,::X2:x2,::Y2:y2);
 		triger->SetClzGr(::AddGr: SudokuCisla, ::Redirect:this);
@@ -106,10 +108,5 @@ object oSudokuTrigger inherit
 		if (citace[objIdx] == 0) citac--;
 
 		if (OnOff==On && citac < 6) DoPrep(0);
-	}	
-	void @MapRemoved() {
-		delete triger;
-		triger = onull;
-		if (OnOff==On) DoPrep(1);
 	}	
 }
