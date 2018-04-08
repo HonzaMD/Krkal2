@@ -4,23 +4,18 @@
     <Text x1="10" x2="90" y1="5" y2="70">
       Koneènı automat je teoretickı vıpoèetní model pouívanı v informatice pro studium formálních jazykù. 
 	  Popisuje velice jednoduchı poèítaè, kterı mùe bıt v jednom z nìkolika stavù, mezi kterımi pøechází na základì symbolù, které ète ze vstupu. 
-	  Mnoina stavù je koneèná (odtud název), koneènı automat nemá ádnou další pamì, kromì informace o aktuálním stavu.
-	  Koneènı automat je velice jednoduchı vıpoèetní model, dokáe rozpoznávat pouze regulární jazyky.
+	  Mnoina stavù je koneèná, koneènı automat nemá ádnou další pamì, kromì informace o aktuálním stavu.
 	  <br/>
-	  Formálnì je koneènı automat definován jako uspoøádaná pìtice (S,E,q,s,A), kde:<br/>
-	  S je koneèná neprázdná mnoina stavù,<br/>
-      E je koneèná neprázdná mnoina vstupních symbolù, nazıvaná abeceda,<br/>
-      q je tzv. pøechodová funkce (té pøechodová tabulka), popisující pravidla pøechodù mezi stavy (S × E -> S),<br/>
-      s je poèáteèní stav, s prvek S,<br/>
-      A je mnoina pøijímajících stavù, A podmnoina S.	<br/>
-      Na poèátku se automat nachází v definovaném poèáteèním stavu. 
-	  Dále v kadém kroku pøeète jeden symbol ze vstupu a pøejde do stavu, kterı je dán hodnotou, která v pøechodové tabulce odpovídá aktuálnímu stavu a pøeètenému symbolu. 
-	  Poté pokraèuje ètením dalšího symbolu ze vstupu, dalším pøechodem podle pøechodové tabulky atd.<br/>
-      Podle toho, zda automat skonèí po pøeètení vstupu ve stavu, kterı patøí do mnoiny pøijímajících stavù, platí, e automat buï danı vstup pøijal, nebo nepøijal.
-	  Mnoina všech øetìzcù, které danı automat pøijme, tvoøí regulární jazyk.<br/>
-	  Hmm...<br/>
-	  Krásnı...<br/>
-	  Ale, co s tím sakra mám dìlat?!<br/>
+	  V tomto levelu je nìkolik automatù umístìnıch v øadì vedle sebe, øada automatù je ohranièená zelenou krabicí.<br/>
+	  Mnonina stavù automatu je tvoøena dopravními znaèkami (zákaz vjezdu a 60) a prázdnım políèkem.<br/>
+	  Kadı automat (jedno políèko v øadì) vidí pouze svùj stav a stav svého souseda nalevo a napravo (automat, kterı je na kraji øady, to pozná podle toho, e jeden jeho soused je zelená krabice).<br/>
+	  Automat se rozhoduje pomocí pøechodové funkce, která je definována tabulkou. 
+	  Kadı øádek tabulky je tvoøenı trojicí stavù (stav políèka nalevo, stav automatu uprostøed, stav políèka na pravo) a cílovım stavem, do kterého prostøední automat pøejde.<br/>
+	  Celá øada automatù se rozhodne najednou ve stejnı èas.<br/>
+	  Novı stav celé øady automatù se zapíše na novı øádek pod pùvodní vstup. Pak se celı vıpoèet opakuje na dalším øádku.<br/>
+	  Pøechodová funkce se definuje pomocí tabulek v levé èásti levelu (dva lutì nasvícené sloupce). Pokud by tabulka obsahovala vícekrát stejnou trojici vstupních stavù, tak má pøednost levá tabulka, pokud jsou ve 
+	  stejné tabulce tak má pøednost øádek, kterı je víc nahoøe. Pokud tabulka neobsahuje odpovídající trojici vstupních stavù, tak vıslednı stav bude prázné políèko.<br/>
+	  Tvım úkolem bude sestavit pøechodovou funkci automatu tak, aby si posbíral všechny potøebné klíèe.
     </Text>
   </Language>
 </LevelIntro>
