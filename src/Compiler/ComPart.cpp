@@ -614,6 +614,14 @@ int CComPart::StartFile(const char* fileName, CComPosition* inclPos)
 
 	assert(fileName);
 
+	int recID = pTab->Find(fileName);
+	if (included.Find(recID) != cUnknown)
+	{
+		newRec = (CComOBPreprocessor*)pTab->Get(recID);
+		if (newRec->type == pteFileName)
+			return cError;
+	}
+
 	if(inclPos)
 	{
 		tmp = inclPos->file;
@@ -628,7 +636,9 @@ int CComPart::StartFile(const char* fileName, CComPosition* inclPos)
 		if(SEdOpenedFiles && (edit = SEdOpenedFiles->FindScripEdit(fullName)))
 		{
 			SAFE_DELETE_ARRAY(fullName);
-			return StartFromWindow(edit);
+			int ret = StartFromWindow(edit);
+			included.Add(pos.fileID);
+			return ret;
 		}
 
 		SAFE_DELETE_ARRAY(fullName);
@@ -636,14 +646,6 @@ int CComPart::StartFile(const char* fileName, CComPosition* inclPos)
 
 	FS->ChangeDir("$GAME$");
 	FS->ChangeDir(startDir);
-
-	int recID = pTab->Find(fileName);
-	if(included.Find(recID) != cUnknown)
-	{
-		newRec = (CComOBPreprocessor*)pTab->Get(recID);
-		if(newRec->type == pteFileName)
-			return cError;
-	}
 
 	CComPosition newPos(fileName);
 
