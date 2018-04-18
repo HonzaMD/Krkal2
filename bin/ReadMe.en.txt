@@ -79,7 +79,7 @@ WEBSITE
 SYSTEM REQUIREMENTS
 ===================
 
- # MS Windows 10, 8, 7, XP
+ # MS Windows 10, 8, 7, (XP?)
  # DirectX 8.1 or higher 
  # Computer and DX graphics card from 2004 or newer.
 

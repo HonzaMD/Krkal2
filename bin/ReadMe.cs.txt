@@ -78,7 +78,7 @@ INTERNETOVÉ STRÁNKY
 POŽADAVKY NA SYSTÉM
 ===================
 
- # MS Windows 10, 8, 7, XP
+ # MS Windows 10, 8, 7, (XP?)
  # DirectX 8.1 nebo novější 
  # Počítač a DX grafická karta z roku 2004 či novější
 
