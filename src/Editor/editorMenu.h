@@ -195,6 +195,8 @@ protected:
 
 	CGUIEditWindow *edAutor;
 	char *autor;
+	CGUIEditWindow *edCsName;
+	char *csName;
 	CGUICheckBox *cbSkip, *cbEditable, *cbPLayable;
 };
 

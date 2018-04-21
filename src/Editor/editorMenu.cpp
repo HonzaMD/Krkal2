@@ -1555,7 +1555,7 @@ const char *GetFileName(const char *path) {
 }
 
 CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
-:CGUIDlgOkCancel(_x, _y, 400, 265, "en{{Level Properties}}cs{{Vlastnosti levelu}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)), false)
+:CGUIDlgOkCancel(_x, _y, 440, 295, "en{{Level Properties}}cs{{Vlastnosti levelu}}", new CGUIRectHost(0, 0, styleSet->Get("BUT_NameBrowser_Up")->GetTexture(0)), false)
 {
 	autogrowing = 0;
 	title->SetButtons(true, false, false);
@@ -1573,7 +1573,7 @@ CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
 		strcpy_s(autor, STRINGLEN, KerMain->LevelInfo.Author);
 
 
-	edAutor = new CGUIEditWindow(80, 13, 260);
+	edAutor = new CGUIEditWindow(120, 13, 260);
 	edAutor->SetTabOrder(2.1f);
 	edAutor->SelectOnFocus();
 	edAutor->BindAttribute(autor, dtString, STRINGLEN + 1, 0);
@@ -1581,38 +1581,55 @@ CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
 	AddBackElem(edAutor);
 	edAutor->Sync(0);
 
-	AddBackElem(new CGUIStaticText("en{{Music:}}cs{{Hudba:}}", font, 10, 45, STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Czech name:}}cs{{Èeský název:}}", font, 10, 45, STD_DLG_TEXT_COLOR));
+
+	csName = new char[STRINGLEN + 5];
+	*csName = 0;
+	CFSRegKey *k;
+	if (KerMain->LevelInfo.LocalNames && (k = KerMain->LevelInfo.LocalNames->FindKey("cs")))
+		strcpy_s(csName, STRINGLEN, k->GetDirectAccess());
+
+
+	edCsName = new CGUIEditWindow(120, 43, 260);
+	edCsName->SetTabOrder(2.2f);
+	edCsName->SelectOnFocus();
+	edCsName->BindAttribute(csName, dtString, STRINGLEN + 1, 0);
+	edCsName->AcceptEvent(GetID(), EOk);
+	AddBackElem(edCsName);
+	edCsName->Sync(0);
+
+	AddBackElem(new CGUIStaticText("en{{Music:}}cs{{Hudba:}}", font, 10, 75, STD_DLG_TEXT_COLOR));
 	if (KerMain->LevelInfo.Music) {
-		AddBackElem(new CGUIStaticText(GetFileName(KerMain->LevelInfo.Music), font, 80, 45, STD_DLG_TEXT_COLOR));
+		AddBackElem(new CGUIStaticText(GetFileName(KerMain->LevelInfo.Music), font, 120, 75, STD_DLG_TEXT_COLOR));
 	}
-	AddBackElem(new CGUIStaticText("en{{Use package browser to set music.}}cs{{K nastavení hudby použij package browser.}}", font, 80, 70, STD_DLG_TEXT_COLOR));
+	AddBackElem(new CGUIStaticText("en{{Use package browser to set music.}}cs{{K nastavení hudby použij package browser.}}", font, 120, 100, STD_DLG_TEXT_COLOR));
 
 
-	cbSkip = new CGUICheckBox(10, 100, new CGUIStaticText("en{{Allow To Skip Level}}cs{{Dovol pøeskoèit level}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbSkip = new CGUICheckBox(10, 130, new CGUIStaticText("en{{Allow To Skip Level}}cs{{Dovol pøeskoèit level}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbSkip->ChangeState(KerMain->LevelInfo.Tags & eMMLTskipable);
 	cbSkip->SetMark(true);
 	cbSkip->SetTabOrder(3);
 	AddBackElem(cbSkip);
 
-	cbEditable = new CGUICheckBox(10, 130, new CGUIStaticText("en{{Allways Editable}}cs{{Vždy editovatelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbEditable = new CGUICheckBox(10, 160, new CGUIStaticText("en{{Allways Editable}}cs{{Vždy editovatelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbEditable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwEditable);
 	cbEditable->SetMark(true);
 	cbEditable->SetTabOrder(4);
 	AddBackElem(cbEditable);
 
-	cbPLayable = new CGUICheckBox(10, 160, new CGUIStaticText("en{{Allways Playable}}cs{{Vždy hratelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
+	cbPLayable = new CGUICheckBox(10, 190, new CGUIStaticText("en{{Allways Playable}}cs{{Vždy hratelný}}", font, 0, 0, 0xFF000000), 0, 1, 0xFF000000);
 	cbPLayable->ChangeState(KerMain->LevelInfo.Tags & eMMLTalwAccess);
 	cbPLayable->SetMark(true);
 	cbPLayable->SetTabOrder(4);
 	AddBackElem(cbPLayable);
 
 
-	ok = new CGUIButton(80, 200, 50, 25, "GUI.But.Std", "OK");
+	ok = new CGUIButton(100, 230, 50, 25, "GUI.But.Std", "OK");
 	ok->SetTabOrder(1000);
 	ok->SetMark(1);
 	AddBackElem(ok);
 
-	cancel = new CGUIButton(270, 200, 50, 25, "GUI.But.Std", "Cancel");
+	cancel = new CGUIButton(290, 230, 50, 25, "GUI.But.Std", "Cancel");
 	cancel->SetTabOrder(1001);
 	cancel->SetMark(1);
 	AddBackElem(cancel);
@@ -1627,6 +1644,7 @@ CEDLevelPropertiesDlg::CEDLevelPropertiesDlg(float _x, float _y)
 CEDLevelPropertiesDlg::~CEDLevelPropertiesDlg()
 {
 	SAFE_DELETE_ARRAY(autor);
+	SAFE_DELETE_ARRAY(csName);
 }
 
 
@@ -1637,6 +1655,18 @@ int CEDLevelPropertiesDlg::Ok()
 	SAFE_DELETE_ARRAY(KerMain->LevelInfo.Author);
 	if (autor && *autor)
 		KerMain->LevelInfo.Author = newstrdup(autor);
+
+	edCsName->Sync(1);
+	CFSRegKey *k;
+	if (KerMain->LevelInfo.LocalNames && (k = KerMain->LevelInfo.LocalNames->FindKey("cs")))
+		KerMain->LevelInfo.LocalNames->DeleteKey(k);
+	if (csName[0]) 
+	{
+		if (!KerMain->LevelInfo.LocalNames)
+			KerMain->LevelInfo.LocalNames = new CFSRegister();
+		KerMain->LevelInfo.LocalNames->AddKey("cs", FSRTstring)->stringwrite(csName);
+	}
+	MMLevelDirs->InvalidateDir("$GAME$");
 
 	if (cbSkip->GetState())
 		KerMain->LevelInfo.Tags |= eMMLTskipable;
