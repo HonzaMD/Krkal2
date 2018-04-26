@@ -8,7 +8,12 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Krkal2"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
+!ifdef OutputUninst
+OutFile "makeuninst.exe"
+!else
 SetCompressor /SOLID lzma
+OutFile "Krkal25.exe"
+!endif
 ;Properly display all languages (Installer will not work on Windows 95, 98 or ME!)
 Unicode true
 
@@ -75,8 +80,10 @@ Page custom ResolutionPage ResolutionPageLeave
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
+!ifndef UseUninst
 !insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_INSTFILES
+!endif
 
 ; Language files
 !insertmacro MUI_LANGUAGE "Czech"
@@ -96,7 +103,6 @@ LicenseLangString MUILicense ${LANG_CZECH} "licence.rtf"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 InstallDir "C:\Krkal2"
-OutFile "Krkal25.exe"
 ShowInstDetails show
 ShowUnInstDetails show
 
@@ -115,6 +121,10 @@ Var Label3
 
 
 Function .onInit
+!ifdef OutputUninst
+  WriteUninstaller "$EXEDIR\uninst.exe"
+  Quit
+!endif
   !insertmacro MUI_LANGDLL_DISPLAY
   StrCpy $StyleRB1_State ${BST_CHECKED}
   StrCpy $StyleRB2_State ${BST_UNCHECKED}
@@ -304,7 +314,13 @@ SectionEnd
 
 Section -Post
 ${If} $StyleRB3_State == ${BST_UNCHECKED}
+!ifndef OutputUninst & UseUninst
   WriteUninstaller "$InstDir2\uninst.exe"
+!endif
+!ifdef UseUninst
+  SetOutPath $InstDir2
+  File "uninst.exe"
+!endif
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$InstDir2\uninst.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$InstDir2\KRKAL.exe"
@@ -316,7 +332,7 @@ ${If} $StyleRB3_State == ${BST_UNCHECKED}
 ${EndIf}
 SectionEnd
 
-
+!ifndef UseUninst
 Function un.onUninstSuccess
   HideWindow
   MessageBox MB_ICONINFORMATION|MB_OK "$(txtRemoved)"
@@ -392,3 +408,5 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${un.ProgramUninstall} "$(txtUnProgramDesc)"
   !insertmacro MUI_DESCRIPTION_TEXT ${un.DataUninstall} "$(txtUnDataDesc)"
 !insertmacro MUI_UNFUNCTION_DESCRIPTION_END
+
+!endif
