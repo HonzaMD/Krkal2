@@ -41,7 +41,7 @@ char* credittextcs[]={
 
 	"INTERNETOVÉ STRÁNKY",
 
-	"www.krkal.org",
+	"https://www.krkal.org",
     "https://github.com/HonzaMD/Krkal2",
 
 
@@ -83,7 +83,7 @@ char* credittexten[]={
 
 	"KRKAL HOMEPAGE",
 
-	"www.krkal.org",
+	"https://www.krkal.org",
 	"https://github.com/HonzaMD/Krkal2",
 
 	"LICENSE",
@@ -130,7 +130,7 @@ char* helptextcs[]={
    "TECHNICKÁ PODPORA, INFORMACE, NÁPOVÌDA",
 
    "Velké množství informací najdete pøímo v dokumentaci, která je souèástí Krkala (v adresáøi Dokumentace.CS). V dokumentaci najdete popis objektù ve høe Krkal a jak ovládat editor. Další informace naleznete na našich webových stránkách:",
-   "      www.krkal.org",
+   "      https://www.krkal.org",
    "Na náš email nám mùžete posílat námìty, levely, žádosti o rady, pøipomínky, hlášení chyb, ...:",
    "      support@krkal.org",
 
@@ -168,8 +168,8 @@ char* helptexten[]={
 
 	"TECHNICAL SUPPORT, INFORMATION, HELP",
 
-	"Extensive volume of information is directly in the documentation, which is part of Krkal (in the directory Documentation.EN). The documentation includes description of objects in Krkal and how to control the editor. More documentation is on our website:",
-	"      www.krkal.org",
+	"Extensive volume of information is directly in the documentation, which is part of Krkal (in the directory Documentation.EN). The documentation includes description of objects in Krkal and how to control the editor. More information is on our website:",
+	"      https://www.krkal.org",
 	"You can email us your ideas, levels, inquiries for advice, comments, bug reports, ...:",
 	"      support@krkal.org",
 

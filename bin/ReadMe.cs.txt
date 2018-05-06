@@ -71,7 +71,7 @@ levely
 INTERNETOVÉ STRÁNKY
 ===================
 
-      www.krkal.org
+      https://www.krkal.org
       https://github.com/HonzaMD/Krkal2
 
 
@@ -139,7 +139,7 @@ součástí Krkala (v adresáři Dokumentace.CS). V dokumentaci najdete popis
 objektů ve hře Krkal a jak ovládat editor.
 Další informace naleznete na našich webových stránkách:
 
-	www.krkal.org
+	https://www.krkal.org
 	
 Na náš email nám můžete posílat náměty, levely, žádosti o rady, 
 připomínky, hlášení chyb, ...:

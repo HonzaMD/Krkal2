@@ -72,7 +72,7 @@ levels
 WEBSITE
 =======
 
-      www.krkal.org
+      https://www.krkal.org
       https://github.com/HonzaMD/Krkal2
 
 
@@ -139,9 +139,9 @@ TECHNICAL SUPPORT, INFORMATION, HELP
 Extensive volume of information is directly in the documentation, which is
 part of Krkal (in the directory Documentation.EN). The documentation includes
 description of objects in Krkal and how to control the editor.
-More documentation is on our website:
+More information is on our website:
 
-	www.krkal.org
+	https://www.krkal.org
 	
 You can email us your ideas, levels, inquiries for advice, comments,
 bug reports, ...:

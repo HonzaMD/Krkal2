@@ -74,5 +74,5 @@ levely
 ## INTERNETOVÉ STRÁNKY
 
 
-www.krkal.org  
+https://www.krkal.org  
 https://github.com/HonzaMD/Krkal2

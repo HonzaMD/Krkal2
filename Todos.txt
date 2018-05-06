@@ -1,9 +1,6 @@
-* setup (done)
-	* podepisovani
 * stranky
-	* google analytics
 	* levly
-	* ? banery, ikony
+	* krkal 1 veci
 * propagace
 
 * ? vymena levlu (skladiste na strankach)
