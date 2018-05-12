@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Hledání min.<br/>
       Klasika.<br/>
       Tady je to spíš hledání děr.<br/>
-	  Schválně kolik jich najdeš :)<br/>
-	  Brrrrrmbrmbrm.<br/>
+      Schválně kolik jich najdeš :)<br/>
+      Brrrrrmbrmbrm.<br/>
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Mine finding.<br/>
+      Classic.<br/>
+      But actually here it is hole finding.<br/>
+      So, how many will you find? :)<br/>
+	    Brrrrrmbrmbrm.<br/>
     </Text>
   </Language>
 </LevelIntro>

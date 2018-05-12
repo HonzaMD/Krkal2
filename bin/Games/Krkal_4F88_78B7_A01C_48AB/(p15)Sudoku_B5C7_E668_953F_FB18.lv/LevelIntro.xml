@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
       Sudoku 6x6?<br/>
       To je pro malý děti.<br/>
       Hmm. Ale jak tam všechna ta "čísla" dostat?<br/>
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Sudoku 6x6?<br/>
+      That’s child’s play.<br/>
+      Hmm. But how do all the "numbers" get there?<br/>
     </Text>
   </Language>
 </LevelIntro>
