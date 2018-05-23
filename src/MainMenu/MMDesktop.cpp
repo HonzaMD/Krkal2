@@ -195,6 +195,12 @@ int CMMDesktop::ShowMainMenu()
 	DefaultHandler->donate = donate->GetID();
 	donate->AcceptEvent(DefaultHandler->GetID(), EClicked);
 
+	CGUIButton *cfg = new CGUIButton(0, 0, -1, -1, "GUI.But.MMCfg", "", 0);
+	cfg->GetSize(x, y);
+	cfg->Move(scX(510), sy - y - 8);
+	AddBackElem(cfg);
+	DefaultHandler->cfg = cfg->GetID();
+	cfg->AcceptEvent(DefaultHandler->GetID(), EClicked);
 
 	CGUIButton *exit = new CGUIButton(0,0,-1,-1,"GUI.But.MMExit","",0);
 	exit->GetSize(x,y);
@@ -657,7 +663,7 @@ int CMMDesktop::PlayLevel(CMMDirFile *levelFile, int restart)
 
 CMMDesktopHandler::CMMDesktopHandler()
 {
-	mmLeft = mmRight = play = exit = editlevel = editscript = help = donate = donateOpen = about = restartlevel = levelsel = regbrow = 0;
+	mmLeft = mmRight = play = exit = editlevel = editscript = help = donate = donateOpen = cfg = cfgOpen = about = restartlevel = levelsel = regbrow = 0;
 }
 
 void CMMDesktopHandler::EventHandler(CGUIEvent *event)
@@ -702,6 +708,12 @@ void CMMDesktopHandler::EventHandler(CGUIEvent *event)
 			donateOpen = dlgd->GetID();
 			dlgd->AcceptEvent(GetID(), EOk);
 		}
+		else if (event->sender == cfg)
+		{
+			CGUIMessageBox *dlgd = GUIMessageBoxOkCancel("en{{Restart and Edit Configuration?}}cs{{Restartovat a Editovat Konfiguraci?}}", "en{{Do you want to edit game's configuration file?\nWhen you close the editor, Krkal will start again.}}cs{{Chceš editovat konfiguraèní soubor hry?\nKrkal se poté, co zavøeš editor, opìt nastartuje.}}", 1);
+			cfgOpen = dlgd->GetID();
+			dlgd->AcceptEvent(GetID(), EOk);
+		}
 		else if(event->sender==mmLeft)
 		{
 			MMDesktop->levBrowser->MoveLeft();
@@ -723,6 +735,19 @@ void CMMDesktopHandler::EventHandler(CGUIEvent *event)
 		system(cmd);
 		SAFE_DELETE_ARRAY(fullPath);
 		SAFE_DELETE_ARRAY(cmd);
+	}
+
+	if (event->eventID == EOk && event->sender == cfgOpen)
+	{
+		FS->ChangeDir("$cfg$");
+		char *fullPath;
+		FS->ParseString("$KRKAL$/krkal.cfg", &fullPath);
+		char *cmd = new char[strlen(fullPath) + 64];
+		sprintf(cmd, "start cmd /c \"notepad \"%s\" && krkal.exe\"", fullPath);
+		system(cmd);
+		SAFE_DELETE_ARRAY(fullPath);
+		SAFE_DELETE_ARRAY(cmd);
+		eventServer->SendPriorityEvent(ECommand, GetID(), mainGUI->handler->GetID(), 4);
 	}
 
 	if(event->eventID == EList )
