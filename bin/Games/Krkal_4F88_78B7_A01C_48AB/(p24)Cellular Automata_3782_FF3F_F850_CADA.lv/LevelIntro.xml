@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="windows-1250"?>
 <LevelIntro>
-  <Language name="en">
+  <Language name="cs">
     <Text x1="10" x2="90" y1="5" y2="70">
-      Konečný automat je teoretický výpočetní model používaný v informatice pro studium formálních jazyků. 
-	  Popisuje velice jednoduchý počítač, který může být v jednom z několika stavů, mezi kterými přechází na základě symbolů, které čte ze vstupu. 
-	  Množina stavů je konečná, konečný automat nemá žádnou další paměť, kromě informace o aktuálním stavu.
-	  <br/>
-	  V tomto levelu je několik automatů umístěných v řadě vedle sebe, řada automatů je ohraničená zelenou krabicí.<br/>
-	  Množnina stavů automatu je tvořena dopravními značkami (zákaz vjezdu a 60) a prázdným políčkem.<br/>
-	  Každý automat (jedno políčko v řadě) vidí pouze svůj stav a stav svého souseda nalevo a napravo (automat, který je na kraji řady, to pozná podle toho, že jeden jeho soused je zelená krabice).<br/>
-	  Automat se rozhoduje pomocí přechodové funkce, která je definována tabulkou. 
-	  Každý řádek tabulky je tvořený trojicí stavů (stav políčka nalevo, stav automatu uprostřed, stav políčka na pravo) a cílovým stavem, do kterého prostřední automat přejde.<br/>
-	  Celá řada automatů se rozhodne najednou ve stejný čas.<br/>
-	  Nový stav celé řady automatů se zapíše na nový řádek pod původní vstup. Pak se celý výpočet opakuje na dalším řádku.<br/>
-	  Přechodová funkce se definuje pomocí tabulek v levé části levelu (dva žlutě nasvícené sloupce). Pokud by tabulka obsahovala vícekrát stejnou trojici vstupních stavů, tak má přednost levá tabulka, pokud jsou ve 
-	  stejné tabulce tak má přednost řádek, který je víc nahoře. Pokud tabulka neobsahuje odpovídající trojici vstupních stavů, tak výsledný stav bude prázné políčko.<br/>
-	  Tvým úkolem bude sestavit přechodovou funkci automatu tak, aby si posbíral všechny potřebné klíče.
+      Zde najdeš pole konečných automatů. Každý automat přečte své 3 vstupy z řádky nad ním a zobrazí svůj výstup. Vyhodnocování probíhá od shora dolů, řádka po řádce. Tvým úkolem je zobrazit červené klíče na řádce poslední.
+      <br/><br/>
+      Jak na to? Naprogramuj automatům jejich přechodovou funkci. Pokud automat nalezne svůj vstup v tabulce přechodové funkce (první 3 pole), zobrazí 4. pole jako svůj výstup.
     </Text>
+    <Image x1="10" x2="45" y1="70" y2="90" vAlign="2" hAlign="2">$GAME$\LevelImages.pkg\Automata2.png</Image>
+    <Image x1="55" x2="90" y1="70" y2="90" vAlign="2" hAlign="-1">$GAME$\LevelImages.pkg\Automata1.png</Image>
   </Language>
 </LevelIntro>
