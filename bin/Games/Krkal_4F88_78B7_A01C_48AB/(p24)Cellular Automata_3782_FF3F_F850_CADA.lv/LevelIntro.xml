@@ -9,4 +9,13 @@
     <Image x1="10" x2="45" y1="70" y2="90" vAlign="2" hAlign="2">$GAME$\LevelImages.pkg\Automata2.png</Image>
     <Image x1="55" x2="90" y1="70" y2="90" vAlign="2" hAlign="-1">$GAME$\LevelImages.pkg\Automata1.png</Image>
   </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Here you will find a field of finite automata. Each automaton reads its 3 inputs from the row above it and displays its output. The evaluation is done from top to bottom, line by line. Your task is to display the red keys on the last line.
+      <br/><br/>
+      How to do it? Program the transition function used by the automata. If an automaton finds its input in the transition function table (the first 3 fields), it will display the fourth field as its output.
+    </Text>
+    <Image x1="10" x2="45" y1="70" y2="90" vAlign="2" hAlign="2">$GAME$\LevelImages.pkg\Automata2.png</Image>
+    <Image x1="55" x2="90" y1="70" y2="90" vAlign="2" hAlign="-1">$GAME$\LevelImages.pkg\Automata1.png</Image>
+  </Language>
 </LevelIntro>
