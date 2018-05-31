@@ -12,7 +12,7 @@
 void KSAssignKSOVs() {
 
 
-	// New lines added 03/31/18 at 09:26:12.
+	// New lines added 05/31/18 at 20:38:59.
 
 	new CKSKSOV("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001",&_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosX_0001_FFFF_0001_0001);
 	new CKSKSOV("_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001",&_KSOV_placeable_0001_FFFF_0001_0001__M__KN_ObjPosY_0001_FFFF_0001_0001);

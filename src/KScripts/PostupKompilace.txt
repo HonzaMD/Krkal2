@@ -8,6 +8,9 @@
 	(1)Land Of Moles
 	(2)Tomy's 2 Ways
 	(14)3 Water Surfaces
-	(p04)Freezing Slime
+	(p06)Mine Sweeper
+	(p10)Freezing Slime
+	(p15)Sudoku
+	(p24)Celular Automata
 	Life
 	Morgue

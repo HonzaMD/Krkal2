@@ -13,7 +13,7 @@ void KSAssignKSMs() {
 
 
 
-	// New lines added 03/31/18 at 09:26:12.
+	// New lines added 05/31/18 at 20:38:59.
 
 	new CKSKSM("_KSM_68__KN_MapPlaced_0001_FFFF_0001_0001",_KSM_68__KN_MapPlaced_0001_FFFF_0001_0001);
 	new CKSKSM("_KSM_79__KN_MoveEnded_0001_FFFF_0001_0001",_KSM_79__KN_MoveEnded_0001_FFFF_0001_0001);
