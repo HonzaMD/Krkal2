@@ -141,7 +141,7 @@ void CEDEditorMenuHandler::EventHandler(CGUIEvent *event)
 		msgBoxIndex = 5;
 	}
 
-	if (event->sender == icons[6])		// polozka editor menu - Level Properties
+	if (event->sender == icons[6] && KerMain)		// polozka editor menu - Level Properties
 	{
 		CEDLevelPropertiesDlg* dlg;
 		dlg = GetObjFromID<CEDLevelPropertiesDlg>(levelPropertiesDlgID);

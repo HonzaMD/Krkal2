@@ -35,6 +35,9 @@ výročí hry Krkal - 2017.
 
 * Program Krkal 2.5 je volně ke stažení, můžete program dál 
    bezplatně šířit. 
+* Při šíření nesmí být setup nebo archiv měněn a obohacován o nechtěné 
+   programy (PUP). Setup Krkala 2.5 je chráněn digitálním podpisem 
+   (Jan Krcek), při instalaci se ujistěte, že podpis je platný.
 * Zdarma dostáváte kompletní plnohodnotnou hru. Program neobsahuje
    reklamu, mikrotransakce ani žádný nechtěný či škodlivý kód.
 * Je možné program používat, modifikovat v něm vytvářené hry, tvořit 

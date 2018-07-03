@@ -48,6 +48,7 @@ char* credittextcs[]={
 	"LICENCE",
 
 	"Program Krkal 2.5 je volnì ke stažení, mùžete program dál bezplatnì šíøit.",
+	"Pøi šíøení nesmí být setup nebo archiv mìnìn a obohacován o nechtìné programy (PUP). Setup Krkala 2.5 je chránìn digitálním podpisem (Jan Krcek), pøi instalaci se ujistìte, že podpis je platný.",
 	"Zdarma dostáváte kompletní plnohodnotnou hru. Program neobsahuje reklamu, mikrotransakce ani žádný nechtìný èi škodlivý kód.",
 	"Je možné program používat, modifikovat v nìm vytváøené hry, tvoøit nové levly.",
 	"Program používáte na vaše vlastní nebezpeèí. Nepøebíráme zodpovìdnost za jakékoli škody vzniklé v souvislosti s používáním programu.",
@@ -89,6 +90,7 @@ char* credittexten[]={
 	"LICENSE",
 
 	"Program Krkal 2.5 is free to download, and it can be further distributed for free.",
+	"When distributing, the setup or archive must not be altered or bundled with unwanted programs (PUP). Krkal 2.5 setup is protected by a digital signature (Jan Krcek), make sure that the signature is valid when installing.",
 	"You get the complete game free. Program does not contain advertisements, micro-transactions or any unwanted or malicious code.",
 	"You may use the program, modify the games created within the system, create new levels.",
 	"You are using the program at your own risk. We do not assume any responsibility for any damages that arise relative to the use of the program.",
@@ -246,7 +248,7 @@ void CMainMenuHelp::ShowCredits()
 	yy+=30;
 	st=new CGUIStaticText(credittext[ti++],fn,xx,yy,nc,mx,0,aCenter);
 	st->GetSize(sxx,syy); yy+=syy+10; cw->AddBackElem(st);
-	for(int i=0;i<6;i++)
+	for(int i=0;i<7;i++)
 	{
 		st=new CGUIStaticText(credittext[ti],f,xx,yy,tc,mx,0,aCenter);
 		st->GetSize(sxx,syy);yy+=syy+10;cw->AddBackElem(st);
