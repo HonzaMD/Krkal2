@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="cs">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Tohle už tu jednou bylo, ne?<br/>
+      Tentokrát jsou ale v každé oblasti dva předměty.<br/>
+	  Proudy tentokrát neproběhneš, musíš se jim vyhnout.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+    </Text>
+  </Language>
+</LevelIntro>

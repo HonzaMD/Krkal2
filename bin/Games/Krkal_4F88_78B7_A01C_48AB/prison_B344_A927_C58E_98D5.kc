@@ -1,0 +1,194 @@
+#head
+game	Krkal
+author	pal
+version B344_A927_C58E_98D5
+include krkal2_A1CF_6963_8DA6_D822.kc
+#endhead
+
+objectname oPrisonTrigger;
+depend oPrepinace << oPrisonTrigger;
+
+voidname PrisonTarget;
+voidname PrisonTarget2;
+depend PrisonTarget << { oHemr, oPasovec, oDracek };
+
+objectname oPrisonDracek;
+objectname oPrisonHemr;
+objectname oPrisonPasovec;
+depend PrisonTarget2 << { oHemr, oPasovec, oDracek, oPrisonHemr, oPrisonPasovec, oPrisonDracek };
+
+objptra oPrisonTrigger::objs;
+objptra oPrisonTrigger::objs2;
+objptra oPrisonTrigger::objszn;
+
+object oPrisonTrigger inherit 
+{
+	edit {OutMap, UserName="en{{Prison Switch}}cs{{Prison pøepínaè}}", Comment="en{{This switch does not have its own graphics, as it is not placed in the map, but in the global objects list instead. It behaves like a photocell, but the trigger area and the types of recognized objects are set in the level editor.}}cs{{Tento pøepínaè není v levlu reprezentován žádnou grafikou, není umísován do mapy, ale mezi globální objekty. Funguje podobnì jako fotobuòka s tím, že oblast, kde reaguje na objekty, a typy tìch objektù se zadávají až bìhem editace.}}"}
+
+	name OnOff edit {Auto = nOnOff};
+				
+	uconstructor() { 
+		OnOff = Off;
+	}
+	constructor() {
+		x1=0; y1=0; x2=0; y2=0;
+	}
+	
+	cconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+
+	lconstructor() {
+		if (@IsGame()) ::Activate() message;
+	}
+	
+	destructor() 
+	{
+	}
+	
+	area2D trigger edit {Editable, UserName="en{{Trigger area}}cs{{Hlídaná oblast}}", Comment = "en{{Trigger area. Here the switch looks for objects of type React.}}cs{{Oblast kterou pøepínaè hlídá, jestli se tam nevyskytne obekt typu Reaguj}}"} {
+		int x1,y1;
+		int x2,y2;
+	}
+	
+	int CellsLeft edit {Editable, EditType = number, Comment = "en{{Number of emtpy cells left.}}cs{{Zbyvajici pocet volnych cel.}}"};
+	
+	void ::Activate() {
+		if (@IsGame()) ::EveryTurn();	
+	}
+
+	direct int IsCollision(objptr o, objptra objs,int acx, int acy)
+	{
+		objptr o2;
+		int f;
+		int x,y,z;
+		int sx,sy,sz;
+		int sx2,sy2,sz2;
+		
+		@FindObjCell(o,&sx,&sy,&sz);
+		
+		@FindObjsInArea(::objszn, null, oZnZakazVjezdu, sx,sy,sx,sy);
+		if(::objszn->GetCount() == 0)
+			return 1;
+		
+		for (f=0; f<objs->GetCount(); f++) 
+		{
+			o2 = objs[f];
+			
+			if (o==o2)
+				continue;
+				
+			@ReadObjCoords(o2, &x, &y, &z);
+			
+			if (x%40!=0 || y%40!=0)
+				continue;
+				
+			@FindObjCell(o2,&sx2,&sy2,&sz2);
+			
+			name baseName;
+			if (typeof(o2) == oPrisonHemr)
+				baseName = oHemr;
+			else if (typeof(o2) == oPrisonPasovec)
+				baseName = oPasovec;
+			else if (typeof(o2) == oPrisonDracek)
+				baseName = oDracek;
+			else
+				baseName = typeof(o2);
+				
+			if (typeof(o) == baseName)
+			{
+				if(sx==sx2 || sy==sy2)				
+					return 1;
+					
+				if((sx-acx)/3 == (sx2-acx)/3 && (sy-acy)/3 == (sy2-acy)/3)
+					return 1;
+					
+				if(sx==sx2-1 && sy==sy2-1) return 1;
+				if(sx==sx2-1 && sy==sy2+1) return 1;
+				if(sx==sx2+1 && sy==sy2-1) return 1;
+				if(sx==sx2+1 && sy==sy2+1) return 1;
+
+				if(sx==sx2-2 && sy==sy2-1) return 1;
+				if(sx==sx2-2 && sy==sy2+1) return 1;
+				if(sx==sx2+2 && sy==sy2-1) return 1;
+				if(sx==sx2+2 && sy==sy2+1) return 1;
+				if(sx==sx2-1 && sy==sy2-2) return 1;
+				if(sx==sx2-1 && sy==sy2+2) return 1;
+				if(sx==sx2+1 && sy==sy2-2) return 1;
+				if(sx==sx2+1 && sy==sy2+2) return 1;				
+			}else{				
+				if ((typeof(o)==oHemr && baseName == oDracek)||
+					(typeof(o)==oDracek && (baseName == oHemr || baseName == oPasovec))||
+					(typeof(o)==oPasovec && baseName == oDracek))
+				{
+					if(sx==sx2 && sy==sy2-1) return 1;
+					if(sx==sx2 && sy==sy2+1) return 1;
+					if(sx==sx2-1 && sy==sy2) return 1;
+					if(sx==sx2+1 && sy==sy2) return 1;					
+				}				
+			}
+		}			
+		return 0;
+	}
+	
+	void ::EveryTurn() {
+				
+		int cx1,cy1,cz1;
+		int cx2,cy2,cz2;
+						
+		@FindCell(x1, y1, 0, &cx1, &cy1, &cz1);
+		@FindCell(x2, y2, 0, &cx2, &cy2, &cz2);
+				
+		@FindObjsInArea(::objs, null, PrisonTarget, cx1,cy1,cx2,cy2);
+		@FindObjsInArea(::objs2, null, PrisonTarget2, cx1,cy1,cx2,cy2);
+				
+		int f,g;
+		int x,y,z;
+		objptr o,o2;
+		objptr on;
+		
+		for (f=0; f<::objs->GetCount(); f++) 
+		{
+			o = ::objs[f];
+			@ReadObjCoords(o, &x, &y, &z);	
+			if (x%40==0 && y%40==0)
+			{													
+				if (!IsCollision(o,::objs2,cx1,cy1))
+				{			
+					if (typeof(o) == oDracek)
+						on = new oPrisonDracek;
+					if (typeof(o) == oHemr)
+						on = new oPrisonHemr;
+					if (typeof(o) == oPasovec)
+						on = new oPrisonPasovec;
+					@WriteObjCoords(on,x,y);
+					@PlaySound(sFotobunka,x,y);
+					@PlaceObjToMapKill(on);
+					
+					CellsLeft--;
+					if (CellsLeft <= 0)
+					{
+						Prepni();
+					}
+				}
+			}
+		}
+			
+		::EveryTurn() nextturn;
+	}		
+}
+
+depend wall << oPrisonDracek;
+depend wall << oPrisonHemr;
+depend wall << oPrisonPasovec;
+
+object oPrisonDracek {
+	edit {InMap, UserName="en{{PrisonDracek}}cs{{PrisonDracek}}", Comment="en{{x}}cs{{x}}"}
+}
+object oPrisonPasovec {
+	edit {InMap, UserName="en{{PrisonPasovec}}cs{{PrisonPasovec}}", Comment="en{{x}}cs{{x}}"}
+}
+
+object oPrisonHemr {
+	edit {InMap, UserName="en{{PrisonHemr}}cs{{PrisonHemr}}", Comment="en{{x}}cs{{x}}"}
+}

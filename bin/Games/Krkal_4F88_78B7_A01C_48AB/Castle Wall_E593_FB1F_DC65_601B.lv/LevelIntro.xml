@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="cs">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Tady si budeš muset povodit potvoru. To nebude těžký, je tu spousta dopravních značek.<br/>
+      <br/>
+	  Počkat!<br/>
+	  <br/>
+	  Copak tahle potvora respektuje dopravní značky?!<br/>
+	  <br/>
+	  Aby ses dostal dál musíš použít všechen nitroglycerin a potvora musí projít všechna ledová políčka.
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+    </Text>
+  </Language>
+</LevelIntro>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<LevelIntro>
+  <Language name="cs">
+    <Text x1="10" x2="90" y1="5" y2="70">
+      Vládní nařízení pro provoz věznic:<br/>
+	  - každá věznice je složená ze sektorů 3x3 cel<br/>
+	  - každý sektor může ubytovat max. 1 vězně každé rasy (1 hemr, 1 dráček, 1 pásovec)<br/>
+	  - při zaplnění věznice (tj. když jsou všechny sektory plně obsazené) dostává příchozí vězeň milost a může ihned odejít<br/>
+	  <br/><br/>
+      Ředitel věznice ale pouští věžně hrozně nerad. Proto stanovil další pravidla:<br/>
+	  - platí vládní nařízení (každý sektor má velikost 3x3 cely, max 1 vězeň každé rasy v sektoru)<br/>
+	  - vězeň si vybírá celu sám<br/>
+	  - vězni stejné rasy nemohou bydlet v celách, které jsou ve vzájemném ohrožení šachovým koněm, králem nebo věží<br/>
+	  - dráček nesmí ortogonálně sousedit s hemrem ani pásovcem (je trochu rasista)<br/>
+	  - nejsou-li zaplněné všechny sektory, ale vězeň se nemá kde ubytovat kvůli dalším pravidlům ředitele věznice, má smůlu a milost nedostane, může se maximálně snažit přesvědčit spoluvězně, ať se přestěhují jinam<br/>
+	  <br/>
+	  Výběr cely se provádí položením značky "Zákaz vjezdu". Můžeš si vybrat jen celu, která splňuje pravidla. Ostatní značky můžeš použít při rozhodování jakou celu si vybrat.<br/>
+	  <br/>
+	  Dobře si výběr cely rozmysli, je to volba na celý život!
+    </Text>
+  </Language>
+  <Language name="en">
+    <Text x1="10" x2="90" y1="5" y2="70">
+    </Text>
+  </Language>
+</LevelIntro>
